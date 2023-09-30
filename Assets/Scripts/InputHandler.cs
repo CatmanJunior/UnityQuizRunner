@@ -9,14 +9,14 @@ public class InputHandler : MonoBehaviour
     [SerializeField]
     private InputActionAsset _inputActionAsset;
 
-    public event System.Action<int,int> OnButton;
+    public event System.Action<int, int> OnButton;
 
     List<InputAction> _inputActions = new List<InputAction>();
 
     void Awake()
     {
         List<List<string>> controllers = new List<List<string>>();
-
+        //Loops through each controller and adds the buttons to a list of strings 
         for (int i = 0; i <= 3; i++)
         {
             List<string> buttons = new List<string>();
@@ -29,18 +29,18 @@ public class InputHandler : MonoBehaviour
             controllers.Add(buttons);
         }
 
+        //Loops through each controller and each button and adds the button to the input action List
         foreach (List<string> controller in controllers)
         {
             foreach (string button in controller)
             {
-                // print(button);
                 InputAction inputAction = _inputActionAsset.FindActionMap("Quiz").FindAction(button);
                 if (inputAction == null)
                 {
                     continue;
                 }
-                print(inputAction.name);
                 inputAction.performed += OnButtonPressed;
+
                 _inputActions.Add(inputAction);
             }
         }
@@ -48,15 +48,16 @@ public class InputHandler : MonoBehaviour
 
     void OnButtonPressed(InputAction.CallbackContext context)
     {
+        print(context.action.name + " was pressed");
+        //Creates an int from the name of the button pressed
+        //Example: C0B0 = 00
         int cValue = int.Parse(context.action.name.Substring(1, 1));
         int bValue = int.Parse(context.action.name.Substring(3, 1));
-        print(context.action.name);
-        if (OnButton != null)
-        {
-            OnButton.Invoke(cValue, bValue);
-        }
-
+        // if the event is not null, invoke it
+        OnButton?.Invoke(cValue, bValue);
     }
+
+
 
     void OnEnable()
     {

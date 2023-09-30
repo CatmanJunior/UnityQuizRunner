@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,69 +7,66 @@ using UnityEngine.UI;
 
 public class StartScreenController : MonoBehaviour
 {
-    public string gameSceneName = "GameScene"; // Replace "GameScene" with the actual name of your game scene.
+    [SerializeField]
+    private string _gameSceneName = "GameScene"; // Replace "GameScene" with the actual name of your game scene.
+    [SerializeField]
+    private int requiredControllers = 4;
 
-    public int requiredControllers = 4;
-    private int controllersPressed = 0;
+    [Header("Manager References")]
+    [SerializeField]
+    private InputHandler _inputHandler;
 
-    public Sprite pressedImage;
-    // Create arrays to store Text and Image components for each controller.
-    public TextMeshProUGUI[] controllerTexts;
-    public Image[] controllerImages;
-
-    // Create an array to store the original sprites for each controller.
-    private Sprite[] normalSprites;
-
-    // ...
+    private List<int> _controllersCheckedIn = new List<int>();
 
     private void Start()
     {
-        // Initialize the normalSprites array with the original sprites of the Image components.
-        normalSprites = new Sprite[controllerImages.Length];
-        for (int i = 0; i < controllerImages.Length; i++)
+        _inputHandler.OnButton += OnButtonPressed;
+    }
+
+    private void OnButtonPressed(int controllerIndex, int buttonIndex)
+    {
+        if (!_controllersCheckedIn.Contains(controllerIndex))
         {
-            normalSprites[i] = controllerImages[i].sprite;
+            StopAllCoroutines();
+            _controllersCheckedIn.Add(controllerIndex);
+            //TODO add light up controller
+            //TODO add a timer to uncheck the controller
+            //TODO Change the UI to show the controller is checked in
+            UpdateUIOnCheckin(true, controllerIndex);
+            StartCoroutine(UncheckControllers());
+            print("Controller " + controllerIndex + " checked in");
         }
+    }
+
+    //an timer to uncheck the controller
+    private IEnumerator UncheckControllers()
+    {
+        yield return new WaitForSeconds(15f);
+
+        foreach (int controllerIndex in _controllersCheckedIn)
+        {
+            UpdateUIOnCheckin(false, controllerIndex);
+        }
+        _controllersCheckedIn.Clear();
+    }
+
+    private void UpdateUIOnCheckin(bool isCheckedIn, int controllerIndex)
+    {
+        //Make a call to the UImanager to update the UI
     }
 
     private void Update()
     {
-        for (int i = 1; i <= requiredControllers; i++)
-        {
-            // Assuming you have mapped buttons as "Button1", "Button2", etc.
-            if (Input.GetButtonDown("Button" + i))
-            {
-                controllersPressed++;
-
-                int controllerIndex = i - 1; // Adjust for zero-based indexing.
-                controllerTexts[controllerIndex].text = "Player " + i + " pressed a button.";
-
-                // Change the Image component to the pressed state.
-                controllerImages[controllerIndex].sprite = pressedImage;
-            }
-
-            // Handle button release.
-            if (Input.GetButtonUp("Button" + i))
-            {
-                int controllerIndex = i - 1; // Adjust for zero-based indexing.
-                controllersPressed--;
-                // Reset the Text component and Image component to their original states.
-                controllerTexts[controllerIndex].text = "Press a button...";
-                controllerImages[controllerIndex].sprite = normalSprites[controllerIndex];
-            }
-        }
-
-        if (controllersPressed >= requiredControllers)
-        {
+        // Check if the number of controllers that have pressed a button is equal to the required number of controllers.
+        if (_controllersCheckedIn.Count >= requiredControllers)
             StartGame();
-        }
+
     }
-    // Function to start the game (implement this as needed).
+
     private void StartGame()
     {
+        StopAllCoroutines();
         print("Game started");
-        SceneManager.LoadScene(gameSceneName);
-        // Add logic to transition to the countdown screen or the next phase of your game.
-        // For example, you can load the countdown scene here.
+        SceneManager.LoadScene(_gameSceneName);
     }
 }
