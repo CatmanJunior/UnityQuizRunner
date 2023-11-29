@@ -187,8 +187,6 @@ class GameStateHandler : MonoBehaviour
             } else {
                 countdownTimer.StartCountdown(ClearControllersCheckedIn, timeBeforeCheckedInClear);
             }
-            //TODO add light up controller
-            //TODO add a timer to uncheck the controller
             //TODO Change the UI to show the controller is checked in
         }
         return;

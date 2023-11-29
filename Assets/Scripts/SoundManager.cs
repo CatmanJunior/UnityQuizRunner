@@ -5,9 +5,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     //a singleton instance of the sound manager
-    
+
     public static SoundManager Instance;
-    
+
     //a static enum of all the different sound effects in the game
     public enum SoundEffect
     {
@@ -23,7 +23,7 @@ public class SoundManager : MonoBehaviour
         TimerAlmostEnd
     }
 
-   
+
     //all sound effects in the game
     [SerializeField]
     private AudioClip backgroundMusic, answerGivenSound, answerCorrectSound, answerWrongSound, timeEndSound, gameWinnerSound,
@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
             print(Instance);
         }
 
-        
+
 
         //set sound manager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene
         DontDestroyOnLoad(gameObject);

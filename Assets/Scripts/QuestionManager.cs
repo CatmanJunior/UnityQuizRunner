@@ -17,7 +17,9 @@ public class QuestionManager : MonoBehaviour
     //Private variables
     private List<Question> questions = new List<Question>(); //a list of all the questions loaded from the txt file
     private int currentQuestionIndex = -1; //the current question index
-    private Question currentQuestion; //the current question
+
+    //a getter that checks if the current question index is valid and returns the current question, else null
+    private Question currentQuestion { get => currentQuestionIndex >= 0 && currentQuestionIndex < questions.Count ? questions[currentQuestionIndex] : null; }
 
     public Question CurrentQuestion { get => currentQuestion; }
 
@@ -29,20 +31,11 @@ public class QuestionManager : MonoBehaviour
     public bool NextQuestion()
     {
         currentQuestionIndex++;
-        if (currentQuestionIndex >= questions.Count)
-        {
-            return false;
-        }
-        else
-        {
-            currentQuestion = questions[currentQuestionIndex];
-            return true;
-        }
+        return currentQuestionIndex < questions.Count;
     }
 
     public void EndQuiz()
     {
-        currentQuestion = null;
         currentQuestionIndex = -1;
     }
 
@@ -59,7 +52,7 @@ public class QuestionManager : MonoBehaviour
 
     public bool IsQuestionAvailable()
     {
-        return currentQuestionIndex >= 0 || currentQuestionIndex < questions.Count;
+        return currentQuestion != null;
     }
 }
 
