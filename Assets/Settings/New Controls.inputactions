@@ -1,0 +1,363 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Quiz",
+            "id": "a2bee026-10ba-458a-a27b-a0b45c3f1e67",
+            "actions": [
+                {
+                    "name": "C0B0",
+                    "type": "Button",
+                    "id": "9890e372-b6fb-4671-b8cc-f03a4404b8fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "C0B1",
+                    "type": "Button",
+                    "id": "3b08d18f-91ff-49f5-a86c-3848cfab25e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "C0B2",
+                    "type": "Button",
+                    "id": "24134115-13de-4435-b4dd-da60a22e868b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "C0B3",
+                    "type": "Button",
+                    "id": "2b5e7a03-1148-4ccd-8660-9f31d13a0925",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "C0B4",
+                    "type": "Button",
+                    "id": "f8e63095-f6e9-4197-9bee-d7e0973b05fe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bb8b0a2b-890b-4f89-9d86-aea285233cbf",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "C0B0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba4d3dd6-4abd-40a7-ba26-42192b7879f2",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "C0B1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf21777e-f1d1-41d5-a600-f1c698561349",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "C0B2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3dd9f6cd-169e-47fe-8cc9-54555b9db14e",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "C0B3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ceb2856-cd03-471a-87a9-5fbae6d2a2fa",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "C0B4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "AnyButton",
+            "id": "64e6cdff-2ff0-4235-a347-e87107a9e2ae",
+            "actions": [
+                {
+                    "name": "Any",
+                    "type": "Button",
+                    "id": "23e68fcb-a8f7-44aa-951a-b608ff0d5a27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dfa106d4-c893-43b3-98d7-4fa6f30595f4",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95619ef1-f785-4026-945f-8bda2cac6b0d",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a08543d9-27ba-4c63-a35c-a26f1f9fe9d8",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button11",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6a74fd5-0ce2-44e8-a4f5-c8cd903728ab",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button12",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db548244-007c-40a8-bbde-78f639a384ad",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button13",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "939df692-c1b3-453d-bdb0-68cc941e1f4b",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button14",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a7911cd-fb3b-4341-a816-91bd6e40e83d",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button15",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44e989cb-7d06-412f-b340-a9fc2b8c7056",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button16",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09df0e60-b886-4b6c-b6b4-aad00bfde1ca",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button17",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba3091fe-067a-4b7f-a7cf-e5685861d3fe",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button18",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5eae05a4-e02d-4da1-9337-9e61df9cd132",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button19",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "883686c2-1b85-4614-86b9-bfe7000c7174",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2de2605e-0978-4fda-b70a-eb6f94c06675",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button20",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfa81915-7c97-4761-a067-8e2960425cd7",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5177f19-293f-48e4-ad48-4c6f2c5ee193",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "204b7154-7c88-40e3-b381-c4d89a201591",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c1affac-1cc2-4da1-86b1-337c0ae16f21",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca00edaf-2a77-43af-8b70-d7e13cab1568",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "970e633a-ef73-4c0a-b76f-a0bf577f5513",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3bbe1b80-ae95-4830-a153-9c8bc673d884",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<HID::Logitech Logitech Buzz(tm) Controller V1>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

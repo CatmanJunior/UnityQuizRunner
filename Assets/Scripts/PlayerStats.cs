@@ -8,6 +8,9 @@ public class Player
     public float BonusScore { get; set; }
     public List<PlayerAnswer> Answers { get; set; }
     public int ControllerId;
+    public bool IsReady { get; set; }
+    public string CategoryVote { get; private set; }
+
     public Player(string name, int controllerId)
     {
         Name = name;
@@ -21,10 +24,10 @@ public class Player
         Answers.Add(answer);
     }
 
-    public Answer GetAnswer(Question question)
-    {
-        return question.Answers[GetPlayerAnswer(question).AnswerId];
-    }
+    // public Answer GetAnswer(Question question)
+    // {
+    //     return question.Answers[GetPlayerAnswer(question).AnswerId];
+    // }
 
     public void AddPoint(int pointsToAdd = 1)
     {
@@ -77,6 +80,16 @@ public class Player
             }
         }
         return null;
+    }
+
+    public void AddCategoryVote(string category)
+    {
+        CategoryVote = category;
+    }
+
+    public bool HasVoted()
+    {
+        return CategoryVote != null;
     }
 }
 

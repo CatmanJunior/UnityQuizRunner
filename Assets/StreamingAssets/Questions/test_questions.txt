@@ -1,0 +1,83 @@
+T: Unity
+Q: What is the main goal of Unity?
+A: Promoting drug use
+B: Reducing harm associated with drug use +
+C: Legalizing all drugs
+D: Banning all drugs 
+END
+
+T: LSD
+Q: What type of events and locations is Unity often active at?
+A: Libraries
+B: Hospitals
+C: Festivals and nightlife venues +
+D: Residential areas
+END
+
+T: Paddo
+Q: What concept is central to Unity's work?
+A: No drug use
+B: Harm reduction +
+C: Promoting drug use
+D: Drug prohibition
+END
+
+
+T: Unity
+Q: What type of information and tools does Unity provide to people who use drugs?
+A: Prescription medications
+B: Free drugs
+C: Educational materials, advice, and safer-use tools +
+D: Legal assistance
+END
+
+T: Coke
+Q: Which of the following activities is part of Unity's responsibilities at events?
+A: Organizing dance competitions
+B: Distributing free alcohol
+C: Providing information about drugs and harm reduction +
+D: Hosting a flea market
+END
+
+T: LSD
+Q: How does Unity seek to reduce the risks of drug use at festivals?
+A: By prohibiting all drug use at festivals
+B: By providing safe drugs
+C: By offering education, distributing free water, and providing first aid +
+D: By hiring security to arrest drug users
+END
+
+
+
+Q: Who is the target audience of Unity?
+A: Only young children
+B: People of all ages +
+C: Only adults
+D: People with drug addiction
+END
+
+T: Unity
+Q: Why is harm reduction important in Unity's work?
+A: Because it encourages illegal drug use
+B: Because it promotes excessive drug use
+C: Because it can improve the safety and health of people who use drugs +
+D: Because it discourages people from seeking help for addiction issues
+END
+
+
+T: XTC
+Q: What is an essential aspect of the education provided by Unity?
+A: Spreading misinformation about drugs
+B: Encouraging excessive drug use
+C: Providing objective and scientifically supported information +
+D: Promoting specific drugs
+END
+
+
+T: XTC
+Q: How can people contact Unity for information and support?
+A: Via a secret website
+B: Through a special app
+C: Via social media channels
+D: Via the official website and contact information on flyers and informational materials +
+END

@@ -3,12 +3,8 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-
 /// <summary>
 /// A static class that provides methods for parsing and loading questions from a text file, and getting a random set of questions.
-/// </summary>
-/// <summary>
-/// A static class responsible for parsing and loading questions from a text file.
 /// </summary>
 public static class QuestionParser
 {
@@ -16,6 +12,10 @@ public static class QuestionParser
     private static readonly Dictionary<string, List<Question>> _categories = new Dictionary<string, List<Question>>();
     private const string DefaultCategory = "General";
 
+    private static string QuestionPrefix = "Q:";
+    private static string CategoryPrefix = "T:";
+    private static string EndPrefix = "END";
+    private static List<string> AnswerPrefixes = new List<string> { "A:", "B:", "C:", "D:" };
 
     /// <summary>
     /// Loads questions from a text file and returns a list of all loaded questions.
@@ -57,9 +57,12 @@ public static class QuestionParser
                 currentCategory = category;
             }
             else if (line.StartsWith("Q:"))
-            {
+            {   
+                // If the parser is already parsing a question, it means that the previous question block was not ended with "END".
+                // This is not allowed, so we skip the current question block and log an error.
                 if (isParsingQuestion)
                 {
+                    Debug.LogError("Question block not ended with \"END\". Skipping question block.");
                     continue;
                 }
                 isParsingQuestion = true;
@@ -170,8 +173,13 @@ public static class QuestionParser
             var questionsInCategory = _categories[category];
             if (n > questionsInCategory.Count)
             {
-                Debug.LogError("Not enough questions in category to get random questions");
                 n = questionsInCategory.Count;
+                Debug.LogWarning("Not enough questions in category to get random questions. Returning all questions in category. " + n + " questions returned.");
+                //list amount of questions in each category
+                foreach (string cat in _categories.Keys)
+                {
+                    Debug.LogWarning(cat + ": " + _categories[cat].Count);
+                }
             }
             questionsCopy = new List<Question>(questionsInCategory);
         }
@@ -182,14 +190,35 @@ public static class QuestionParser
             var randomIndex = Random.Range(0, questionsCopy.Count);
             randomQuestions.Add(questionsCopy[randomIndex]);
             questionsCopy.RemoveAt(randomIndex);
-        }      
+        }
 
         return randomQuestions;
     }
 
-    public static List<string> GetCategories()
+
+    /// <summary>
+    /// Returns a list of all categories. If n is specified, a list of n random categories will be returned.
+    /// </summary>
+    /// <param name="n">The number of categories to return. If 0, all categories will be returned.</param>
+    /// <returns>A list of all categories.</returns>
+    public static List<string> GetCategories(int n = 0)
     {
-        return _categories.Keys.ToList();
+        if (n == 0)
+        {
+            return _categories.Keys.ToList();
+        }
+        else
+        {
+            var categories = new List<string>();
+            var categoriesCopy = new List<string>(_categories.Keys);
+            for (var i = 0; i < n; i++)
+            {
+                var randomIndex = Random.Range(0, categoriesCopy.Count);
+                categories.Add(categoriesCopy[randomIndex]);
+                categoriesCopy.RemoveAt(randomIndex);
+            }
+            return categories;
+        }
     }
 
 

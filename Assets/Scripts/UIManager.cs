@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
 /// <summary>
 /// This script manages the UI elements of the quiz game, including the question and answer texts, player panels, timer, and score panel. It also handles animations for these elements and updates their states based on game events.
 /// </summary>
 /// <remarks>
 /// This script requires the use of the LeanTween library for animations.
 /// </remarks>
-/// <seealso cref="Question"/>
-/// <seealso cref="Answer"/>
-/// <seealso cref="UIAnimationData"/>
+public class UIManager : MonoBehaviour
+
+
 {
     [Header("Answer Animation")]
     [SerializeField]
@@ -51,6 +49,13 @@ public class UIManager : MonoBehaviour
     private GameObject scorePanel;
     [SerializeField]
     List<TextMeshProUGUI> scoreTexts;
+    [SerializeField]
+    private GameObject CategoryPanel;
+    [SerializeField]
+    private List<TextMeshProUGUI> CategoryText;
+    [SerializeField]
+    private GameObject MainMenuPanel;
+
 
 
     [Header("UI Settings")]
@@ -62,7 +67,6 @@ public class UIManager : MonoBehaviour
     private Sprite unansweredSprite;
     [SerializeField]
     private Sprite answeredSprite;
-
     private List<TextMeshProUGUI> playerScoreTexts = new List<TextMeshProUGUI>();
     private TextMeshProUGUI scorePanelWinnerText;
     private TextMeshProUGUI scorePanelWinnerScoreText;
@@ -70,7 +74,7 @@ public class UIManager : MonoBehaviour
     private Color defaultAnswerColor; //the default color of the answer text
     private FontStyles defaultAnswerStyle; //the default style of the answer text
     private bool questionElementsActive = true;
-
+    private SoundManager soundManager;
     private void Awake()
     {
         foreach (Image playerPanel in playerPanels)
@@ -79,13 +83,20 @@ public class UIManager : MonoBehaviour
         }
         defaultAnswerColor = answerTexts[0].color;
         defaultAnswerStyle = answerTexts[0].fontStyle;
+        //TODO add a better way to get the score panel texts
         scorePanelWinnerText = scorePanel.transform.Find("WinnerPanel/WinnerText").GetComponent<TextMeshProUGUI>();
-        print(scorePanelWinnerText);
         scorePanelWinnerScoreText = scorePanel.transform.Find("WinnerPanel/WinnerScoreText").GetComponent<TextMeshProUGUI>();
         scorePanelRestText = scorePanel.transform.Find("OtherScorePanel/OtherScoreText").GetComponent<TextMeshProUGUI>();
+        
+
+
+    }
+
+    void Start()
+    {
+        soundManager = SoundManager.Instance;
         ToggleScorePanel(false);
-
-
+        ToggleCategoryPanel(false);
     }
 
     public void ToggleQuestionElements(bool showElements, int answerAmount = 4)
@@ -102,7 +113,7 @@ public class UIManager : MonoBehaviour
             UIAnimationData answerAnimationData = showElements ? answerInAnimationData : answerOutAnimationData;
             AnimateAnswer(answerElement, answerAnimationData, i * answerAnimationData.delay).setOnComplete(() =>
             {
-                //trigger an event that updates the answer text
+                //TODO trigger an event that updates the answer text 
 
 
             });
@@ -189,6 +200,14 @@ public class UIManager : MonoBehaviour
         playerScoreTexts[controllerId].text = score.ToString();
     }
 
+    public void SetPlayersScore(int[] scores)
+    {
+        for (int i = 0; i < scores.Length; i++)
+        {
+            SetPlayerScore(i, scores[i]);
+        }
+    }
+
     public void ShowCorrectAnswer(bool[] correctAnswers)
     {
         for (int i = 0; i < correctAnswers.Length; i++)
@@ -214,6 +233,7 @@ public class UIManager : MonoBehaviour
         scorePanel.SetActive(true);
         UIAnimationData scoreAnimationData = showScorePanel ? scoreInAnimationData : scoreOutAnimationData;
         AnimateScorePanel(scoreAnimationData);
+        soundManager.PlayWindowToggleSound(showScorePanel);
     }
 
     public void UpdateScorePanel(List<Player> sortedPlayers)
@@ -234,5 +254,50 @@ public class UIManager : MonoBehaviour
             .setDelay(animationData.delay).setEase(animationData.easeType).setOvershoot(animationData.overshoot);
     }
 
+    private void UpdateCategoryText(List<string> categories)
+    {
+        for (int i = 0; i < categories.Count; i++)
+        {
+            CategoryText[i].text = categories[i];
+        }
+    }
 
+    private void ToggleCategoryPanel(bool showCategoryPanel)
+    {
+        CategoryPanel.SetActive(showCategoryPanel);
+
+        soundManager.PlayWindowToggleSound(showCategoryPanel);
+    }
+
+    public void ToggleMainMenuPanel(bool showMainMenuPanel)
+    {
+        MainMenuPanel.SetActive(showMainMenuPanel);
+        UIAnimationData categoryAnimationData = showMainMenuPanel ? scoreInAnimationData : scoreOutAnimationData;
+        // AnimateCategoryPanel(categoryAnimationData);
+        soundManager.PlayWindowToggleSound(showMainMenuPanel);
+    }
+
+    private void AnimateCategoryPanel(UIAnimationData animationData)
+    {
+        LeanTween.scale(CategoryPanel, animationData.endValue, animationData.duration)
+            .setDelay(animationData.delay).setEase(animationData.easeType).setOvershoot(animationData.overshoot);
+    }
+
+    public void ShowCategoryPanel(List<string> categories)
+    {
+        UpdateCategoryText(categories);
+        ToggleCategoryPanel(true);
+
+    }
+
+    public void HideCategoryPanel()
+    {
+        ToggleCategoryPanel(false);
+
+    }
+
+    private void PlayWindowSound(bool open = true)
+    {
+        soundManager.PlayWindowToggleSound(open);
+    }
 }
