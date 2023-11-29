@@ -23,7 +23,7 @@ public class QuestionManager : MonoBehaviour
 
     public Question CurrentQuestion { get => currentQuestion; }
 
-    public void GetRandomQuestions(string category)
+    public void GetRandomQuestions(string category = "General")
     {
         questions = QuestionParser.GetRandomQuestions(amountOfQuestions, category);
     }

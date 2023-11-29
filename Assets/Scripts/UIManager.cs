@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
     private Color defaultAnswerColor; //the default color of the answer text
     private FontStyles defaultAnswerStyle; //the default style of the answer text
     private bool questionElementsActive = true;
+    //TODO remove soundmanager from here
     private SoundManager soundManager;
     private void Awake()
     {
@@ -87,9 +88,6 @@ public class UIManager : MonoBehaviour
         scorePanelWinnerText = scorePanel.transform.Find("WinnerPanel/WinnerText").GetComponent<TextMeshProUGUI>();
         scorePanelWinnerScoreText = scorePanel.transform.Find("WinnerPanel/WinnerScoreText").GetComponent<TextMeshProUGUI>();
         scorePanelRestText = scorePanel.transform.Find("OtherScorePanel/OtherScoreText").GetComponent<TextMeshProUGUI>();
-        
-
-
     }
 
     void Start()
