@@ -10,13 +10,11 @@ using UnityEngine.UI;
 /// <remarks>
 /// This script requires the use of the LeanTween library for animations.
 /// </remarks>
+
 public class UIManager : MonoBehaviour
 
 
 {
-    [Header("Animation Settings")]
-    [SerializeField]
-    float scoreIncreaseSpeedInSeconds = 0.3f;
     [Header("Answer Animation")]
     [SerializeField]
     private UIAnimationData answerInAnimationData;
@@ -196,38 +194,22 @@ public class UIManager : MonoBehaviour
         // playerPanels[controllerId].transform.Find("AnsweredOuline").gameObject.SetActive(hasAnswered);
     }
 
-    
+    public void TogglePlayerPanelCheckedIn(int controllerId, bool checkedIn)
+    {
+        // playerPanels[controllerId].transform.Find("CheckedInOutline").gameObject.SetActive(checkedIn);
+    }
+
+
     public void SetPlayerScore(int controllerId, int score)
     {
         playerScoreTexts[controllerId].text = score.ToString();
     }
 
-    public void SetPlayersScore(int[] scores)
-    {
-        for (int i = 0; i < scores.Length; i++)
-        {
-            StartCoroutine("IncreasePlayerScore(i, scores[i], scoreIncreaseSpeedInSeconds)");
-        }
-    }
 
-    private IEnumerable IncreasePlayerScore(int controllerId, int score, float speed)
+    public void SetPlayerPanelFastest(int controllerId)
     {
-        
-        bool success = int.TryParse(playerScoreTexts[controllerId].text, out int number);
-        if (success)
-        {
-            int currentScore = number;
-            while (currentScore < score)
-            {
-                currentScore++;
-                SetPlayerScore(controllerId, currentScore);
-                yield return new WaitForSeconds(speed);
-            }
-        } else
-        {
-            Debug.LogError("Could not parse score text to int");
-        }
-        
+        // playerPanels[controllerId].transform.Find("FastestOutline").gameObject.SetActive(isFastest);
+        Debug.Log("Player " + controllerId + " is the fastest");
     }
 
     public void ShowCorrectAnswer(bool[] correctAnswers)
@@ -322,4 +304,18 @@ public class UIManager : MonoBehaviour
     {
         soundManager.PlayWindowToggleSound(open);
     }
+
+    public void ShowWinningCategory(int categoryIndex)
+    {
+        ToggleCategoryPanel(true);
+        try
+        {
+            CategoryText[categoryIndex].color = Color.green;
+        }
+        catch
+        {
+            Debug.Log("Category index out of range: " + categoryIndex);
+        }
+    }
+
 }

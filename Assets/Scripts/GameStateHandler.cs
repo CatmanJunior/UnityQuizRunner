@@ -15,6 +15,8 @@ class GameStateHandler : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField]
+    float scoreIncreaseSpeedInSeconds = 0.3f;
+    [SerializeField]
     private int requiredControllers = 4;
     [SerializeField]
     private int questionAnswerTime = 10;
@@ -77,10 +79,8 @@ class GameStateHandler : MonoBehaviour
     public void CategoryVoteDone(string category)
     {
         this.category = category;
-        //TODO show category that won
-        uiManager.HideCategoryPanel();
-        // uiManager.ShowCategory(category);
-
+        uiManager.ShowWinningCategory(categoryVoteHandler.GetIndex(category));
+        soundManager.PlaySoundEffect(SoundEffect.CategoryChosen);
         countdownTimer.StartCountdown(StartQuiz, preQuestionTime);
     }
 
@@ -127,31 +127,37 @@ class GameStateHandler : MonoBehaviour
     private void EndOfQuestion()
     {
         playerManager.AddEmptyAnswers(questionManager.CurrentQuestion);
-        playerManager.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
         gameState = GameState.PostQuestion;
         StartCoroutine(ShowAnswers());
-        
-        //todo sound for score increase
-        
-
-        countdownTimer.StartCountdown(ShowNextQuestion, postQuestionTime);
     }
 
     private IEnumerator ShowAnswers()
     {
         uiManager.ShowCorrectAnswer(questionManager.GetCorrectAnswers());
-        int[] scores = playerManager.UpdateScores();
+        int[] scores = playerManager.GetPlayers().Select(player => (int)player.Score).ToArray();
+        Player fastestPlayer = playerManager.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
+        int[] newScores = playerManager.UpdateScores();
+
         foreach (Player player in playerManager.GetPlayers())
-        {   
+        {
+            if (player == fastestPlayer)
+                uiManager.SetPlayerPanelFastest(player.ControllerId);
+
             bool isCorrect = player.HasAnsweredCorrectly(questionManager.CurrentQuestion);
             uiManager.SetPlayerPanelCorrect(player.ControllerId, isCorrect);
             soundManager.PlaySoundEffect(isCorrect ? AnswerCorrect : AnswerWrong);
-            uiManager.SetPlayerScore(player.ControllerId, scores[player.ControllerId]);
+            while (scores[player.ControllerId] < newScores[player.ControllerId])
+            {
+                scores[player.ControllerId]++;
+                uiManager.SetPlayerScore(player.ControllerId, scores[player.ControllerId]);
+                yield return new WaitForSeconds(scoreIncreaseSpeedInSeconds);
+            }
             yield return new WaitForSeconds(1);
         }
-        
+        countdownTimer.StartCountdown(ShowNextQuestion, postQuestionTime);
     }
-    
+
+
 
     private void LoadQuestions()
     {
@@ -160,8 +166,6 @@ class GameStateHandler : MonoBehaviour
 
     private void HandlePlayerInput(int controller, int button)
     {
-
-       
         soundManager.PlaySoundEffect(SoundEffect.AnswerGiven);
         switch (gameState)
         {
@@ -175,7 +179,7 @@ class GameStateHandler : MonoBehaviour
                 HandleMainMenuInput(controller, button);
                 break;
             default:
-                //TODO add error sound
+                soundManager.PlaySoundEffect(SoundEffect.InputError);
                 print("Error: GameState not found for input. Input ignored");
                 break;
         }
@@ -190,31 +194,36 @@ class GameStateHandler : MonoBehaviour
         if (!_controllersCheckedIn.Contains(controller))
         {
             _controllersCheckedIn.Add(controller);
-            inputHandler.LightUpController( _controllersCheckedIn.ToArray() );
-
+            soundManager.PlaySoundEffect(SoundEffect.PlayerCheckedIn);
+            //todo fix array vs list mixup
+            inputHandler.LightUpController(_controllersCheckedIn.ToArray());
+            countdownTimer.StopCountdown();
+            uiManager.TogglePlayerPanelCheckedIn(controller, true);
             if (_controllersCheckedIn.Count >= requiredControllers)
             {
-                countdownTimer.StopCountdown();
                 playerManager.CreatePlayers(_controllersCheckedIn.Count);
                 StartCategoryVote();
                 uiManager.ToggleMainMenuPanel(false);
-            } else {
+            }
+            else
+            {
                 countdownTimer.StartCountdown(ClearControllersCheckedIn, timeBeforeCheckedInClear);
             }
-            //TODO Change the UI to show the controller is checked in
+
         }
         return;
     }
 
     private void ClearControllersCheckedIn()
     {
+        soundManager.PlaySoundEffect(SoundEffect.PlayersCheckedOut);
         inputHandler.LightUpController(new int[] { });
         _controllersCheckedIn.Clear();
     }
 
     private void HandleAnswerInput(int controller, int button)
     {
-         if (questionManager.IsQuestionAvailable())
+        if (questionManager.IsQuestionAvailable())
         {
             return;
         }

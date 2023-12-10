@@ -8,6 +8,11 @@ public class CategoryVoteHandler : MonoBehaviour
     private List<string> categories = new List<string>();
     private Dictionary<int, int> categoryVotes = new Dictionary<int, int>();
 
+    public int GetIndex(string category)
+    {
+        return categories.IndexOf(category);
+    }
+
     public bool HandleCategoryVote(int controller, int button)
     {
         if (button >= categories.Count)

@@ -70,7 +70,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     //a functions that compares the fastest answer and gives the player with the fastest answer a point
-    public void GiveFastestAnswerPoint(Question question)
+    public Player GiveFastestAnswerPoint(Question question)
     {
         var correctPlayers = players
             .Where(player => player.HasAnsweredCorrectly(question))
@@ -80,9 +80,10 @@ public class PlayerManager : MonoBehaviour
         if (correctPlayers.Any())
         {
             correctPlayers[0].AddPoint();
+            return correctPlayers[0];
         }
+        return null;
     }
-
     public List<Player> GetSortedPlayers()
     {
         List<Player> sortedPlayers = new List<Player>(players);

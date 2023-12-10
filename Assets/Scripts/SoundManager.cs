@@ -20,7 +20,12 @@ public class SoundManager : MonoBehaviour
         MenuDisappear,
         NewQuestion,
         TimerTick,
-        TimerAlmostEnd
+        TimerAlmostEnd,
+        CategoryChosen,
+        PlayerCheckedIn,
+        PlayersCheckedOut,
+        InputError
+
     }
 
 
@@ -80,6 +85,7 @@ public class SoundManager : MonoBehaviour
             case SoundEffect.TimerAlmostEnd:
                 return timerAlmostEndSound;
             default:
+                Debug.LogError("SoundEffect not found " + soundEffect.ToString());
                 return null;
         }
     }
