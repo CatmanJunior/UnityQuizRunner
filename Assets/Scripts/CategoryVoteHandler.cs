@@ -8,6 +8,11 @@ public class CategoryVoteHandler : MonoBehaviour
     private List<string> categories = new List<string>();
     private Dictionary<int, int> categoryVotes = new Dictionary<int, int>();
 
+    public void InitCategories(List<string> categories)
+    {
+        this.categories = categories;
+    }
+
     public int GetIndex(string category)
     {
         return categories.IndexOf(category);
@@ -17,12 +22,14 @@ public class CategoryVoteHandler : MonoBehaviour
     {
         if (button >= categories.Count)
         {
+            Debug.Log("Button " + button + " is not a valid category");
             return false;
         }
         //Checks if the player has already voted, else it adds the vote to the dictionary
         if (!categoryVotes.ContainsKey(controller))
         {
             CastVote(controller, button);
+            Debug.Log("Player " + controller + " voted for " + categories[button]);
             return true;
         }
         else

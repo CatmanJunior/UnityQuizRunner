@@ -70,8 +70,6 @@ public class InputHandler : MonoBehaviour
 
     void OnAnyButtonPressed(InputAction.CallbackContext context)
     {
-        print(context.control.name + " was pressed");
-        //gets the name of the button pressed and removes the "Button" part
         if (context.control.name == "trigger")
         {
             OnButton?.Invoke(0, 4);
@@ -82,7 +80,7 @@ public class InputHandler : MonoBehaviour
             int number = int.Parse(buttonName);
             int button = 4 - ((number - 1) % 5);
             int controller = (number - 1) / 5;
-            print("controller: " + controller + " button: " + button);
+            print("controller: " + controller + " button: " + button + " name: " + context.control.name);
             OnButton?.Invoke(controller, button);
         }
     }
@@ -102,7 +100,7 @@ public class InputHandler : MonoBehaviour
             byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
             foreach (int controller in controllers)
             {
-                data[controller+2] = 0xff;
+                data[controller + 2] = 0xff;
             }
             // Send data
             hidDevice.Write(data);

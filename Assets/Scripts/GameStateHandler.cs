@@ -51,6 +51,7 @@ class GameStateHandler : MonoBehaviour
     {
         LoadQuestions();
         categories = QuestionParser.GetCategories(4);
+        categoryVoteHandler.InitCategories(categories);
     }
 
     private void Start()
@@ -79,6 +80,7 @@ class GameStateHandler : MonoBehaviour
     public void CategoryVoteDone(string category)
     {
         this.category = category;
+
         uiManager.ShowWinningCategory(categoryVoteHandler.GetIndex(category));
         soundManager.PlaySoundEffect(SoundEffect.CategoryChosen);
         countdownTimer.StartCountdown(StartQuiz, preQuestionTime);
@@ -223,18 +225,21 @@ class GameStateHandler : MonoBehaviour
 
     private void HandleAnswerInput(int controller, int button)
     {
-        if (questionManager.IsQuestionAvailable())
+        if (!questionManager.IsQuestionAvailable())
         {
+            Debug.Log("No question available");
             return;
         }
 
-        if (questionManager.IsAnswerAvailable(button))
+        if (!questionManager.IsAnswerAvailable(button))
         {
+            Debug.Log("Answer not available");
             return;
         }
         float timeTaken = countdownTimer.GetSecondsSinceStart();
         if (playerManager.AddAnswer(controller, questionManager.CurrentQuestion, button, timeTaken))
         {
+            Debug.Log("Player " + controller + " answered " + questionManager.CurrentQuestion.Answers[button].AnswerText);
             uiManager.SetPlayerPanelAnswered(controller, true);
         }
         if (playerManager.HaveAllPlayersAnswered(questionManager.CurrentQuestion))
