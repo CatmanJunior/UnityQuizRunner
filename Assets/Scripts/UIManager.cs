@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
 
 
 {
+    [Header("Animation Settings")]
+    [SerializeField]
+    float scoreIncreaseSpeedInSeconds = 0.3f;
     [Header("Answer Animation")]
     [SerializeField]
     private UIAnimationData answerInAnimationData;
@@ -190,9 +193,10 @@ public class UIManager : MonoBehaviour
 
     public void SetPlayerPanelAnswered(int controllerId, bool hasAnswered)
     {
-        playerPanels[controllerId].transform.Find("AnsweredOuline").gameObject.SetActive(hasAnswered);
+        // playerPanels[controllerId].transform.Find("AnsweredOuline").gameObject.SetActive(hasAnswered);
     }
 
+    
     public void SetPlayerScore(int controllerId, int score)
     {
         playerScoreTexts[controllerId].text = score.ToString();
@@ -202,8 +206,28 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < scores.Length; i++)
         {
-            SetPlayerScore(i, scores[i]);
+            StartCoroutine("IncreasePlayerScore(i, scores[i], scoreIncreaseSpeedInSeconds)");
         }
+    }
+
+    private IEnumerable IncreasePlayerScore(int controllerId, int score, float speed)
+    {
+        
+        bool success = int.TryParse(playerScoreTexts[controllerId].text, out int number);
+        if (success)
+        {
+            int currentScore = number;
+            while (currentScore < score)
+            {
+                currentScore++;
+                SetPlayerScore(controllerId, currentScore);
+                yield return new WaitForSeconds(speed);
+            }
+        } else
+        {
+            Debug.LogError("Could not parse score text to int");
+        }
+        
     }
 
     public void ShowCorrectAnswer(bool[] correctAnswers)

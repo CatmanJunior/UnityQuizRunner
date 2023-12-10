@@ -30,6 +30,17 @@ public class CategoryVoteHandler : MonoBehaviour
 
     public string GetTopCategory()
     {
+        //Returns the category with the most votes
+        //TODO: Handle ties
+        if (categoryVotes.Count == 0)
+        {
+            return Random.Range(0, categories.Count).ToString();
+        }
+        if (categoryVotes.Count == 1)
+        {
+            return categories[categoryVotes.Values.First()];
+        }
+
         return categories[categoryVotes.Values.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First()];
     }
 

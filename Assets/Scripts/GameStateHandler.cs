@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static SoundManager;
@@ -128,16 +129,29 @@ class GameStateHandler : MonoBehaviour
         playerManager.AddEmptyAnswers(questionManager.CurrentQuestion);
         playerManager.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
         gameState = GameState.PostQuestion;
-
-        uiManager.ShowCorrectAnswer(questionManager.GetCorrectAnswers());
-        foreach (Player player in playerManager.GetPlayers())
-        {
-            uiManager.SetPlayerPanelCorrect(player.ControllerId, player.HasAnsweredCorrectly(questionManager.CurrentQuestion));
-        }
-        uiManager.SetPlayersScore(playerManager.UpdateScores());
+        StartCoroutine(ShowAnswers());
+        
+        //todo sound for score increase
+        
 
         countdownTimer.StartCountdown(ShowNextQuestion, postQuestionTime);
     }
+
+    private IEnumerator ShowAnswers()
+    {
+        uiManager.ShowCorrectAnswer(questionManager.GetCorrectAnswers());
+        int[] scores = playerManager.UpdateScores();
+        foreach (Player player in playerManager.GetPlayers())
+        {   
+            bool isCorrect = player.HasAnsweredCorrectly(questionManager.CurrentQuestion);
+            uiManager.SetPlayerPanelCorrect(player.ControllerId, isCorrect);
+            soundManager.PlaySoundEffect(isCorrect ? AnswerCorrect : AnswerWrong);
+            uiManager.SetPlayerScore(player.ControllerId, scores[player.ControllerId]);
+            yield return new WaitForSeconds(1);
+        }
+        
+    }
+    
 
     private void LoadQuestions()
     {
