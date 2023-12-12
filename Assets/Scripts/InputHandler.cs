@@ -36,6 +36,7 @@ public class InputHandler : MonoBehaviour
         }
         LightUpController(new int[] { });
     }
+    
     private static List<List<string>> CreateButtonList(int controllerAmount = 4, int buttonAmount = 4)
     {
         var controllers = new List<List<string>>();
@@ -91,8 +92,8 @@ public class InputHandler : MonoBehaviour
     {// Find the HID device (You need to know the Vendor ID and Product ID)
         var devices = HidDevices.Enumerate(1356, 2);
         var hidDevice = devices.FirstOrDefault();
-        print(hidDevice);
-        print(devices);
+        // print(hidDevice);
+        // print(devices);
         if (hidDevice != null)
         {
             hidDevice.OpenDevice();
@@ -109,26 +110,15 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-
-
-
     void OnEnable()
     {
         buttonPress.Enable();
         buttonPress.performed += OnAnyButtonPressed;
-        // foreach (InputAction inputAction in _inputActions)
-        // {
-        //     _inputActionAsset.FindActionMap("Quiz").Enable();
-        // }
     }
 
     void OnDisable()
     {
         buttonPress.Disable();
         buttonPress.performed -= OnAnyButtonPressed;
-        // foreach (InputAction inputAction in _inputActions)
-        // {
-        //     _inputActionAsset.FindActionMap("Quiz").Disable();
-        // }
     }
 }
