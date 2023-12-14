@@ -188,9 +188,3 @@ B: Tremors +
 C: Enhanced vision
 D: Increased appetite
 END
-
-22.
-T: Nicotine
-Q: Nicotine affects the brain by stimulating the release of which neurotransmitter?
-A: Serotonin
-B: Dopamine

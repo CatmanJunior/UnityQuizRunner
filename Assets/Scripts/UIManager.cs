@@ -32,6 +32,14 @@ public class UIManager : MonoBehaviour
     private UIAnimationData scoreInAnimationData;
     [SerializeField]
     private UIAnimationData scoreOutAnimationData;
+    [Header("Player Panel Animation")]
+    [SerializeField]
+    private UIAnimationData playerPanelAnswerAnimationData;
+    [SerializeField]
+    private UIAnimationData playerPanelCorrectAnimationData;
+    [SerializeField]
+    private UIAnimationData playerPanelFastestAnimationData;
+    private UIAnimationData playerPanelCheckedInAnimationData;
 
 
 
@@ -98,6 +106,11 @@ public class UIManager : MonoBehaviour
         ToggleCategoryPanel(false);
     }
 
+    /// <summary>
+    /// Toggles the visibility of question elements and animates them accordingly.
+    /// </summary>
+    /// <param name="showElements">True to show the question elements, false to hide them.</param>
+    /// <param name="answerAmount">The number of answer elements to animate.</param>
     public void ToggleQuestionElements(bool showElements, int answerAmount = 4)
     {
         if (questionElementsActive == showElements) return;
@@ -131,7 +144,42 @@ public class UIManager : MonoBehaviour
            .setDelay(animationData.delay + extraDelay).setEase(animationData.easeType).setOvershoot(animationData.overshoot);
     }
 
+    public void PlayerPanelAnswered(int controllerId)
+    {
+        Image playerPanel = playerPanels[controllerId];
+        AnimatePlayerPanel(playerPanel, playerPanelAnswerAnimationData);
+    }
 
+    public void PlayerPanelCheckedIn(int controllerId, bool checkedIn)
+    {
+        Image playerPanel = playerPanels[controllerId];
+        if (checkedIn)
+        {
+            AnimatePlayerPanel(playerPanel, playerPanelCheckedInAnimationData);
+        }
+        else
+        {
+            StopAnimations(playerPanel.gameObject, playerPanelCheckedInAnimationData);
+        }
+
+    }
+
+    public void PlayerPanelCorrect(int controllerId, bool isCorrect)
+    {
+        Image playerPanel = playerPanels[controllerId];
+        UIAnimationData playerPanelAnimationData = isCorrect ? playerPanelCorrectAnimationData : playerPanelAnswerAnimationData;
+        AnimatePlayerPanel(playerPanel, playerPanelAnimationData);
+    }
+
+    public void StopAnimations(GameObject target, UIAnimationData animationData)
+    {
+        animationData.Stop(target);
+    }
+
+    private void AnimatePlayerPanel(Image playerPanel, UIAnimationData animationData)
+    {
+        animationData.Play(playerPanel.gameObject);
+    }
 
     public void UpdateTimer(float timeLeft)
     {

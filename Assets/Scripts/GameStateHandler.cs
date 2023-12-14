@@ -5,9 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static SoundManager;
 using static SoundManager.SoundEffect;
-class GameStateHandler : MonoBehaviour
+public class GameStateHandler : MonoBehaviour
 {
-    private GameState gameState;
+    private GameState gameState = GameState.MainMenu;
     private static List<string> categories = new List<string>();
     private string category = null;
 
@@ -49,24 +49,18 @@ class GameStateHandler : MonoBehaviour
 
     private void Awake()
     {
-        LoadQuestions();
+        QuestionParser.LoadQuestionsFromTxt();
         categories = QuestionParser.GetCategories(4);
         categoryVoteHandler.InitCategories(categories);
     }
 
     private void Start()
     {
-        gameState = GameState.MainMenu;
-
         inputHandler.OnButton += HandlePlayerInput;
     }
 
     private void Update()
     {
-        if (gameState == GameState.MainMenu)
-        {
-            // CategoryVoteDone(categories[3]);
-        }
         uiManager.UpdateTimer(countdownTimer.GetNormalizedTimeLeft());
     }
 
@@ -161,14 +155,12 @@ class GameStateHandler : MonoBehaviour
 
 
 
-    private void LoadQuestions()
-    {
-        QuestionParser.LoadQuestionsFromTxt();
-    }
+
 
     private void HandlePlayerInput(int controller, int button)
     {
         soundManager.PlaySoundEffect(SoundEffect.AnswerGiven);
+        uiManager.PlayerPanelCheckedIn(controller, true);
         switch (gameState)
         {
             case GameState.Question:
