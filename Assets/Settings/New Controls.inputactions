@@ -345,6 +345,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "KeyboardMap",
+            "id": "80928800-3f9b-4b56-8551-7d3f4b686887",
+            "actions": [
+                {
+                    "name": "AnyKey",
+                    "type": "Button",
+                    "id": "4a6e89d9-0c79-4982-b804-ecf217d836c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dbcc1365-f2ce-4471-b544-350c1700bc26",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AnyKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

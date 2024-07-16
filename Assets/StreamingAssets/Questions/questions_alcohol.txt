@@ -1,0 +1,40 @@
+1.
+T: Alcohol
+Q: Een groot Nederlands onderzoek heeft 15 drugs gerangschikt van meest naar minst schadelijk. Op welke plek staat alcohol?
+A: 1
+B: 4 +
+C: 10
+D: Alcohol is geen drug
+W: Alcohol staat op de vierde plek van de lijst van meest risicovolle drugs in het onderzoek van het RIVM. Alleen crack, heroïne en tabak scoren hoger. Alcohol scoort hoog op verslavingsrisico, lichamelijke schade, sociale risico’s (agressie, huiselijk geweld, relatieproblemen etc.), en maatschappelijke risico’s (arbeidsverzuim, rijden onder invloed, minder kunnen presteren op werk etc.).
+END
+
+2.
+T: Alcohol
+Q: Welke medicatie kun je beter niet combineren met alcohol?
+A: Pijnstillers
+B: Antidepressiva / antipsychotica
+C: Slaapmedicatie
+D: Alle bovenstaande antwoorden zijn juist +
+W: Medicatie combineren met alcohol is in sommige gevallen zeer af te raden. De werking van de medicatie kan onvoorspelbaar worden en vaak ontstaan er meer bijwerkingen. Alcohol versterkt vaak de verdovende effecten van pijnstillers, antidepressiva, antipsychotica en slaapmedicatie.
+END
+
+3.
+T: Alcohol
+Q: Hoe bereid je jezelf goed voor op een festival waar je alcohol drinkt?
+A: Goed eten en uitgerust zijn
+B: Nadenken over hoe warm je jezelf kleedt
+C: Wissel alcohol af met water en/of frisdrank
+D: Alle bovenstaande antwoorden zijn juist +
+W: Als je alcohol gaat drinken is het belangrijk dat je goed uitgerust bent, goed eet van tevoren, nadenkt over welke kleding je aandoet of meeneemt, en alcohol afwisselt met water of frisdrank om uitdroging te voorkomen.
+END
+
+4.
+T: Alcohol
+Q: Wanneer iemand steeds wegvalt of compleet out gaat dan…
+A: Breng je diegene naar huis en laat je diegene slapen
+B: Geef je een glas water
+C: Leg je diegene in de stabiele zijligging en roep je de EHBO of bel je 112 +
+D: Geef je een puntje coke als oppepper
+W: Out gaan door alcohol is gevaarlijk. Leg iemand in de stabiele zijligging, probeer hem wakker te houden met een pijnprikkel, haal medische hulp of bel 112. Compenseer alcohol nooit met andere drugs en geef iemand die out gaat geen water omdat de slikreflex weg kan zijn.
+END
+

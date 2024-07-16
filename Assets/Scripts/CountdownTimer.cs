@@ -6,7 +6,12 @@ using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
     public float CountdownDuration = 3f; // Duration of the countdown in seconds.
-    public TextMeshProUGUI countdownText; // Reference to the UI Text element for countdown.
+    [SerializeField]
+    private TextMeshProUGUI countdownText; // Reference to the UI Text element for countdown.
+    [SerializeField]
+    private ParticleSystem particles; // Reference to the Particle System component.
+    [SerializeField]
+    RectTransform fillArea; // Reference to the RectTransform component of the fill area.
     public bool IsCounting { get; private set; } // Public property to check if the timer is counting.
 
 
@@ -16,6 +21,19 @@ public class CountdownTimer : MonoBehaviour
     {
         IsCounting = false; // Initially, the timer is not counting.
         countdownText.gameObject.SetActive(true);
+    }
+
+    private void UpdateParticleLocation(){
+        // Calculate the local position of the right side
+        float rightSideLocalX = (1 - fillArea.pivot.x) * fillArea.rect.width;
+        Vector3 rightSideLocalPosition = new Vector3(rightSideLocalX, 0, 0);
+    
+        // Convert local position to world position
+        Vector3 rightSideWorldPosition = fillArea.TransformPoint(rightSideLocalPosition);
+    
+        // Set the particle system to the calculated world position
+        particles.transform.position = rightSideWorldPosition;
+        
     }
 
     /// <summary>
@@ -50,6 +68,7 @@ public class CountdownTimer : MonoBehaviour
 
         while (timer > 0)
         {
+            UpdateParticleLocation();
             countdownText.text = Mathf.Ceil(timer).ToString(); // Display the countdown as an integer.
             yield return null;
             timer -= Time.deltaTime;

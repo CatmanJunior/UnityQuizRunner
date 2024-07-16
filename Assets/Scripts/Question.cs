@@ -11,12 +11,13 @@ public class Question
     public string Category;
     public string QuestionText;
     public List<Answer> Answers;
-
-    public Question(string questionText, List<Answer> answers, string category)
+    public string Explanation;
+    public Question(string questionText, List<Answer> answers, string category, string explanation = "")
     {
         QuestionText = questionText;
         Answers = answers;
         Category = category;
+        Explanation = explanation;
     }
 
     /// <summary>
@@ -35,6 +36,7 @@ public class Question
         }
         return false;
     }
+
 }
 
 //A subclass of Question that also contains an image

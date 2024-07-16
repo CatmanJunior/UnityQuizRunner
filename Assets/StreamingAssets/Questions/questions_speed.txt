@@ -1,0 +1,39 @@
+1.
+T: Speed
+Q: Wat is NIET waar? (kies 1 antwoord)
+A: Speed snuiven geeft sneller effect dan speed slikken +
+B: Cafeïne is het meest voorkomende versnijdingsmiddel van speed
+C: Amfetamine wordt gebruikt als ADHD-medicatie
+D: Natte speed is puurder dan droge speed
+W: Natte speed is niet puurder dan droge speed. Natte speed bevat naast amfetamine nog stoffen van het productieproces die schadelijk kunnen zijn voor de gezondheid.
+END
+
+2.
+T: Speed
+Q: Wat is geen lange termijn risico van speed? (Kies 1 antwoord)
+A: Verslaving
+B: De ziekte van Lyme +
+C: Oververmoeidheid
+D: Hartritmestoornissen
+W: De ziekte van Lyme heeft niks met speed te maken. Deze ziekte wordt veroorzaakt door de beet van een besmette teek.
+END
+
+3.
+T: Speed
+Q: Wat is waar over speed en slapen? (Meerdere antwoorden mogelijk)
+A: Je kan beter een paar uur slapen dan helemaal niet +
+B: De versnijding met cafeïne zorgt ervoor dat je niet kan slapen
+C: Je kan het beste zo snel mogelijk je normale slaapritme aanhouden +
+D: Bij vaak gebruiken heb je kans op blijvende slaapproblemen +
+W: Een paar uur slapen is altijd beter dan niet slapen. Het niet kunnen slapen komt vrijwel altijd door de speed zelf en niet door de versnijding met cafeïne. Het is het beste om zo snel mogelijk je normale slaapritme aan te houden, anders kunnen er langdurige slaapproblemen ontstaan.
+END
+
+4.
+T: Speed
+Q: Hoe kun je de risico's van speed beperken? (Meerdere antwoorden mogelijk)
+A: Je dealer vragen hoe sterk het is
+B: Gebruik je eigen snuifbuis +
+C: Goed blijven eten +
+D: Alcohol drinken om het te hard gaan wat te dempen
+W: Het is goed om je eigen snuifbuis te gebruiken om infecties te voorkomen. Ondanks dat je weinig trek hebt, is het belangrijk om goed te blijven eten omdat speed gebruik erg uitputtend is voor je lichaam.
+END

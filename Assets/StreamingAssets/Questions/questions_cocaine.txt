@@ -1,0 +1,40 @@
+1.
+T: Cocaïne
+Q: Welk antwoord klopt NIET? (kies er 1)
+A: Door cocaïne breekt alcohol in je lichaam sneller af
+B: Levamisol is de meest voorkomende vervuiling van cocaïne
+C: Bezit van meer dan 0.5g cocaïne is strafbaar
+D: Cocaïne werkt in de hersenen vooral op het dopaminesysteem
+A: A +
+W: Door cocaïne breekt alcohol in je lichaam niet sneller af. Je voelt de effecten van alcohol minder na het gebruik van cocaïne, wat je langer en meer kan laten drinken, maar het alcohol wordt niet sneller afgebroken.
+END
+
+2.
+T: Cocaïne
+Q: Wat is een lange termijn risico van cocaïnegebruik? (meerdere antwoorden mogelijk)
+A: Syndroom van Korsakov
+B: Hart- en vaatproblemen +
+C: Opwindingsdelier
+D: Verandering van persoonlijkheid +
+W: Cocaïne kan leiden tot hart- en vaatproblemen zoals hartritmestoornissen, hartinfarct en hersenbloedingen. Langdurig gebruik kan ook permanente persoonlijkheidsveranderingen veroorzaken zoals achterdochtigheid, agressie en angst.
+END
+
+3.
+T: Cocaïne
+Q: Welk antwoord klopt? (meerdere antwoorden mogelijk)
+A: Cocaïne kan zorgen voor een toename in spierkracht
+B: Cocaïne zorgt via het stresshormoon cortisol voor spierafbraak +
+C: Cocaïne zorgt voor aderverkalking +
+D: Cocaïne heeft weinig invloed op het hart
+W: Cocaïne zorgt voor spierafbraak via het stresshormoon cortisol en kan aderverkalking veroorzaken door hoge bloeddruk die vaatwanden beschadigt. Cocaïne leidt tot verhoogde hartslag en bloeddruk, wat het hart extra belast.
+END
+
+4.
+T: Cocaïne
+Q: Welke tip vind jij het beste? (kies er 1)
+A: Gebruik alleen als je je lichamelijk en geestelijk goed voelt
+B: Combineer cocaïne niet met alcohol
+C: Spreek met jezelf af hoeveel je wil gebruiken
+D: Laat je niet overhalen om meer te doen.
+W: Ieder antwoord is goed 😊 
+END

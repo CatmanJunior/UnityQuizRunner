@@ -1,0 +1,40 @@
+
+1.
+T: GHB
+Q: Wat zijn de belangrijkste gevaren van GHB gebruik? (meerdere antwoorden zijn mogelijk)
+A: Verlies van bewustzijn +
+B: Misselijkheid +
+C: Verslaving +
+D: Te hoge bloeddruk en hartslag
+W: Verlies van bewustzijn, misselijkheid en verslaving zijn de belangrijkste gevaren van GHB. GHB heeft weinig invloed op de bloeddruk, maar vertraagt de hartslag.
+END
+
+2.
+T: GHB
+Q: Wat is een goede manier van doseren?
+A: Een dopje gebruiken
+B: Met een doseerspuit en door de tijd van inname te noteren +
+C: Half buisje
+D: Thuis afmeten en per dosering meenemen om op gevoel in te nemen
+W: Een doseerspuit zorgt voor nauwkeurigheid, wat belangrijk is omdat een kleine afwijking in dosering al gevaarlijk kan zijn.
+END
+
+3.
+T: GHB
+Q: Welke combinaties met GHB kunnen gevaarlijk zijn? (meerdere antwoorden zijn mogelijk)
+A: GHB met speed of XTC
+B: GHB met alcohol of ketamine +
+C: GHB met paddo's of LSD
+D: GHB met verdovende medicatie zoals slaapmiddelen of anti-histamines +
+W: GHB combineren met alcohol, ketamine of verdovende medicatie kan leiden tot ernstige ademhalingsproblemen en out gaan.
+END
+
+4.
+T: GHB
+Q: Wat moet je doen als iemand out gaat door GHB?
+A: Rustig laten slapen diegene komt wel weer uit zichzelf bij
+B: Eerst proberen wakker te houden. Reageert iemand niet op pijnprikkels? Dan in de stabiele zijligging leggen en direct de EHBO of ambulance raadplegen +
+C: Diegene wat fris laten drinken zodat hij of zij oppept door de suikers
+D: Diegene wat coke of speed geven zodat jullie verder kunnen feesten
+W: Als iemand out gaat, probeer hem wakker te houden met een pijnprikkel. Komt iemand niet bij, haal dan medische hulp of bel 112. Laat iemand die bewusteloos is nooit alleen en leg de persoon in de stabiele zijligging.
+END

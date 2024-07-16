@@ -30,6 +30,7 @@ public static class QuestionParser
         var questionLines = new List<string>();
         var isParsingQuestion = false;
         var currentCategory = DefaultCategory;
+        var explanation = "";
 
         foreach (var line in lines)
         {
@@ -37,7 +38,7 @@ public static class QuestionParser
             {
                 if (isParsingQuestion)
                 {
-                    CreateQuestion(questionLines, currentCategory);
+                    CreateQuestion(questionLines, currentCategory,explanation);
                     isParsingQuestion = false;
                     questionLines.Clear();
                     currentCategory = DefaultCategory;
@@ -68,6 +69,13 @@ public static class QuestionParser
                 isParsingQuestion = true;
                 questionLines.Add(line);
             }
+            //else if line  starts with W: it is an explanation
+            else if (line.StartsWith("W:"))
+            {
+
+                explanation = line[3..];
+                // Debug.Log("Explanation: " + explanation);
+            }
             else if (isParsingQuestion && !string.IsNullOrEmpty(line))
             {
                 questionLines.Add(line);
@@ -76,7 +84,7 @@ public static class QuestionParser
 
         if (isParsingQuestion)
         {
-            CreateQuestion(questionLines, currentCategory);
+            CreateQuestion(questionLines, currentCategory, explanation);
         }
 
         return questions;
@@ -87,9 +95,9 @@ public static class QuestionParser
     /// </summary>
     /// <param name="questionLines">A list of question lines.</param>
     /// <param name="category">The category of the question.</param>
-    private static void CreateQuestion(List<string> questionLines, string category)
+    private static void CreateQuestion(List<string> questionLines, string category, string explanation = "")
     {
-        var question = ParseQuestionBlock(questionLines, category);
+        var question = ParseQuestionBlock(questionLines, category, explanation);
         questions.Add(question);
         categories[category].Add(question);
     }
@@ -99,8 +107,10 @@ public static class QuestionParser
     {
 
         var filePath = Path.Combine(Application.streamingAssetsPath, "Questions");
-        var files = Directory.GetFiles(filePath, "*.txt");
+        //Get all files that start with questions_
+        var files = Directory.GetFiles(filePath, "questions_*.txt");
         var lines = new List<string>();
+
 
         if (files.Length == 0)
         {
@@ -121,7 +131,7 @@ public static class QuestionParser
     /// <param name="questionLines">A list of question lines.</param>
     /// <param name="category">The category of the question.</param>
     /// <returns>A new question object.</returns>
-    private static Question ParseQuestionBlock(List<string> questionLines, string category)
+    private static Question ParseQuestionBlock(List<string> questionLines, string category, string explanation = "")
     {
         var questionText = questionLines.First().Substring(3);
         var answers = new List<Answer>();
@@ -143,7 +153,7 @@ public static class QuestionParser
             }
         }
 
-        return new Question(questionText, answers, category);
+        return new Question(questionText, answers, category, explanation);
     }
 
     /// <summary>

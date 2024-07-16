@@ -1,0 +1,39 @@
+1.
+T: Psychedelica
+Q: Wat heeft invloed op je trip? (meerdere antwoorden mogelijk)
+A: Hoe je je voelt lichamelijk of geestelijk +
+B: Je verwachtingen over een drug +
+C: Het combineren van het middel met andere drugs +
+D: De groep mensen met wie je bent +
+W: De ervaring op middelengebruik komt tot stand door set (geestelijke en lichamelijke staat), setting (omgeving sociaal en fysiek), en het middel zelf (dosering, sterkte, vervuilingen).
+END
+
+2.
+T: Psychedelica
+Q: Welke van de volgende middelen is een tripmiddel? (meerdere antwoorden mogelijk)
+A: GHB
+B: Ketamine +
+C: LSD +
+D: MDMA +
+W: LSD en ketamine zijn bekende psychedelica. Bij hogere doseringen kunnen cannabis en MDMA ook tripmiddelen worden.
+END
+
+3.
+T: Psychedelica
+Q: Welk antwoord is niet waar? (meerdere antwoorden mogelijk)
+A: Je kunt een psychose krijgen van psychedelica
+B: De risico’s van alle psychedelica zijn ongeveer hetzelfde +
+C: Tijdens je trip kun je misselijk worden +
+D: Het gebruik van cannabis heeft invloed op je trip +
+W: De risico’s van psychedelica verschillen per middel. Mensen die gevoelig zijn voor psychoses kunnen door tripmiddelen een psychose krijgen. Tijdens een trip kun je misselijk worden, en cannabis kan de trip versterken of verlengen.
+END
+
+4.
+T: Psychedelica
+Q: Een vriend heeft een moeilijke ervaring op psychedelica. Wat kun je doen? (meerdere antwoorden mogelijk)
+A: Zoek een rustige plek op +
+B: Zorg dat er iemand bij hem is +
+C: Geef hem meer drugs om te kunnen feesten
+D: Praat over prettige dingen +
+W: Het helpt om een rustige plek op te zoeken, bij de persoon te blijven en over prettige dingen te praten. Meer drugs geven is onjuist en kan de trip verergeren.
+END

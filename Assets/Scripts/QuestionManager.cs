@@ -23,15 +23,28 @@ public class QuestionManager : MonoBehaviour
 
     public Question CurrentQuestion { get => currentQuestion; }
 
+    public static QuestionManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     public void GetRandomQuestions(string category = "General")
     {
         questions = QuestionParser.GetRandomQuestions(amountOfQuestions, category);
     }
 
-    public bool NextQuestion()
+    public void NextQuestion()
     {
         currentQuestionIndex++;
-        return currentQuestionIndex < questions.Count;
     }
 
     public void EndQuiz()
@@ -39,10 +52,10 @@ public class QuestionManager : MonoBehaviour
         currentQuestionIndex = -1;
     }
 
-    public bool[] GetCorrectAnswers()
+    public List<bool> GetCorrectAnswers()
     {
         return CurrentQuestion.Answers.
-            Select(answer => answer.IsCorrect).ToArray();
+            Select(answer => answer.IsCorrect).ToList();
     }
 
     public bool IsAnswerAvailable(int answerId)
@@ -53,7 +66,22 @@ public class QuestionManager : MonoBehaviour
     public bool IsQuestionAvailable()
     {
         return currentQuestion != null;
+    
     }
+
+    //a function that returns if the quiz has started
+    public bool HasQuizStarted()
+    {
+        return currentQuestionIndex >= 0;
+    }
+
+
+    public bool HasQuestionsLeft(){
+        return currentQuestionIndex < questions.Count - 1;
+    }
+
+
 }
+
 
 

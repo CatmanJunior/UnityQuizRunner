@@ -46,14 +46,15 @@ public class CategoryVoteHandler : MonoBehaviour
         //TODO: Handle ties
         if (categoryVotes.Count == 0)
         {
-            return Random.Range(0, categories.Count).ToString();
+            return categories[Random.Range(0, categories.Count)].ToString();
         }
         if (categoryVotes.Count == 1)
         {
             return categories[categoryVotes.Values.First()];
         }
-
-        return categories[categoryVotes.Values.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First()];
+        var _cat =categories[categoryVotes.Values.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First()];
+        Debug.Log("Top category is " + _cat);
+        return _cat;
     }
 
     private void CastVote(int controller, int button)

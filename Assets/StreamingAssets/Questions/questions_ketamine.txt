@@ -1,0 +1,40 @@
+1.
+T: Ketamine
+Q: Ketamine is een dissociatief tripmiddel. Dit houdt in…
+A: dat je tijdens het gebruik liever alleen bent
+B: dat je een scheiding voelt tussen lichaam en geest +
+C: dat je in slaap valt en dan een heftige trip ervaart
+D: Alle bovenstaande antwoorden zijn goed
+W: Als je ketamine gebruikt kunnen er dissociatieve effecten optreden. Dit houdt in dat je een scheiding voelt tussen je lichaam en geest. Milde dissociatieve effecten zijn bijvoorbeeld niet meer goed voelen waar je ledematen zich bevinden. Bij hoge dosissen kunnen uittreden uit je lichaam of een bijna-dood-ervaring optreden.
+END
+
+2.
+T: Ketamine
+Q: Ketamine is...
+A: lichamelijk én geestelijk verslavend
+B: niet lichamelijk verslavend maar wel geestelijk verslavend +
+C: wel lichamelijk verslavend maar niet geestelijk verslavend
+D: geen verslavend middel
+W: Ketamine is niet lichamelijk verslavend, maar kan wel geestelijk verslavend zijn. Ketamine wordt voornamelijk gesnoven, wat betekent dat er snel een verband wordt gelegd tussen gebruik en effect. Tolerantie speelt ook een rol, waardoor je al snel meer nodig hebt om hetzelfde effect te ervaren.
+END
+
+3.
+T: Ketamine
+Q: Wat kan je doen om de risico’s bij ketaminegebruik te beperken?
+A: 3 uur voor gebruik niet eten om de kans op misselijkheid te verkleinen
+B: Zitten of liggen bij hoge doseringen
+C: Niet combineren met alcohol of andere verdovende drugs zoals GHB
+D: Antwoord A B en C +
+W: Ketamine is een verdovingsmiddel dat dissociatieve effecten veroorzaakt. Voor een veilige ervaring: eet 3 uur van tevoren niet, zit of lig bij hoge doseringen, en combineer het niet met andere verdovende middelen om risico’s te beperken.
+END
+
+4.
+T: Ketamine
+Q: De meest voorkomende gezondheidsverstoringen op de EHBO door ketaminegebruik zijn
+A: Hart- en ademhalingsproblemen met gevaar van verstikking
+B: Overprikkelde darmen waardoor je acute diarree krijgt en moet overgeven
+C: Verstuikingen en verwondingen omdat je minder stabiel loopt en dus kans hebt om te vallen +
+D: Out-gaan door een te hoge dosis
+W: Ketamine onderdrukt de ademhaling en hartslag niet, maar kan de coördinatie verminderen, wat leidt tot verstuikingen en verwondingen.
+END
+

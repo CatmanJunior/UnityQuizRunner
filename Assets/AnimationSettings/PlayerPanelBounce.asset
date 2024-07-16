@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522cfef69c62c024db9fabbab5fd2c81, type: 3}
   m_Name: PlayerPanelBounce
   m_EditorClassIdentifier: 
-  tweenFunction: 0
-  endValue: {x: 0, y: 0, z: 0}
+  tweenFunction: 10
+  endValue: {x: 1.5, y: 1.5, z: 1}
   delay: 0
-  duration: 0
-  easeType: 0
-  overshoot: 0
+  duration: 2
+  easeType: 8
+  overshoot: 7.84
+  pingPongLoop: 1

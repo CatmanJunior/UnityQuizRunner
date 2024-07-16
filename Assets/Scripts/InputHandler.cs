@@ -8,68 +8,60 @@ using HidLibrary;
 public class InputHandler : MonoBehaviour
 {
     [SerializeField]
-    private InputActionAsset _inputActionAsset;
+    private bool useKeyboard = true;
+    public InputAction buttonPress;
 
     public event System.Action<int, int> OnButton;
-    private HidDevice device;
-    List<InputAction> _inputActions = new List<InputAction>();
 
-    public InputAction buttonPress;
+    List<List<string>> keyboardButtons = new();
     void Awake()
     {
-        List<List<string>> controllers = CreateButtonList();
+        keyboardButtons = CreateKeyboardButtonList();
+        Keyboard.current.onTextInput += onKeyboardButtonPressed;
+        LightUpController(new List<int> { 0, 1, 2, 3 }); // Turn on all the lights
 
-        //Loops through each controller and each button and adds the button to the input action List
-        foreach (List<string> controller in controllers)
+        Invoke("LightOffController", 2); // Turn off the lights after 2 seconds
+    }
+
+    private List<List<string>> CreateKeyboardButtonList()
+    {
+        List<List<string>> keyboardButtons = new()
+        {
+            new List<string> { "1", "2", "3", "4", "5" },
+            new List<string> { "q", "w", "e", "r", "t" },
+            new List<string> { "a", "s", "d", "f", "g" },
+            new List<string> { "z", "x", "c", "v", "b" }
+        };
+        // switch around all keys at index 0 and 4 so trigger is the left key
+        foreach (List<string> controller in keyboardButtons)
+        {
+            string temp = controller[0];
+            controller[0] = controller[4];
+            controller[4] = temp;
+        }
+        
+        return keyboardButtons;
+    }
+
+    private void onKeyboardButtonPressed(char character)
+    {
+
+        foreach (List<string> controller in keyboardButtons)
         {
             foreach (string button in controller)
             {
-                InputAction inputAction = _inputActionAsset.FindActionMap("Quiz").FindAction(button);
-                if (inputAction == null)
+                if (button == character.ToString())
                 {
-                    continue;
+                    int controllerIndex = keyboardButtons.IndexOf(controller);
+                    int buttonIndex = controller.IndexOf(button);
+                    Debug.Log("Controller: " + controllerIndex + " Button: " + buttonIndex);
+                    OnButton?.Invoke(controllerIndex, buttonIndex);
                 }
-                inputAction.performed += OnButtonPressed;
-
-                _inputActions.Add(inputAction);
             }
         }
-        LightUpController(new int[] { });
     }
     
-    private static List<List<string>> CreateButtonList(int controllerAmount = 4, int buttonAmount = 4)
-    {
-        var controllers = new List<List<string>>();
-        //Loops through each controller and adds the buttons to a list of strings 
-        for (int i = 0; i <= controllerAmount - 1; i++)
-        {
-            List<string> buttons = new List<string>();
-            for (int j = 0; j <= buttonAmount - 1; j++)
-            {
-                string buttonName = $"C{i}B{j}";
-                buttons.Add(buttonName);
-                // print(buttonName);
-            }
-            controllers.Add(buttons);
-        }
-
-        return controllers;
-    }
-
-    void OnButtonPressed(InputAction.CallbackContext context)
-    {
-        //TODO: Add a check to see if the button is already pressed or is being held down
-        print(context.action.name + " was pressed");
-        //Creates an int from the name of the button pressed
-        //Example: C0B0 = 00
-        int cValue = int.Parse(context.action.name.Substring(1, 1));
-        int bValue = int.Parse(context.action.name.Substring(3, 1));
-        // if the event is not null, invoke it
-        OnButton?.Invoke(cValue, bValue);
-    }
-
-
-    void OnAnyButtonPressed(InputAction.CallbackContext context)
+    void OnAnyControllerButtonPressed(InputAction.CallbackContext context)
     {
         if (context.control.name == "trigger")
         {
@@ -86,14 +78,17 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void LightOffController()
+    {
+        LightUpController(new List<int>());
+    }
 
-    //a function to light up controllers
-    public void LightUpController(int[] controllers)
-    {// Find the HID device (You need to know the Vendor ID and Product ID)
+    public void LightUpController(List<int> controllers)
+    {
+        // Find the HID device 
         var devices = HidDevices.Enumerate(1356, 2);
         var hidDevice = devices.FirstOrDefault();
-        // print(hidDevice);
-        // print(devices);
+
         if (hidDevice != null)
         {
             hidDevice.OpenDevice();
@@ -113,12 +108,13 @@ public class InputHandler : MonoBehaviour
     void OnEnable()
     {
         buttonPress.Enable();
-        buttonPress.performed += OnAnyButtonPressed;
+        buttonPress.performed += OnAnyControllerButtonPressed;
     }
 
     void OnDisable()
     {
         buttonPress.Disable();
-        buttonPress.performed -= OnAnyButtonPressed;
+        buttonPress.performed -= OnAnyControllerButtonPressed;
     }
+
 }

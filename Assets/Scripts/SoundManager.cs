@@ -32,7 +32,7 @@ public class SoundManager : MonoBehaviour
     //all sound effects in the game
     [SerializeField]
     private AudioClip backgroundMusic, answerGivenSound, answerCorrectSound, answerWrongSound, timeEndSound, gameWinnerSound,
-     menuAppearSound, menuDisappearSound, newQuestionSound, timerTickSound, timerAlmostEndSound;
+     menuAppearSound, menuDisappearSound, newQuestionSound, timerTickSound, timerAlmostEndSound, categoryChosenSound, playerCheckedInSound, playersCheckedOutSound, inputErrorSound;
 
     //reference to the audio source which will play our music
     [SerializeField]
@@ -49,8 +49,6 @@ public class SoundManager : MonoBehaviour
         {
             //set it to this
             Instance = this;
-
-            print(Instance);
         }
 
 

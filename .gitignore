@@ -28,6 +28,9 @@
 .vs/
 .vscode/
 .codescene/
+.builds/
+.config/
+.plastic/
 # Gradle cache directory
 .gradle/
 

@@ -1,0 +1,34 @@
+1.
+T: Ecstasy
+Q: Ecstasy increases the body temperature which can lead to hyperthermia. Therefore the advice is to cool down regularly.
+A: True +
+B: False
+W: Stimulants cause increased activity in muscles and increase the “base temperature” of the body. This causes the body temperature to increase. For example: you can cool down by going outside for a few minutes.
+END
+
+2.
+T: Drugs
+Q: Which statement is false?
+A: Street dealers in particular are unreliable
+B: It’s best to avoid drinking alcohol and smoking weed or hasj together
+C: When smoking weed or hasj keeping the smoke inside your lungs for longer increases the effects
+D: When using ecstasy it’s best not to drink too much water
+A: C +
+W: When smoking weed or hash the THC and CBD are absorbed almost instantly. Keeping the smoke in your lungs for longer will not increase the effects but will expose your lungs to the harmful components of the smoke for longer.
+END
+
+3.
+T: Cannabis
+Q: Potency of weed and hasj can vary in different parts of the world.
+A: True +
+B: False
+W: The THC values ​​in Dutch hash and weed are often much higher than those in foreign hash and weed. If you buy drugs in the Netherlands, be aware that the potency can differ a great deal from the strength of drugs in your own country.
+END
+
+4.
+T: Drugs
+Q: Which statement is true?
+A: It is legal to carry cocaine in the Netherlands
+B: In the Netherlands it is possible to seek (medical) help after taking drugs without having to face legal charges +
+W: Possession of drugs is illegal in the Netherlands, even a small amount. However, you can always ask for medical advice without any risk of legal charges.
+END

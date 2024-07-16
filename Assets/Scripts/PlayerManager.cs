@@ -119,4 +119,9 @@ public class PlayerManager : MonoBehaviour
         }
         return players.TrueForAll(player => player.HasAnswered(question));
     }
+
+    public int GetPlayerCount()
+    {
+        return players.Count;
+    }
 }
