@@ -61,7 +61,7 @@ public class QuestionState : BaseGameState
         if (playerManager.AddAnswer(controller, questionManager.CurrentQuestion, button, timeTaken))
         {
             Debug.Log("Player " + controller + " answered " + questionManager.CurrentQuestion.Answers[button].AnswerText);
-            uiManager.SetPlayerPanelAnswered(controller, true);
+            uiManager.SetPlayerPanelState(controller, PlayerPanelState.Answered);
         }
         if (playerManager.HaveAllPlayersAnswered(questionManager.CurrentQuestion))
         {

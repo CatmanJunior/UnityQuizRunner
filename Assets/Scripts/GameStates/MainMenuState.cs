@@ -1,6 +1,7 @@
 
 
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 using UnityEngine.InputSystem.Interactions;
 
@@ -12,7 +13,7 @@ public class MainMenuState : BaseGameState
     [SerializeField]
     int timeBeforeCheckedInClear = 10;
 
-    private List<int> _controllersCheckedIn = new List<int>();
+    private List<int> checkedInControllers = new List<int>();
     public MainMenuState() : base() { }
 
     public override void Enter()
@@ -27,42 +28,56 @@ public class MainMenuState : BaseGameState
 
     public override void HandleInput(int controller, int button)
     {
-        if (button != 4)//if the button pressed is not the trigger
+        //if the button is not the check in button or the controller is already checked in
+        if (button != 4 || checkedInControllers.Contains(controller))
         {
             return;
         }
-        if (!_controllersCheckedIn.Contains(controller))
-        {
-            _controllersCheckedIn.Add(controller);
-            soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayerCheckedIn);
-            inputHandler.LightUpController(_controllersCheckedIn);
-            gameStateHandler.countdownTimer.StopCountdown();
-            //todo which of these two lines is correct?
-            uiManager.PlayerPanelCheckedIn(controller, true);
-            if (_controllersCheckedIn.Count >= requiredControllers)
-            {
-                playerManager.CreatePlayers(_controllersCheckedIn.Count);
-                NotifyStateCompletion();
-            }
-            else
-            {
-                gameStateHandler.countdownTimer.StartCountdown(ClearControllersCheckedIn, timeBeforeCheckedInClear);
-            }
+            HandlePlayerCheckIn(controller); 
+    }
 
+    private void HandlePlayerCheckIn(int controller)
+    {
+        CheckInPlayer(controller);
+        if (checkedInControllers.Count >= requiredControllers) //if the required amount of controllers are checked in
+        {
+            gameStateHandler.countdownTimer.StopCountdown();
+            uiManager.SetInstructionTextReady();
+            //invoke in 2 seconds
+            gameStateHandler.countdownTimer.StartCountdown(ResetAndCreatePlayers, 1);
         }
-        return;
+    }
+
+    private void CheckInPlayer(int controller)
+    {
+        checkedInControllers.Add(controller);
+        soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayerCheckedIn);
+        inputHandler.LightUpController(checkedInControllers);
+        gameStateHandler.countdownTimer.StopCountdown();
+        uiManager.SetPlayerPanelState(controller, PlayerPanelState.CheckedIn);
+        gameStateHandler.countdownTimer.StartCountdown(ClearControllersCheckedIn, timeBeforeCheckedInClear);
+    }
+
+    private void ResetAndCreatePlayers()
+    {
+        uiManager.ResetPlayerPanels();
+        playerManager.CreatePlayers(checkedInControllers.Count);
+        NotifyStateCompletion();
     }
 
     private void ClearControllersCheckedIn()
     {
+        Debug.Log("Clearing controllers");
         soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayersCheckedOut);
         inputHandler.LightUpController(new List<int> { });
-        _controllersCheckedIn.Clear();
+        checkedInControllers.Clear();
         //stop animation
-        for (int i = 0; i < playerManager.GetPlayerCount(); i++)
+        for (int i = 0; i < requiredControllers; i++)
         {
-            uiManager.PlayerPanelCheckedIn(i, false);
+            uiManager.SetPlayerPanelState(i, PlayerPanelState.Default);
         }
+
+
     }
 
     public override void Update()

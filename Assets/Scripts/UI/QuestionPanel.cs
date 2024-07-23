@@ -20,12 +20,7 @@ public class QuestionPanel : UIPanel
     [SerializeField]
     private FontStyles defaultAnswerStyle; //the default style of the answer text
 
-    private void Awake()
-    {
-
-    }
-
-    public void SetQuestion(Question question)
+    private void SetQuestion(Question question)
     {
         questionText.text = question.QuestionText;
         for (int i = 0; i < question.Answers.Count; i++)
@@ -35,14 +30,14 @@ public class QuestionPanel : UIPanel
     }
 
     //set the questiontext to the explanation of the question
-    public void SetExplanation(Question question)
+    private void SetExplanation(Question question)
     {
         Debug.Log("Setting explanation");
         questionText.text = question.Explanation;
     }
 
 
-    public void SetAnswerStyles(bool reset = true)
+    private void SetAnswerStyles(bool reset = true)
     {
         if (reset)
         {
@@ -90,13 +85,19 @@ public class QuestionPanel : UIPanel
     public override void Open()
     {
         base.Open();
-
     }
 
     public void ShowQuestion()
     {
         SetQuestion(QuestionManager.Instance.CurrentQuestion);
         SetAnswerStyles();
+        Open();
+    }
+
+    public void ShowQuestionResults()
+    {
+        SetAnswerStyles(false);
+        SetExplanation(QuestionManager.Instance.CurrentQuestion);
         Open();
     }
 }

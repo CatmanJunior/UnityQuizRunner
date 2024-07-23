@@ -4,10 +4,22 @@ using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+public enum PlayerPanelState
+{
+    Default,
+    Answered,
+    Correct,
+    Incorrect,
+    CheckedIn,
+    Fastest,
+    AddingScore,
+    Voted
+}
 
 public class UIManager : MonoBehaviour
 {
+
+
     public enum UIElement
     {
         MainMenuPanel,
@@ -26,10 +38,6 @@ public class UIManager : MonoBehaviour
     private Slider timerSlider;
     [SerializeField]
     private TextMeshProUGUI timerText;
-
-    [SerializeField]
-    List<TextMeshProUGUI> scoreTexts;
-
     [SerializeField]
     private List<TextMeshProUGUI> CategoryText;
 
@@ -41,26 +49,16 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIPanel mainMenuPanel;
     [SerializeField]
-    private UIPanel instructionsPanel;
+    private MainMenuInstructionPanel mainMenuInstructionsPanel;
     [SerializeField]
     private QuestionPanel questionPanel;
     [SerializeField]
     private UIPanel timerPanel;
-
+    [SerializeField]
+    private PlayerPanelAnimator playerPanelAnimator;
     [Header("UI Settings")]
     [SerializeField]
-    private Color defaultPanelColor;
-    [SerializeField]
-    private Color answeredPanelColor;
-    [SerializeField]
-    private Color correctPanelColor;
-    [SerializeField]
-    private Color incorrectPanelColor;
-    [SerializeField]
-    private Sprite unansweredSprite;
-    [SerializeField]
-    private Sprite answeredSprite;
-
+    private string instructionTextGetReady = "Get Ready!"; 
 
     //Private variables
     private List<TextMeshProUGUI> playerScoreTexts = new List<TextMeshProUGUI>();
@@ -70,26 +68,20 @@ public class UIManager : MonoBehaviour
 
     //TODO remove soundmanager from here
     private SoundManager soundManager;
-    private UIAnimator uiAnimator;
     private Dictionary<UIElement, UIPanel> panelDictionary;
 
+#region Unity Functions
     private void Awake()
     {
         panelDictionary = new Dictionary<UIElement, UIPanel>
         {
             { UIElement.MainMenuPanel, mainMenuPanel },
-            { UIElement.InstructionsPanel, instructionsPanel },
+            { UIElement.InstructionsPanel, mainMenuInstructionsPanel },
             { UIElement.ScorePanel, scorePanel },
             { UIElement.CategoryPanel, categoryPanel },
             { UIElement.QuestionPanel, questionPanel },
             { UIElement.TimerPanel, timerPanel}
-
         };
-
-        foreach (Image playerPanel in playerPanels)
-        {
-            playerScoreTexts.Add(playerPanel.transform.Find("Score").GetComponent<TextMeshProUGUI>());
-        }
 
         //TODO add a better way to get the score panel texts
         scorePanelWinnerText = scorePanel.transform.Find("WinnerPanel/WinnerText").GetComponent<TextMeshProUGUI>();
@@ -99,24 +91,15 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-
         soundManager = SoundManager.Instance;
-        uiAnimator = UIAnimator.Instance;
-        TogglePanel(UIElement.MainMenuPanel, true);
-        TogglePanel(UIElement.ScorePanel, false);
-        TogglePanel(UIElement.CategoryPanel, false);
-        // ToggleQuestionElements(false, 4, true);
 
     }
+#endregion
 
     public void TogglePanel(UIElement panelElement, bool show)
     {
         if (panelDictionary.TryGetValue(panelElement, out UIPanel panelToToggle))
         {
-            if (panelToToggle.open == show) return;
-            PlayWindowSound(show);
-
-            // Optionally, play the animation
             if (show)
             {
                 panelToToggle.Open();
@@ -128,23 +111,63 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void PlayerPanelAnswered(int controllerId)
+#region PlayerPanel
+    public void SetPlayerPanelState(int playerId, PlayerPanelState state)
     {
-        Image playerPanel = playerPanels[controllerId];
-        // uiAnimator.TogglePlayerAnsweredAnimation(playerPanel, true);
+        switch (state)
+        {
+            case PlayerPanelState.Default:
+                playerPanelAnimator.StopAnimations(playerId);
+                break;
+            case PlayerPanelState.Answered:
+                playerPanelAnimator.SetAnswered(playerId);
+                break;
+            case PlayerPanelState.Correct:
+                playerPanelAnimator.StopAnimations(playerId);
+                playerPanelAnimator.SetResult(playerId, true);
+                break;
+            case PlayerPanelState.Incorrect:
+                playerPanelAnimator.StopAnimations(playerId);
+                playerPanelAnimator.SetResult(playerId, false);
+                break;
+            case PlayerPanelState.CheckedIn:
+                playerPanelAnimator.SetCheckedIn(playerId);
+                break;
+            case PlayerPanelState.Fastest:
+                playerPanelAnimator.SetPlayerPanelFastest(playerId);
+                break;
+            case PlayerPanelState.AddingScore:
+                playerPanelAnimator.SetAddingScore(playerId);
+                break;
+            default:
+            //TODO: Implement the other states
+                throw new System.NotImplementedException();
+        }
     }
 
-    public void PlayerPanelCheckedIn(int controllerId, bool checkedIn)
+    public void SetInstructionTextReady()
     {
-        Image playerPanel = playerPanels[controllerId];
-        // uiAnimator.TogglePlayerPanelCheckedInAnimation(checkedIn, playerPanel);
+        mainMenuInstructionsPanel.SetInstructionText(instructionTextGetReady);
     }
 
-    public void PlayerPanelCorrect(int controllerId, bool isCorrect)
+    public void SetInstructionText(string text)
     {
-        Image playerPanel = playerPanels[controllerId];
-        // uiAnimator.AnimatePlayerCorrect(playerPanel, isCorrect);
+        mainMenuInstructionsPanel.SetInstructionText(text);
     }
+
+    public void SetPlayerScore(int playerId, int score)
+    {
+        playerPanelAnimator.SetPlayerScore(playerId, score);
+    }
+
+    public void ResetPlayerPanels()
+    {
+        for (int i = 0; i < playerPanels.Length; i++)
+        {
+            SetPlayerPanelState(i, PlayerPanelState.Default);
+        }
+    }
+#endregion
 
     public void UpdateTimer(float timeLeft)
     {
@@ -152,46 +175,7 @@ public class UIManager : MonoBehaviour
         timerText.text = timeLeft.ToString("F1");
     }
 
-    public void ResetPlayerPanels()
-    {
-        for (int i = 0; i < playerPanels.Length; i++)
-        {
-            SetPlayerPanelDefault(i);
-        }
-    }
 
-    public void SetPlayerPanelCorrect(int controllerId, bool isCorrect)
-    {
-        if (isCorrect)
-        {
-            playerPanels[controllerId].color = correctPanelColor;
-        }
-        else
-        {
-            playerPanels[controllerId].color = incorrectPanelColor;
-        }
-    }
-
-    public void SetPlayerPanelAnswered(int controllerId, bool hasAnswered)
-    {
-        playerPanels[controllerId].color = hasAnswered ? answeredPanelColor : defaultPanelColor;
-    }
-
-    public void SetPlayerPanelDefault(int controllerId)
-    {
-        playerPanels[controllerId].color = defaultPanelColor;
-    }
-
-    public void SetPlayerScore(int controllerId, int score)
-    {
-        playerScoreTexts[controllerId].text = score.ToString();
-    }
-
-    public void SetPlayerPanelFastest(int controllerId)
-    {
-        // playerPanels[controllerId].transform.Find("FastestOutline").gameObject.SetActive(isFastest);
-        Debug.Log("Player " + controllerId + " is the fastest");
-    }
 
     public void UpdateScorePanel(List<Player> sortedPlayers)
     {
@@ -213,10 +197,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void PlayWindowSound(bool open = true)
-    {
-        soundManager.PlayWindowToggleSound(open);
-    }
+
 
     public void ShowWinningCategory(int categoryIndex)
     {
@@ -233,9 +214,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowQuestionResults()
     {
-        questionPanel.SetAnswerStyles(false);
-        questionPanel.SetExplanation(QuestionManager.Instance.CurrentQuestion);
-        questionPanel.Open();
+        questionPanel.ShowQuestionResults();
     }
 
     public void ShowQuestion()

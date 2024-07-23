@@ -101,6 +101,13 @@ public class GameStateHandler : MonoBehaviour
 
     private void ChangeState(BaseGameState newState)
     {
+        if (newState == mainMenuState)
+        {
+            uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, true);
+            uiManager.TogglePanel(UIManager.UIElement.ScorePanel, false);
+            uiManager.TogglePanel(UIManager.UIElement.CategoryPanel, false);
+        }
+
         if (currentState != null)
         {
             currentState.Exit();
@@ -109,7 +116,7 @@ public class GameStateHandler : MonoBehaviour
         currentState = newState;
         currentState.OnStateCompleted += HandleStateCompletion;
         currentState.Enter();
-        
+
     }
 
     private void HandleStateCompletion()
@@ -123,7 +130,7 @@ public class GameStateHandler : MonoBehaviour
                 {
                     category = categoryVoteHandler.GetTopCategory();
                     Debug.Log("Category: " + category);
-                    
+
                     ChangeState(questionState);
                 }
                 else

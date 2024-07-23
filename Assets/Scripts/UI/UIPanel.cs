@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class UIPanel : MonoBehaviour
 {
-    // [HideInInspector]
+    [HideInInspector]
     public bool open;
 
-    public UIAnimationData openAnimationData;
+    [SerializeField]
+     UIAnimationData openAnimationData;
+     [SerializeField]
+     bool playSound = false;
+
+    private SoundManager soundManager;
 
     void Start()
     {
+        soundManager = SoundManager.Instance;
         open = gameObject.activeSelf;
+    }
+
+    private void PlayWindowSound(bool open = true)
+    {
+        if (!playSound)
+            return;
+        soundManager.PlayWindowToggleSound(open);
     }
 
     public virtual void Open()
@@ -23,6 +36,7 @@ public class UIPanel : MonoBehaviour
 
             open = true;
             gameObject.SetActive(true);
+            PlayWindowSound();
             // openAnimationData.Play(gameObject);
         }
         catch (System.Exception e)
@@ -37,6 +51,7 @@ public class UIPanel : MonoBehaviour
         if (!open)
             return;
         open = false;
+        PlayWindowSound(false);
         // openAnimationData.Play(gameObject);
         gameObject.SetActive(false);
     }

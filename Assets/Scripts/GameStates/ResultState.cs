@@ -36,11 +36,12 @@ public class ResultState : BaseGameState
         int[] newScores = playerManager.UpdateScores();
         foreach (Player player in playerManager.GetPlayers())
         {
-            if (player == fastestPlayer)
-                uiManager.SetPlayerPanelFastest(player.ControllerId);
-
             bool isCorrect = player.HasAnsweredCorrectly(questionManager.CurrentQuestion);
-            uiManager.SetPlayerPanelCorrect(player.ControllerId, isCorrect);
+            uiManager.SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
+            yield return new WaitForSeconds(.5f);
+            if (player == fastestPlayer)
+                uiManager.SetPlayerPanelState(player.ControllerId, PlayerPanelState.Fastest);
+            uiManager.SetPlayerPanelState(player.ControllerId, PlayerPanelState.AddingScore);
             soundManager.PlaySoundEffect(isCorrect ? AnswerCorrect : AnswerWrong);
             while (scores[player.ControllerId] < newScores[player.ControllerId])
             {
@@ -48,6 +49,8 @@ public class ResultState : BaseGameState
                 uiManager.SetPlayerScore(player.ControllerId, scores[player.ControllerId]);
                 yield return new WaitForSeconds(scoreIncreaseSpeedInSeconds);
             }
+            uiManager.SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
+
             yield return new WaitForSeconds(1);
         }
         countdownTimer.StartCountdown(NotifyStateCompletion, postQuestionTime);

@@ -27,7 +27,7 @@ public class CategoryVoteState : BaseGameState
     {
         if (categoryVoteHandler.HandleCategoryVote(controller, button))
         {
-            uiManager.SetPlayerPanelAnswered(controller, true);
+            uiManager.SetPlayerPanelState(controller, PlayerPanelState.Voted);
         }
 
         if (playerManager.HaveAllPlayersVoted())
