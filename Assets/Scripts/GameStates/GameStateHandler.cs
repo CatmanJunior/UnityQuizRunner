@@ -9,6 +9,8 @@ using static SoundManager.SoundEffect;
 
 public class GameStateHandler : MonoBehaviour
 {
+    public static GameStateHandler Instance;
+
     [Header("Game States")]
     [SerializeField]
     MainMenuState mainMenuState;
@@ -21,7 +23,8 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField]
     ResultState resultState;
 
-    public static List<string> categories = new List<string>();
+    public static string[] categories;
+
     [HideInInspector]
     public string category = null;
 
@@ -30,12 +33,19 @@ public class GameStateHandler : MonoBehaviour
     [Header("Settings")]
 
     [SerializeField]
-    private bool skipVote = false;
+    public bool skipVote = false;
+
+    //a setter for the skipVote variable
+    public void SetSkipVote(bool value)
+    {
+        skipVote = value;
+    }
+
     [SerializeField]
     private bool testMode = false;
 
     [SerializeField]
-    public int preQuestionTime = 3;
+    private int preQuestionTime = 5;
 
     [SerializeField]
     private int finalScoreTime = 10;
@@ -59,9 +69,13 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField]
     private CategoryVoteHandler categoryVoteHandler;
 
-
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         QuestionParser.LoadQuestionsFromTxt();
         categories = QuestionParser.GetCategories(4);
         Debug.Log("Categories: " + string.Join(", ", categories));
@@ -72,7 +86,6 @@ public class GameStateHandler : MonoBehaviour
         mainMenuState.Initialize(this);
 
         categoryVoteHandler.InitCategories(categories);
-
     }
 
     private void Start()
@@ -104,8 +117,8 @@ public class GameStateHandler : MonoBehaviour
         if (newState == mainMenuState)
         {
             uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, true);
-            uiManager.TogglePanel(UIManager.UIElement.ScorePanel, false);
-            uiManager.TogglePanel(UIManager.UIElement.CategoryPanel, false);
+            uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, false);
+            uiManager.TogglePanel(UIManager.UIElement.VotePanel, false);
         }
 
         if (currentState != null)
@@ -129,15 +142,13 @@ public class GameStateHandler : MonoBehaviour
                 if (skipVote)
                 {
                     category = categoryVoteHandler.GetTopCategory();
-                    Debug.Log("Category: " + category);
-
                     ChangeState(questionState);
                 }
                 else
                     ChangeState(categoryVoteState);
                 break;
             case CategoryVoteState:
-                ChangeState(questionState);
+                StartCoroutine(DelayedStateChange(questionState, preQuestionTime));
                 break;
             case QuestionState:
                 //if question index == -1
@@ -150,10 +161,16 @@ public class GameStateHandler : MonoBehaviour
                 ChangeState(questionState);
                 break;
             case FinalScoreState:
-                ChangeState(mainMenuState);
+                DelayedStateChange(mainMenuState, finalScoreTime);
                 break;
         }
 
+    }
+
+    IEnumerator DelayedStateChange(BaseGameState newState, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ChangeState(newState);
     }
 
     public bool IsTestMode()

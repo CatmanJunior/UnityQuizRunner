@@ -14,7 +14,7 @@ public class QuestionState : BaseGameState
 
     public override void Enter()
     {
-
+        uiManager.TogglePanel(UIManager.UIElement.VotePanel, false);
         if (!questionManager.HasQuizStarted())
         {
             Debug.Log("Getting random questions");

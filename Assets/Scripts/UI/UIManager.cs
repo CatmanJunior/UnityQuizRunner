@@ -19,82 +19,73 @@ public enum PlayerPanelState
 public class UIManager : MonoBehaviour
 {
 
-
+    public static UIManager Instance;
     public enum UIElement
     {
         MainMenuPanel,
         InstructionsPanel,
-        ScorePanel,
-        CategoryPanel,
+        FinalScorePanel,
+        VotePanel,
         QuestionPanel,
-        TimerPanel
+        TimerPanel,
+        DebugPanel
     }
 
     [Header("UI Elements")]
-
-    [SerializeField]
-    private Image[] playerPanels;
     [SerializeField]
     private Slider timerSlider;
     [SerializeField]
     private TextMeshProUGUI timerText;
-    [SerializeField]
-    private List<TextMeshProUGUI> CategoryText;
+
 
     [Header("UI Panels")]
     [SerializeField]
-    private UIPanel categoryPanel;
+    private UIVotePanel votePanel;
     [SerializeField]
-    private UIPanel scorePanel;
+    private UIFinalScorePanel scorePanel;
     [SerializeField]
-    private UIPanel mainMenuPanel;
+    private UIMainMenuPanel mainMenuPanel;
     [SerializeField]
-    private MainMenuInstructionPanel mainMenuInstructionsPanel;
-    [SerializeField]
-    private QuestionPanel questionPanel;
+    private UIQuestionPanel questionPanel;
     [SerializeField]
     private UIPanel timerPanel;
     [SerializeField]
-    private PlayerPanelAnimator playerPanelAnimator;
+    private UIPlayerPanel playerPanel;
+    [SerializeField]
+    private UIDebugPanel debugPanel;
+
     [Header("UI Settings")]
     [SerializeField]
-    private string instructionTextGetReady = "Get Ready!"; 
+    private string instructionTextGetReady = "Get Ready!";
 
     //Private variables
-    private List<TextMeshProUGUI> playerScoreTexts = new List<TextMeshProUGUI>();
-    private TextMeshProUGUI scorePanelWinnerText;
-    private TextMeshProUGUI scorePanelWinnerScoreText;
-    private TextMeshProUGUI scorePanelRestText;
 
-    //TODO remove soundmanager from here
-    private SoundManager soundManager;
+
     private Dictionary<UIElement, UIPanel> panelDictionary;
 
-#region Unity Functions
+    #region Unity Functions
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         panelDictionary = new Dictionary<UIElement, UIPanel>
         {
             { UIElement.MainMenuPanel, mainMenuPanel },
-            { UIElement.InstructionsPanel, mainMenuInstructionsPanel },
-            { UIElement.ScorePanel, scorePanel },
-            { UIElement.CategoryPanel, categoryPanel },
+            { UIElement.InstructionsPanel, mainMenuPanel },
+            { UIElement.FinalScorePanel, scorePanel },
+            { UIElement.VotePanel, votePanel },
             { UIElement.QuestionPanel, questionPanel },
-            { UIElement.TimerPanel, timerPanel}
+            { UIElement.TimerPanel, timerPanel},
+            { UIElement.DebugPanel, debugPanel}
         };
 
-        //TODO add a better way to get the score panel texts
-        scorePanelWinnerText = scorePanel.transform.Find("WinnerPanel/WinnerText").GetComponent<TextMeshProUGUI>();
-        scorePanelWinnerScoreText = scorePanel.transform.Find("WinnerPanel/WinnerScoreText").GetComponent<TextMeshProUGUI>();
-        scorePanelRestText = scorePanel.transform.Find("OtherScorePanel/OtherScoreText").GetComponent<TextMeshProUGUI>();
+        
     }
 
-    void Start()
-    {
-        soundManager = SoundManager.Instance;
-
-    }
-#endregion
+    #endregion
 
     public void TogglePanel(UIElement panelElement, bool show)
     {
@@ -111,106 +102,91 @@ public class UIManager : MonoBehaviour
         }
     }
 
-#region PlayerPanel
+    #region PlayerPanel
     public void SetPlayerPanelState(int playerId, PlayerPanelState state)
     {
         switch (state)
         {
             case PlayerPanelState.Default:
-                playerPanelAnimator.StopAnimations(playerId);
+                playerPanel.StopAnimations(playerId);
                 break;
             case PlayerPanelState.Answered:
-                playerPanelAnimator.SetAnswered(playerId);
+                playerPanel.SetAnswered(playerId);
                 break;
             case PlayerPanelState.Correct:
-                playerPanelAnimator.StopAnimations(playerId);
-                playerPanelAnimator.SetResult(playerId, true);
+                playerPanel.StopAnimations(playerId);
+                playerPanel.SetResult(playerId, true);
                 break;
             case PlayerPanelState.Incorrect:
-                playerPanelAnimator.StopAnimations(playerId);
-                playerPanelAnimator.SetResult(playerId, false);
+                playerPanel.StopAnimations(playerId);
+                playerPanel.SetResult(playerId, false);
                 break;
             case PlayerPanelState.CheckedIn:
-                playerPanelAnimator.SetCheckedIn(playerId);
+                playerPanel.SetCheckedIn(playerId);
                 break;
             case PlayerPanelState.Fastest:
-                playerPanelAnimator.SetPlayerPanelFastest(playerId);
+                playerPanel.SetPlayerPanelFastest(playerId);
                 break;
             case PlayerPanelState.AddingScore:
-                playerPanelAnimator.SetAddingScore(playerId);
+                playerPanel.SetAddingScore(playerId);
+                break;
+            case PlayerPanelState.Voted:
+                playerPanel.SetPlayerVoted(playerId);
                 break;
             default:
-            //TODO: Implement the other states
                 throw new System.NotImplementedException();
         }
     }
-
-    public void SetInstructionTextReady()
-    {
-        mainMenuInstructionsPanel.SetInstructionText(instructionTextGetReady);
-    }
-
-    public void SetInstructionText(string text)
-    {
-        mainMenuInstructionsPanel.SetInstructionText(text);
-    }
-
     public void SetPlayerScore(int playerId, int score)
     {
-        playerPanelAnimator.SetPlayerScore(playerId, score);
+        playerPanel.SetPlayerScore(playerId, score);
     }
 
     public void ResetPlayerPanels()
     {
-        for (int i = 0; i < playerPanels.Length; i++)
-        {
-            SetPlayerPanelState(i, PlayerPanelState.Default);
-        }
+        playerPanel.ResetPlayerPanels();
     }
-#endregion
+    #endregion
+    
+    
+    public void SetInstructionTextReady()
+    {
+        mainMenuPanel.SetInstructionText(instructionTextGetReady);
+    }
 
+    public void SetInstructionText(string text)
+    {
+        mainMenuPanel.SetInstructionText(text);
+    }
     public void UpdateTimer(float timeLeft)
     {
         timerSlider.value = timeLeft;
         timerText.text = timeLeft.ToString("F1");
     }
 
-
-
-    public void UpdateScorePanel(List<Player> sortedPlayers)
+    public void UpdateFinalScorePanel(List<Player> sortedPlayers)
     {
-        scorePanelWinnerText.text = sortedPlayers[0].Name;
-        scorePanelWinnerScoreText.text = "Score:" + ((int)sortedPlayers[0].Score).ToString();
-        string restText = "";
-        for (int i = 1; i < sortedPlayers.Count; i++)
-        {
-            restText += i.ToString() + " : " + sortedPlayers[i].Name + " Score: " + ((int)sortedPlayers[i].Score).ToString() + "\n";
-        }
-        scorePanelRestText.text = restText;
+        scorePanel.UpdateFinalScorePanel(sortedPlayers.ToArray());
     }
 
-    public void UpdateCategoryText(List<string> categories)
+    #region VotePanel
+    public void UpdateCategoryText(string[] categories)
     {
-        for (int i = 0; i < categories.Count; i++)
-        {
-            CategoryText[i].text = categories[i];
-        }
+        votePanel.SetCategoryTexts(categories);
     }
-
-
 
     public void ShowWinningCategory(int categoryIndex)
     {
-        TogglePanel(UIElement.CategoryPanel, true);
-        try
-        {
-            CategoryText[categoryIndex].color = Color.green;
-        }
-        catch
-        {
-            Debug.Log("Category index out of range: " + categoryIndex);
-        }
+        votePanel.ShowWinningCategory(categoryIndex);
     }
+
+    public void PlayerVoted(int playerId)
+    {
+        SetPlayerPanelState(playerId, PlayerPanelState.Voted);
+        //TODO: Add a vote token to the category
+    }
+
+    #endregion
 
     public void ShowQuestionResults()
     {

@@ -15,9 +15,12 @@ public class FinalScoreState : BaseGameState
             player.CalculateScore();
             Debug.Log(player.Name + " scored " + player.Score);
         }
-        uiManager.UpdateScorePanel(playerManager.GetSortedPlayers());
-        uiManager.TogglePanel(UIManager.UIElement.ScorePanel, true);
+        uiManager.UpdateFinalScorePanel(playerManager.GetSortedPlayers());
+        uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, true);
+        NotifyStateCompletion();
     }
+
+    
 
     public override void Exit()
     {

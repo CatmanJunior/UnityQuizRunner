@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class UIPanel : MonoBehaviour
 {
-    [HideInInspector]
-    public bool open;
-
     [SerializeField]
-     UIAnimationData openAnimationData;
-     [SerializeField]
-     bool playSound = false;
+    bool playSound = false;
 
     private SoundManager soundManager;
+    private bool open;
 
+#region Unity Functions
     void Start()
     {
         soundManager = SoundManager.Instance;
         open = gameObject.activeSelf;
     }
+#endregion
 
     private void PlayWindowSound(bool open = true)
     {
@@ -37,7 +35,6 @@ public class UIPanel : MonoBehaviour
             open = true;
             gameObject.SetActive(true);
             PlayWindowSound();
-            // openAnimationData.Play(gameObject);
         }
         catch (System.Exception e)
         {
@@ -52,7 +49,6 @@ public class UIPanel : MonoBehaviour
             return;
         open = false;
         PlayWindowSound(false);
-        // openAnimationData.Play(gameObject);
         gameObject.SetActive(false);
     }
 }
