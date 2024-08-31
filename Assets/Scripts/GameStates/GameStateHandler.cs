@@ -34,7 +34,8 @@ public class GameStateHandler : MonoBehaviour
 
     [SerializeField]
     public bool skipVote = false;
-
+    public bool useAnimations = true;
+    public bool useLightController = false;
     //a setter for the skipVote variable
     public void SetSkipVote(bool value)
     {
@@ -76,7 +77,12 @@ public class GameStateHandler : MonoBehaviour
         else
             Destroy(gameObject);
 
-        QuestionParser.LoadQuestionsFromTxt();
+        InitializeAsync();
+    }
+ 
+    private async void InitializeAsync()
+    {
+        await QuestionParser.LoadQuestionsFromTxt();
         categories = QuestionParser.GetCategories(4);
         Debug.Log("Categories: " + string.Join(", ", categories));
         categoryVoteState.Initialize(this);
@@ -86,11 +92,12 @@ public class GameStateHandler : MonoBehaviour
         mainMenuState.Initialize(this);
 
         categoryVoteHandler.InitCategories(categories);
+        ChangeState(mainMenuState);
     }
 
     private void Start()
     {
-        ChangeState(mainMenuState);
+        
 
         inputHandler.OnButton += HandlePlayerInput;
     }
@@ -161,7 +168,7 @@ public class GameStateHandler : MonoBehaviour
                 ChangeState(questionState);
                 break;
             case FinalScoreState:
-                DelayedStateChange(mainMenuState, finalScoreTime);
+                StartCoroutine(DelayedStateChange(mainMenuState, finalScoreTime));
                 break;
         }
 

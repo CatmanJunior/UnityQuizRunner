@@ -10,11 +10,7 @@ public class FinalScoreState : BaseGameState
     public override void Enter()
     {
         Debug.Log("Entering final score state");
-        foreach (Player player in playerManager.GetPlayers())
-        {
-            player.CalculateScore();
-            Debug.Log(player.Name + " scored " + player.Score);
-        }
+        ScoreCalculator.CalculateScores();
         uiManager.UpdateFinalScorePanel(playerManager.GetSortedPlayers());
         uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, true);
         NotifyStateCompletion();
@@ -24,12 +20,16 @@ public class FinalScoreState : BaseGameState
 
     public override void Exit()
     {
-        // Implementation for exiting the quiz state
+        uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, false);
+        uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, true);
     }
 
     public override void HandleInput(int controller, int button)
     {
-        // Implementation for handling input in the quiz state
+        if (button == 4)
+        {
+            NotifyStateCompletion();
+        }
     }
 
     public override void Update()
@@ -37,5 +37,4 @@ public class FinalScoreState : BaseGameState
         // Implementation for updating the quiz state
     }
 
-    // Additional private methods specific to QuizState
 }

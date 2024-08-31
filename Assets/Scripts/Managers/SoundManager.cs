@@ -83,7 +83,7 @@ public class SoundManager : MonoBehaviour
             case SoundEffect.TimerAlmostEnd:
                 return timerAlmostEndSound;
             default:
-                Debug.LogError("SoundEffect not found " + soundEffect.ToString());
+                Debug.LogWarning(("SoundEffect not found " + soundEffect.ToString()));
                 return null;
         }
     }

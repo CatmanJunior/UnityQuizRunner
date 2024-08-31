@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
@@ -43,7 +42,7 @@ public class CountdownTimer : MonoBehaviour
     /// <param name="countdownDuration">The duration of the countdown in seconds.</param>
     public void StartCountdown(System.Action onTimerEnd, int countdownDuration)
     {
-        print("StartCountdown");
+        Debug.Log("StartCountdown");
         if (!IsCounting)
         {
             countdownText.gameObject.SetActive(true);
@@ -64,6 +63,7 @@ public class CountdownTimer : MonoBehaviour
 
     private IEnumerator Countdown()
     {
+        Debug.Log("Countdown");
         float timer = CountdownDuration;
 
         while (timer > 0)

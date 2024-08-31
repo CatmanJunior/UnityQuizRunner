@@ -9,6 +9,19 @@ public class PlayerManager : MonoBehaviour
 {
     private List<Player> players = new List<Player>();
 
+    public static PlayerManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     public void CreatePlayers(int playerAmount)
     {
@@ -50,12 +63,14 @@ public class PlayerManager : MonoBehaviour
 
     public int[] UpdateScores()
     {
-        foreach (Player player in players)
-        {
-            player.CalculateScore();
-        }
+        ScoreCalculator.CalculateScores();
         //create a array of scores of all players
         return players.Select(player => (int)player.Score).ToArray();
+    }
+
+    public int[] InitializeScores()
+    {
+        return GetPlayers().Select(player => (int)player.Score).ToArray();
     }
 
     public void AddEmptyAnswers(Question currentQuestion)
@@ -69,21 +84,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    //a functions that compares the fastest answer and gives the player with the fastest answer a point
-    public Player GiveFastestAnswerPoint(Question question)
-    {
-        var correctPlayers = players
-            .Where(player => player.HasAnsweredCorrectly(question))
-            .OrderBy(player => player.GetPlayerAnswer(question).TimeTaken)
-            .ToList();
 
-        if (correctPlayers.Any())
-        {
-            correctPlayers[0].AddPoint();
-            return correctPlayers[0];
-        }
-        return null;
-    }
+
     public List<Player> GetSortedPlayers()
     {
         List<Player> sortedPlayers = new List<Player>(players);
@@ -108,7 +110,7 @@ public class PlayerManager : MonoBehaviour
         return true;
     }
 
-    
+
 
     //a function that checks if all players have answered the current question
     public bool HaveAllPlayersAnswered(Question question)

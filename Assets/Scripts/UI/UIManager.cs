@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
             { UIElement.DebugPanel, debugPanel}
         };
 
-        
+
     }
 
     #endregion
@@ -147,8 +147,8 @@ public class UIManager : MonoBehaviour
         playerPanel.ResetPlayerPanels();
     }
     #endregion
-    
-    
+
+
     public void SetInstructionTextReady()
     {
         mainMenuPanel.SetInstructionText(instructionTextGetReady);
@@ -193,8 +193,13 @@ public class UIManager : MonoBehaviour
         questionPanel.ShowQuestionResults();
     }
 
-    public void ShowQuestion()
+    public void ShowQuestion(System.Action StartQuestionTimer)
     {
-        questionPanel.ShowQuestion();
+        questionPanel.ShowQuestion(StartQuestionTimer);
+    }
+
+        public void StartQuestionTimer()
+    {
+     
     }
 }

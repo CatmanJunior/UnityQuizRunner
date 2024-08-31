@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using static SoundManager.SoundEffect;
 
 [System.Serializable]
@@ -34,8 +35,8 @@ public class ResultState : BaseGameState
 
     IEnumerator ShowResult()
     {
-        int[] scores = InitializeScores();
-        Player fastestPlayer = playerManager.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
+        int[] scores = playerManager.InitializeScores();
+        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
         int[] newScores = playerManager.UpdateScores();
 
         foreach (Player player in playerManager.GetPlayers())
@@ -54,10 +55,8 @@ public class ResultState : BaseGameState
         countdownTimer.StartCountdown(NotifyStateCompletion, postQuestionTime);
     }
 
-    private int[] InitializeScores()
-    {
-        return playerManager.GetPlayers().Select(player => (int)player.Score).ToArray();
-    }
+    
+
 
     private void UpdatePlayerPanelState(Player player, Player fastestPlayer)
     {

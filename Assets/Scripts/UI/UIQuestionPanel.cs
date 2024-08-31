@@ -38,10 +38,10 @@ public class UIQuestionPanel : UIPanel
     /// <summary>
     /// Displays the current question on the UI panel.
     /// </summary>
-    public void ShowQuestion()
+    public void ShowQuestion(System.Action onComplete = null)
     {
         Open();
-        SetQuestion(QuestionManager.Instance.CurrentQuestion);
+        SetQuestion(onComplete);
         SetAnswersText(QuestionManager.Instance.CurrentQuestion);
         SetCategoryText(QuestionManager.Instance.CurrentQuestion);
         SetAnswerStyles(setDefault: true);
@@ -59,23 +59,18 @@ public class UIQuestionPanel : UIPanel
     #endregion
 
     #region private methods
-    private void SetQuestion(Question question)
+    private void SetQuestion(System.Action onComplete = null)
     {
+        Question question = QuestionManager.Instance.CurrentQuestion;
         if (useAnimations)
         {
-            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, typingSpeed, OnQuestionTypingComplete));
+            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, typingSpeed, onComplete));
         }
         else
         {
             questionText.text = question.QuestionText;
+            onComplete?.Invoke();
         }
-    }
-
-    private void OnQuestionTypingComplete()
-    {
-        Debug.Log("Typing animation completed.");
-        //TODO: Start answer animation after question typing animation is completed
-        //TODO: start timer after question typing animation is completed
     }
 
     private void SetAnswersText(Question question)

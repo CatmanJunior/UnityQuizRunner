@@ -1,9 +1,5 @@
-
-
 using System.Collections.Generic;
-using System.Dynamic;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
 
 [System.Serializable]
 public class MainMenuState : BaseGameState
@@ -28,6 +24,7 @@ public class MainMenuState : BaseGameState
 
     public override void HandleInput(int controller, int button)
     {
+        Debug.Log("HandleInput in MainMenu: Controller: " + controller + " Button: " + button);
         //if the button is not the check in button or the controller is already checked in
         if (button != 4 || checkedInControllers.Contains(controller))
         {
@@ -38,9 +35,11 @@ public class MainMenuState : BaseGameState
 
     private void HandlePlayerCheckIn(int controller)
     {
+        Debug.Log("HandlePlayerCheckIn: Controller: " + controller);
         CheckInPlayer(controller);
         if (checkedInControllers.Count >= requiredControllers) //if the required amount of controllers are checked in
         {
+            Debug.Log("All players checked in");
             gameStateHandler.countdownTimer.StopCountdown();
             uiManager.SetInstructionTextReady();
             //invoke in 2 seconds
@@ -50,6 +49,7 @@ public class MainMenuState : BaseGameState
 
     private void CheckInPlayer(int controller)
     {
+        Debug.Log("Checking in player: " + controller);
         checkedInControllers.Add(controller);
         soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayerCheckedIn);
         inputHandler.LightUpController(checkedInControllers);

@@ -24,10 +24,7 @@ public class Player
         Answers.Add(answer);
     }
 
-    public void AddPoint(int pointsToAdd = 1)
-    {
-        BonusScore+= pointsToAdd;
-    }
+
 
     public bool HasAnsweredCorrectly(Question question)
     {
@@ -44,20 +41,7 @@ public class Player
     }
 
 
-    public float CalculateScore()
-    {
-        Score = BonusScore;
-        foreach (PlayerAnswer answer in Answers)
-        {
-            if (answer.IsCorrect)
-            {
-                float extraScore = 10 - answer.TimeTaken;
-                Score += extraScore;
 
-            }
-        }
-        return Score;
-    }
 
     //a function that returns a bool if the player has answered a question
     public bool HasAnswered(Question question)

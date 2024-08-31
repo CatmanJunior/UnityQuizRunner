@@ -1,12 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using TMPro;
 using System.Linq;
-using System;
-using Random = UnityEngine.Random;
+
 
 public class QuestionManager : MonoBehaviour
 {
@@ -60,7 +55,7 @@ public class QuestionManager : MonoBehaviour
 
     public bool IsAnswerAvailable(int answerId)
     {
-        return answerId >= 0 || answerId < CurrentQuestion.Answers.Count;
+        return answerId >= 0 && answerId < CurrentQuestion.Answers.Count;
     }
 
     public bool IsQuestionAvailable()

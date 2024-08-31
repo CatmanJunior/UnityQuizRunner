@@ -24,7 +24,7 @@ public class QuestionState : BaseGameState
         if (questionManager.HasQuestionsLeft())
         {
             questionManager.NextQuestion();
-            uiManager.ShowQuestion();
+            uiManager.ShowQuestion(StartQuestionTimer);
             uiManager.TogglePanel(UIManager.UIElement.TimerPanel, true);
             countdownTimer.StartCountdown(EndOfQuestion, questionAnswerTime);
         }
@@ -85,7 +85,11 @@ public class QuestionState : BaseGameState
 
     // Additional private methods specific to QuizState
 
-
+    public void StartQuestionTimer()
+    {
+        uiManager.TogglePanel(UIManager.UIElement.TimerPanel, true);
+        countdownTimer.StartCountdown(EndOfQuestion, questionAnswerTime);
+    }
 
     private void EndOfQuestion()
     {
