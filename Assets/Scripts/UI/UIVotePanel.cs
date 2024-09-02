@@ -14,7 +14,15 @@ public class UIVotePanel : UIPanel
 
     public void ShowWinningCategory(int categoryIndex)
     {
-        Debug.Log("Winning category index: " + categoryIndex);
+        Logger.Log("Winning category index: " + categoryIndex);
             categoryTexts[categoryIndex].color = Color.green;
+    }
+
+    public void ResetCategoryColors()
+    {
+        foreach (var categoryText in categoryTexts)
+        {
+            categoryText.color = Color.white;
+        }
     }
 }

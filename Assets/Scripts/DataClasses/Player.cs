@@ -24,7 +24,10 @@ public class Player
         Answers.Add(answer);
     }
 
-
+    public void ResetAnswers()
+    {
+        Answers.Clear();
+    }
 
     public bool HasAnsweredCorrectly(Question question)
     {

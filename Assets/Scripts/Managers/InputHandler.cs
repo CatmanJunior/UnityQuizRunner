@@ -114,7 +114,7 @@ public class InputHandler : MonoBehaviour
 
     public void LightUpController(List<int> controllers)
     {
-        if (!GameStateHandler.Instance.useLightController) return;
+        if (!Settings.useLightController) return;
         // Find the HID device 
         var devices = HidDevices.Enumerate(1356, 2);
         var hidDevice = devices.FirstOrDefault();

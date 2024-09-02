@@ -54,13 +54,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIDebugPanel debugPanel;
 
-    [Header("UI Settings")]
-    [SerializeField]
-    private string instructionTextGetReady = "Get Ready!";
-
     //Private variables
-
-
     private Dictionary<UIElement, UIPanel> panelDictionary;
 
     #region Unity Functions
@@ -149,10 +143,6 @@ public class UIManager : MonoBehaviour
     #endregion
 
 
-    public void SetInstructionTextReady()
-    {
-        mainMenuPanel.SetInstructionText(instructionTextGetReady);
-    }
 
     public void SetInstructionText(string text)
     {
@@ -178,6 +168,11 @@ public class UIManager : MonoBehaviour
     public void ShowWinningCategory(int categoryIndex)
     {
         votePanel.ShowWinningCategory(categoryIndex);
+    }
+
+    public void ResetCategoryVote()
+    {
+        votePanel.ResetCategoryColors();
     }
 
     public void PlayerVoted(int playerId)

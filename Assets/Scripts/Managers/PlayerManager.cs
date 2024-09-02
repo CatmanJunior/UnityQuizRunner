@@ -53,12 +53,20 @@ public class PlayerManager : MonoBehaviour
     {
         if (GetPlayer(controllerId).HasAnswered(question))
         {
-            print("Player " + controllerId + " has already answered this question");
+            Logger.Log("Player " + controllerId + " has already answered this question");
             return false;
         }
         bool isCorrect = question.Answers[answerId].IsCorrect;
         GetPlayer(controllerId).AddAnswer(question, answerId, isCorrect, timeTaken);
         return true;
+    }
+
+    public void ResetAnswers()
+    {
+        foreach (Player player in players)
+        {
+            player.ResetAnswers();
+        }
     }
 
     public int[] UpdateScores()
@@ -68,6 +76,7 @@ public class PlayerManager : MonoBehaviour
         return players.Select(player => (int)player.Score).ToArray();
     }
 
+    //TODO: name this function better
     public int[] InitializeScores()
     {
         return GetPlayers().Select(player => (int)player.Score).ToArray();
@@ -84,7 +93,19 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void ResetScores()
+    {
+        foreach (Player player in players)
+        {
+            player.Score = 0;
+            player.BonusScore = 0;
+        }
+    }
 
+    public void RemovePlayers()
+    {
+        players.Clear();
+    }
 
     public List<Player> GetSortedPlayers()
     {

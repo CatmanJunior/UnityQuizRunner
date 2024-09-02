@@ -8,8 +8,7 @@ public class QuestionState : BaseGameState
     {
     }
 
-    [SerializeField]
-    private int questionAnswerTime = 10;
+
 
 
     public override void Enter()
@@ -24,17 +23,16 @@ public class QuestionState : BaseGameState
         if (questionManager.HasQuestionsLeft())
         {
             questionManager.NextQuestion();
+            //TODO: the timer triggers after the full text is shown, but has to go through multiple classes do like a observer pattern
             uiManager.ShowQuestion(StartQuestionTimer);
             uiManager.TogglePanel(UIManager.UIElement.TimerPanel, true);
-            countdownTimer.StartCountdown(EndOfQuestion, questionAnswerTime);
+            // countdownTimer.StartCountdown(EndOfQuestion, questionAnswerTime);
         }
         else
         {
             Debug.Log("Ending Quiz");
             questionManager.EndQuiz();
-
             NotifyStateCompletion();
-
         }
     }
 
@@ -66,13 +64,14 @@ public class QuestionState : BaseGameState
         if (playerManager.HaveAllPlayersAnswered(questionManager.CurrentQuestion))
         {
             countdownTimer.StopCountdown();
+            uiManager.TogglePanel(UIManager.UIElement.TimerPanel, false);
             EndOfQuestion();
         }
     }
 
     public override void Update()
     {
-       if (gameStateHandler.IsTestMode()){
+       if (Settings.testMode){
         //at random intervals a player will answer
         if (UnityEngine.Random.Range(0, 1000) < 2)
         {
@@ -88,7 +87,7 @@ public class QuestionState : BaseGameState
     public void StartQuestionTimer()
     {
         uiManager.TogglePanel(UIManager.UIElement.TimerPanel, true);
-        countdownTimer.StartCountdown(EndOfQuestion, questionAnswerTime);
+        countdownTimer.StartCountdown(EndOfQuestion, Settings.questionAnswerTime);
     }
 
     private void EndOfQuestion()

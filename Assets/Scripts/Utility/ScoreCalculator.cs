@@ -4,8 +4,7 @@ using System.Linq;
 
 public class ScoreCalculator : MonoBehaviour
 {
-    static float pointsForRightAnswer = 1;
-
+    
     public static float CalculateScore(Player player)
     {
         float Score = player.BonusScore;
@@ -14,7 +13,7 @@ public class ScoreCalculator : MonoBehaviour
             if (answer.IsCorrect)
             {
                 
-                Score += pointsForRightAnswer;
+                Score += Settings.PointsForRightAnswer;
 
             }
         }
@@ -36,7 +35,7 @@ public class ScoreCalculator : MonoBehaviour
         Player[] correctPlayers = players.Where(player => player.HasAnsweredCorrectly(question)).ToArray();
         if (correctPlayers.Length == 0) return null;
         Player fastestPlayer = correctPlayers.OrderBy(player => player.GetPlayerAnswer(question).TimeTaken).ToArray()[0];
-        AddPoint(fastestPlayer);
+        AddPoint(fastestPlayer, Settings.PointsForFastestAnswer);
         return fastestPlayer;
     }
 

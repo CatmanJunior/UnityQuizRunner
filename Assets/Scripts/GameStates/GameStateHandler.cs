@@ -1,11 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using static SoundManager;
-using static SoundManager.SoundEffect;
+
 
 public class GameStateHandler : MonoBehaviour
 {
@@ -29,29 +25,6 @@ public class GameStateHandler : MonoBehaviour
     public string category = null;
 
     private BaseGameState currentState;
-
-    [Header("Settings")]
-
-    [SerializeField]
-    public bool skipVote = false;
-    public bool useAnimations = true;
-    public bool useLightController = false;
-    //a setter for the skipVote variable
-    public void SetSkipVote(bool value)
-    {
-        skipVote = value;
-    }
-
-    [SerializeField]
-    private bool testMode = false;
-
-    [SerializeField]
-    private int preQuestionTime = 5;
-
-    [SerializeField]
-    private int finalScoreTime = 10;
-
-
 
     [Header("References")]
     [SerializeField]
@@ -79,50 +52,64 @@ public class GameStateHandler : MonoBehaviour
 
         InitializeAsync();
     }
- 
+
     private async void InitializeAsync()
     {
         await QuestionParser.LoadQuestionsFromTxt();
-        categories = QuestionParser.GetCategories(4);
-        Debug.Log("Categories: " + string.Join(", ", categories));
+
+
         categoryVoteState.Initialize(this);
         questionState.Initialize(this);
         finalScoreState.Initialize(this);
         resultState.Initialize(this);
         mainMenuState.Initialize(this);
 
-        categoryVoteHandler.InitCategories(categories);
         ChangeState(mainMenuState);
     }
 
     private void Start()
     {
-        
-
         inputHandler.OnButton += HandlePlayerInput;
     }
 
     private void Update()
     {
         uiManager.UpdateTimer(countdownTimer.GetNormalizedTimeLeft());
-
         currentState?.Update();
     }
 
+    public void ResetGame()
+    {
+        //TODO: just clear the player list and make a new one
+        playerManager.ResetAnswers();
+        playerManager.ResetScores();
+        playerManager.RemovePlayers();
+        foreach (Player player in playerManager.GetPlayers())
+        {
+            uiManager.SetPlayerScore(player.ControllerId, 0);
+        }
+    }
 
+
+    public void GetNewCategories()
+    {
+        categories = QuestionParser.GetCategories(4);
+        categoryVoteHandler.InitCategories(categories);
+        Logger.Log("Categories: " + string.Join(", ", categories));
+    }
 
     public void HandlePlayerInput(int controller, int button)
     {
-
         soundManager.PlaySoundEffect(SoundEffect.AnswerGiven);
-
         currentState?.HandleInput(controller, button);
     }
 
     private void ChangeState(BaseGameState newState)
     {
+        //TODO: Move this
         if (newState == mainMenuState)
         {
+            ResetGame();
             uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, true);
             uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, false);
             uiManager.TogglePanel(UIManager.UIElement.VotePanel, false);
@@ -136,42 +123,44 @@ public class GameStateHandler : MonoBehaviour
         currentState = newState;
         currentState.OnStateCompleted += HandleStateCompletion;
         currentState.Enter();
-
     }
 
     private void HandleStateCompletion()
     {
-        Debug.Log("State completed: " + currentState.GetType().Name);
+        Logger.Log("State completed: " + currentState.GetType().Name);
         // Determine the next state based on the current state
         switch (currentState)
         {
             case MainMenuState:
-                if (skipVote)
+                if (Settings.skipVote)
                 {
-                    category = categoryVoteHandler.GetTopCategory();
+                    category = Settings.generalCategory;
                     ChangeState(questionState);
                 }
                 else
+                {
+                    GetNewCategories();
                     ChangeState(categoryVoteState);
+                }
                 break;
             case CategoryVoteState:
-                StartCoroutine(DelayedStateChange(questionState, preQuestionTime));
+                StartCoroutine(DelayedStateChange(questionState, Settings.preQuestionTime));
                 break;
             case QuestionState:
                 //if question index == -1
                 if (questionManager.HasQuizStarted())
-                    ChangeState(resultState);
+                    //TODO: create a function in the basestate to do this
+                    StartCoroutine(DelayedStateChange(resultState, 1));
                 else
-                    ChangeState(finalScoreState);
+                    StartCoroutine(DelayedStateChange(finalScoreState, 1));
                 break;
             case ResultState:
                 ChangeState(questionState);
                 break;
             case FinalScoreState:
-                StartCoroutine(DelayedStateChange(mainMenuState, finalScoreTime));
+                StartCoroutine(DelayedStateChange(mainMenuState, Settings.finalScoreTime));
                 break;
         }
-
     }
 
     IEnumerator DelayedStateChange(BaseGameState newState, float delay)
@@ -179,11 +168,5 @@ public class GameStateHandler : MonoBehaviour
         yield return new WaitForSeconds(delay);
         ChangeState(newState);
     }
-
-    public bool IsTestMode()
-    {
-        return testMode;
-    }
-
 }
 

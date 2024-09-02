@@ -11,7 +11,7 @@ public class UIDebugPanel : UIPanel
     private void Start()
     {
         gameStateHandler = GameStateHandler.Instance;
-        CreateDebugToggle("Use Voting", gameStateHandler.skipVote, gameStateHandler.SetSkipVote);
+        // CreateDebugToggle("Use Voting", Settings.skipVote, gameStateHandler.SetSkipVote);
     }
 
     private void CreateDebugToggle(string label, bool initialValue, Action<bool> onToggleAction)

@@ -2,21 +2,16 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-
 public class QuestionManager : MonoBehaviour
 {
-    [Header("Question Settings")]
-    [SerializeField]
-    private int amountOfQuestions = 5;
-
     //Private variables
-    private List<Question> questions = new List<Question>(); //a list of all the questions loaded from the txt file
-    private int currentQuestionIndex = -1; //the current question index
+    private List<Question> _questionList = new(); 
 
-    //a getter that checks if the current question index is valid and returns the current question, else null
-    private Question currentQuestion { get => currentQuestionIndex >= 0 && currentQuestionIndex < questions.Count ? questions[currentQuestionIndex] : null; }
+    private int _currentQuestionIndex = -1; //the current question index
 
-    public Question CurrentQuestion { get => currentQuestion; }
+    private Question _currentQuestion { get => _currentQuestionIndex >= 0 && _currentQuestionIndex < _questionList.Count ? _questionList[_currentQuestionIndex] : null; }
+
+    public Question CurrentQuestion { get => _currentQuestion; }
 
     public static QuestionManager Instance { get; private set; }
 
@@ -32,19 +27,19 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    public void GetRandomQuestions(string category = "General")
+    public void GetRandomQuestions(string category = Settings.generalCategory)
     {
-        questions = QuestionParser.GetRandomQuestions(amountOfQuestions, category);
+        _questionList = QuestionParser.GetRandomQuestions(Settings.AmountOfQuestions, category);
     }
 
     public void NextQuestion()
     {
-        currentQuestionIndex++;
+        _currentQuestionIndex++;
     }
 
     public void EndQuiz()
     {
-        currentQuestionIndex = -1;
+        _currentQuestionIndex = -1;
     }
 
     public List<bool> GetCorrectAnswers()
@@ -60,19 +55,19 @@ public class QuestionManager : MonoBehaviour
 
     public bool IsQuestionAvailable()
     {
-        return currentQuestion != null;
-    
+        return _currentQuestion != null;
     }
 
     //a function that returns if the quiz has started
     public bool HasQuizStarted()
     {
-        return currentQuestionIndex >= 0;
+        return _currentQuestionIndex >= 0;
     }
 
 
-    public bool HasQuestionsLeft(){
-        return currentQuestionIndex < questions.Count - 1;
+    public bool HasQuestionsLeft()
+    {
+        return _currentQuestionIndex < _questionList.Count - 1;
     }
 
 

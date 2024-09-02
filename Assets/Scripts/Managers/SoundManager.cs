@@ -115,6 +115,10 @@ public class SoundManager : MonoBehaviour
 
     private void PlayMusic(AudioClip clip, bool play = true)
     {
+        if (!Settings.muteMusic)
+        {
+            return;
+        }
         //set the clip of our sound effect source to the clip passed in as a parameter
         musicSource.clip = clip;
 

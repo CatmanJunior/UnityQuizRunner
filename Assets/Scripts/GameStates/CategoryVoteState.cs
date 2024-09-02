@@ -5,30 +5,26 @@ using static SoundManager;
 public class CategoryVoteState : BaseGameState
 {
     public CategoryVoteState() : base() { }
-
-    [SerializeField]
-    private int categoryVoteTime = 10;
-
+ 
     public override void Enter()
     {
         uiManager.UpdateCategoryText(GameStateHandler.categories);
         uiManager.TogglePanel(UIManager.UIElement.VotePanel, true);
-        countdownTimer.StartCountdown(DoneVoting, categoryVoteTime);
+        countdownTimer.StartCountdown(DoneVoting, Settings.categoryVoteTime);
     }
 
     public override void Exit()
     {
         gameStateHandler.category = categoryVoteHandler.GetTopCategory();
+
         soundManager.PlaySoundEffect(SoundEffect.CategoryChosen);
         uiManager.ResetPlayerPanels();
         uiManager.TogglePanel(UIManager.UIElement.VotePanel, false);
+        uiManager.ResetCategoryVote();
     }
-
-
 
     public override void HandleInput(int controller, int button)
     {
-        //FIXME: Handle the keyboard buttons better
         if (categoryVoteHandler.HandleCategoryVote(controller, button))
         {
             uiManager.SetPlayerPanelState(controller, PlayerPanelState.Voted);

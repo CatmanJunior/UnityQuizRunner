@@ -10,11 +10,6 @@ using static SoundManager.SoundEffect;
 
 public class ResultState : BaseGameState
 {
-    [SerializeField]
-    float scoreIncreaseSpeedInSeconds = 0.3f;
-    [SerializeField]
-    private int postQuestionTime = 3;
-
     private bool pauzed = false;
 
     public ResultState() : base()
@@ -46,13 +41,13 @@ public class ResultState : BaseGameState
             while (scores[player.ControllerId] < newScores[player.ControllerId])
             {
                 IncrementPlayerScore(player, scores, newScores);
-                yield return new WaitForSeconds(scoreIncreaseSpeedInSeconds);
+                yield return new WaitForSeconds(Settings.scoreIncreaseSpeedInSeconds);
             }
             FinalizePlayerPanelState(player);
             yield return new WaitForSeconds(1);
         }
 
-        countdownTimer.StartCountdown(NotifyStateCompletion, postQuestionTime);
+        countdownTimer.StartCountdown(NotifyStateCompletion, Settings.postQuestionTime);
     }
 
     
@@ -105,7 +100,7 @@ public class ResultState : BaseGameState
         }
         else
         {
-            countdownTimer.StartCountdown(NotifyStateCompletion, postQuestionTime);
+            countdownTimer.StartCountdown(NotifyStateCompletion, Settings.postQuestionTime);
         }
     }
 
@@ -114,5 +109,5 @@ public class ResultState : BaseGameState
         // Implementation for updating the quiz state
     }
 
-    // Additional private methods specific to QuizState
+
 }

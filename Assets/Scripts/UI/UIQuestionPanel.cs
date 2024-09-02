@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System.Configuration;
 
 public class UIQuestionPanel : UIPanel
 {
@@ -23,11 +24,8 @@ public class UIQuestionPanel : UIPanel
     private Color defaultAnswerColor; //the default color of the answer text
     [SerializeField]
     private FontStyles defaultAnswerStyle; //the default style of the answer text
-    [Header("Typing Animation Settings")]
-    [SerializeField]
-    bool useAnimations = true;
-    [SerializeField]
-    private float typingSpeed = 0.05f;
+
+
     public enum AnswerStyle
     {
         Default,
@@ -62,9 +60,9 @@ public class UIQuestionPanel : UIPanel
     private void SetQuestion(System.Action onComplete = null)
     {
         Question question = QuestionManager.Instance.CurrentQuestion;
-        if (useAnimations)
+        if (Settings.useAnimations)
         {
-            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, typingSpeed, onComplete));
+            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, Settings.questionTypingSpeed, onComplete));
         }
         else
         {
@@ -75,7 +73,13 @@ public class UIQuestionPanel : UIPanel
 
     private void SetAnswersText(Question question)
     {
-        for (int i = 0; i < question.Answers.Count; i++)
+        if (question.Answers.Count != answerTexts.Count)
+        {
+            Debug.LogError("The amount of answer texts does not match the amount of answers in the question.");
+            Debug.LogError("Question: " + question.QuestionText);
+        }
+
+        for (int i = 0; i < answerTexts.Count; i++)
         {
             answerTexts[i].text = question.Answers[i].AnswerText;
         }

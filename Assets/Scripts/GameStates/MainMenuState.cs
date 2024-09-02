@@ -4,27 +4,25 @@ using UnityEngine;
 [System.Serializable]
 public class MainMenuState : BaseGameState
 {
-    [SerializeField]
-    int requiredControllers = 4;
-    [SerializeField]
-    int timeBeforeCheckedInClear = 10;
-
     private List<int> checkedInControllers = new List<int>();
     public MainMenuState() : base() { }
 
     public override void Enter()
     {
         uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, true);
+        uiManager.TogglePanel(UIManager.UIElement.TimerPanel, false);
+        uiManager.SetInstructionText(Settings.MainMenuStartText);
     }
 
     public override void Exit()
     {
+        ClearControllersCheckedIn();
         uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, false);
     }
 
     public override void HandleInput(int controller, int button)
     {
-        Debug.Log("HandleInput in MainMenu: Controller: " + controller + " Button: " + button);
+        Logger.Log("HandleInput in MainMenu: Controller: " + controller + " Button: " + button);
         //if the button is not the check in button or the controller is already checked in
         if (button != 4 || checkedInControllers.Contains(controller))
         {
@@ -35,13 +33,13 @@ public class MainMenuState : BaseGameState
 
     private void HandlePlayerCheckIn(int controller)
     {
-        Debug.Log("HandlePlayerCheckIn: Controller: " + controller);
+        Logger.Log("HandlePlayerCheckIn: Controller: " + controller);
         CheckInPlayer(controller);
-        if (checkedInControllers.Count >= requiredControllers) //if the required amount of controllers are checked in
+        if (checkedInControllers.Count >= Settings.requiredControllers) //if the required amount of controllers are checked in
         {
-            Debug.Log("All players checked in");
+            Logger.Log("All players checked in");
             gameStateHandler.countdownTimer.StopCountdown();
-            uiManager.SetInstructionTextReady();
+            uiManager.SetInstructionText(Settings.MainMenuEndText);
             //invoke in 2 seconds
             gameStateHandler.countdownTimer.StartCountdown(ResetAndCreatePlayers, 1);
         }
@@ -49,30 +47,32 @@ public class MainMenuState : BaseGameState
 
     private void CheckInPlayer(int controller)
     {
-        Debug.Log("Checking in player: " + controller);
+        Logger.Log("Checking in player: " + controller);
         checkedInControllers.Add(controller);
         soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayerCheckedIn);
         inputHandler.LightUpController(checkedInControllers);
         gameStateHandler.countdownTimer.StopCountdown();
         uiManager.SetPlayerPanelState(controller, PlayerPanelState.CheckedIn);
-        gameStateHandler.countdownTimer.StartCountdown(ClearControllersCheckedIn, timeBeforeCheckedInClear);
+        gameStateHandler.countdownTimer.StartCountdown(ClearControllersCheckedIn, Settings.timeBeforeCheckedInClear);
     }
 
     private void ResetAndCreatePlayers()
     {
+        //TODO: move to exit()
         uiManager.ResetPlayerPanels();
+        //TODO: Move to state handler
         playerManager.CreatePlayers(checkedInControllers.Count);
         NotifyStateCompletion();
     }
 
     private void ClearControllersCheckedIn()
     {
-        Debug.Log("Clearing controllers");
+        Logger.Log("Clearing controllers");
         soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayersCheckedOut);
         inputHandler.LightUpController(new List<int> { });
         checkedInControllers.Clear();
         //stop animation
-        for (int i = 0; i < requiredControllers; i++)
+        for (int i = 0; i < Settings.requiredControllers; i++)
         {
             uiManager.SetPlayerPanelState(i, PlayerPanelState.Default);
         }
