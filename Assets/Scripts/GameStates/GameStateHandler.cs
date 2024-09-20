@@ -22,7 +22,7 @@ public class GameStateHandler : MonoBehaviour
     public static string[] categories;
 
     [HideInInspector]
-    public string category = null;
+    public string currentCategory = null;
 
     private BaseGameState currentState;
 
@@ -31,7 +31,7 @@ public class GameStateHandler : MonoBehaviour
     private UIManager uiManager;
 
     [SerializeField]
-    public CountdownTimer countdownTimer;
+    public TimerManager timerManager;
     [SerializeField]
     private InputHandler inputHandler;
     [SerializeField]
@@ -74,28 +74,25 @@ public class GameStateHandler : MonoBehaviour
 
     private void Update()
     {
-        uiManager.UpdateTimer(countdownTimer.GetNormalizedTimeLeft());
         currentState?.Update();
     }
 
     public void ResetGame()
     {
-        //TODO: just clear the player list and make a new one
-        playerManager.ResetAnswers();
-        playerManager.ResetScores();
-        playerManager.RemovePlayers();
-        foreach (Player player in playerManager.GetPlayers())
-        {
-            uiManager.SetPlayerScore(player.ControllerId, 0);
-        }
+        playerManager.CreateNewPlayers(Settings.requiredControllers);
+        uiManager.ResetGame();
+        timerManager.ClearAllTimers();
+        currentCategory = null;
+        uiManager.SetInstructionText(Settings.MainMenuStartText);
     }
 
 
     public void GetNewCategories()
     {
-        categories = QuestionParser.GetCategories(4);
-        categoryVoteHandler.InitCategories(categories);
-        Logger.Log("Categories: " + string.Join(", ", categories));
+        string[] _categories = QuestionParser.GetCategories(4);
+        Debug.Log("Categories: " + string.Join(", ", _categories));
+        categoryVoteHandler.InitCategories(_categories);
+        categories = _categories;
     }
 
     public void HandlePlayerInput(int controller, int button)
@@ -104,17 +101,13 @@ public class GameStateHandler : MonoBehaviour
         currentState?.HandleInput(controller, button);
     }
 
-    private void ChangeState(BaseGameState newState)
+    private void ChangeState(BaseGameState newState, int delay = 0)
     {
-        //TODO: Move this
-        if (newState == mainMenuState)
+        if (delay > 0)
         {
-            ResetGame();
-            uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, true);
-            uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, false);
-            uiManager.TogglePanel(UIManager.UIElement.VotePanel, false);
+            StartCoroutine(DelayedStateChange(newState, delay));
+            return;
         }
-
         if (currentState != null)
         {
             currentState.Exit();
@@ -134,7 +127,7 @@ public class GameStateHandler : MonoBehaviour
             case MainMenuState:
                 if (Settings.skipVote)
                 {
-                    category = Settings.generalCategory;
+                    currentCategory = Settings.generalCategory;
                     ChangeState(questionState);
                 }
                 else
@@ -144,29 +137,36 @@ public class GameStateHandler : MonoBehaviour
                 }
                 break;
             case CategoryVoteState:
-                StartCoroutine(DelayedStateChange(questionState, Settings.preQuestionTime));
+                ChangeState(questionState, Settings.preQuestionTime);
                 break;
             case QuestionState:
                 //if question index == -1
                 if (questionManager.HasQuizStarted())
-                    //TODO: create a function in the basestate to do this
-                    StartCoroutine(DelayedStateChange(resultState, 1));
+                    
+                    ChangeState(resultState, 1);
                 else
-                    StartCoroutine(DelayedStateChange(finalScoreState, 1));
+                    ChangeState(finalScoreState, 1);
                 break;
             case ResultState:
                 ChangeState(questionState);
                 break;
             case FinalScoreState:
-                StartCoroutine(DelayedStateChange(mainMenuState, Settings.finalScoreTime));
+                ChangeState(mainMenuState, Settings.finalScoreTime);
                 break;
         }
     }
 
+
+
+
     IEnumerator DelayedStateChange(BaseGameState newState, float delay)
     {
+
         yield return new WaitForSeconds(delay);
         ChangeState(newState);
     }
+    
+
+    
 }
 

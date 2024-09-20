@@ -1,79 +1,98 @@
-using System;
 using System.Collections;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using static SoundManager.SoundEffect;
 
 [System.Serializable]
-
 public class ResultState : BaseGameState
 {
-    private bool pauzed = false;
-
     public ResultState() : base()
-    {
-
-    }
+    { }
 
     public override void Enter()
     {
         playerManager.AddEmptyAnswers(questionManager.CurrentQuestion);
         uiManager.ShowQuestionResults();
-        uiManager.TogglePanel(UIManager.UIElement.TimerPanel, true);
+        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
 
         gameStateHandler.StartCoroutine(ShowResult());
     }
-
-
-
     IEnumerator ShowResult()
     {
-        int[] scores = playerManager.InitializeScores();
-        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
-        int[] newScores = playerManager.UpdateScores();
+        // Get initial scores before updating
+        int[] initialScores = playerManager.GetPlayerScores();
 
+        // Determine the fastest player to answer the current question
+        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
+
+        // Update the scores based on player answers
+        playerManager.UpdatePlayerScores();
+        int[] updatedScores = playerManager.GetPlayerScores();
+
+        //print all the players and their scores
+        for (int i = 0; i < playerManager.GetPlayers().Count; i++)
+        {
+            Debug.Log("Player " + i + " has score " + updatedScores[i]);
+        }
+        // Iterate through all players to update their panels
         foreach (Player player in playerManager.GetPlayers())
         {
-            UpdatePlayerPanelState(player, fastestPlayer);
-            yield return new WaitForSeconds(.5f);
-            while (scores[player.ControllerId] < newScores[player.ControllerId])
-            {
-                IncrementPlayerScore(player, scores, newScores);
-                yield return new WaitForSeconds(Settings.scoreIncreaseSpeedInSeconds);
-            }
-            FinalizePlayerPanelState(player);
+            Debug.Log("Updating player panel for player " + player.ControllerId);
+            // Update the player's panel state (correct/incorrect, fastest, score)
+            UpdatePlayerPanel(player);
+
+            // Pause briefly before incrementing the score
+            yield return new WaitForSeconds(0.5f);
+
+            // Increment the player's score with animation until it matches the updated score
+            yield return gameStateHandler.StartCoroutine(IncrementPlayerScoreOverTime(player, initialScores, updatedScores));
+
+            // Set the player's panel to the final correct/incorrect state
+            SetFinalPlayerPanelState(player);
+
+            // Pause before moving to the next player
             yield return new WaitForSeconds(1);
         }
 
-        countdownTimer.StartCountdown(NotifyStateCompletion, Settings.postQuestionTime);
+        // Start a post-question timer for the next phase of the game
+        timerManager.CreateTimer("postQuestion", Settings.postQuestionTime, NotifyStateCompletion);
     }
 
-    
-
-
-    private void UpdatePlayerPanelState(Player player, Player fastestPlayer)
+    private void UpdatePlayerPanel(Player player)
     {
+        // Determine if the player's answer is correct
         bool isCorrect = player.HasAnsweredCorrectly(questionManager.CurrentQuestion);
+
+        // Update the player's panel state based on whether they answered correctly
         uiManager.SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
-        if (player == fastestPlayer)
-            uiManager.SetPlayerPanelState(player.ControllerId, PlayerPanelState.Fastest);
+
+        // Indicate that the player's score is being added
         uiManager.SetPlayerPanelState(player.ControllerId, PlayerPanelState.AddingScore);
+
+        // Play a sound effect based on whether the player's answer was correct
         soundManager.PlaySoundEffect(isCorrect ? AnswerCorrect : AnswerWrong);
     }
 
-    private void IncrementPlayerScore(Player player, int[] scores, int[] newScores)
+    private IEnumerator IncrementPlayerScoreOverTime(Player player, int[] initialScores, int[] updatedScores)
     {
-        scores[player.ControllerId]++;
-        uiManager.SetPlayerScore(player.ControllerId, scores[player.ControllerId]);
+        // Continuously increment the score display until it matches the updated score
+        while (initialScores[player.ControllerId] < updatedScores[player.ControllerId])
+        {
+            Debug.Log("Incrementing score for player " + player.ControllerId + "from " + initialScores[player.ControllerId] + " to " + updatedScores[player.ControllerId]);
+            initialScores[player.ControllerId]++;
+            uiManager.UpdatePlayerScoreDisplay(player.ControllerId, initialScores[player.ControllerId]);
+
+            // Pause briefly between score increments to create a smooth animation
+            yield return new WaitForSeconds(Settings.scoreIncreaseSpeedInSeconds);
+        }
     }
 
-    private void FinalizePlayerPanelState(Player player)
+    private void SetFinalPlayerPanelState(Player player)
     {
+        // Set the final correct/incorrect state after the score animation is complete
         bool isCorrect = player.HasAnsweredCorrectly(questionManager.CurrentQuestion);
         uiManager.SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
     }
+
 
     public override void Exit()
     {
@@ -87,27 +106,15 @@ public class ResultState : BaseGameState
         {
             SetPauzed();
         }
-        
     }
 
     private void SetPauzed()
     {
-        pauzed = !pauzed;
-        if (pauzed)
-        {
-            countdownTimer.StopCountdown();
-            countdownTimer.SetText("Pauzed");
-        }
-        else
-        {
-            countdownTimer.StartCountdown(NotifyStateCompletion, Settings.postQuestionTime);
-        }
+        //TODO: Implement pauzed state
     }
 
     public override void Update()
     {
         // Implementation for updating the quiz state
     }
-
-
 }

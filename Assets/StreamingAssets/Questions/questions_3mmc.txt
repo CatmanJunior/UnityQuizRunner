@@ -1,0 +1,71 @@
+1.
+T: 3-MMC  
+Q: Miauw wordt tegenwoordig gebruikt als bijnaam voor verschillende stoffen, maar oorspronkelijk wordt met Miauw de stof 3-MMC bedoeld.  
+A: Feit  
+B: Fabel +
+W: Oorspronkelijk was Miauw een benaming voor 4-MMC. In 2012 werd 4-MMC illegaal en kwam 3-MMC (Poes) als nieuwe, legale variant op de markt.  
+END
+
+2.
+T: 3-MMC  
+Q: 3-MMC is volgens de wet legaal in Nederland.  
+A: Feit  
+B: Fabel +
+W: 3-MMC staat op Lijst II van de Opiumwet en is vanaf 28 oktober 2021 officieel een verboden drug. Dit betekent dat productie, handel en bezit van deze “designerdrug” strafbaar is.  
+END
+
+3.
+T: 3-MMC  
+Q: Het is onbekend welke risico’s het gebruik van Miauw heeft op de lange termijn.  
+A: Feit +
+B: Fabel  
+W: Omdat het nieuwe stoffen betreft, is er nauwelijks wetenschappelijk onderzoek gedaan. Gebruikers rapporteren gezondheidsrisico’s zoals hartritmestoornissen, verhoogde bloeddruk en verslavingspotentie.  
+END
+
+4.
+T: 3-MMC  
+Q: De grondstoffen voor Miauw worden gewonnen uit de cocaplant, waarvan ook cocaïne wordt gemaakt.  
+A: Feit  
+B: Fabel +
+W: Synthetische cathinonen, zoals 3-MMC en 4-MMC, zijn afgeleiden van cathinon, dat voorkomt in de qatplant, niet de cocaplant.  
+END
+
+
+5.
+T: 3-MMC  
+Q: Wanneer je Miauw snuift, is het verslavender dan wanneer je het slikt.  
+A: Feit +
+B: Fabel  
+W: Snuiven zorgt voor een sneller effect en een intensere 'crash', waardoor craving sterker is. Bij slikken komt het effect langzamer op en is er minder kans op verslaving.  
+END
+
+
+
+6.
+T: 3-MMC  
+Q: 3-MMC, 3-CMC, 4-MMC, 2-MMC enz. zijn allemaal afgeleiden van amfetamine (speed), net zoals bijvoorbeeld MDMA (xtc).  
+A: Feit  
+B: Fabel +
+W: Het zijn cathinonen, afgeleiden van cathinon. Deze stoffen hebben wel een vergelijkbaar effect als amfetaminen, maar zijn chemisch anders.  
+END
+
+
+
+7.
+T: 3-MMC  
+Q: Gebruikers ervaren bij 4-MMC meer euforie dan bij 3-MMC.  
+A: Feit +
+B: Fabel  
+W: 4-MMC veroorzaakt meer serotonine-activiteit en geeft daardoor een effect dat meer neigt naar MDMA (euforie). 3-MMC werkt vooral op dopamine en noradrenaline, waardoor het effect meer lijkt op speed of cocaïne.  
+END
+
+
+
+8.
+T: 3-MMC  
+Q: Wanneer bij de testservice een sample wordt ingeleverd dat is verkocht als 3-MMC, blijkt vaak dat er een andere stof in zit.  
+A: Feit +
+B: Fabel  
+W: In 2022 bleek dat twee derde van de samples die verkocht waren als 3-MMC, andere stoffen bevatten, zoals 3-CMC. Dit benadrukt het belang van testen.  
+END
+

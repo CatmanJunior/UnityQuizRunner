@@ -11,6 +11,8 @@ public class InputHandler : MonoBehaviour
     private bool useKeyboard = true;
 
     [SerializeField] char debugButton = '0';
+    [SerializeField] char voteOnButton = '9';
+    [SerializeField] char voteOffButton = '8';
 
     public InputAction buttonPress;
 
@@ -68,10 +70,22 @@ public class InputHandler : MonoBehaviour
     {
         if (character == debugButton)
         {
-            UIManager.Instance.TogglePanel(UIManager.UIElement.DebugPanel, true);
+            UIManager.Instance.TogglePanel(UIManager.UIPanelElement.DebugPanel, true);
             return;
         }
+        if (character == voteOnButton)
+        {
+            Settings.skipVote = false;
+            SoundManager.Instance.PlaySoundEffect(SoundManager.SoundEffect.AnswerCorrect);
+            return;
+        }
+        if (character == voteOffButton)
+        {
 
+            Settings.skipVote = true;
+            SoundManager.Instance.PlaySoundEffect(SoundManager.SoundEffect.AnswerWrong);
+            return;
+        }
         foreach (List<string> controller in keyboardButtons)
         {
             foreach (string button in controller)

@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253687264}
   - component: {fileID: 253687265}
+  - component: {fileID: 253687266}
   m_Layer: 5
   m_Name: TimerPanel
   m_TagString: Untagged
@@ -533,6 +534,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playSound: 0
+--- !u!114 &253687266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253687263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829eaff9436e3a149aebe4bba475f435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownText: {fileID: 1136046141}
+  particles: {fileID: 1702147147}
+  fillArea: {fileID: 811617726}
+  timerSlider: {fileID: 1965239494}
 --- !u!1 &339243909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,7 +1885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.40251854}
   m_AnchorMax: {x: 0.45400003, y: 1}
-  m_AnchoredPosition: {x: -47.99286, y: -193.54999}
+  m_AnchoredPosition: {x: -47.99292, y: -193.54999}
   m_SizeDelta: {x: -124.0742, y: -70.0698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811953443
@@ -1933,8 +1950,6 @@ MonoBehaviour:
   answerIncorrectColor: {r: 1, g: 0, b: 0, a: 1}
   defaultAnswerColor: {r: 1, g: 1, b: 1, a: 1}
   defaultAnswerStyle: 0
-  useAnimations: 1
-  typingSpeed: 0.025
 --- !u!1 &866938127
 GameObject:
   m_ObjectHideFlags: 0
@@ -29371,7 +29386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -631.45953, y: -89.51831}
+  m_AnchoredPosition: {x: -631.4595, y: -89.51831}
   m_SizeDelta: {x: -1353.8193, y: -361.3124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890197316
@@ -30007,7 +30022,7 @@ GameObject:
   - component: {fileID: 2115180769}
   - component: {fileID: 2115180770}
   m_Layer: 0
-  m_Name: QuestionManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30025,7 +30040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce0b85502f8d9244805344f503e7e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfQuestions: 5
 --- !u!4 &2115180761
 Transform:
   m_ObjectHideFlags: 0
@@ -30066,7 +30080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74bca90836d8474cb2f20645bc93ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerSlider: {fileID: 1965239494}
   timerText: {fileID: 1136046141}
   votePanel: {fileID: 940296986}
   scorePanel: {fileID: 1676151828}
@@ -30075,7 +30088,6 @@ MonoBehaviour:
   timerPanel: {fileID: 253687265}
   playerPanel: {fileID: 1623304423}
   debugPanel: {fileID: 1697530686}
-  instructionTextGetReady: Get Ready!
 --- !u!114 &2115180765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30088,25 +30100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b15204bf70cc54280e6b1662cf9e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuState:
-    requiredControllers: 4
-    timeBeforeCheckedInClear: 2
-  questionState:
-    questionAnswerTime: 5
-  categoryVoteState:
-    categoryVoteTime: 10
-  resultState:
-    scoreIncreaseSpeedInSeconds: 0.3
-    postQuestionTime: 3
-  category: 
-  skipVote: 0
-  useAnimations: 1
-  useLightController: 0
-  testMode: 0
-  preQuestionTime: 3
-  finalScoreTime: 10
+  currentCategory: 
   uiManager: {fileID: 2115180764}
-  countdownTimer: {fileID: 2115180770}
+  timerManager: {fileID: 2115180770}
   inputHandler: {fileID: 2115180768}
   questionManager: {fileID: 2115180760}
   playerManager: {fileID: 2115180769}
@@ -30252,6 +30248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useKeyboard: 1
   debugButton: 48
+  voteOnButton: 57
+  voteOffButton: 56
   buttonPress:
     m_Name: Button Press
     m_Type: 0
@@ -30442,13 +30440,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115180759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c6b7143a08fa142ace58dd4d25c1e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9837c3fc77169e44f971a54b18e2035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountdownDuration: 3
-  countdownText: {fileID: 1136046141}
-  particles: {fileID: 1702147147}
-  fillArea: {fileID: 2022629341}
+  timerUI: {fileID: 253687266}
 --- !u!1 &3223531908262748465
 GameObject:
   m_ObjectHideFlags: 0

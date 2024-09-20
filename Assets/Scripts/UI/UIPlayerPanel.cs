@@ -16,9 +16,13 @@ public class UIPlayerPanel : UIPanel
 
     [SerializeField] private Image[] panelGlowImages = new Image[4];
 
-    private void Start()
+    void Awake()
     {
         defaultColor = playerPanelImages[0].color;
+    }
+
+    private void Start()
+    {
         //turn off all glows
         for (int i = 0; i < panelGlowImages.Length; i++)
         {
@@ -82,7 +86,7 @@ public class UIPlayerPanel : UIPanel
         playerPanelImages[id].color = answeredColor;
     }
 
-    public void SetPlayerScore(int controllerId, int score)
+    public void UpdatePlayerScoreDisplay(int controllerId, int score)
     {
         playerScoreTexts[controllerId].text = score.ToString();
     }
@@ -98,13 +102,19 @@ public class UIPlayerPanel : UIPanel
         //TODO: add a animation for voting
     }
 
-    public void ResetPlayerPanels()
+    public void ResetPlayerPanels(bool resetScores = false)
     {
         for (int i = 0; i < playerPanels.Length; i++)
         {
+            if (resetScores)
+            {
+                playerScoreTexts[i].text = "0";
+            }
             panelGlowImages[i].enabled = false;
             StopAnimations(i);
             playerPanelImages[i].color = defaultColor;
         }
     }
+
+    
 }

@@ -15,7 +15,7 @@ public abstract class BaseGameState
     protected GameStateHandler gameStateHandler;
     protected QuestionManager questionManager;
     protected UIManager uiManager;
-    protected CountdownTimer countdownTimer;
+    protected TimerManager timerManager;
     protected PlayerManager playerManager;
     protected SoundManager soundManager;
     protected InputHandler inputHandler;
@@ -38,7 +38,7 @@ public abstract class BaseGameState
         categoryVoteHandler = gameStateHandler.GetComponent<CategoryVoteHandler>();
         questionManager = gameStateHandler.GetComponent<QuestionManager>();
         uiManager = gameStateHandler.GetComponent<UIManager>(); 
-        countdownTimer = gameStateHandler.countdownTimer;
+        timerManager = gameStateHandler.timerManager;
         playerManager = gameStateHandler.GetComponent<PlayerManager>();
         soundManager = gameStateHandler.GetComponent<SoundManager>();
         inputHandler = gameStateHandler.GetComponent<InputHandler>();
@@ -46,7 +46,7 @@ public abstract class BaseGameState
 
     protected void NotifyStateCompletion()
     {
-        Debug.Log("State completed");
+        Logger.Log("State completed");
         OnStateCompleted?.Invoke();
     }
 

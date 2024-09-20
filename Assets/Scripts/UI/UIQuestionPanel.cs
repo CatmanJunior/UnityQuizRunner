@@ -25,7 +25,6 @@ public class UIQuestionPanel : UIPanel
     [SerializeField]
     private FontStyles defaultAnswerStyle; //the default style of the answer text
 
-
     public enum AnswerStyle
     {
         Default,
@@ -36,10 +35,10 @@ public class UIQuestionPanel : UIPanel
     /// <summary>
     /// Displays the current question on the UI panel.
     /// </summary>
-    public void ShowQuestion(System.Action onComplete = null)
+    public void ShowQuestion()
     {
         Open();
-        SetQuestion(onComplete);
+        SetQuestion();
         SetAnswersText(QuestionManager.Instance.CurrentQuestion);
         SetCategoryText(QuestionManager.Instance.CurrentQuestion);
         SetAnswerStyles(setDefault: true);
@@ -57,29 +56,40 @@ public class UIQuestionPanel : UIPanel
     #endregion
 
     #region private methods
-    private void SetQuestion(System.Action onComplete = null)
+    private void SetQuestion()
     {
         Question question = QuestionManager.Instance.CurrentQuestion;
         if (Settings.useAnimations)
         {
-            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, Settings.questionTypingSpeed, onComplete));
+            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, Settings.questionTypingSpeed, StartQuestionTimer));
         }
         else
         {
             questionText.text = question.QuestionText;
-            onComplete?.Invoke();
+
         }
+    }
+
+    private void StartQuestionTimer()
+    {
+        TimerManager.Instance.ResumeTimer("QuestionTimer");
     }
 
     private void SetAnswersText(Question question)
     {
-        if (question.Answers.Count != answerTexts.Count)
+        //turn off the answer texts that are not used, turn on the ones that are
+        for (int i = 0; i < answerTexts.Count; i++)
         {
-            Debug.LogError("The amount of answer texts does not match the amount of answers in the question.");
+            answerTexts[i].gameObject.transform.parent.gameObject.SetActive(i < question.GetAnswerAmount());
+        }
+
+        if (question.GetAnswerAmount() > answerTexts.Count)
+        {
+            Debug.LogError("The amount of ui elements is not enough to show the amount of answers in the question.");
             Debug.LogError("Question: " + question.QuestionText);
         }
 
-        for (int i = 0; i < answerTexts.Count; i++)
+        for (int i = 0; i < question.Answers.Count; i++)
         {
             answerTexts[i].text = question.Answers[i].AnswerText;
         }
@@ -100,7 +110,7 @@ public class UIQuestionPanel : UIPanel
     {
         List<bool> isCorrect = QuestionManager.Instance.GetCorrectAnswers();
 
-        for (int i = 0; i < answerTexts.Count; i++)
+        for (int i = 0; i < QuestionManager.Instance.CurrentQuestion.GetAnswerAmount(); i++)
         {
             if (setDefault)
             {

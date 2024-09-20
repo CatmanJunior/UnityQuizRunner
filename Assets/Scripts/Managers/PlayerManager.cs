@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -23,8 +20,9 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void CreatePlayers(int playerAmount)
+    public void CreateNewPlayers(int playerAmount)
     {
+        players.Clear();
         for (int i = 0; i < playerAmount; i++)
         {
             Player player = new Player("Player " + (i + 1), i);
@@ -61,23 +59,12 @@ public class PlayerManager : MonoBehaviour
         return true;
     }
 
-    public void ResetAnswers()
-    {
-        foreach (Player player in players)
-        {
-            player.ResetAnswers();
-        }
-    }
-
-    public int[] UpdateScores()
+    public void UpdatePlayerScores()
     {
         ScoreCalculator.CalculateScores();
-        //create a array of scores of all players
-        return players.Select(player => (int)player.Score).ToArray();
     }
 
-    //TODO: name this function better
-    public int[] InitializeScores()
+    public int[] GetPlayerScores()
     {
         return GetPlayers().Select(player => (int)player.Score).ToArray();
     }

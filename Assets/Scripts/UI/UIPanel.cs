@@ -10,6 +10,7 @@ public class UIPanel : MonoBehaviour
     private SoundManager soundManager;
     private bool open;
 
+
 #region Unity Functions
     void Start()
     {

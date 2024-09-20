@@ -1,0 +1,472 @@
+9/19/2024 9:36:52 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:36:52 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:36:52 AM: Checking in player: 0
+9/19/2024 9:36:52 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:36:52 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:36:52 AM: Checking in player: 1
+9/19/2024 9:36:53 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:36:53 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:36:53 AM: Checking in player: 2
+9/19/2024 9:36:53 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:36:53 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:36:53 AM: Checking in player: 3
+9/19/2024 9:36:53 AM: All players checked in
+9/19/2024 9:36:54 AM: State completed
+9/19/2024 9:36:54 AM: State completed: MainMenuState
+9/19/2024 9:36:54 AM: Categories: GHB, 3-MMC  , Alcohol, Cocaïne
+9/19/2024 9:36:54 AM: Clearing controllers
+9/19/2024 9:40:34 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:40:34 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:40:34 AM: Checking in player: 0
+9/19/2024 9:40:34 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:40:34 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:40:34 AM: Checking in player: 1
+9/19/2024 9:40:34 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:40:34 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:40:34 AM: Checking in player: 2
+9/19/2024 9:40:35 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:40:35 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:40:35 AM: Checking in player: 3
+9/19/2024 9:40:35 AM: All players checked in
+9/19/2024 9:40:36 AM: State completed
+9/19/2024 9:40:36 AM: State completed: MainMenuState
+9/19/2024 9:40:36 AM: Categories: Speed, 3-MMC  , Cocaïne, Psychedelica
+9/19/2024 9:40:36 AM: Clearing controllers
+9/19/2024 9:41:31 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:41:31 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:41:31 AM: Checking in player: 0
+9/19/2024 9:41:31 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:41:31 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:41:31 AM: Checking in player: 1
+9/19/2024 9:41:32 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:41:32 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:41:32 AM: Checking in player: 2
+9/19/2024 9:41:32 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:41:32 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:41:32 AM: Checking in player: 3
+9/19/2024 9:41:32 AM: All players checked in
+9/19/2024 9:41:33 AM: State completed
+9/19/2024 9:41:33 AM: State completed: MainMenuState
+9/19/2024 9:41:33 AM: Categories: Ketamine, Alcohol, 3-MMC  , Psychedelica
+9/19/2024 9:41:33 AM: Clearing controllers
+9/19/2024 9:42:59 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:42:59 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:42:59 AM: Checking in player: 0
+9/19/2024 9:42:59 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:42:59 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:42:59 AM: Checking in player: 1
+9/19/2024 9:43:00 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:43:00 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:43:00 AM: Checking in player: 2
+9/19/2024 9:43:00 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:43:00 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:43:00 AM: Checking in player: 3
+9/19/2024 9:43:00 AM: All players checked in
+9/19/2024 9:43:01 AM: State completed
+9/19/2024 9:43:01 AM: State completed: MainMenuState
+9/19/2024 9:43:01 AM: Clearing controllers
+9/19/2024 9:46:24 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:46:24 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:46:24 AM: Checking in player: 0
+9/19/2024 9:46:24 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:46:24 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:46:24 AM: Checking in player: 1
+9/19/2024 9:46:25 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:46:25 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:46:25 AM: Checking in player: 2
+9/19/2024 9:46:25 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:46:25 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:46:25 AM: Checking in player: 3
+9/19/2024 9:46:25 AM: All players checked in
+9/19/2024 9:46:26 AM: State completed
+9/19/2024 9:46:26 AM: State completed: MainMenuState
+9/19/2024 9:46:26 AM: Clearing controllers
+9/19/2024 9:48:59 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:48:59 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:48:59 AM: Checking in player: 0
+9/19/2024 9:48:59 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:48:59 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:48:59 AM: Checking in player: 1
+9/19/2024 9:48:59 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:48:59 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:48:59 AM: Checking in player: 2
+9/19/2024 9:48:59 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:48:59 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:48:59 AM: Checking in player: 3
+9/19/2024 9:48:59 AM: All players checked in
+9/19/2024 9:49:00 AM: State completed
+9/19/2024 9:49:00 AM: State completed: MainMenuState
+9/19/2024 9:49:00 AM: Clearing controllers
+9/19/2024 9:51:12 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:51:12 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:51:12 AM: Checking in player: 0
+9/19/2024 9:51:12 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:51:12 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:51:12 AM: Checking in player: 1
+9/19/2024 9:51:12 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:51:12 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:51:12 AM: Checking in player: 2
+9/19/2024 9:51:13 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:51:13 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:51:13 AM: Checking in player: 3
+9/19/2024 9:51:13 AM: All players checked in
+9/19/2024 9:51:14 AM: State completed
+9/19/2024 9:51:14 AM: State completed: MainMenuState
+9/19/2024 9:51:14 AM: Clearing controllers
+9/19/2024 9:55:37 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:55:37 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:55:37 AM: Checking in player: 0
+9/19/2024 9:55:38 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:55:38 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:55:38 AM: Checking in player: 1
+9/19/2024 9:55:38 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:55:38 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:55:38 AM: Checking in player: 2
+9/19/2024 9:55:38 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:55:38 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:55:38 AM: Checking in player: 3
+9/19/2024 9:55:38 AM: All players checked in
+9/19/2024 9:55:39 AM: State completed
+9/19/2024 9:55:39 AM: State completed: MainMenuState
+9/19/2024 9:55:39 AM: Clearing controllers
+9/19/2024 9:57:08 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:57:08 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:57:08 AM: Checking in player: 0
+9/19/2024 9:57:08 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:57:08 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:57:08 AM: Checking in player: 1
+9/19/2024 9:57:09 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:57:09 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:57:09 AM: Checking in player: 2
+9/19/2024 9:57:09 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:57:09 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:57:09 AM: Checking in player: 3
+9/19/2024 9:57:09 AM: All players checked in
+9/19/2024 9:57:10 AM: State completed
+9/19/2024 9:57:10 AM: State completed: MainMenuState
+9/19/2024 9:57:10 AM: Clearing controllers
+9/19/2024 9:57:44 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:57:44 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:57:44 AM: Checking in player: 0
+9/19/2024 9:57:45 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:57:45 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:57:45 AM: Checking in player: 1
+9/19/2024 9:57:45 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:57:45 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:57:45 AM: Checking in player: 2
+9/19/2024 9:57:45 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:57:45 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:57:45 AM: Checking in player: 3
+9/19/2024 9:57:45 AM: All players checked in
+9/19/2024 9:57:46 AM: State completed
+9/19/2024 9:57:46 AM: State completed: MainMenuState
+9/19/2024 9:57:46 AM: Clearing controllers
+9/19/2024 9:59:54 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 9:59:54 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 9:59:54 AM: Checking in player: 0
+9/19/2024 9:59:54 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 9:59:54 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 9:59:54 AM: Checking in player: 1
+9/19/2024 9:59:54 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 9:59:54 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 9:59:54 AM: Checking in player: 2
+9/19/2024 9:59:55 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 9:59:55 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 9:59:55 AM: Checking in player: 3
+9/19/2024 9:59:55 AM: All players checked in
+9/19/2024 9:59:56 AM: State completed
+9/19/2024 9:59:56 AM: State completed: MainMenuState
+9/19/2024 9:59:56 AM: Clearing controllers
+9/19/2024 10:00:06 AM: State completed
+9/19/2024 10:00:06 AM: State completed: CategoryVoteState
+9/19/2024 10:00:21 AM: Player 1 has already answered this question
+9/19/2024 10:00:22 AM: Player 0 has already answered this question
+9/19/2024 10:00:23 AM: Player 3 has already answered this question
+9/19/2024 10:00:24 AM: Player 3 has already answered this question
+9/19/2024 10:00:28 AM: Player 3 has already answered this question
+9/19/2024 10:00:31 AM: Player 0 has already answered this question
+9/19/2024 10:00:31 AM: Player 1 has already answered this question
+9/19/2024 10:00:32 AM: Player 0 has already answered this question
+9/19/2024 10:00:32 AM: State completed
+9/19/2024 10:00:32 AM: State completed: QuestionState
+9/19/2024 10:00:32 AM: Player 2 has already answered this question
+9/19/2024 10:00:32 AM: State completed
+9/19/2024 10:00:32 AM: State completed: QuestionState
+9/19/2024 10:00:32 AM: Player 3 has already answered this question
+9/19/2024 10:00:32 AM: State completed
+9/19/2024 10:00:32 AM: State completed: QuestionState
+9/19/2024 10:00:42 AM: State completed
+9/19/2024 10:00:42 AM: State completed: ResultState
+9/19/2024 10:00:50 AM: Player 3 has already answered this question
+9/19/2024 10:00:51 AM: State completed
+9/19/2024 10:00:51 AM: State completed: QuestionState
+9/19/2024 10:00:51 AM: Player 2 has already answered this question
+9/19/2024 10:00:51 AM: State completed
+9/19/2024 10:00:51 AM: State completed: QuestionState
+9/19/2024 10:00:51 AM: Player 3 has already answered this question
+9/19/2024 10:00:51 AM: State completed
+9/19/2024 10:00:51 AM: State completed: QuestionState
+9/19/2024 10:00:51 AM: Player 3 has already answered this question
+9/19/2024 10:00:51 AM: State completed
+9/19/2024 10:00:51 AM: State completed: QuestionState
+9/19/2024 10:00:52 AM: Player 3 has already answered this question
+9/19/2024 10:00:52 AM: State completed
+9/19/2024 10:00:52 AM: State completed: QuestionState
+9/19/2024 10:00:52 AM: Player 3 has already answered this question
+9/19/2024 10:00:52 AM: State completed
+9/19/2024 10:00:52 AM: State completed: QuestionState
+9/19/2024 10:01:02 AM: State completed
+9/19/2024 10:01:02 AM: State completed: ResultState
+9/19/2024 10:01:10 AM: Player 2 has already answered this question
+9/19/2024 10:42:32 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 10:42:32 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 10:42:32 AM: Checking in player: 0
+9/19/2024 10:42:32 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 10:42:32 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 10:42:32 AM: Checking in player: 1
+9/19/2024 10:42:33 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 10:42:33 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 10:42:33 AM: Checking in player: 2
+9/19/2024 10:42:33 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 10:42:33 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 10:42:33 AM: Checking in player: 3
+9/19/2024 10:42:33 AM: All players checked in
+9/19/2024 10:42:34 AM: State completed
+9/19/2024 10:42:34 AM: State completed: MainMenuState
+9/19/2024 10:42:34 AM: Clearing controllers
+9/19/2024 10:42:44 AM: State completed
+9/19/2024 10:42:44 AM: State completed: CategoryVoteState
+9/19/2024 10:42:54 AM: Player 1 has already answered this question
+9/19/2024 10:42:54 AM: Player 1 has already answered this question
+9/19/2024 10:42:56 AM: Player 1 has already answered this question
+9/19/2024 10:42:58 AM: Player 3 has already answered this question
+9/19/2024 10:42:59 AM: Player 3 has already answered this question
+9/19/2024 10:43:01 AM: Player 3 has already answered this question
+9/19/2024 10:43:03 AM: Player 3 has already answered this question
+9/19/2024 10:43:03 AM: Player 1 has already answered this question
+9/19/2024 10:43:05 AM: Player 3 has already answered this question
+9/19/2024 10:43:06 AM: Player 2 has already answered this question
+9/19/2024 10:43:09 AM: Player 2 has already answered this question
+9/19/2024 10:43:11 AM: Player 1 has already answered this question
+9/19/2024 10:43:11 AM: Player 2 has already answered this question
+9/19/2024 10:43:11 AM: Player 2 has already answered this question
+9/19/2024 10:43:11 AM: Player 3 has already answered this question
+9/19/2024 10:43:13 AM: Player 1 has already answered this question
+9/19/2024 10:43:13 AM: Player 2 has already answered this question
+9/19/2024 10:43:14 AM: State completed
+9/19/2024 10:43:14 AM: State completed: QuestionState
+9/19/2024 10:47:44 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 10:47:44 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 10:47:44 AM: Checking in player: 0
+9/19/2024 10:47:44 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 10:47:44 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 10:47:44 AM: Checking in player: 1
+9/19/2024 10:47:44 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 10:47:44 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 10:47:44 AM: Checking in player: 2
+9/19/2024 10:47:45 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 10:47:45 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 10:47:45 AM: Checking in player: 3
+9/19/2024 10:47:45 AM: All players checked in
+9/19/2024 10:47:46 AM: State completed
+9/19/2024 10:47:46 AM: State completed: MainMenuState
+9/19/2024 10:47:46 AM: Clearing controllers
+9/19/2024 10:47:56 AM: State completed
+9/19/2024 10:47:56 AM: State completed: CategoryVoteState
+9/19/2024 10:48:03 AM: Player 0 has already answered this question
+9/19/2024 10:48:04 AM: Player 0 has already answered this question
+9/19/2024 10:48:09 AM: Player 0 has already answered this question
+9/19/2024 10:48:11 AM: Player 3 has already answered this question
+9/19/2024 10:48:12 AM: Player 3 has already answered this question
+9/19/2024 10:48:12 AM: Player 0 has already answered this question
+9/19/2024 10:48:12 AM: State completed
+9/19/2024 10:48:12 AM: State completed: QuestionState
+9/19/2024 10:48:13 AM: Player 1 has already answered this question
+9/19/2024 10:48:13 AM: State completed
+9/19/2024 10:48:13 AM: State completed: QuestionState
+9/19/2024 10:48:23 AM: State completed
+9/19/2024 10:48:23 AM: State completed: ResultState
+9/19/2024 10:48:23 AM: State completed
+9/19/2024 10:48:26 AM: Player 2 has already answered this question
+9/19/2024 10:48:26 AM: Player 2 has already answered this question
+9/19/2024 10:48:29 AM: Player 1 has already answered this question
+9/19/2024 10:48:32 AM: Player 0 has already answered this question
+9/19/2024 10:48:32 AM: State completed
+9/19/2024 10:48:32 AM: State completed: QuestionState
+9/19/2024 10:48:33 AM: Player 0 has already answered this question
+9/19/2024 10:48:33 AM: State completed
+9/19/2024 10:48:33 AM: State completed: QuestionState
+9/19/2024 10:48:44 AM: State completed
+9/19/2024 10:48:44 AM: State completed: ResultState
+9/19/2024 10:48:49 AM: State completed
+9/19/2024 10:48:49 AM: State completed: QuestionState
+9/19/2024 10:48:49 AM: Player 2 has already answered this question
+9/19/2024 10:48:49 AM: State completed
+9/19/2024 10:48:49 AM: State completed: QuestionState
+9/19/2024 10:48:50 AM: Player 2 has already answered this question
+9/19/2024 10:48:50 AM: State completed
+9/19/2024 10:48:50 AM: State completed: QuestionState
+9/19/2024 11:07:43 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 11:07:43 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 11:07:43 AM: Checking in player: 0
+9/19/2024 11:07:43 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 11:07:43 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 11:07:43 AM: Checking in player: 1
+9/19/2024 11:07:43 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 11:07:43 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 11:07:43 AM: Checking in player: 2
+9/19/2024 11:07:43 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 11:07:43 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 11:07:43 AM: Checking in player: 3
+9/19/2024 11:07:43 AM: All players checked in
+9/19/2024 11:07:44 AM: State completed
+9/19/2024 11:07:44 AM: State completed: MainMenuState
+9/19/2024 11:07:44 AM: Clearing controllers
+9/19/2024 11:07:54 AM: State completed
+9/19/2024 11:07:54 AM: State completed: CategoryVoteState
+9/19/2024 11:08:01 AM: Player 2 has already answered this question
+9/19/2024 11:08:02 AM: Player 2 has already answered this question
+9/19/2024 11:08:12 AM: State completed
+9/19/2024 11:08:12 AM: State completed: QuestionState
+9/19/2024 11:08:23 AM: State completed
+9/19/2024 11:08:23 AM: State completed: ResultState
+9/19/2024 11:08:25 AM: State completed
+9/19/2024 11:08:25 AM: State completed: QuestionState
+9/19/2024 11:08:35 AM: State completed
+9/19/2024 11:08:35 AM: State completed: ResultState
+9/19/2024 11:08:41 AM: Player 0 has already answered this question
+9/19/2024 11:08:42 AM: State completed
+9/19/2024 11:08:42 AM: State completed: QuestionState
+9/19/2024 11:08:42 AM: Player 2 has already answered this question
+9/19/2024 11:08:42 AM: State completed
+9/19/2024 11:08:42 AM: State completed: QuestionState
+9/19/2024 11:08:53 AM: State completed
+9/19/2024 11:08:53 AM: State completed: ResultState
+9/19/2024 11:09:00 AM: Player 3 has already answered this question
+9/19/2024 11:09:01 AM: Player 1 has already answered this question
+9/19/2024 11:09:02 AM: Player 0 has already answered this question
+9/19/2024 11:09:03 AM: State completed
+9/19/2024 11:09:03 AM: State completed: QuestionState
+9/19/2024 11:09:04 AM: Player 2 has already answered this question
+9/19/2024 11:09:04 AM: State completed
+9/19/2024 11:09:04 AM: State completed: QuestionState
+9/19/2024 11:09:14 AM: State completed
+9/19/2024 11:09:14 AM: State completed: ResultState
+9/19/2024 11:09:14 AM: State completed
+9/19/2024 11:09:14 AM: State completed: QuestionState
+9/19/2024 11:15:06 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 11:15:06 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 11:15:06 AM: Checking in player: 0
+9/19/2024 11:15:07 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 11:15:07 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 11:15:07 AM: Checking in player: 1
+9/19/2024 11:15:07 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 11:15:07 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 11:15:07 AM: Checking in player: 2
+9/19/2024 11:15:07 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 11:15:07 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 11:15:07 AM: Checking in player: 3
+9/19/2024 11:15:07 AM: All players checked in
+9/19/2024 11:15:08 AM: State completed
+9/19/2024 11:15:08 AM: State completed: MainMenuState
+9/19/2024 11:15:08 AM: Clearing controllers
+9/19/2024 11:15:18 AM: State completed
+9/19/2024 11:15:18 AM: State completed: CategoryVoteState
+9/19/2024 11:15:24 AM: Player 0 has already answered this question
+9/19/2024 11:15:25 AM: Player 0 has already answered this question
+9/19/2024 11:15:25 AM: Player 2 has already answered this question
+9/19/2024 11:15:25 AM: State completed
+9/19/2024 11:15:25 AM: State completed: QuestionState
+9/19/2024 11:15:25 AM: Player 2 has already answered this question
+9/19/2024 11:15:25 AM: State completed
+9/19/2024 11:15:25 AM: State completed: QuestionState
+9/19/2024 11:18:21 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 11:18:21 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 11:18:21 AM: Checking in player: 0
+9/19/2024 11:18:21 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 11:18:21 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 11:18:21 AM: Checking in player: 1
+9/19/2024 11:18:21 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 11:18:21 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 11:18:21 AM: Checking in player: 2
+9/19/2024 11:18:21 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 11:18:21 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 11:18:21 AM: Checking in player: 3
+9/19/2024 11:18:21 AM: All players checked in
+9/19/2024 11:18:22 AM: State completed
+9/19/2024 11:18:22 AM: State completed: MainMenuState
+9/19/2024 11:18:22 AM: Clearing controllers
+9/19/2024 11:18:32 AM: State completed
+9/19/2024 11:18:32 AM: State completed: CategoryVoteState
+9/19/2024 11:18:42 AM: Player 1 has already answered this question
+9/19/2024 11:18:42 AM: Player 0 has already answered this question
+9/19/2024 11:18:44 AM: Player 1 has already answered this question
+9/19/2024 11:18:45 AM: State completed
+9/19/2024 11:18:45 AM: State completed: QuestionState
+9/19/2024 11:19:21 AM: State completed
+9/19/2024 11:19:21 AM: State completed: ResultState
+9/19/2024 11:19:25 AM: Player 0 has already answered this question
+9/19/2024 11:19:26 AM: State completed
+9/19/2024 11:19:26 AM: State completed: QuestionState
+9/19/2024 11:19:26 AM: Player 0 has already answered this question
+9/19/2024 11:19:26 AM: State completed
+9/19/2024 11:19:26 AM: State completed: QuestionState
+9/19/2024 11:30:38 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/19/2024 11:30:38 AM: HandlePlayerCheckIn: Controller: 0
+9/19/2024 11:30:38 AM: Checking in player: 0
+9/19/2024 11:30:38 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/19/2024 11:30:38 AM: HandlePlayerCheckIn: Controller: 1
+9/19/2024 11:30:38 AM: Checking in player: 1
+9/19/2024 11:30:39 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/19/2024 11:30:39 AM: HandlePlayerCheckIn: Controller: 2
+9/19/2024 11:30:39 AM: Checking in player: 2
+9/19/2024 11:30:39 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/19/2024 11:30:39 AM: HandlePlayerCheckIn: Controller: 3
+9/19/2024 11:30:39 AM: Checking in player: 3
+9/19/2024 11:30:39 AM: All players checked in
+9/19/2024 11:30:40 AM: State completed
+9/19/2024 11:30:40 AM: State completed: MainMenuState
+9/19/2024 11:30:40 AM: Clearing controllers
+9/19/2024 11:30:50 AM: State completed
+9/19/2024 11:30:50 AM: State completed: CategoryVoteState
+9/19/2024 11:30:56 AM: Player 0 has already answered this question
+9/19/2024 11:30:56 AM: State completed
+9/19/2024 11:30:56 AM: State completed: QuestionState
+9/19/2024 11:31:06 AM: State completed
+9/19/2024 11:31:06 AM: State completed: ResultState
+9/19/2024 11:31:07 AM: Player 1 has already answered this question
+9/19/2024 11:31:07 AM: Player 2 has already answered this question
+9/19/2024 11:31:07 AM: Player 2 has already answered this question
+9/19/2024 11:31:08 AM: State completed
+9/19/2024 11:31:08 AM: State completed: QuestionState
+9/19/2024 11:31:18 AM: State completed
+9/19/2024 11:31:18 AM: State completed: ResultState
+9/19/2024 11:31:19 AM: Player 2 has already answered this question
+9/19/2024 11:31:19 AM: State completed
+9/19/2024 11:31:19 AM: State completed: QuestionState
+9/19/2024 11:31:29 AM: State completed
+9/19/2024 11:31:29 AM: State completed: ResultState
+9/20/2024 3:25:30 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/20/2024 3:25:30 AM: HandlePlayerCheckIn: Controller: 0
+9/20/2024 3:25:30 AM: Checking in player: 0
+9/20/2024 3:25:30 AM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/20/2024 3:25:30 AM: HandlePlayerCheckIn: Controller: 1
+9/20/2024 3:25:30 AM: Checking in player: 1
+9/20/2024 3:25:30 AM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/20/2024 3:25:30 AM: HandlePlayerCheckIn: Controller: 2
+9/20/2024 3:25:30 AM: Checking in player: 2
+9/20/2024 3:25:30 AM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/20/2024 3:25:30 AM: HandlePlayerCheckIn: Controller: 3
+9/20/2024 3:25:30 AM: Checking in player: 3
+9/20/2024 3:25:30 AM: All players checked in
+9/20/2024 3:25:31 AM: State completed
+9/20/2024 3:25:31 AM: State completed: MainMenuState
+9/20/2024 3:25:31 AM: Clearing controllers
+9/20/2024 3:25:41 AM: State completed
+9/20/2024 3:25:41 AM: State completed: CategoryVoteState
+9/20/2024 3:25:50 AM: Player 3 has already answered this question
+9/20/2024 3:25:50 AM: Player 3 has already answered this question
+9/20/2024 3:25:50 AM: Player 1 has already answered this question
+9/20/2024 3:25:51 AM: Player 0 has already answered this question
+9/20/2024 3:25:51 AM: Player 3 has already answered this question
+9/20/2024 3:25:51 AM: Player 1 has already answered this question

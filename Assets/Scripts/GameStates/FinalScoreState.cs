@@ -12,7 +12,7 @@ public class FinalScoreState : BaseGameState
         Debug.Log("Entering final score state");
         ScoreCalculator.CalculateScores();
         uiManager.UpdateFinalScorePanel(playerManager.GetSortedPlayers());
-        uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, true);
+        uiManager.TogglePanel(UIManager.UIPanelElement.FinalScorePanel, true);
         NotifyStateCompletion();
     }
 
@@ -20,8 +20,8 @@ public class FinalScoreState : BaseGameState
 
     public override void Exit()
     {
-        uiManager.TogglePanel(UIManager.UIElement.FinalScorePanel, false);
-        uiManager.TogglePanel(UIManager.UIElement.MainMenuPanel, true);
+        uiManager.TogglePanel(UIManager.UIPanelElement.FinalScorePanel, false);
+        uiManager.TogglePanel(UIManager.UIPanelElement.MainMenuPanel, true);
     }
 
     public override void HandleInput(int controller, int button)

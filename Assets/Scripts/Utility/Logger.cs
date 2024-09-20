@@ -3,7 +3,7 @@ using System.IO;
 
 public static class Logger
 {
-    private static readonly string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log.txt");
+    private static readonly string logFilePath = "log.txt";
 
     public static void Log(string message)
     {

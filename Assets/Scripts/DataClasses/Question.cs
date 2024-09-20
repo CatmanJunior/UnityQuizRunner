@@ -20,6 +20,12 @@ public class Question
         Explanation = explanation;
     }
 
+    public int GetAnswerAmount()
+    {
+        return Answers.Count;
+    }
+    
+
     /// <summary>
     /// Checks if the provided answer ID is correct.
     /// </summary>

@@ -8,19 +8,22 @@ public class CategoryVoteHandler : MonoBehaviour
     private string[] categories;
     private Dictionary<int, int> categoryVotes = new Dictionary<int, int>();
 
-    public void InitCategories(string[] categories)
+    public void InitCategories(string[] categoryList)
     {
-        this.categories = categories;
+        categories = categoryList;
     }
 
     public int GetIndex(string category)
     {
-        return System.Array.IndexOf(categories, category);
+        print("Getting index of " + category + " in " + categories);
+        int i = System.Array.IndexOf(categories, category);
+        print("Index is " + i);
+        return i;
     }
 
     public bool HandleCategoryVote(int controller, int button)
     {
-        if (button >= categories.Length)
+        if (button >= categories.Length-1)
         {
             Debug.Log("Button " + button + " is not a valid category");
             return false;

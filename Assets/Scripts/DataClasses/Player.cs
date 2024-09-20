@@ -33,7 +33,7 @@ public class Player
     {
         PlayerAnswer answer = GetPlayerAnswer(question);
         if (answer != null) return answer.IsCorrect;
-        Console.WriteLine("Player has not answered this question");
+        Logger.Log("Player has not answered this question");
         return false;
     }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 
-public class CountdownTimer : MonoBehaviour
+public class oldTimer : MonoBehaviour
 {
     public float CountdownDuration = 3f; // Duration of the countdown in seconds.
     [SerializeField]

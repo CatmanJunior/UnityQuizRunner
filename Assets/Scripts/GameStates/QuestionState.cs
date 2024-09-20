@@ -8,25 +8,21 @@ public class QuestionState : BaseGameState
     {
     }
 
-
-
+    private bool stateComplete = false;
 
     public override void Enter()
     {
-        uiManager.TogglePanel(UIManager.UIElement.VotePanel, false);
+        stateComplete = false;
+        uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, false);
         if (!questionManager.HasQuizStarted())
         {
             Debug.Log("Getting random questions");
-            questionManager.GetRandomQuestions(gameStateHandler.category);
+            questionManager.GetRandomQuestions(gameStateHandler.currentCategory);
         }
 
         if (questionManager.HasQuestionsLeft())
         {
-            questionManager.NextQuestion();
-            //TODO: the timer triggers after the full text is shown, but has to go through multiple classes do like a observer pattern
-            uiManager.ShowQuestion(StartQuestionTimer);
-            uiManager.TogglePanel(UIManager.UIElement.TimerPanel, true);
-            // countdownTimer.StartCountdown(EndOfQuestion, questionAnswerTime);
+            HandleNextQuestion();
         }
         else
         {
@@ -36,14 +32,27 @@ public class QuestionState : BaseGameState
         }
     }
 
+    private void HandleNextQuestion()
+    {
+        questionManager.NextQuestion();
+        timerManager.CreateTimer("QuestionTimer", Settings.questionAnswerTime, NotifyStateCompletion, false);
+        uiManager.ShowQuestion();
+        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
+        timerManager.SelectTimerForUI("QuestionTimer");
+    }
+
     public override void Exit()
     {
-        uiManager.TogglePanel(UIManager.UIElement.QuestionPanel, false);
+        uiManager.TogglePanel(UIManager.UIPanelElement.QuestionPanel, false);
         uiManager.ResetPlayerPanels();
     }
 
     public override void HandleInput(int controller, int button)
     {
+        if (stateComplete || timerManager.IsTimerActive("QuestionTimer") == false)
+        {
+            return;
+        }
         if (!questionManager.IsQuestionAvailable())
         {
             Debug.Log("No question available");
@@ -55,7 +64,7 @@ public class QuestionState : BaseGameState
             Debug.Log("Answer not available");
             return;
         }
-        float timeTaken = countdownTimer.GetSecondsSinceStart();
+        float timeTaken = timerManager.GetSecondsSinceStart("QuestionTimer");
         if (playerManager.AddAnswer(controller, questionManager.CurrentQuestion, button, timeTaken))
         {
             Debug.Log("Player " + controller + " answered " + questionManager.CurrentQuestion.Answers[button].AnswerText);
@@ -63,35 +72,32 @@ public class QuestionState : BaseGameState
         }
         if (playerManager.HaveAllPlayersAnswered(questionManager.CurrentQuestion))
         {
-            countdownTimer.StopCountdown();
-            uiManager.TogglePanel(UIManager.UIElement.TimerPanel, false);
-            EndOfQuestion();
+            timerManager.StopTimer("QuestionTimer");
+            uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
+            stateComplete = true;
+            NotifyStateCompletion();
         }
     }
 
     public override void Update()
     {
-       if (Settings.testMode){
-        //at random intervals a player will answer
-        if (UnityEngine.Random.Range(0, 1000) < 2)
+        if (Settings.testMode)
         {
-            int controller = UnityEngine.Random.Range(0, 4);
-            int answer = UnityEngine.Random.Range(0, questionManager.CurrentQuestion.Answers.Count);
-            HandleInput(controller, answer);
+            //at random intervals a player will answer
+            if (UnityEngine.Random.Range(0, 1000) < 2)
+            {
+                int controller = UnityEngine.Random.Range(0, 4);
+                int answer = UnityEngine.Random.Range(0, questionManager.CurrentQuestion.Answers.Count);
+                HandleInput(controller, answer);
+            }
         }
-       }
     }
 
     // Additional private methods specific to QuizState
 
     public void StartQuestionTimer()
     {
-        uiManager.TogglePanel(UIManager.UIElement.TimerPanel, true);
-        countdownTimer.StartCountdown(EndOfQuestion, Settings.questionAnswerTime);
-    }
-
-    private void EndOfQuestion()
-    {
-        NotifyStateCompletion();
+        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
+        timerManager.CreateTimer("QuestionTimer", Settings.questionAnswerTime, NotifyStateCompletion);
     }
 }

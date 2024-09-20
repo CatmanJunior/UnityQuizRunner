@@ -1,11 +1,10 @@
 1.
 T: Cocaïne
 Q: Welk antwoord klopt NIET? (kies er 1)
-A: Door cocaïne breekt alcohol in je lichaam sneller af
+A: Door cocaïne breekt alcohol in je lichaam sneller af +
 B: Levamisol is de meest voorkomende vervuiling van cocaïne
 C: Bezit van meer dan 0.5g cocaïne is strafbaar
 D: Cocaïne werkt in de hersenen vooral op het dopaminesysteem
-A: A +
 W: Door cocaïne breekt alcohol in je lichaam niet sneller af. Je voelt de effecten van alcohol minder na het gebruik van cocaïne, wat je langer en meer kan laten drinken, maar het alcohol wordt niet sneller afgebroken.
 END
 
@@ -32,9 +31,9 @@ END
 4.
 T: Cocaïne
 Q: Welke tip vind jij het beste? (kies er 1)
-A: Gebruik alleen als je je lichamelijk en geestelijk goed voelt
-B: Combineer cocaïne niet met alcohol
-C: Spreek met jezelf af hoeveel je wil gebruiken
-D: Laat je niet overhalen om meer te doen.
+A: Gebruik alleen als je je lichamelijk en geestelijk goed voelt +
+B: Combineer cocaïne niet met alcohol +
+C: Spreek met jezelf af hoeveel je wil gebruiken +
+D: Laat je niet overhalen om meer te doen. +
 W: Ieder antwoord is goed 😊 
 END

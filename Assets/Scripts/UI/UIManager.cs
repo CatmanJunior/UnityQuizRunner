@@ -1,9 +1,10 @@
 
+using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 public enum PlayerPanelState
 {
     Default,
@@ -20,7 +21,7 @@ public class UIManager : MonoBehaviour
 {
 
     public static UIManager Instance;
-    public enum UIElement
+    public enum UIPanelElement
     {
         MainMenuPanel,
         InstructionsPanel,
@@ -32,8 +33,7 @@ public class UIManager : MonoBehaviour
     }
 
     [Header("UI Elements")]
-    [SerializeField]
-    private Slider timerSlider;
+
     [SerializeField]
     private TextMeshProUGUI timerText;
 
@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
     private UIDebugPanel debugPanel;
 
     //Private variables
-    private Dictionary<UIElement, UIPanel> panelDictionary;
+    private Dictionary<UIPanelElement, UIPanel> panelDictionary;
 
     #region Unity Functions
     private void Awake()
@@ -65,15 +65,15 @@ public class UIManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        panelDictionary = new Dictionary<UIElement, UIPanel>
+        panelDictionary = new Dictionary<UIPanelElement, UIPanel>
         {
-            { UIElement.MainMenuPanel, mainMenuPanel },
-            { UIElement.InstructionsPanel, mainMenuPanel },
-            { UIElement.FinalScorePanel, scorePanel },
-            { UIElement.VotePanel, votePanel },
-            { UIElement.QuestionPanel, questionPanel },
-            { UIElement.TimerPanel, timerPanel},
-            { UIElement.DebugPanel, debugPanel}
+            { UIPanelElement.MainMenuPanel, mainMenuPanel },
+            { UIPanelElement.InstructionsPanel, mainMenuPanel },
+            { UIPanelElement.FinalScorePanel, scorePanel },
+            { UIPanelElement.VotePanel, votePanel },
+            { UIPanelElement.QuestionPanel, questionPanel },
+            { UIPanelElement.TimerPanel, timerPanel},
+            { UIPanelElement.DebugPanel, debugPanel}
         };
 
 
@@ -81,7 +81,7 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    public void TogglePanel(UIElement panelElement, bool show)
+    public void TogglePanel(UIPanelElement panelElement, bool show)
     {
         if (panelDictionary.TryGetValue(panelElement, out UIPanel panelToToggle))
         {
@@ -131,9 +131,10 @@ public class UIManager : MonoBehaviour
                 throw new System.NotImplementedException();
         }
     }
-    public void SetPlayerScore(int playerId, int score)
+
+    public void UpdatePlayerScoreDisplay(int playerId, int score)
     {
-        playerPanel.SetPlayerScore(playerId, score);
+        playerPanel.UpdatePlayerScoreDisplay(playerId, score);
     }
 
     public void ResetPlayerPanels()
@@ -148,11 +149,8 @@ public class UIManager : MonoBehaviour
     {
         mainMenuPanel.SetInstructionText(text);
     }
-    public void UpdateTimer(float timeLeft)
-    {
-        timerSlider.value = timeLeft;
-        timerText.text = timeLeft.ToString("F1");
-    }
+
+
 
     public void UpdateFinalScorePanel(List<Player> sortedPlayers)
     {
@@ -188,13 +186,23 @@ public class UIManager : MonoBehaviour
         questionPanel.ShowQuestionResults();
     }
 
-    public void ShowQuestion(System.Action StartQuestionTimer)
+    public void ShowQuestion()
     {
-        questionPanel.ShowQuestion(StartQuestionTimer);
+        questionPanel.ShowQuestion();
     }
 
-        public void StartQuestionTimer()
+    public void StartQuestionTimer()
     {
-     
+
+    }
+
+    internal void ResetGame()
+    {
+        playerPanel.ResetPlayerPanels(resetScores: true);
+        TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
+        TogglePanel(UIManager.UIPanelElement.QuestionPanel, false);
+        TogglePanel(UIManager.UIPanelElement.VotePanel, false);
+        TogglePanel(UIManager.UIPanelElement.FinalScorePanel, false);
+        TogglePanel(UIManager.UIPanelElement.MainMenuPanel, true);
     }
 }
