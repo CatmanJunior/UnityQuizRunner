@@ -195,8 +195,9 @@ public static class QuestionParser
         else
         {
             string[] categories = new string[n];
+            categories[0] = DefaultCategory;
             string[] categoriesCopy = GetCategories();
-            for (var i = 0; i < n; i++)
+            for (var i = 1; i < n; i++)
             {
                 var randomIndex = Random.Range(0, categoriesCopy.Length);
                 categories[i] = categoriesCopy[randomIndex];

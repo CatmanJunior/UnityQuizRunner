@@ -44,6 +44,8 @@ public class TimerUI : MonoBehaviour
     public void SetTimer(Timer timer)
     {
         currentTimer = timer;
+        SetText(currentTimer.CountdownDuration.ToString());
+        timerSlider.value = 1;
     }
 
     public void RemoveTimer()

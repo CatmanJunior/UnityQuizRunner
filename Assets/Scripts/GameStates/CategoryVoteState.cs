@@ -15,8 +15,6 @@ public class CategoryVoteState : BaseGameState
 
     public override void Exit()
     {
-
-
         soundManager.PlaySoundEffect(SoundEffect.CategoryChosen);
         uiManager.ResetPlayerPanels();
         uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, false);

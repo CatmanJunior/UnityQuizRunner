@@ -22,17 +22,33 @@ public class Timer : MonoBehaviour
     /// </summary>
     /// <param name="onTimerEnd">The action to be invoked when the timer ends.</param>
     /// <param name="countdownDuration">The duration of the countdown in seconds.</param>
-    public void StartCountdown(Action onTimerEnd, int countdownDuration)
+    public void StartCountdown(float countdownDuration, Action onTimerEnd = null)
     {
+        if (onTimerEnd != null)
+        {
+            OnTimerEnd = onTimerEnd;
+        }
         Debug.Log($"StartCountdown: {TimerID}");
         if (!IsCounting)
         {
             CountdownDuration = countdownDuration;
             IsCounting = true;
-            OnTimerEnd = onTimerEnd;
             startTime = Time.time; // Record the start time of the countdown.
             StartCoroutine(Countdown());
+        } else
+        {
+            Debug.LogWarning("Timer is already counting.");
         }
+    }
+
+    public void StartCountdown()
+    {
+        StartCountdown(CountdownDuration);
+    }
+
+    public void SetAction(Action onTimerEnd)
+    {
+        OnTimerEnd = onTimerEnd;
     }
 
     public void PauzeCountdown()
@@ -58,7 +74,7 @@ public class Timer : MonoBehaviour
     public void RestartTimer()
     {
         StopCountdown();
-        StartCountdown(OnTimerEnd, (int)CountdownDuration);
+        StartCountdown(CountdownDuration);
     }
 
     public void StopCountdown(bool invokeCallback = false)
@@ -113,7 +129,7 @@ public class Timer : MonoBehaviour
     
     public float GetTimeLeft()
     {
-        
+
         return CountdownDuration - (Time.time - startTime);
     }
 

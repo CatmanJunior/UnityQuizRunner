@@ -34,11 +34,10 @@ public class QuestionState : BaseGameState
 
     private void HandleNextQuestion()
     {
+        PrepareQuestionTimer();
         questionManager.NextQuestion();
-        timerManager.CreateTimer("QuestionTimer", Settings.questionAnswerTime, NotifyStateCompletion, false);
         uiManager.ShowQuestion();
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
-        timerManager.SelectTimerForUI("QuestionTimer");
     }
 
     public override void Exit()
@@ -49,7 +48,12 @@ public class QuestionState : BaseGameState
 
     public override void HandleInput(int controller, int button)
     {
-        if (stateComplete || timerManager.IsTimerActive("QuestionTimer") == false)
+        Debug.Log(timerManager.IsTimerActive("QuestionTimer"));
+        if (timerManager.IsTimerActive("QuestionTimer") == false)
+        {
+            return;
+        }
+        if (stateComplete)
         {
             return;
         }
@@ -95,9 +99,10 @@ public class QuestionState : BaseGameState
 
     // Additional private methods specific to QuizState
 
-    public void StartQuestionTimer()
+    public void PrepareQuestionTimer()
     {
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
-        timerManager.CreateTimer("QuestionTimer", Settings.questionAnswerTime, NotifyStateCompletion);
+        timerManager.CreateTimer("QuestionTimer", Settings.questionAnswerTime, NotifyStateCompletion, false);
+        timerManager.SelectTimerForUI("QuestionTimer");
     }
 }

@@ -101,7 +101,7 @@ public class GameStateHandler : MonoBehaviour
         currentState?.HandleInput(controller, button);
     }
 
-    private void ChangeState(BaseGameState newState, int delay = 0)
+    private void ChangeState(BaseGameState newState, float delay = 0)
     {
         if (delay > 0)
         {

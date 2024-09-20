@@ -29,7 +29,7 @@ public class TimerManager : MonoBehaviour
     /// <param name="timerID">Unique ID for the timer.</param>
     /// <param name="countdownDuration">The duration of the countdown in seconds.</param>
     /// <param name="onTimerEnd">Action to invoke when the timer ends.</param>
-    public void CreateTimer(string timerID, int countdownDuration, Action onTimerEnd, bool startImmediately = true)
+    public void CreateTimer(string timerID, float countdownDuration, Action onTimerEnd, bool startImmediately = true)
     {
         if (!timers.ContainsKey(timerID))
         {
@@ -40,16 +40,13 @@ public class TimerManager : MonoBehaviour
 
             // Add the Timer to the dictionary.
             timers[timerID] = newTimer;
-
-            // Start the timer.
-            if (startImmediately)
-            {
-                newTimer.StartCountdown(onTimerEnd, countdownDuration);
-            }
         }
-        else
+        timers[timerID].SetAction(onTimerEnd);
+        timers[timerID].CountdownDuration = countdownDuration;
+        // Start the timer.
+        if (startImmediately)
         {
-            timers[timerID].RestartTimer();
+            timers[timerID].StartCountdown(countdownDuration);
         }
     }
 
@@ -81,6 +78,18 @@ public class TimerManager : MonoBehaviour
         {
             timers[timerID].RestartTimer();
             
+        }
+        else
+        {
+            Debug.LogError($"Timer with ID '{timerID}' does not exist.");
+        }
+    }
+
+    public void StartTimer(string timerID)
+    {
+        if (timers.ContainsKey(timerID))
+        {
+            timers[timerID].StartCountdown();
         }
         else
         {

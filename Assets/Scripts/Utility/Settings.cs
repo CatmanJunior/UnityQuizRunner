@@ -16,28 +16,27 @@ public static class Settings
     public const int AmountOfQuestions = 10;
 
     //Time
-    public const int timeBeforeCheckedInClear = 10;
-    public const int timeBeforeMainMenuEnd = 1;
-    public const int postQuestionTime = 3;
-    public const int preQuestionTime = 5;
-    public const int finalScoreTime = 10;
-    public const int categoryVoteTime = 10;
-    public const int questionAnswerTime = 10;
-    public const float scoreIncreaseSpeedInSeconds = 0.3f;
-
-    //Question Animation
-    public const  float questionTypingSpeed = 0.05f;
+    public const float TIME_MODIFIER = 1.2f;
+    public const float timeBeforeCheckedInClear = 10.0f * TIME_MODIFIER;
+    public const float timeBeforeMainMenuEnd = 2.0f * TIME_MODIFIER;
+    public const float postQuestionTime = 5.0f * TIME_MODIFIER;
+    public const float preQuestionTime = 8.0f * TIME_MODIFIER;
+    public const float finalScoreTime = 10.0f * TIME_MODIFIER;
+    public const float categoryVoteTime = 5.0f * TIME_MODIFIER;
+    public const float questionAnswerTime = 15.0f * TIME_MODIFIER;
+    public const float scoreIncreaseSpeedInSeconds = 0.3f * TIME_MODIFIER;
+    public const float questionTypingSpeed = 0.05f;
 
     //Parser
     public const string generalCategory = "General";
 
     //None Constant
-    
+
     public static bool testMode = Application.isEditor;
     public static bool skipVote = false;
     public static bool useAnimations = true;
     public static bool useLightController = true;
-    public static bool muteMusic = false;
+    public static bool muteMusic = true;
 
 
 }

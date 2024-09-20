@@ -72,7 +72,7 @@ public class UIQuestionPanel : UIPanel
 
     private void StartQuestionTimer()
     {
-        TimerManager.Instance.ResumeTimer("QuestionTimer");
+        TimerManager.Instance.StartTimer("QuestionTimer");
     }
 
     private void SetAnswersText(Question question)
