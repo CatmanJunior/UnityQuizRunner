@@ -1,10 +1,10 @@
 1.
 T: Speed
 Q: Wat is NIET waar? (kies 1 antwoord)
-A: Speed snuiven geeft sneller effect dan speed slikken +
+A: Speed snuiven geeft sneller effect dan speed slikken
 B: Cafeïne is het meest voorkomende versnijdingsmiddel van speed
 C: Amfetamine wordt gebruikt als ADHD-medicatie
-D: Natte speed is puurder dan droge speed
+D: Natte speed is puurder dan droge speed +
 W: Natte speed is niet puurder dan droge speed. Natte speed bevat naast amfetamine nog stoffen van het productieproces die schadelijk kunnen zijn voor de gezondheid.
 END
 

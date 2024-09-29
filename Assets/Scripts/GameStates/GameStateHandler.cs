@@ -57,7 +57,12 @@ public class GameStateHandler : MonoBehaviour
     {
         await QuestionParser.LoadQuestionsFromTxt();
 
-
+        for (int i = 0; i < 10; i++)
+        { 
+            //generate random categories and debug log them
+            string[] _categories = QuestionParser.GetCategories(4);
+            Debug.Log("Categories: " + string.Join(", ", _categories));
+        }
         categoryVoteState.Initialize(this);
         questionState.Initialize(this);
         finalScoreState.Initialize(this);
@@ -65,6 +70,7 @@ public class GameStateHandler : MonoBehaviour
         mainMenuState.Initialize(this);
 
         ChangeState(mainMenuState);
+
     }
 
     private void Start()

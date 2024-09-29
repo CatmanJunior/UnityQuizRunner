@@ -13,22 +13,22 @@ public static class Settings
 
     public const int requiredControllers = 4;
 
-    public const int AmountOfQuestions = 10;
+    public const int AmountOfQuestions = 5;
 
     //Time
-    public const float TIME_MODIFIER = 1.2f;
+    public const float TIME_MODIFIER = 1.0f;
     public const float timeBeforeCheckedInClear = 10.0f * TIME_MODIFIER;
     public const float timeBeforeMainMenuEnd = 2.0f * TIME_MODIFIER;
     public const float postQuestionTime = 5.0f * TIME_MODIFIER;
-    public const float preQuestionTime = 8.0f * TIME_MODIFIER;
+    public const float preQuestionTime = 3.0f * TIME_MODIFIER;
     public const float finalScoreTime = 10.0f * TIME_MODIFIER;
-    public const float categoryVoteTime = 5.0f * TIME_MODIFIER;
+    public const float categoryVoteTime = 8.0f * TIME_MODIFIER;
     public const float questionAnswerTime = 15.0f * TIME_MODIFIER;
     public const float scoreIncreaseSpeedInSeconds = 0.3f * TIME_MODIFIER;
     public const float questionTypingSpeed = 0.05f;
 
     //Parser
-    public const string generalCategory = "General";
+    public const string generalCategory = "Random";
 
     //None Constant
 

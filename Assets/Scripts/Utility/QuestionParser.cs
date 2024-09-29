@@ -11,7 +11,7 @@ public static class QuestionParser
 {
     private static readonly List<Question> questions = new List<Question>();
     private static readonly Dictionary<string, List<Question>> categories = new Dictionary<string, List<Question>>();
-    private const string DefaultCategory = "General";
+    private const string DefaultCategory = Settings.generalCategory;
     private static string ExplanationPrefix = "W:";
     private static string QuestionPrefix = "Q:";
     private static string CategoryPrefix = "T:";
@@ -194,16 +194,11 @@ public static class QuestionParser
         }
         else
         {
-            string[] categories = new string[n];
-            categories[0] = DefaultCategory;
-            string[] categoriesCopy = GetCategories();
-            for (var i = 1; i < n; i++)
-            {
-                var randomIndex = Random.Range(0, categoriesCopy.Length);
-                categories[i] = categoriesCopy[randomIndex];
-                categoriesCopy = categoriesCopy.Where((val, idx) => idx != randomIndex).ToArray();
-            }
-            return categories;
+            var randomCategories = categories.Keys.ToList(); // Directly get the keys as a list
+            randomCategories.Remove(DefaultCategory); // Remove the default category
+            var shuffledCategories = randomCategories.OrderBy(x => Random.value).Take(n - 1).ToList(); // Shuffle and take n-1 elements
+            shuffledCategories.Insert(0, DefaultCategory); // Insert the default category at the start
+            return shuffledCategories.ToArray(); // Return as an array
         }
     }
 }

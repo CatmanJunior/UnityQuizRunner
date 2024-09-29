@@ -71,6 +71,11 @@ public class QuestionManager : MonoBehaviour
     }
 
 
+    public List<Question> GetQuestions()
+    {
+        return _questionList;
+    }
+
 }
 
 

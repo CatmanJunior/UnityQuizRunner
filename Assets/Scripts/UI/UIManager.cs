@@ -29,7 +29,8 @@ public class UIManager : MonoBehaviour
         VotePanel,
         QuestionPanel,
         TimerPanel,
-        DebugPanel
+        DebugPanel,
+        EvalPanel
     }
 
     [Header("UI Elements")]
@@ -53,6 +54,8 @@ public class UIManager : MonoBehaviour
     private UIPlayerPanel playerPanel;
     [SerializeField]
     private UIDebugPanel debugPanel;
+    [SerializeField]
+    private UIEvalPanel evalPanel;
 
     //Private variables
     private Dictionary<UIPanelElement, UIPanel> panelDictionary;
@@ -73,7 +76,8 @@ public class UIManager : MonoBehaviour
             { UIPanelElement.VotePanel, votePanel },
             { UIPanelElement.QuestionPanel, questionPanel },
             { UIPanelElement.TimerPanel, timerPanel},
-            { UIPanelElement.DebugPanel, debugPanel}
+            { UIPanelElement.DebugPanel, debugPanel},
+            { UIPanelElement.EvalPanel, evalPanel}
         };
 
 
@@ -150,7 +154,10 @@ public class UIManager : MonoBehaviour
         mainMenuPanel.SetInstructionText(text);
     }
 
-
+    public void SetEvalText(Question[] questions)
+    {
+        evalPanel.SetTexts(questions);
+    }
 
     public void UpdateFinalScorePanel(List<Player> sortedPlayers)
     {

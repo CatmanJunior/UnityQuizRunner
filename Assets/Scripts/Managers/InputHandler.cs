@@ -13,7 +13,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] char debugButton = '0';
     [SerializeField] char voteOnButton = '9';
     [SerializeField] char voteOffButton = '8';
-
+    [SerializeField] char restartButton = 'r';
     public InputAction buttonPress;
 
     public event System.Action<int, int> OnButton;
@@ -84,6 +84,11 @@ public class InputHandler : MonoBehaviour
 
             Settings.skipVote = true;
             SoundManager.Instance.PlaySoundEffect(SoundManager.SoundEffect.AnswerWrong);
+            return;
+        }
+        if (character == restartButton)
+        {
+            Restarter.RestartApplication();
             return;
         }
         foreach (List<string> controller in keyboardButtons)

@@ -21,7 +21,7 @@ END
 3.
 T: Cocaïne
 Q: Welk antwoord klopt? (meerdere antwoorden mogelijk)
-A: Cocaïne kan zorgen voor een toename in spierkracht
+A: Cocaïne kan zorgen voor een toename in spierkracht +
 B: Cocaïne zorgt via het stresshormoon cortisol voor spierafbraak +
 C: Cocaïne zorgt voor aderverkalking +
 D: Cocaïne heeft weinig invloed op het hart

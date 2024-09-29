@@ -12,6 +12,8 @@ public class QuestionState : BaseGameState
 
     public override void Enter()
     {
+
+
         stateComplete = false;
         uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, false);
         if (!questionManager.HasQuizStarted())
