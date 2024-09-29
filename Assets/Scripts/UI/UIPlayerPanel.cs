@@ -32,7 +32,7 @@ public class UIPlayerPanel : UIPanel
 
     private void PlayGlowAnimation(int playerIndex)
     {
-        if (!Settings.useAnimations) return;
+        if (!SettingsManager.UserSettings.useAnimations) return;
 
         panelGlowImages[playerIndex].enabled = true;
         LeanTween.value(panelGlowImages[playerIndex].gameObject, 0, 1, 0.5f).setEase(LeanTweenType.easeInOutQuad).setOnUpdate((float val) =>
@@ -44,7 +44,7 @@ public class UIPlayerPanel : UIPanel
 
     public void SetCheckedIn(int playerIndex)
     {
-        if (!Settings.useAnimations) return;
+        if (!SettingsManager.UserSettings.useAnimations) return;
 
         LeanTween.scale(playerPanels[playerIndex], new Vector3(1.5f, 1.5f, 1.5f), 0.5f).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong(1);
         LeanTween.rotateZ(playerPanels[playerIndex], 10, 0.3f).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong().setDelay(0.5f);
@@ -52,7 +52,7 @@ public class UIPlayerPanel : UIPanel
 
     public void SetAddingScore(int playerIndex)
     {
-        if (!Settings.useAnimations) return;
+        if (!SettingsManager.UserSettings.useAnimations) return;
 
         LeanTween.scale(playerPanels[playerIndex], new Vector3(1.5f, 1.5f, 1.5f), 0.5f).setEase(LeanTweenType.easeInOutQuad);
         LeanTween.rotateZ(playerPanels[playerIndex], 20, 0.1f).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong().setDelay(0.5f);
@@ -73,7 +73,7 @@ public class UIPlayerPanel : UIPanel
 
     public void StopAnimations(int playerIndex)
     {
-        if (!Settings.useAnimations) return;
+        if (!SettingsManager.UserSettings.useAnimations) return;
 
         LeanTween.cancel(playerPanels[playerIndex]);
         playerPanels[playerIndex].LeanCancel();

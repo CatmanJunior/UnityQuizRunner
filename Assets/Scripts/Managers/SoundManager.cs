@@ -115,7 +115,7 @@ public class SoundManager : MonoBehaviour
 
     private void PlayMusic(AudioClip clip, bool play = true)
     {
-        if (Settings.muteMusic)
+        if (SettingsManager.UserSettings.muteMusic)
         {
             return;
         }

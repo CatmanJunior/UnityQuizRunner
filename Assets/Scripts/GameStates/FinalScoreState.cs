@@ -17,7 +17,7 @@ public class FinalScoreState : BaseGameState
         uiManager.UpdateFinalScorePanel(playerManager.GetSortedPlayers());
         uiManager.TogglePanel(UIManager.UIPanelElement.FinalScorePanel, true);
         // timerManager.CreateTimer("FinalScoreTimer", 5, ShowEvalPanel);
-        timerManager.CreateTimer("FinalScoreTimer", Settings.finalScoreTime, NotifyStateCompletion);
+        timerManager.CreateTimer("FinalScoreTimer", SettingsManager.UserSettings.finalScoreTime, NotifyStateCompletion);
     }
 
     public void ShowEvalPanel()

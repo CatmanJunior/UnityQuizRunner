@@ -23,7 +23,7 @@ public class MainMenuState : BaseGameState
     {
         Logger.Log($"HandleInput in MainMenu: Controller: {controller} Button: {button}");
         //if the button is not the check in button or the controller is already checked in
-        if (button != Settings.checkinButton || checkedInControllers.Contains(controller)) return;
+        if (button != SettingsManager.Instance.userSettings.checkinButton || checkedInControllers.Contains(controller)) return;
         HandlePlayerCheckIn(controller);
     }
 
@@ -31,12 +31,12 @@ public class MainMenuState : BaseGameState
     {
         Logger.Log("HandlePlayerCheckIn: Controller: " + controller);
         CheckInPlayer(controller);
-        if (checkedInControllers.Count >= Settings.requiredControllers) //if the required amount of controllers are checked in
+        if (checkedInControllers.Count >= SettingsManager.Instance.userSettings.requiredControllers) //if the required amount of controllers are checked in
         {
             Logger.Log("All players checked in");
             timerManager.StopTimer("CheckInTimer");
-            uiManager.SetInstructionText(Settings.MainMenuEndText);
-            timerManager.CreateTimer("MainMenuEnd", Settings.timeBeforeMainMenuEnd, NotifyStateCompletion);
+            uiManager.SetInstructionText(SettingsManager.Instance.userSettings.mainMenuEndText);
+            timerManager.CreateTimer("MainMenuEnd", SettingsManager.Instance.userSettings.timeBeforeMainMenuEnd, NotifyStateCompletion);
         }
     }
 
@@ -53,7 +53,7 @@ public class MainMenuState : BaseGameState
         }
         else
         {
-            timerManager.CreateTimer("CheckInTimer", Settings.timeBeforeCheckedInClear, ClearControllersCheckedIn);
+            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeBeforeCheckedInClear, ClearControllersCheckedIn);
         }
     }
 
@@ -64,7 +64,7 @@ public class MainMenuState : BaseGameState
         inputHandler.LightUpController(new List<int> { });
         checkedInControllers.Clear();
         //stop animation
-        for (int i = 0; i < Settings.requiredControllers; i++)
+        for (int i = 0; i < SettingsManager.Instance.userSettings.requiredControllers; i++)
         {
             uiManager.SetPlayerPanelState(i, PlayerPanelState.Default);
         }

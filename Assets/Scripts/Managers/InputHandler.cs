@@ -75,14 +75,14 @@ public class InputHandler : MonoBehaviour
         }
         if (character == voteOnButton)
         {
-            Settings.skipVote = false;
+            SettingsManager.UserSettings.skipVote = false;
             SoundManager.Instance.PlaySoundEffect(SoundManager.SoundEffect.AnswerCorrect);
             return;
         }
         if (character == voteOffButton)
         {
 
-            Settings.skipVote = true;
+            SettingsManager.UserSettings.skipVote = true;
             SoundManager.Instance.PlaySoundEffect(SoundManager.SoundEffect.AnswerWrong);
             return;
         }
@@ -133,7 +133,7 @@ public class InputHandler : MonoBehaviour
 
     public void LightUpController(List<int> controllers)
     {
-        if (!Settings.useLightController) return;
+        if (!SettingsManager.UserSettings.useLightController) return;
         // Find the HID device 
         var devices = HidDevices.Enumerate(1356, 2);
         var hidDevice = devices.FirstOrDefault();

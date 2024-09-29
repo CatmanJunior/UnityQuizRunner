@@ -85,11 +85,11 @@ public class GameStateHandler : MonoBehaviour
 
     public void ResetGame()
     {
-        playerManager.CreateNewPlayers(Settings.requiredControllers);
+        playerManager.CreateNewPlayers(SettingsManager.UserSettings.requiredControllers);
         uiManager.ResetGame();
         timerManager.ClearAllTimers();
         currentCategory = null;
-        uiManager.SetInstructionText(Settings.MainMenuStartText);
+        uiManager.SetInstructionText(SettingsManager.UserSettings.mainMenuStartText);
     }
 
 
@@ -131,9 +131,9 @@ public class GameStateHandler : MonoBehaviour
         switch (currentState)
         {
             case MainMenuState:
-                if (Settings.skipVote)
+                if (SettingsManager.UserSettings.skipVote)
                 {
-                    currentCategory = Settings.generalCategory;
+                    currentCategory = SettingsManager.UserSettings.generalCategory;
                     ChangeState(questionState);
                 }
                 else
@@ -143,7 +143,7 @@ public class GameStateHandler : MonoBehaviour
                 }
                 break;
             case CategoryVoteState:
-                ChangeState(questionState, Settings.preQuestionTime);
+                ChangeState(questionState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case QuestionState:
                 //if question index == -1
@@ -157,7 +157,7 @@ public class GameStateHandler : MonoBehaviour
                 ChangeState(questionState);
                 break;
             case FinalScoreState:
-                ChangeState(mainMenuState, Settings.finalScoreTime);
+                ChangeState(mainMenuState, SettingsManager.UserSettings.finalScoreTime);
                 break;
         }
     }

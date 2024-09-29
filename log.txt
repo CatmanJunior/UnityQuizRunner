@@ -1118,3 +1118,25 @@
 9/21/2024 8:59:21 AM: State completed: QuestionState
 9/21/2024 8:59:32 AM: State completed
 9/21/2024 8:59:32 AM: State completed: FinalScoreState
+9/29/2024 12:48:16 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/29/2024 12:48:16 PM: HandlePlayerCheckIn: Controller: 0
+9/29/2024 12:48:16 PM: Checking in player: 0
+9/29/2024 12:48:16 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/29/2024 12:48:16 PM: HandlePlayerCheckIn: Controller: 1
+9/29/2024 12:48:16 PM: Checking in player: 1
+9/29/2024 12:48:17 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+9/29/2024 12:48:17 PM: HandlePlayerCheckIn: Controller: 2
+9/29/2024 12:48:17 PM: Checking in player: 2
+9/29/2024 12:48:17 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+9/29/2024 12:48:17 PM: HandlePlayerCheckIn: Controller: 3
+9/29/2024 12:48:17 PM: Checking in player: 3
+9/29/2024 12:48:17 PM: All players checked in
+9/29/2024 12:48:19 PM: State completed
+9/29/2024 12:48:19 PM: State completed: MainMenuState
+9/29/2024 12:48:19 PM: Clearing controllers
+9/29/2024 12:48:27 PM: State completed
+9/29/2024 12:48:27 PM: State completed: CategoryVoteState
+9/29/2024 12:48:53 PM: State completed
+9/29/2024 12:48:53 PM: State completed: QuestionState
+9/29/2024 12:49:05 PM: State completed
+9/29/2024 12:49:05 PM: State completed: ResultState

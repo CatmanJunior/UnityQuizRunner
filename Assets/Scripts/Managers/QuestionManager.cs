@@ -7,6 +7,8 @@ public class QuestionManager : MonoBehaviour
     //Private variables
     private List<Question> _questionList = new(); 
 
+
+
     private int _currentQuestionIndex = -1; //the current question index
 
     private Question _currentQuestion { get => _currentQuestionIndex >= 0 && _currentQuestionIndex < _questionList.Count ? _questionList[_currentQuestionIndex] : null; }
@@ -27,9 +29,12 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    public void GetRandomQuestions(string category = Settings.generalCategory)
+    public void GetRandomQuestions(string category = null)
     {
-        _questionList = QuestionParser.GetRandomQuestions(Settings.AmountOfQuestions, category);
+        if (category == null)
+            _questionList = QuestionParser.GetRandomQuestions(SettingsManager.UserSettings.amountOfQuestions);
+        else
+            _questionList = QuestionParser.GetRandomQuestions(SettingsManager.UserSettings.amountOfQuestions, category);
     }
 
     public void NextQuestion()

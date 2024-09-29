@@ -4,6 +4,7 @@ using System;
 [Serializable]
 public class UserSettings
 {
+    public static UserSettings Current => SettingsManager.Instance.userSettings;
     // Versioning
     public int version = 1;
 

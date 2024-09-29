@@ -11,7 +11,7 @@ public static class QuestionParser
 {
     private static readonly List<Question> questions = new List<Question>();
     private static readonly Dictionary<string, List<Question>> categories = new Dictionary<string, List<Question>>();
-    private const string DefaultCategory = Settings.generalCategory;
+    private static string DefaultCategory;
     private static string ExplanationPrefix = "W:";
     private static string QuestionPrefix = "Q:";
     private static string CategoryPrefix = "T:";
@@ -24,6 +24,7 @@ public static class QuestionParser
     /// <returns>A list of all loaded questions.</returns>
     public static async Task<List<Question>> LoadQuestionsFromTxt()
     {
+        DefaultCategory = SettingsManager.UserSettings.generalCategory;
         categories.Add(DefaultCategory, new List<Question>());
 
         var path = Path.Combine(Application.streamingAssetsPath, "Questions");

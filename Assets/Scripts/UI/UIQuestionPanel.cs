@@ -59,9 +59,9 @@ public class UIQuestionPanel : UIPanel
     private void SetQuestion()
     {
         Question question = QuestionManager.Instance.CurrentQuestion;
-        if (Settings.useAnimations)
+        if (SettingsManager.UserSettings.useAnimations)
         {
-            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, Settings.questionTypingSpeed, StartQuestionTimer));
+            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, SettingsManager.UserSettings.questionTypingSpeed, StartQuestionTimer));
         }
         else
         {

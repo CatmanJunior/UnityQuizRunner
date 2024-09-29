@@ -10,7 +10,7 @@ public class CategoryVoteState : BaseGameState
     {
         uiManager.UpdateCategoryText(GameStateHandler.categories);
         uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, true);
-        timerManager.CreateTimer("voteTimer",  Settings.categoryVoteTime, DoneVoting);
+        timerManager.CreateTimer("voteTimer",  SettingsManager.UserSettings.categoryVoteTime, DoneVoting);
     }
 
     public override void Exit()

@@ -7,6 +7,7 @@ using Mono.Cecil.Cil;
 public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager Instance { get; private set; }
+    public static UserSettings UserSettings => Instance.userSettings;
 
     [Header("Default Settings")]
     [SerializeField] private DefaultSettings defaultSettings;
@@ -37,6 +38,7 @@ public class SettingsManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
     public void LoadSettings()
     {

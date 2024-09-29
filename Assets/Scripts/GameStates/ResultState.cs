@@ -54,7 +54,7 @@ public class ResultState : BaseGameState
         }
 
         // Start a post-question timer for the next phase of the game
-        timerManager.CreateTimer("postQuestion", Settings.postQuestionTime, NotifyStateCompletion);
+        timerManager.CreateTimer("postQuestion", SettingsManager.UserSettings.postQuestionTime, NotifyStateCompletion);
     }
 
     private void UpdatePlayerPanel(Player player)
@@ -82,7 +82,7 @@ public class ResultState : BaseGameState
             uiManager.UpdatePlayerScoreDisplay(player.ControllerId, initialScores[player.ControllerId]);
 
             // Pause briefly between score increments to create a smooth animation
-            yield return new WaitForSeconds(Settings.scoreIncreaseSpeedInSeconds);
+            yield return new WaitForSeconds(SettingsManager.UserSettings.scoreIncreaseSpeedInSeconds);
         }
     }
 

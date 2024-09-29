@@ -87,7 +87,7 @@ public class QuestionState : BaseGameState
 
     public override void Update()
     {
-        if (Settings.testMode)
+        if (SettingsManager.UserSettings.testMode)
         {
             //at random intervals a player will answer
             if (UnityEngine.Random.Range(0, 1000) < 2)
@@ -104,7 +104,7 @@ public class QuestionState : BaseGameState
     public void PrepareQuestionTimer()
     {
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
-        timerManager.CreateTimer("QuestionTimer", Settings.questionAnswerTime, NotifyStateCompletion, false);
+        timerManager.CreateTimer("QuestionTimer", SettingsManager.UserSettings.questionAnswerTime, NotifyStateCompletion, false);
         timerManager.SelectTimerForUI("QuestionTimer");
     }
 }

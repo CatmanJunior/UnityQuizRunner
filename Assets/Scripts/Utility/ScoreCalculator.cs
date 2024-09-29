@@ -13,7 +13,7 @@ public class ScoreCalculator : MonoBehaviour
             if (answer.IsCorrect)
             {
                 
-                Score += Settings.PointsForRightAnswer;
+                Score += SettingsManager.UserSettings.pointsForRightAnswer;
 
             }
         }
@@ -35,7 +35,7 @@ public class ScoreCalculator : MonoBehaviour
         Player[] correctPlayers = players.Where(player => player.HasAnsweredCorrectly(question)).ToArray();
         if (correctPlayers.Length == 0) return null;
         Player fastestPlayer = correctPlayers.OrderBy(player => player.GetPlayerAnswer(question).TimeTaken).ToArray()[0];
-        AddPoint(fastestPlayer, Settings.PointsForFastestAnswer);
+        AddPoint(fastestPlayer, SettingsManager.UserSettings.pointsForFastestAnswer);
         return fastestPlayer;
     }
 
