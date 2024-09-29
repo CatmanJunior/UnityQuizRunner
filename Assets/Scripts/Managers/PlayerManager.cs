@@ -49,6 +49,11 @@ public class PlayerManager : MonoBehaviour
 
     public bool AddAnswer(int controllerId, Question question, int answerId, float timeTaken)
     {
+        if (controllerId < 0 || controllerId >= players.Count)
+        {
+            Logger.Log("Invalid controller id: " + controllerId);
+            return false;
+        }
         if (GetPlayer(controllerId).HasAnswered(question))
         {
             Logger.Log("Player " + controllerId + " has already answered this question");

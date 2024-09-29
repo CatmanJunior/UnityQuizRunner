@@ -35,30 +35,29 @@ public class UIQuestionPanel : UIPanel
     /// <summary>
     /// Displays the current question on the UI panel.
     /// </summary>
-    public void ShowQuestion()
+    public void ShowQuestion(Question question)
     {
         Open();
-        SetQuestion();
-        SetAnswersText(QuestionManager.Instance.CurrentQuestion);
-        SetCategoryText(QuestionManager.Instance.CurrentQuestion);
-        SetAnswerStyles(setDefault: true);
+        SetQuestion(question);
+        SetAnswersText(question);
+        SetCategoryText(question);
+        ResetAnswerStyles();
     }
 
     /// <summary>
     /// Shows the results of the current question on the UI panel.
     /// </summary>
-    public void ShowQuestionResults()
+    public void ShowQuestionResults(Question question)
     {
-        SetAnswerStyles();
-        SetExplanationText(QuestionManager.Instance.CurrentQuestion);
+        SetAnswerStylesCorrect(question);
+        SetExplanationText(question);
         Open();
     }
     #endregion
 
     #region private methods
-    private void SetQuestion()
+    private void SetQuestion(Question question)
     {
-        Question question = QuestionManager.Instance.CurrentQuestion;
         if (SettingsManager.UserSettings.useAnimations)
         {
             StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, SettingsManager.UserSettings.questionTypingSpeed, StartQuestionTimer));
@@ -66,7 +65,6 @@ public class UIQuestionPanel : UIPanel
         else
         {
             questionText.text = question.QuestionText;
-
         }
     }
 
@@ -106,20 +104,21 @@ public class UIQuestionPanel : UIPanel
     }
 
     #region answer styles 
-    private void SetAnswerStyles(bool setDefault = false)
+    private void SetAnswerStylesCorrect(Question question)
     {
-        List<bool> isCorrect = QuestionManager.Instance.GetCorrectAnswers();
+        List<bool> isCorrect = question.GetCorrectAnswers();
 
-        for (int i = 0; i < QuestionManager.Instance.CurrentQuestion.GetAnswerAmount(); i++)
+        for (int i = 0; i < question.GetAnswerAmount(); i++)
         {
-            if (setDefault)
-            {
-                SetAnswerStyle(i, AnswerStyle.Default);
-            }
-            else
-            {
                 SetAnswerStyle(i, isCorrect[i] ? AnswerStyle.Correct : AnswerStyle.Incorrect);
-            }
+        }
+    }
+
+    private void ResetAnswerStyles()
+    {
+        for (int i = 0; i < answerTexts.Count; i++)
+        {
+            SetAnswerStyle(i, AnswerStyle.Default);
         }
     }
 

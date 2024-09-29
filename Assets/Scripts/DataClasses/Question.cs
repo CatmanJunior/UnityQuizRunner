@@ -43,6 +43,11 @@ public class Question
         return false;
     }
 
+    public List<bool> GetCorrectAnswers()
+    {
+        return Answers.ConvertAll(answer => answer.IsCorrect);
+    }
+
 }
 
 

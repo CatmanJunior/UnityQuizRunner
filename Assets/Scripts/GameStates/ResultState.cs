@@ -10,7 +10,7 @@ public class ResultState : BaseGameState
 
     public override void Enter()
     {
-        playerManager.AddEmptyAnswers(questionManager.CurrentQuestion);
+        playerManager.AddEmptyAnswers(QuestionManager.CurrentQuestion);
         uiManager.ShowQuestionResults();
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
 
@@ -22,7 +22,7 @@ public class ResultState : BaseGameState
         int[] initialScores = playerManager.GetPlayerScores();
 
         // Determine the fastest player to answer the current question
-        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(questionManager.CurrentQuestion);
+        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(QuestionManager.CurrentQuestion);
 
         // Update the scores based on player answers
         playerManager.UpdatePlayerScores();
@@ -60,7 +60,7 @@ public class ResultState : BaseGameState
     private void UpdatePlayerPanel(Player player)
     {
         // Determine if the player's answer is correct
-        bool isCorrect = player.HasAnsweredCorrectly(questionManager.CurrentQuestion);
+        bool isCorrect = player.HasAnsweredCorrectly(QuestionManager.CurrentQuestion);
 
         // Update the player's panel state based on whether they answered correctly
         uiManager.SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
@@ -89,7 +89,7 @@ public class ResultState : BaseGameState
     private void SetFinalPlayerPanelState(Player player)
     {
         // Set the final correct/incorrect state after the score animation is complete
-        bool isCorrect = player.HasAnsweredCorrectly(questionManager.CurrentQuestion);
+        bool isCorrect = player.HasAnsweredCorrectly(QuestionManager.CurrentQuestion);
         uiManager.SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
     }
 

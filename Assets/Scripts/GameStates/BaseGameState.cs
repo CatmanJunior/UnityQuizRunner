@@ -13,7 +13,7 @@ public abstract class BaseGameState
 {
     protected CategoryVoteHandler categoryVoteHandler;
     protected GameStateHandler gameStateHandler;
-    protected QuestionManager questionManager;
+    protected QuestionManager QuestionManager;
     protected UIManager uiManager;
     protected TimerManager timerManager;
     protected PlayerManager playerManager;
@@ -36,7 +36,7 @@ public abstract class BaseGameState
     private void InitializeComponents()
     {
         categoryVoteHandler = gameStateHandler.GetComponent<CategoryVoteHandler>();
-        questionManager = gameStateHandler.GetComponent<QuestionManager>();
+        QuestionManager = gameStateHandler.GetComponent<QuestionManager>();
         uiManager = gameStateHandler.GetComponent<UIManager>(); 
         timerManager = gameStateHandler.timerManager;
         playerManager = gameStateHandler.GetComponent<PlayerManager>();

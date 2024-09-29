@@ -24,7 +24,7 @@ public class FinalScoreState : BaseGameState
     {
         uiManager.TogglePanel(UIManager.UIPanelElement.FinalScorePanel, false);
         uiManager.TogglePanel(UIManager.UIPanelElement.EvalPanel, true);
-        uiManager.SetEvalText(questionManager.GetQuestions().ToArray());
+        uiManager.SetEvalText(QuestionManager.GetQuestions().ToArray());
     }
 
     public override void Exit()

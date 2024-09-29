@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using UnityEngine;
 [Serializable]
 public class QuestionState : BaseGameState
@@ -8,38 +9,27 @@ public class QuestionState : BaseGameState
     {
     }
 
-    private bool stateComplete = false;
+    private bool _isStateComplete = false;
 
     public override void Enter()
     {
+        _isStateComplete = false;
 
-
-        stateComplete = false;
-        uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, false);
-        if (!questionManager.HasQuizStarted())
+        if (!QuestionManager.HasQuizStarted())
         {
             Debug.Log("Getting random questions");
-            questionManager.GetRandomQuestions(gameStateHandler.currentCategory);
+            QuestionManager.FetchRandomQuestions(gameStateHandler.currentCategory);
         }
 
-        if (questionManager.HasQuestionsLeft())
+        if (QuestionManager.AreQuestionsRemaining())
         {
             HandleNextQuestion();
         }
         else
         {
-            Debug.Log("Ending Quiz");
-            questionManager.EndQuiz();
+            QuestionManager.EndQuiz();
             NotifyStateCompletion();
         }
-    }
-
-    private void HandleNextQuestion()
-    {
-        PrepareQuestionTimer();
-        questionManager.NextQuestion();
-        uiManager.ShowQuestion();
-        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
     }
 
     public override void Exit()
@@ -50,58 +40,72 @@ public class QuestionState : BaseGameState
 
     public override void HandleInput(int controller, int button)
     {
-        Debug.Log(timerManager.IsTimerActive("QuestionTimer"));
-        if (timerManager.IsTimerActive("QuestionTimer") == false)
-        {
+        if (!CanProcessInput(button))
             return;
-        }
-        if (stateComplete)
-        {
-            return;
-        }
-        if (!questionManager.IsQuestionAvailable())
-        {
-            Debug.Log("No question available");
-            return;
-        }
 
-        if (!questionManager.IsAnswerAvailable(button))
+        ProcessPlayerAnswer(controller, button);
+
+        if (playerManager.HaveAllPlayersAnswered(QuestionManager.CurrentQuestion))
         {
-            Debug.Log("Answer not available");
-            return;
-        }
-        float timeTaken = timerManager.GetSecondsSinceStart("QuestionTimer");
-        if (playerManager.AddAnswer(controller, questionManager.CurrentQuestion, button, timeTaken))
-        {
-            Debug.Log("Player " + controller + " answered " + questionManager.CurrentQuestion.Answers[button].AnswerText);
-            uiManager.SetPlayerPanelState(controller, PlayerPanelState.Answered);
-        }
-        if (playerManager.HaveAllPlayersAnswered(questionManager.CurrentQuestion))
-        {
-            timerManager.StopTimer("QuestionTimer");
-            uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
-            stateComplete = true;
-            NotifyStateCompletion();
+            HandleAllPlayersAnswered();
         }
     }
 
     public override void Update()
     {
-        if (SettingsManager.UserSettings.testMode)
+        TestMode.SimulatePlayerAnswer(this);
+    }
+
+    private void HandleNextQuestion()
+    {
+        InitializeQuestionTimer();
+        QuestionManager.GoToNextQuestion();
+        uiManager.ShowQuestion();
+        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
+    }
+
+    private void ProcessPlayerAnswer(int controller, int button)
+    {
+        float timeTaken = timerManager.GetSecondsSinceStart("QuestionTimer");
+        if (playerManager.AddAnswer(controller, QuestionManager.CurrentQuestion, button, timeTaken))
         {
-            //at random intervals a player will answer
-            if (UnityEngine.Random.Range(0, 1000) < 2)
-            {
-                int controller = UnityEngine.Random.Range(0, 4);
-                int answer = UnityEngine.Random.Range(0, questionManager.CurrentQuestion.Answers.Count);
-                HandleInput(controller, answer);
-            }
+            Debug.Log("Player " + controller + " answered " + QuestionManager.CurrentQuestion.Answers[button].AnswerText);
+            uiManager.SetPlayerPanelState(controller, PlayerPanelState.Answered);
         }
     }
 
-    // Additional private methods specific to QuizState
+    private void HandleAllPlayersAnswered()
+    {
+        timerManager.StopTimer("QuestionTimer");
+        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
+        _isStateComplete = true;
+        NotifyStateCompletion();
+    }
 
-    public void PrepareQuestionTimer()
+    private bool CanProcessInput(int button)
+    {
+        if (!timerManager.IsTimerActive("QuestionTimer"))
+            return false;
+
+        if (_isStateComplete)
+            return false;
+
+        if (!QuestionManager.IsQuestionAvailable())
+        {
+            Debug.Log("No question available");
+            return false;
+        }
+
+        if (!QuestionManager.IsAnswerAvailable(button))
+        {
+            Debug.Log("Answer not available");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void InitializeQuestionTimer()
     {
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
         timerManager.CreateTimer("QuestionTimer", SettingsManager.UserSettings.questionAnswerTime, NotifyStateCompletion, false);

@@ -183,24 +183,34 @@ public class UIManager : MonoBehaviour
     public void PlayerVoted(int playerId)
     {
         SetPlayerPanelState(playerId, PlayerPanelState.Voted);
-        //TODO: Add a vote token to the category
     }
 
     #endregion
 
     public void ShowQuestionResults()
     {
-        questionPanel.ShowQuestionResults();
+        questionPanel.ShowQuestionResults(QuestionManager.CurrentQuestion);
     }
 
     public void ShowQuestion()
     {
-        questionPanel.ShowQuestion();
+        questionPanel.ShowQuestion(QuestionManager.CurrentQuestion);
     }
 
     public void StartQuestionTimer()
     {
 
+    }
+
+    public void UpdateMainMenuTimer(int time)
+    {
+        mainMenuPanel.ShowTimerPanel();
+        mainMenuPanel.SetTimerText(time.ToString());
+    }
+
+    public void HideStartTimerPanel()
+    {
+        mainMenuPanel.HideTimerPanel();
     }
 
     internal void ResetGame()

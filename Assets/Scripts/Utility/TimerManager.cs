@@ -165,4 +165,18 @@ public class TimerManager : MonoBehaviour
             return 0;
         }
     }
+
+    public int GetSecondsRemaining(string timerID)
+    {
+        if (timers.ContainsKey(timerID))
+        {
+            float timeleft = timers[timerID].GetTimeLeft();
+            return Mathf.CeilToInt(timeleft);
+        }
+        else
+        {
+            Debug.LogError($"Timer with ID '{timerID}' does not exist.");
+            return 0;
+        }
+    }
 }

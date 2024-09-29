@@ -4,18 +4,13 @@ using System.Linq;
 
 public class QuestionManager : MonoBehaviour
 {
+    public static QuestionManager Instance { get; private set; }
+    public static Question CurrentQuestion => Instance._currentQuestion;
+
     //Private variables
     private List<Question> _questionList = new(); 
-
-
-
     private int _currentQuestionIndex = -1; //the current question index
-
     private Question _currentQuestion { get => _currentQuestionIndex >= 0 && _currentQuestionIndex < _questionList.Count ? _questionList[_currentQuestionIndex] : null; }
-
-    public Question CurrentQuestion { get => _currentQuestion; }
-
-    public static QuestionManager Instance { get; private set; }
 
     private void Awake()
     {
@@ -29,21 +24,19 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    public void GetRandomQuestions(string category = null)
+    public void FetchRandomQuestions(string category = null)
     {
-        if (category == null)
-            _questionList = QuestionParser.GetRandomQuestions(SettingsManager.UserSettings.amountOfQuestions);
-        else
-            _questionList = QuestionParser.GetRandomQuestions(SettingsManager.UserSettings.amountOfQuestions, category);
+        _questionList = QuestionParser.GetRandomQuestions(SettingsManager.UserSettings.amountOfQuestions, category);
     }
 
-    public void NextQuestion()
+    public void GoToNextQuestion()
     {
         _currentQuestionIndex++;
     }
 
     public void EndQuiz()
     {
+        Debug.Log("Quiz ended");
         _currentQuestionIndex = -1;
     }
 
@@ -63,18 +56,15 @@ public class QuestionManager : MonoBehaviour
         return _currentQuestion != null;
     }
 
-    //a function that returns if the quiz has started
     public bool HasQuizStarted()
     {
         return _currentQuestionIndex >= 0;
     }
 
-
-    public bool HasQuestionsLeft()
+    public bool AreQuestionsRemaining()
     {
         return _currentQuestionIndex < _questionList.Count - 1;
     }
-
 
     public List<Question> GetQuestions()
     {

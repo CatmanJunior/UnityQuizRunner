@@ -1140,3 +1140,62 @@
 9/29/2024 12:48:53 PM: State completed: QuestionState
 9/29/2024 12:49:05 PM: State completed
 9/29/2024 12:49:05 PM: State completed: ResultState
+9/29/2024 2:17:36 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/29/2024 2:17:36 PM: HandlePlayerCheckIn: Controller: 0
+9/29/2024 2:17:36 PM: Checking in player: 0
+9/29/2024 2:17:37 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/29/2024 2:17:37 PM: HandlePlayerCheckIn: Controller: 1
+9/29/2024 2:17:37 PM: Checking in player: 1
+9/29/2024 2:17:46 PM: Starting quiz
+9/29/2024 2:17:46 PM: Amount of players checked in: 2
+9/29/2024 2:17:47 PM: Starting quiz
+9/29/2024 2:17:47 PM: Amount of players checked in: 2
+9/29/2024 2:17:48 PM: State completed
+9/29/2024 2:17:48 PM: State completed: MainMenuState
+9/29/2024 2:17:48 PM: Clearing controllers
+9/29/2024 2:17:49 PM: State completed
+9/29/2024 2:17:56 PM: State completed
+9/29/2024 2:17:56 PM: State completed: CategoryVoteState
+9/29/2024 2:19:29 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+9/29/2024 2:19:29 PM: HandlePlayerCheckIn: Controller: 0
+9/29/2024 2:19:29 PM: Checking in player: 0
+9/29/2024 2:19:30 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+9/29/2024 2:19:30 PM: HandlePlayerCheckIn: Controller: 1
+9/29/2024 2:19:30 PM: Checking in player: 1
+9/29/2024 2:19:39 PM: Starting quiz
+9/29/2024 2:19:39 PM: Amount of players checked in: 2
+9/29/2024 2:19:40 PM: Starting quiz
+9/29/2024 2:19:40 PM: Amount of players checked in: 2
+9/29/2024 2:19:41 PM: State completed
+9/29/2024 2:19:41 PM: State completed: MainMenuState
+9/29/2024 2:19:41 PM: Clearing controllers
+9/29/2024 2:19:42 PM: State completed
+9/29/2024 2:19:49 PM: State completed
+9/29/2024 2:19:49 PM: State completed: CategoryVoteState
+9/29/2024 2:19:56 PM: State completed
+9/29/2024 2:19:56 PM: State completed: QuestionState
+9/29/2024 2:20:06 PM: State completed
+9/29/2024 2:20:06 PM: State completed: ResultState
+9/29/2024 2:20:12 PM: Invalid controller id: 2
+9/29/2024 2:20:19 PM: Invalid controller id: 3
+9/29/2024 2:20:21 PM: State completed
+9/29/2024 2:20:21 PM: State completed: QuestionState
+9/29/2024 2:20:30 PM: State completed
+9/29/2024 2:20:30 PM: State completed: ResultState
+9/29/2024 2:20:38 PM: State completed
+9/29/2024 2:20:38 PM: State completed: QuestionState
+9/29/2024 2:20:48 PM: State completed
+9/29/2024 2:20:48 PM: State completed: ResultState
+9/29/2024 2:20:55 PM: State completed
+9/29/2024 2:20:55 PM: State completed: QuestionState
+9/29/2024 2:21:05 PM: State completed
+9/29/2024 2:21:05 PM: State completed: ResultState
+9/29/2024 2:21:18 PM: Invalid controller id: 2
+9/29/2024 2:21:20 PM: State completed
+9/29/2024 2:21:20 PM: State completed: QuestionState
+9/29/2024 2:21:29 PM: State completed
+9/29/2024 2:21:29 PM: State completed: ResultState
+9/29/2024 2:21:29 PM: State completed
+9/29/2024 2:21:29 PM: State completed: QuestionState
+9/29/2024 2:21:40 PM: State completed
+9/29/2024 2:21:40 PM: State completed: FinalScoreState
