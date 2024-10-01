@@ -197,29 +197,25 @@ public class UIManager : MonoBehaviour
         questionPanel.ShowQuestion(QuestionManager.CurrentQuestion);
     }
 
-    public void StartQuestionTimer()
-    {
-
-    }
-
     public void UpdateMainMenuTimer(int time)
     {
         mainMenuPanel.ShowTimerPanel();
         mainMenuPanel.SetTimerText(time.ToString());
     }
 
-    public void HideStartTimerPanel()
+    public void HideMainMenuTimer()
     {
         mainMenuPanel.HideTimerPanel();
     }
 
-    internal void ResetGame()
+    internal void ResetUI()
     {
         playerPanel.ResetPlayerPanels(resetScores: true);
-        TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
-        TogglePanel(UIManager.UIPanelElement.QuestionPanel, false);
-        TogglePanel(UIManager.UIPanelElement.VotePanel, false);
-        TogglePanel(UIManager.UIPanelElement.FinalScorePanel, false);
-        TogglePanel(UIManager.UIPanelElement.MainMenuPanel, true);
+        TogglePanel(UIPanelElement.TimerPanel, false);
+        TogglePanel(UIPanelElement.QuestionPanel, false);
+        TogglePanel(UIPanelElement.VotePanel, false);
+        TogglePanel(UIPanelElement.FinalScorePanel, false);
+        TogglePanel(UIPanelElement.MainMenuPanel, true);
+        SetInstructionText(SettingsManager.UserSettings.mainMenuStartText);
     }
 }

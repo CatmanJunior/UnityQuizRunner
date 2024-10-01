@@ -15,9 +15,11 @@ public class QuestionState : BaseGameState
     {
         _isStateComplete = false;
 
+        uiManager.TogglePanel(UIManager.UIPanelElement.QuestionPanel, true);
+
         if (!QuestionManager.HasQuizStarted())
         {
-            Debug.Log("Getting random questions");
+            Logger.Log("Getting random questions");
             QuestionManager.FetchRandomQuestions(gameStateHandler.currentCategory);
         }
 

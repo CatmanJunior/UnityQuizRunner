@@ -63,7 +63,7 @@ public class MainMenuState : BaseGameState
     {
         Logger.Log("Starting quiz");
         Logger.Log("Amount of players checked in: " + checkedInControllers.Count);
-        uiManager.HideStartTimerPanel();
+        uiManager.HideMainMenuTimer();
         timerManager.StopTimer("CheckInTimer");
         uiManager.SetInstructionText(SettingsManager.Instance.userSettings.mainMenuEndText);
         timerManager.CreateTimer("MainMenuEnd", SettingsManager.Instance.userSettings.timeBeforeMainMenuEnd, NotifyStateCompletion);
@@ -80,8 +80,6 @@ public class MainMenuState : BaseGameState
         {
             uiManager.SetPlayerPanelState(i, PlayerPanelState.Default);
         }
-
-
     }
 
     public override void Update()

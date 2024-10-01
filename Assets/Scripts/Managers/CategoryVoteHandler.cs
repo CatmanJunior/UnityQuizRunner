@@ -5,65 +5,70 @@ using UnityEngine;
 
 public class CategoryVoteHandler : MonoBehaviour
 {
-    private string[] categories;
-    private Dictionary<int, int> categoryVotes = new Dictionary<int, int>();
+    public static CategoryVoteHandler Instance;
+    public static string[] Categories { get => Instance._categories; }
 
-    public void InitCategories(string[] categoryList)
+    private string[] _categories;
+    private Dictionary<int, int> _categoryVotes = new();
+
+    private void Awake()
     {
-        categories = categoryList;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
+    public void InitCategories()
+    {
+        _categories = QuestionParser.GetCategories(4);
+        Debug.Log("Categories: " + string.Join(", ", _categories));
     }
 
     public int GetIndex(string category)
     {
-        print("Getting index of " + category + " in " + categories);
-        int i = System.Array.IndexOf(categories, category);
-        print("Index is " + i);
-        return i;
+        return System.Array.IndexOf(_categories, category);
     }
 
-    public bool HandleCategoryVote(int controller, int button)
+    public bool HandleCategoryVote(int player, int button)
     {
-        if (button >= categories.Length-1)
+        if (button >= _categories.Length - 1)
         {
-            Debug.Log("Button " + button + " is not a valid category");
+            Logger.Log("Button " + button + " is not a valid category");
             return false;
         }
         //Checks if the player has already voted, else it adds the vote to the dictionary
-        if (!categoryVotes.ContainsKey(controller))
+        if (!_categoryVotes.ContainsKey(player))
         {
-            CastVote(controller, button);
-            Debug.Log("Player " + controller + " voted for " + categories[button]);
+            CastVote(player, button);
+
             return true;
         }
         else
         {
-            print("Player already voted");
-
+            Logger.Log("Player already voted");
+            return false;
         }
-        return false;
+        
     }
 
     public string GetTopCategory()
     {
-        //Returns the category with the most votes
-        //TODO: Handle ties
-        if (categoryVotes.Count == 0)
-        {
-            return categories[Random.Range(0, categories.Length)].ToString();
-        }
-        if (categoryVotes.Count == 1)
-        {
-            return categories[categoryVotes.Values.First()];
-        }
-        var _cat =categories[categoryVotes.Values.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First()];
-        Debug.Log("Top category is " + _cat);
-        return _cat;
+        if (_categoryVotes.Count == 0)
+            return _categories[Random.Range(0, _categories.Length)];
+
+        if (_categoryVotes.Count == 1)
+            return _categories[_categoryVotes.Values.First()];
+
+        var _votedCategory = _categories[_categoryVotes.Values.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First()];
+        Logger.Log("Top category is " + _votedCategory);
+        return _votedCategory;
     }
 
-    private void CastVote(int controller, int button)
+    private void CastVote(int player, int button)
     {
-        categoryVotes[controller] = button;
-        UIManager.Instance.PlayerVoted(controller);
+        _categoryVotes[player] = button;
+        Logger.Log("Player " + player + " voted for " + _categories[button]);
     }
 
 }

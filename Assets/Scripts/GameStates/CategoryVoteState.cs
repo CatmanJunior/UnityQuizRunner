@@ -5,12 +5,12 @@ using static SoundManager;
 public class CategoryVoteState : BaseGameState
 {
     public CategoryVoteState() : base() { }
- 
+
     public override void Enter()
     {
-        uiManager.UpdateCategoryText(GameStateHandler.categories);
+        uiManager.UpdateCategoryText(CategoryVoteHandler.Categories);
         uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, true);
-        timerManager.CreateTimer("voteTimer",  SettingsManager.UserSettings.categoryVoteTime, DoneVoting);
+        timerManager.CreateTimer("voteTimer", SettingsManager.UserSettings.categoryVoteTime, DoneVoting);
     }
 
     public override void Exit()
@@ -21,30 +21,28 @@ public class CategoryVoteState : BaseGameState
         uiManager.ResetCategoryVote();
     }
 
-    public override void HandleInput(int controller, int button)
+    public override void HandleInput(int player, int button)
     {
-        if (categoryVoteHandler.HandleCategoryVote(controller, button))
+        if (categoryVoteHandler.HandleCategoryVote(player, button))
         {
-            uiManager.SetPlayerPanelState(controller, PlayerPanelState.Voted);
+            uiManager.PlayerVoted(player);
         }
 
-        if (playerManager.HaveAllPlayersVoted())
+        if (playerManager.HasEveryPlayerVoted())
         {
-            timerManager.StopTimer("voteTimer");
             DoneVoting();
         }
     }
 
     public void DoneVoting()
     {
+        timerManager.StopTimer("voteTimer");
+
         gameStateHandler.currentCategory = categoryVoteHandler.GetTopCategory();
         uiManager.ShowWinningCategory(categoryVoteHandler.GetIndex(gameStateHandler.currentCategory));
 
         NotifyStateCompletion();
     }
 
-    public override void Update()
-    {
-     
-    }
+    public override void Update() { }
 }

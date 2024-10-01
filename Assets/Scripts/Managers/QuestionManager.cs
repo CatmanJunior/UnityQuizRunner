@@ -6,11 +6,14 @@ public class QuestionManager : MonoBehaviour
 {
     public static QuestionManager Instance { get; private set; }
     public static Question CurrentQuestion => Instance._currentQuestion;
+    public static bool IsQuizEnded => Instance._isQuizEnded;
 
     //Private variables
     private List<Question> _questionList = new(); 
     private int _currentQuestionIndex = -1; //the current question index
     private Question _currentQuestion { get => _currentQuestionIndex >= 0 && _currentQuestionIndex < _questionList.Count ? _questionList[_currentQuestionIndex] : null; }
+    private bool _isQuizEnded = false;
+
 
     private void Awake()
     {
@@ -32,11 +35,20 @@ public class QuestionManager : MonoBehaviour
     public void GoToNextQuestion()
     {
         _currentQuestionIndex++;
+        if (AreQuestionsRemaining())
+        {
+            Debug.Log("Next question");
+        }
+        else
+        {
+            EndQuiz();
+        }
     }
 
     public void EndQuiz()
     {
         Debug.Log("Quiz ended");
+        _isQuizEnded = true;
         _currentQuestionIndex = -1;
     }
 

@@ -111,7 +111,7 @@ public class PlayerManager : MonoBehaviour
         GetPlayer(controllerId).AddCategoryVote(category);
     }
 
-    public bool HaveAllPlayersVoted()
+    public bool HasEveryPlayerVoted()
     {
         foreach (Player player in players)
         {

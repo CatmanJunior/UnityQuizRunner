@@ -19,8 +19,6 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField]
     ResultState resultState;
 
-    public static string[] categories;
-
     [HideInInspector]
     public string currentCategory = null;
 
@@ -57,12 +55,6 @@ public class GameStateHandler : MonoBehaviour
     {
         await QuestionParser.LoadQuestionsFromTxt();
 
-        for (int i = 0; i < 10; i++)
-        { 
-            //generate random categories and debug log them
-            string[] _categories = QuestionParser.GetCategories(4);
-            Debug.Log("Categories: " + string.Join(", ", _categories));
-        }
         categoryVoteState.Initialize(this);
         questionState.Initialize(this);
         finalScoreState.Initialize(this);
@@ -70,7 +62,6 @@ public class GameStateHandler : MonoBehaviour
         mainMenuState.Initialize(this);
 
         ChangeState(mainMenuState);
-
     }
 
     private void Start()
@@ -86,19 +77,14 @@ public class GameStateHandler : MonoBehaviour
     public void ResetGame()
     {
         playerManager.CreateNewPlayers(SettingsManager.UserSettings.requiredControllers);
-        uiManager.ResetGame();
+        uiManager.ResetUI();
         timerManager.ClearAllTimers();
         currentCategory = null;
-        uiManager.SetInstructionText(SettingsManager.UserSettings.mainMenuStartText);
     }
 
-
-    public void GetNewCategories()
+    public void GetNewRandomCategories()
     {
-        string[] _categories = QuestionParser.GetCategories(4);
-        Debug.Log("Categories: " + string.Join(", ", _categories));
-        categoryVoteHandler.InitCategories(_categories);
-        categories = _categories;
+        categoryVoteHandler.InitCategories();
     }
 
     public void HandlePlayerInput(int controller, int button)
@@ -138,7 +124,7 @@ public class GameStateHandler : MonoBehaviour
                 }
                 else
                 {
-                    GetNewCategories();
+                    GetNewRandomCategories();
                     ChangeState(categoryVoteState);
                 }
                 break;
@@ -146,12 +132,10 @@ public class GameStateHandler : MonoBehaviour
                 ChangeState(questionState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case QuestionState:
-                //if question index == -1
-                if (questionManager.HasQuizStarted())
-                    
-                    ChangeState(resultState, 1);
+                if (!QuestionManager.IsQuizEnded)
+                    ChangeState(resultState, SettingsManager.UserSettings.preQuestionTime);
                 else
-                    ChangeState(finalScoreState, 1);
+                    ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case ResultState:
                 ChangeState(questionState);
