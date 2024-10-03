@@ -84,7 +84,7 @@ public class GameStateHandler : MonoBehaviour
 
     public void GetNewRandomCategories()
     {
-        categoryVoteHandler.InitCategories();
+        categoryVoteHandler.InitCategories(QuestionParser.GetCategories(4));
     }
 
     public void HandlePlayerInput(int controller, int button)

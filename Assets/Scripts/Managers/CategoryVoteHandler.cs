@@ -19,11 +19,12 @@ public class CategoryVoteHandler : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void InitCategories()
+    public void InitCategories(string[] categories)
     {
-        _categories = QuestionParser.GetCategories(4);
+        _categories = categories;
         Debug.Log("Categories: " + string.Join(", ", _categories));
     }
+
 
     public int GetIndex(string category)
     {
