@@ -1219,3 +1219,248 @@
 10/4/2024 11:47:24 AM: HandleInput in MainMenu: Controller: 0 Button: 3
 10/4/2024 11:49:41 AM: HandleInput in MainMenu: Controller: 0 Button: 0
 10/4/2024 11:49:42 AM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:35:30 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:35:30 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:35:30 PM: Checking in player: 0
+10/4/2024 3:35:30 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:35:30 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:35:30 PM: Checking in player: 1
+10/4/2024 3:35:31 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:35:31 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:35:31 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:35:31 PM: Checking in player: 2
+10/4/2024 3:35:32 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:35:32 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:35:32 PM: Checking in player: 3
+10/4/2024 3:35:32 PM: Max players checked in
+10/4/2024 3:35:32 PM: Starting quiz
+10/4/2024 3:35:32 PM: Amount of players checked in: 4
+10/4/2024 3:35:33 PM: State completed
+10/4/2024 3:35:33 PM: State completed: MainMenuState
+10/4/2024 3:35:33 PM: Clearing controllers
+10/4/2024 3:35:35 PM: Player 0 voted for Random
+10/4/2024 3:35:36 PM: Player 1 voted for Cocaïne
+10/4/2024 3:35:36 PM: Player 2 voted for Cocaïne
+10/4/2024 3:35:37 PM: Player 3 voted for Random
+10/4/2024 3:35:43 PM: Top category is Random
+10/4/2024 3:35:43 PM: State completed
+10/4/2024 3:35:43 PM: State completed: CategoryVoteState
+10/4/2024 3:35:46 PM: Getting random questions
+10/4/2024 3:38:45 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:38:45 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:38:45 PM: Checking in player: 0
+10/4/2024 3:38:45 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:38:45 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:38:45 PM: Checking in player: 1
+10/4/2024 3:38:46 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:38:46 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:38:46 PM: Checking in player: 2
+10/4/2024 3:38:47 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:38:47 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:38:47 PM: Checking in player: 3
+10/4/2024 3:38:47 PM: Max players checked in
+10/4/2024 3:38:47 PM: Starting quiz
+10/4/2024 3:38:47 PM: Amount of players checked in: 4
+10/4/2024 3:38:48 PM: State completed
+10/4/2024 3:38:48 PM: State completed: MainMenuState
+10/4/2024 3:38:48 PM: Clearing controllers
+10/4/2024 3:38:50 PM: Player 0 voted for Random
+10/4/2024 3:38:50 PM: Player 1 voted for Random
+10/4/2024 3:38:50 PM: Player 2 voted for Alcohol
+10/4/2024 3:38:51 PM: Player 3 voted for Random
+10/4/2024 3:38:58 PM: Top category is Random
+10/4/2024 3:38:58 PM: State completed
+10/4/2024 3:38:58 PM: State completed: CategoryVoteState
+10/4/2024 3:39:01 PM: Getting random questions
+10/4/2024 3:39:08 PM: State completed
+10/4/2024 3:39:08 PM: State completed: QuestionState
+10/4/2024 3:39:20 PM: State completed
+10/4/2024 3:39:20 PM: State completed: ResultState
+10/4/2024 3:42:54 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:42:54 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:42:54 PM: Checking in player: 0
+10/4/2024 3:42:55 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:42:55 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:42:55 PM: Checking in player: 1
+10/4/2024 3:42:55 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:42:55 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:42:55 PM: Checking in player: 3
+10/4/2024 3:42:56 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:42:56 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:42:56 PM: Checking in player: 2
+10/4/2024 3:42:56 PM: Max players checked in
+10/4/2024 3:42:56 PM: Starting quiz
+10/4/2024 3:42:56 PM: Amount of players checked in: 4
+10/4/2024 3:42:58 PM: State completed
+10/4/2024 3:42:58 PM: State completed: MainMenuState
+10/4/2024 3:42:58 PM: Clearing controllers
+10/4/2024 3:42:58 PM: Player 0 voted for Random
+10/4/2024 3:42:58 PM: Player 1 voted for Random
+10/4/2024 3:42:59 PM: Player 3 voted for Random
+10/4/2024 3:42:59 PM: Player 2 voted for Random
+10/4/2024 3:43:08 PM: Top category is Random
+10/4/2024 3:43:08 PM: State completed
+10/4/2024 3:43:08 PM: State completed: CategoryVoteState
+10/4/2024 3:43:10 PM: Getting random questions
+10/4/2024 3:44:54 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:44:54 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:44:55 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:44:56 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:44:56 PM: HandleInput in MainMenu: Controller: 0 Button: 2
+10/4/2024 3:44:57 PM: HandleInput in MainMenu: Controller: 0 Button: 1
+10/4/2024 3:44:57 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:44:58 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:44:58 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:44:59 PM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 3:45:09 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:45:09 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:45:09 PM: Checking in player: 0
+10/4/2024 3:45:09 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:45:09 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:45:09 PM: Checking in player: 1
+10/4/2024 3:45:09 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:45:09 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:45:09 PM: Checking in player: 2
+10/4/2024 3:45:10 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:45:10 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:45:10 PM: Checking in player: 3
+10/4/2024 3:45:10 PM: Max players checked in
+10/4/2024 3:45:10 PM: Starting quiz
+10/4/2024 3:45:10 PM: Amount of players checked in: 4
+10/4/2024 3:45:12 PM: State completed
+10/4/2024 3:45:12 PM: State completed: MainMenuState
+10/4/2024 3:45:12 PM: Clearing controllers
+10/4/2024 3:45:12 PM: Getting random questions
+10/4/2024 3:45:17 PM: Player 1 has already answered this question
+10/4/2024 3:45:17 PM: State completed
+10/4/2024 3:45:17 PM: State completed: QuestionState
+10/4/2024 3:45:46 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:45:46 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:45:46 PM: Checking in player: 0
+10/4/2024 3:45:46 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:45:46 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:45:46 PM: Checking in player: 1
+10/4/2024 3:45:46 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:45:46 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:45:46 PM: Checking in player: 2
+10/4/2024 3:45:47 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:45:47 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:45:47 PM: Checking in player: 3
+10/4/2024 3:45:47 PM: Max players checked in
+10/4/2024 3:45:47 PM: Starting quiz
+10/4/2024 3:45:47 PM: Amount of players checked in: 4
+10/4/2024 3:45:49 PM: State completed
+10/4/2024 3:45:49 PM: State completed: MainMenuState
+10/4/2024 3:45:49 PM: Clearing controllers
+10/4/2024 3:45:49 PM: Getting random questions
+10/4/2024 3:47:58 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:47:58 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:47:58 PM: Checking in player: 0
+10/4/2024 3:47:59 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:47:59 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:47:59 PM: Checking in player: 1
+10/4/2024 3:48:00 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:48:00 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:48:00 PM: Checking in player: 2
+10/4/2024 3:48:00 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:48:00 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:48:00 PM: Checking in player: 3
+10/4/2024 3:48:00 PM: Max players checked in
+10/4/2024 3:48:00 PM: Starting quiz
+10/4/2024 3:48:00 PM: Amount of players checked in: 4
+10/4/2024 3:48:02 PM: State completed
+10/4/2024 3:48:02 PM: State completed: MainMenuState
+10/4/2024 3:48:02 PM: Clearing controllers
+10/4/2024 3:48:02 PM: Getting random questions
+10/4/2024 3:52:30 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:52:30 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:52:30 PM: Checking in player: 0
+10/4/2024 3:52:30 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:52:30 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:52:30 PM: Checking in player: 1
+10/4/2024 3:52:30 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:52:30 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:52:30 PM: Checking in player: 2
+10/4/2024 3:52:30 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:52:30 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:52:30 PM: Checking in player: 3
+10/4/2024 3:52:30 PM: Max players checked in
+10/4/2024 3:52:30 PM: Starting quiz
+10/4/2024 3:52:30 PM: Amount of players checked in: 4
+10/4/2024 3:52:32 PM: State completed
+10/4/2024 3:52:32 PM: State completed: MainMenuState
+10/4/2024 3:52:32 PM: Clearing controllers
+10/4/2024 3:52:32 PM: Getting random questions
+10/4/2024 3:52:40 PM: State completed
+10/4/2024 3:52:40 PM: State completed: QuestionState
+10/4/2024 3:53:34 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:53:34 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:53:34 PM: Checking in player: 0
+10/4/2024 3:53:34 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:53:34 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:53:34 PM: Checking in player: 1
+10/4/2024 3:53:34 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:53:34 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:53:34 PM: Checking in player: 2
+10/4/2024 3:53:35 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:53:35 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:53:35 PM: Checking in player: 3
+10/4/2024 3:53:35 PM: Max players checked in
+10/4/2024 3:53:35 PM: Starting quiz
+10/4/2024 3:53:35 PM: Amount of players checked in: 4
+10/4/2024 3:53:37 PM: State completed
+10/4/2024 3:53:37 PM: State completed: MainMenuState
+10/4/2024 3:53:37 PM: Clearing controllers
+10/4/2024 3:53:37 PM: Getting random questions
+10/4/2024 3:54:45 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:54:45 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:54:45 PM: Checking in player: 0
+10/4/2024 3:54:45 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:54:45 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:54:45 PM: Checking in player: 1
+10/4/2024 3:54:46 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:54:46 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:54:46 PM: Checking in player: 2
+10/4/2024 3:54:46 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:54:46 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:54:46 PM: Checking in player: 3
+10/4/2024 3:54:46 PM: Max players checked in
+10/4/2024 3:54:46 PM: Starting quiz
+10/4/2024 3:54:46 PM: Amount of players checked in: 4
+10/4/2024 3:54:48 PM: State completed
+10/4/2024 3:54:48 PM: State completed: MainMenuState
+10/4/2024 3:54:48 PM: Clearing controllers
+10/4/2024 3:54:48 PM: Getting random questions
+10/4/2024 3:56:10 PM: Player 0 has already answered this question
+10/4/2024 3:56:22 PM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 3:56:22 PM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 3:56:22 PM: Checking in player: 0
+10/4/2024 3:56:22 PM: HandleInput in MainMenu: Controller: 1 Button: 4
+10/4/2024 3:56:22 PM: HandlePlayerCheckIn: Controller: 1
+10/4/2024 3:56:22 PM: Checking in player: 1
+10/4/2024 3:56:22 PM: HandleInput in MainMenu: Controller: 3 Button: 4
+10/4/2024 3:56:22 PM: HandlePlayerCheckIn: Controller: 3
+10/4/2024 3:56:22 PM: Checking in player: 3
+10/4/2024 3:56:23 PM: HandleInput in MainMenu: Controller: 2 Button: 4
+10/4/2024 3:56:23 PM: HandlePlayerCheckIn: Controller: 2
+10/4/2024 3:56:23 PM: Checking in player: 2
+10/4/2024 3:56:23 PM: Max players checked in
+10/4/2024 3:56:23 PM: Starting quiz
+10/4/2024 3:56:23 PM: Amount of players checked in: 4
+10/4/2024 3:56:25 PM: State completed
+10/4/2024 3:56:25 PM: State completed: MainMenuState
+10/4/2024 3:56:25 PM: Clearing controllers
+10/4/2024 3:56:25 PM: Getting random questions
+10/4/2024 3:56:50 PM: State completed
+10/4/2024 3:56:50 PM: State completed: QuestionState
+10/4/2024 3:57:02 PM: State completed
+10/4/2024 3:57:02 PM: State completed: ResultState
+10/4/2024 3:57:28 PM: State completed
+10/4/2024 3:57:28 PM: State completed: QuestionState
+10/4/2024 3:57:40 PM: State completed
+10/4/2024 3:57:40 PM: State completed: ResultState
+10/4/2024 3:58:06 PM: State completed
+10/4/2024 3:58:06 PM: State completed: QuestionState
+10/4/2024 3:58:17 PM: State completed
+10/4/2024 3:58:17 PM: State completed: ResultState
+10/4/2024 4:04:24 PM: Player 3 has already answered this question
