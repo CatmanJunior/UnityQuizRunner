@@ -7,6 +7,8 @@ public class GameStateHandler : MonoBehaviour
 {
     public static GameStateHandler Instance;
 
+
+
     [Header("Game States")]
     [SerializeField]
     MainMenuState mainMenuState;
@@ -27,6 +29,8 @@ public class GameStateHandler : MonoBehaviour
     [Header("References")]
     [SerializeField]
     private UIManager uiManager;
+    [SerializeField]
+    private SettingsManager settingsManager;
 
     [SerializeField]
     public TimerManager timerManager;
@@ -47,7 +51,7 @@ public class GameStateHandler : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-
+        settingsManager.Initialize();
         InitializeAsync();
     }
 
@@ -76,7 +80,7 @@ public class GameStateHandler : MonoBehaviour
 
     public void ResetGame()
     {
-        playerManager.CreateNewPlayers(SettingsManager.UserSettings.requiredControllers);
+        playerManager.CreateNewPlayers(SettingsManager.UserSettings.requiredPlayers);
         uiManager.ResetUI();
         timerManager.ClearAllTimers();
         currentCategory = null;

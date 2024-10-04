@@ -1199,3 +1199,23 @@
 9/29/2024 2:21:29 PM: State completed: QuestionState
 9/29/2024 2:21:40 PM: State completed
 9/29/2024 2:21:40 PM: State completed: FinalScoreState
+10/4/2024 11:32:39 AM: HandleInput in MainMenu: Controller: 2 Button: 3
+10/4/2024 11:32:43 AM: HandleInput in MainMenu: Controller: 2 Button: 3
+10/4/2024 11:34:18 AM: HandleInput in MainMenu: Controller: 0 Button: 1
+10/4/2024 11:35:23 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:35:28 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:35:28 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:37:49 AM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 11:39:17 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:39:17 AM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 11:39:22 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:39:22 AM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 11:39:34 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:39:37 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:45:15 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 11:45:15 AM: HandlePlayerCheckIn: Controller: 0
+10/4/2024 11:45:15 AM: Checking in player: 0
+10/4/2024 11:45:28 AM: HandleInput in MainMenu: Controller: 0 Button: 4
+10/4/2024 11:47:24 AM: HandleInput in MainMenu: Controller: 0 Button: 3
+10/4/2024 11:49:41 AM: HandleInput in MainMenu: Controller: 0 Button: 0
+10/4/2024 11:49:42 AM: HandleInput in MainMenu: Controller: 0 Button: 3

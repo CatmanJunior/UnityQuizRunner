@@ -2,7 +2,6 @@
 using UnityEngine;
 using System.IO;
 using System;
-using Mono.Cecil.Cil;
 
 public class SettingsManager : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class SettingsManager : MonoBehaviour
 
     [Header("Default Settings")]
     [SerializeField] private DefaultSettings defaultSettings;
-    
+
     [Header("Current User Settings")]
     public UserSettings userSettings;
 
@@ -20,23 +19,22 @@ public class SettingsManager : MonoBehaviour
 
     private string settingsFilePath;
 
-    private void Awake()
+    public void Initialize()
     {
         // Implement Singleton pattern
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            settingsFilePath = Path.Combine(Application.persistentDataPath, "userSettings.json");
-
-            LoadSettings();
-            ApplySettings();
         }
         else
         {
             Destroy(gameObject);
         }
+        settingsFilePath = Path.Combine(Application.persistentDataPath, "userSettings.json");
+
+        LoadSettings();
+        ApplySettings();
     }
 
 
@@ -91,10 +89,10 @@ public class SettingsManager : MonoBehaviour
             mainMenuEndText = defaultSettings.mainMenuEndText,
             pointsForRightAnswer = defaultSettings.pointsForRightAnswer,
             pointsForFastestAnswer = defaultSettings.pointsForFastestAnswer,
-            requiredControllers = defaultSettings.requiredControllers,
+            requiredPlayers = defaultSettings.requiredControllers,
             amountOfQuestions = defaultSettings.amountOfQuestions,
             timeModifier = defaultSettings.timeModifier,
-            timeBeforeCheckedInClear = defaultSettings.timeBeforeCheckedInClear,
+            timeCheckInPeriod = defaultSettings.timeBeforeCheckedInClear,
             timeBeforeMainMenuEnd = defaultSettings.timeBeforeMainMenuEnd,
             postQuestionTime = defaultSettings.postQuestionTime,
             preQuestionTime = defaultSettings.preQuestionTime,

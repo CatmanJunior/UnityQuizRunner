@@ -49,7 +49,7 @@ public class MainMenuState : BaseGameState
         }
         else
         {
-            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeBeforeCheckedInClear, StartQuiz);
+            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeCheckInPeriod, StartQuiz);
         }
 
         if (checkedInControllers.Count >= maxControllers) //if the required amount of controllers are checked in
@@ -76,7 +76,7 @@ public class MainMenuState : BaseGameState
         inputHandler.LightUpController(new List<int> { });
         checkedInControllers.Clear();
         //stop animation
-        for (int i = 0; i < SettingsManager.Instance.userSettings.requiredControllers; i++)
+        for (int i = 0; i < SettingsManager.Instance.userSettings.requiredPlayers; i++)
         {
             uiManager.SetPlayerPanelState(i, PlayerPanelState.Default);
         }
