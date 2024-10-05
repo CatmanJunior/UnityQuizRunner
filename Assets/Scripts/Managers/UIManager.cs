@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
         VotePanel,
         QuestionPanel,
         TimerPanel,
-        DebugPanel,
+        SettingsPanel,
         EvalPanel
     }
 
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIPlayerPanel playerPanel;
     [SerializeField]
-    private UIDebugPanel debugPanel;
+    private UIPanel settingsPanel;
     [SerializeField]
     private UIEvalPanel evalPanel;
 
@@ -76,7 +76,7 @@ public class UIManager : MonoBehaviour
             { UIPanelElement.VotePanel, votePanel },
             { UIPanelElement.QuestionPanel, questionPanel },
             { UIPanelElement.TimerPanel, timerPanel},
-            { UIPanelElement.DebugPanel, debugPanel},
+            { UIPanelElement.SettingsPanel, settingsPanel},
             { UIPanelElement.EvalPanel, evalPanel}
         };
 
@@ -195,6 +195,11 @@ public class UIManager : MonoBehaviour
     public void ShowQuestion()
     {
         questionPanel.ShowQuestion(QuestionManager.CurrentQuestion);
+    }
+
+    public void MoveAnswerPanelOffScreen()
+    {
+        questionPanel.MoveAllOffScreen();
     }
 
     public void UpdateMainMenuTimer(int time)

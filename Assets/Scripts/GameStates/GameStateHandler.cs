@@ -7,8 +7,6 @@ public class GameStateHandler : MonoBehaviour
 {
     public static GameStateHandler Instance;
 
-
-
     [Header("Game States")]
     [SerializeField]
     MainMenuState mainMenuState;
@@ -84,6 +82,7 @@ public class GameStateHandler : MonoBehaviour
         uiManager.ResetUI();
         timerManager.ClearAllTimers();
         currentCategory = null;
+        QuestionManager.Instance.ResetQuiz();
     }
 
     public void GetNewRandomCategories()

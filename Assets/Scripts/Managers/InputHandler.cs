@@ -37,12 +37,14 @@ public class InputHandler : MonoBehaviour
     {
         buttonPress.Enable();
         buttonPress.performed += OnAnyControllerButtonPressed;
+        Keyboard.current.onTextInput += onKeyboardButtonPressed;
     }
 
     void OnDisable()
     {
         buttonPress.Disable();
         buttonPress.performed -= OnAnyControllerButtonPressed;
+        Keyboard.current.onTextInput -= onKeyboardButtonPressed;
     }
     #endregion
 
@@ -50,7 +52,6 @@ public class InputHandler : MonoBehaviour
     private void SetupKeyboard()
     {
         keyboardButtons = CreateKeyboardButtonList();
-        Keyboard.current.onTextInput += onKeyboardButtonPressed;
     }
 
     private List<List<string>> CreateKeyboardButtonList()
@@ -70,7 +71,7 @@ public class InputHandler : MonoBehaviour
     {
         if (character == debugButton)
         {
-            UIManager.Instance.TogglePanel(UIManager.UIPanelElement.DebugPanel, true);
+            UIManager.Instance.TogglePanel(UIManager.UIPanelElement.SettingsPanel, true);
             return;
         }
         if (character == voteOnButton)

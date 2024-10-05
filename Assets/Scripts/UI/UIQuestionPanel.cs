@@ -45,6 +45,11 @@ public class UIQuestionPanel : UIPanel
     public void ShowQuestion(Question question)
     {
         currentQuestion = question;
+        if (question == null)
+        {
+            Debug.LogError("Question is null.");
+            return;
+        }
         SetAnswersText(question);
         Open();
         SetQuestion(question);
@@ -139,6 +144,14 @@ public class UIQuestionPanel : UIPanel
         }
     }
 
+
+    public void MoveAllOffScreen()
+    {
+        foreach (var panel in answerPanels)
+        {
+            panel.MoveOffScreen();
+        }
+    }
 
     private void SetCategoryText(Question question)
     {

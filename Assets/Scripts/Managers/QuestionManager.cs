@@ -49,7 +49,12 @@ public class QuestionManager : MonoBehaviour
     {
         Debug.Log("Quiz ended");
         _isQuizEnded = true;
+    }
+
+    public void ResetQuiz()
+    {
         _currentQuestionIndex = -1;
+        _isQuizEnded = false;
     }
 
     public List<bool> GetCorrectAnswers()
@@ -75,7 +80,7 @@ public class QuestionManager : MonoBehaviour
 
     public bool AreQuestionsRemaining()
     {
-        return _currentQuestionIndex < _questionList.Count - 1;
+        return _currentQuestionIndex < _questionList.Count;
     }
 
     public List<Question> GetQuestions()

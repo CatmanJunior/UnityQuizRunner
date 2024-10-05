@@ -62,8 +62,14 @@ public class QuestionState : BaseGameState
     {
         InitializeQuestionTimer();
         QuestionManager.GoToNextQuestion();
+        if (QuestionManager.IsQuizEnded){
+            NotifyStateCompletion();
+            return;
+        }
         uiManager.ShowQuestion();
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
+        Canvas.ForceUpdateCanvases();
+        uiManager.MoveAnswerPanelOffScreen();
     }
 
     private void ProcessPlayerAnswer(int controller, int button)

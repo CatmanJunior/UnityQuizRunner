@@ -8,6 +8,10 @@ public class MainMenuState : BaseGameState
     public MainMenuState() : base() { }
     private int maxControllers = 4;
 
+    private bool settingsMenuOpen = false;
+    private int player1pressedRedButton = 0;
+
+
     public override void Enter()
     {
         gameStateHandler.ResetGame();
@@ -24,9 +28,28 @@ public class MainMenuState : BaseGameState
     public override void HandleInput(int controller, int button)
     {
         Logger.Log($"HandleInput in MainMenu: Controller: {controller} Button: {button}");
+        CheckSettingsButton(controller, button);
+        if (settingsMenuOpen) return;
         //if the button is not the check in button or the controller is already checked in
         if (button != SettingsManager.Instance.userSettings.checkinButton || checkedInControllers.Contains(controller)) return;
+
         HandlePlayerCheckIn(controller);
+    }
+
+    private void CheckSettingsButton(int controller, int button)
+    {
+        if (controller == 0 && button == 0)
+        {
+            player1pressedRedButton++;
+            Debug.Log("Player 1 pressed red button " + player1pressedRedButton + " times");
+            if (player1pressedRedButton == 5)
+            {
+                settingsMenuOpen = !settingsMenuOpen;
+                uiManager.TogglePanel(UIManager.UIPanelElement.SettingsPanel, settingsMenuOpen);
+                player1pressedRedButton = 0;
+            }
+            return;
+        }
     }
 
     private void HandlePlayerCheckIn(int controller)
@@ -47,10 +70,10 @@ public class MainMenuState : BaseGameState
         {
             timerManager.RestartTimer("CheckInTimer");
         }
-        else
+        else 
         {
-            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeCheckInPeriod, StartQuiz);
-        }
+            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeCheckInPeriod, ClearControllersCheckedIn);
+        } 
 
         if (checkedInControllers.Count >= maxControllers) //if the required amount of controllers are checked in
         {
@@ -71,6 +94,10 @@ public class MainMenuState : BaseGameState
 
     private void ClearControllersCheckedIn()
     {
+        if (checkedInControllers.Count >= SettingsManager.Instance.userSettings.requiredPlayers){
+            StartQuiz();
+            return;
+        }
         Logger.Log("Clearing controllers");
         soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayersCheckedOut);
         inputHandler.LightUpController(new List<int> { });
@@ -80,10 +107,16 @@ public class MainMenuState : BaseGameState
         {
             uiManager.SetPlayerPanelState(i, PlayerPanelState.Default);
         }
+        uiManager.HideMainMenuTimer();
     }
 
     public override void Update()
     {
+        if (checkedInControllers.Count < SettingsManager.Instance.userSettings.requiredPlayers) 
+        {
+            uiManager.HideMainMenuTimer();
+            return;
+        }
         if (timerManager.IsTimerRunning("CheckInTimer"))
         {
             uiManager.UpdateMainMenuTimer(timerManager.GetSecondsRemaining("CheckInTimer"));
