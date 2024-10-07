@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 using UnityEngine;
 [Serializable]
 public class QuestionState : BaseGameState
@@ -15,7 +14,6 @@ public class QuestionState : BaseGameState
     {
         _isStateComplete = false;
 
-        uiManager.TogglePanel(UIManager.UIPanelElement.QuestionPanel, true);
 
         if (!QuestionManager.HasQuizStarted())
         {
@@ -66,10 +64,9 @@ public class QuestionState : BaseGameState
             NotifyStateCompletion();
             return;
         }
-        uiManager.ShowQuestion();
-        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
-        Canvas.ForceUpdateCanvases();
-        uiManager.MoveAnswerPanelOffScreen();
+        EventManager.RaiseQuestionStart(QuestionManager.CurrentQuestion);
+
+
     }
 
     private void ProcessPlayerAnswer(int controller, int button)

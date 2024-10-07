@@ -1,9 +1,11 @@
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static SoundManager.SoundEffect;
 
 public enum PlayerPanelState
 {
@@ -144,6 +146,82 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void OnQuestionStart()
+    {
+        TogglePanel(UIPanelElement.QuestionPanel, true);
+        ShowQuestion();
+        TogglePanel(UIPanelElement.TimerPanel, true);
+        Canvas.ForceUpdateCanvases();
+        MoveAnswerPanelOffScreen();
+    }
+
+    public void OnQuestionEnd()
+    {
+        TogglePanel(UIPanelElement.TimerPanel, false);
+    }
+
+    public void OnResultStart(int[] initialScores, int[] updatedScores, Action callback)
+    {
+        ShowQuestionResults();
+        StartCoroutine(ShowResult(initialScores, updatedScores, callback));
+    }
+
+    //TODO: Move to PlayerPanel
+    IEnumerator ShowResult(int[] initialScores, int[] updatedScores, Action callback)
+    {
+        // Iterate through all players to update their panels
+        foreach (Player player in PlayerManager.Instance.GetPlayers())
+        {
+            // Determine if the player's answer is correct
+            bool isCorrect = player.HasAnsweredCorrectly(QuestionManager.CurrentQuestion);
+
+            // Update the player's panel state based on whether they answered correctly
+            SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
+
+            // Indicate that the player's score is being added
+            SetPlayerPanelState(player.ControllerId, PlayerPanelState.AddingScore);
+
+            // Play a sound effect based on whether the player's answer was correct
+            SoundManager.Instance.PlaySoundEffect(isCorrect ? AnswerCorrect : AnswerWrong);
+
+            // Pause briefly before incrementing the score
+            yield return new WaitForSeconds(0.5f);
+
+            // Increment the player's score with animation until it matches the updated score
+            yield return StartCoroutine(IncrementPlayerScoreOverTime(player, initialScores, updatedScores));
+
+            // Set the player's panel to the final correct/incorrect state
+            SetFinalPlayerPanelState(player);
+
+            // Pause before moving to the next player
+            yield return new WaitForSeconds(1);
+        }
+
+        callback?.Invoke();
+    }
+
+    //TODO: WHat does this do?
+    private void SetFinalPlayerPanelState(Player player)
+    {
+        // Set the final correct/incorrect state after the score animation is complete
+        bool isCorrect = player.HasAnsweredCorrectly(QuestionManager.CurrentQuestion);
+        SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
+    }
+
+    private IEnumerator IncrementPlayerScoreOverTime(Player player, int[] initialScores, int[] updatedScores)
+    {
+        // Continuously increment the score display until it matches the updated score
+        while (initialScores[player.ControllerId] < updatedScores[player.ControllerId])
+        {
+            Debug.Log("Incrementing score for player " + player.ControllerId + "from " + initialScores[player.ControllerId] + " to " + updatedScores[player.ControllerId]);
+            initialScores[player.ControllerId]++;
+            UpdatePlayerScoreDisplay(player.ControllerId, initialScores[player.ControllerId]);
+
+            // Pause briefly between score increments to create a smooth animation
+            yield return new WaitForSeconds(SettingsManager.UserSettings.scoreIncreaseSpeedInSeconds);
+        }
+    }
+
     public void UpdatePlayerScoreDisplay(int playerId, int score)
     {
         playerPanel.UpdatePlayerScoreDisplay(playerId, score);
@@ -198,6 +276,7 @@ public class UIManager : MonoBehaviour
     public void ShowQuestionResults()
     {
         questionPanel.ShowQuestionResults(QuestionManager.CurrentQuestion);
+        TogglePanel(UIPanelElement.TimerPanel, false);
     }
 
     public void ShowQuestion()
@@ -231,4 +310,6 @@ public class UIManager : MonoBehaviour
         TogglePanel(UIPanelElement.MainMenuPanel, true);
         SetInstructionText(SettingsManager.UserSettings.mainMenuStartText);
     }
+
+
 }
