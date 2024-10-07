@@ -20,7 +20,7 @@ public class QuestionState : BaseGameState
         if (!QuestionManager.HasQuizStarted())
         {
             Logger.Log("Getting random questions");
-            QuestionManager.FetchRandomQuestions(gameStateHandler.currentCategory);
+            QuestionManager.FetchRandomQuestions(GameStateHandler.GetCategory());
         }
 
         if (QuestionManager.AreQuestionsRemaining())

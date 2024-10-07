@@ -20,8 +20,7 @@ public class MainMenuState : BaseGameState
     public override void Exit()
     {
         uiManager.ResetPlayerPanels();
-        playerManager.CreateNewPlayers(checkedInControllers.Count);
-        ClearControllersCheckedIn();
+        ClearCheckedInControllers();
         uiManager.TogglePanel(UIManager.UIPanelElement.MainMenuPanel, false);
     }
 
@@ -70,10 +69,10 @@ public class MainMenuState : BaseGameState
         {
             timerManager.RestartTimer("CheckInTimer");
         }
-        else 
+        else
         {
-            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeCheckInPeriod, ClearControllersCheckedIn);
-        } 
+            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeCheckInPeriod, CheckInTimerDone);
+        }
 
         if (checkedInControllers.Count >= maxControllers) //if the required amount of controllers are checked in
         {
@@ -82,44 +81,48 @@ public class MainMenuState : BaseGameState
         }
     }
 
+    private void CheckInTimerDone()
+    {
+        if (checkedInControllers.Count >= SettingsManager.UserSettings.requiredPlayers)
+        {
+            StartQuiz();
+        }
+        else
+        {
+            ClearCheckedInControllers();
+        }
+    }
+
     private void StartQuiz()
     {
         Logger.Log("Starting quiz");
         Logger.Log("Amount of players checked in: " + checkedInControllers.Count);
         uiManager.HideMainMenuTimer();
+        uiManager.SetInstructionText(SettingsManager.UserSettings.mainMenuEndText);
+        playerManager.CreateNewPlayers(checkedInControllers.Count);
         timerManager.StopTimer("CheckInTimer");
-        uiManager.SetInstructionText(SettingsManager.Instance.userSettings.mainMenuEndText);
-        timerManager.CreateTimer("MainMenuEnd", SettingsManager.Instance.userSettings.timeBeforeMainMenuEnd, NotifyStateCompletion);
+        timerManager.CreateTimer("MainMenuEnd", SettingsManager.UserSettings.timeBeforeMainMenuEnd, NotifyStateCompletion);
     }
 
-    private void ClearControllersCheckedIn()
+    private void ClearCheckedInControllers()
     {
-        if (checkedInControllers.Count >= SettingsManager.Instance.userSettings.requiredPlayers){
-            StartQuiz();
-            return;
-        }
         Logger.Log("Clearing controllers");
         soundManager.PlaySoundEffect(SoundManager.SoundEffect.PlayersCheckedOut);
         inputHandler.LightUpController(new List<int> { });
         checkedInControllers.Clear();
-        //stop animation
-        for (int i = 0; i < SettingsManager.Instance.userSettings.requiredPlayers; i++)
-        {
-            uiManager.SetPlayerPanelState(i, PlayerPanelState.Default);
-        }
+        uiManager.ResetPlayerPanels();
         uiManager.HideMainMenuTimer();
     }
 
     public override void Update()
     {
-        if (checkedInControllers.Count < SettingsManager.Instance.userSettings.requiredPlayers) 
-        {
-            uiManager.HideMainMenuTimer();
-            return;
-        }
-        if (timerManager.IsTimerRunning("CheckInTimer"))
+        if (checkedInControllers.Count >= SettingsManager.UserSettings.requiredPlayers && timerManager.IsTimerRunning("CheckInTimer"))
         {
             uiManager.UpdateMainMenuTimer(timerManager.GetSecondsRemaining("CheckInTimer"));
+        }
+        else 
+        {
+            uiManager.HideMainMenuTimer();
         }
     }
 }

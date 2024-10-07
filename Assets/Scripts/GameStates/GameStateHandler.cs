@@ -19,8 +19,10 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField]
     ResultState resultState;
 
+
+    public static string GetCategory() => Instance.currentCategory;
     [HideInInspector]
-    public string currentCategory = null;
+    private string currentCategory = null;
 
     private BaseGameState currentState;
 
@@ -66,9 +68,14 @@ public class GameStateHandler : MonoBehaviour
         ChangeState(mainMenuState);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         inputHandler.OnButton += HandlePlayerInput;
+    }
+
+    private void OnDisable()
+    {
+        inputHandler.OnButton -= HandlePlayerInput;
     }
 
     private void Update()
@@ -85,14 +92,8 @@ public class GameStateHandler : MonoBehaviour
         QuestionManager.Instance.ResetQuiz();
     }
 
-    public void GetNewRandomCategories()
-    {
-        categoryVoteHandler.InitCategories(QuestionParser.GetCategories(4));
-    }
-
     public void HandlePlayerInput(int controller, int button)
     {
-        soundManager.PlaySoundEffect(SoundEffect.AnswerGiven);
         currentState?.HandleInput(controller, button);
     }
 
@@ -113,6 +114,12 @@ public class GameStateHandler : MonoBehaviour
         currentState.Enter();
     }
 
+    IEnumerator DelayedStateChange(BaseGameState newState, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ChangeState(newState);
+    }
+
     private void HandleStateCompletion()
     {
         Logger.Log("State completed: " + currentState.GetType().Name);
@@ -126,22 +133,19 @@ public class GameStateHandler : MonoBehaviour
                     ChangeState(questionState);
                 }
                 else
-                {
-                    GetNewRandomCategories();
                     ChangeState(categoryVoteState);
-                }
                 break;
             case CategoryVoteState:
                 ChangeState(questionState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case QuestionState:
-                if (!QuestionManager.IsQuizEnded)
-                    ChangeState(resultState, SettingsManager.UserSettings.preQuestionTime);
-                else
-                    ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
+                ChangeState(resultState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case ResultState:
-                ChangeState(questionState);
+                if (!QuestionManager.IsQuizEnded)
+                    ChangeState(questionState);
+                else
+                    ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case FinalScoreState:
                 ChangeState(mainMenuState, SettingsManager.UserSettings.finalScoreTime);
@@ -152,14 +156,9 @@ public class GameStateHandler : MonoBehaviour
 
 
 
-    IEnumerator DelayedStateChange(BaseGameState newState, float delay)
-    {
 
-        yield return new WaitForSeconds(delay);
-        ChangeState(newState);
-    }
-    
 
-    
+
+
 }
 

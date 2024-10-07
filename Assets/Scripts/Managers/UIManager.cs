@@ -101,6 +101,14 @@ public class UIManager : MonoBehaviour
     }
 
     #region PlayerPanel
+    public void SetAllPlayerPanelStates(PlayerPanelState state, int playerCount)
+    {
+        for (int i = 0; i < playerCount; i++)
+        {
+            SetPlayerPanelState(i, state);
+        }
+    }
+
     public void SetPlayerPanelState(int playerId, PlayerPanelState state)
     {
         switch (state)
