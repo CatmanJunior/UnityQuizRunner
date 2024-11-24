@@ -4,10 +4,24 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
+/// <summary>
+/// Provides methods to load files from a directory, with support for different platforms such as WebGL.
+/// </summary>
 public static class FileLoader
 {
     private const string ManifestFileName = "FileManifest.txt";
 
+    /// <summary>
+    /// Loads files from the specified directory matching the given pattern.
+    /// Handles both standard platforms and WebGL by reading files appropriately.
+    /// </summary>
+    /// <param name="directory">The directory from which to load files.</param>
+    /// <param name="pattern">The search pattern to match files.</param>
+    /// <returns>
+    /// A task representing the asynchronous operation. The task result contains a list of strings
+    /// read from the matching files.
+    /// </returns>
     public static async Task<List<string>> LoadFiles(string directory, string pattern)
     {
         var lines = new List<string>();
@@ -38,7 +52,15 @@ public static class FileLoader
         }
         return lines;
     }
-
+    
+    /// <summary>
+    /// Reads the content of a file in a WebGL build using <see cref="UnityWebRequest"/>.
+    /// </summary>
+    /// <param name="path">The path to the file to read.</param>
+    /// <returns>
+    /// A task representing the asynchronous operation. The task result contains a list of strings
+    /// read from the file.
+    /// </returns>
     private static async Task<List<string>> ReadWebGLFile(string path)
     {
         var lines = new List<string>();
