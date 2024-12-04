@@ -55,7 +55,8 @@ public class TabletGameStateHandler : MonoBehaviour
         InitializeAsync();
     }
 
-    void Start(){
+    void Start()
+    {
         ChangeState(mainMenuState);
     }
     private async void InitializeAsync()
@@ -68,7 +69,7 @@ public class TabletGameStateHandler : MonoBehaviour
         resultState.Initialize(this);
         mainMenuState.Initialize(this);
 
-        
+
     }
 
     private void OnEnable()
@@ -142,13 +143,12 @@ public class TabletGameStateHandler : MonoBehaviour
                 ChangeState(questionState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case TabletQuestionState:
-                ChangeState(resultState, SettingsManager.UserSettings.preQuestionTime);
-                break;
-            case TabletResultState:
                 if (!QuestionManager.IsQuizEnded)
                     ChangeState(questionState);
                 else
                     ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
+                break;
+            case TabletResultState:
                 break;
             case TabletFinalScoreState:
                 ChangeState(mainMenuState, SettingsManager.UserSettings.finalScoreTime);

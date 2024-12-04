@@ -38,17 +38,6 @@ public class UIQuestionPanel : UIPanel
         Correct,
         Incorrect
     }
-    //on unity onenable is called when the object is enabled
-    private void Awake()
-    {
-        Debug.Log("UIQuestionPanel enabled");
-        EventManager.OnQuestionStart += ShowQuestion;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.OnQuestionStart -= ShowQuestion;
-    }
 
     #region public methods
     /// <summary>

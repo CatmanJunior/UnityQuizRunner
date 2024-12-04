@@ -2644,3 +2644,79 @@
 12/4/2024 7:54:44 PM: State completed: TabletCategoryVoteState
 12/4/2024 7:54:47 PM: Getting random questions
 12/4/2024 7:54:51 PM: State completed
+12/4/2024 9:23:24 PM: Starting quiz
+12/4/2024 9:23:24 PM: Starting quiz
+12/4/2024 9:23:26 PM: State completed
+12/4/2024 9:23:26 PM: State completed: TabletMainMenuState
+12/4/2024 9:23:27 PM: Player 0 voted for Alcohol
+12/4/2024 9:23:27 PM: State completed
+12/4/2024 9:23:27 PM: State completed: TabletCategoryVoteState
+12/4/2024 9:23:30 PM: Getting random questions
+12/4/2024 9:23:34 PM: State completed
+12/4/2024 9:23:44 PM: State completed
+12/4/2024 9:23:44 PM: State completed: TabletQuestionState
+12/4/2024 9:25:07 PM: Starting quiz
+12/4/2024 9:25:07 PM: Starting quiz
+12/4/2024 9:25:09 PM: State completed
+12/4/2024 9:25:09 PM: State completed: TabletMainMenuState
+12/4/2024 9:25:10 PM: Player 0 voted for Speed
+12/4/2024 9:25:10 PM: State completed
+12/4/2024 9:25:10 PM: State completed: TabletCategoryVoteState
+12/4/2024 9:25:13 PM: Getting random questions
+12/4/2024 9:25:17 PM: State completed
+12/4/2024 9:25:25 PM: State completed
+12/4/2024 9:25:25 PM: State completed: TabletQuestionState
+12/4/2024 9:25:36 PM: State completed
+12/4/2024 9:25:36 PM: State completed: TabletQuestionState
+12/4/2024 9:25:49 PM: State completed
+12/4/2024 9:25:49 PM: State completed: TabletQuestionState
+12/4/2024 9:26:01 PM: State completed
+12/4/2024 9:26:01 PM: State completed: TabletQuestionState
+12/4/2024 9:26:09 PM: State completed
+12/4/2024 9:26:09 PM: State completed: TabletQuestionState
+12/4/2024 9:26:09 PM: State completed
+12/4/2024 9:26:09 PM: State completed: TabletQuestionState
+12/4/2024 9:27:02 PM: Starting quiz
+12/4/2024 9:27:02 PM: Starting quiz
+12/4/2024 9:27:04 PM: State completed
+12/4/2024 9:27:04 PM: State completed: TabletMainMenuState
+12/4/2024 9:27:05 PM: Button 3 is not a valid category
+12/4/2024 9:27:05 PM: State completed
+12/4/2024 9:27:05 PM: State completed: TabletCategoryVoteState
+12/4/2024 9:27:08 PM: Getting random questions
+12/4/2024 9:27:12 PM: State completed
+12/4/2024 9:27:19 PM: State completed
+12/4/2024 9:27:19 PM: State completed: TabletQuestionState
+12/4/2024 9:27:30 PM: State completed
+12/4/2024 9:27:30 PM: State completed: TabletQuestionState
+12/4/2024 9:27:38 PM: State completed
+12/4/2024 9:27:38 PM: State completed: TabletQuestionState
+12/4/2024 9:27:49 PM: State completed
+12/4/2024 9:27:49 PM: State completed: TabletQuestionState
+12/4/2024 9:28:00 PM: State completed
+12/4/2024 9:28:00 PM: State completed: TabletQuestionState
+12/4/2024 9:28:00 PM: State completed
+12/4/2024 9:28:00 PM: State completed: TabletQuestionState
+12/4/2024 9:28:13 PM: State completed
+12/4/2024 9:28:13 PM: State completed: TabletFinalScoreState
+12/4/2024 9:40:08 PM: Starting quiz
+12/4/2024 9:40:08 PM: Starting quiz
+12/4/2024 9:40:10 PM: State completed
+12/4/2024 9:40:10 PM: State completed: TabletMainMenuState
+12/4/2024 9:40:13 PM: Player 0 voted for Cocaïne
+12/4/2024 9:40:13 PM: State completed
+12/4/2024 9:40:13 PM: State completed: TabletCategoryVoteState
+12/4/2024 9:40:16 PM: Getting random questions
+12/4/2024 9:40:18 PM: State completed
+12/4/2024 9:40:28 PM: State completed
+12/4/2024 9:40:28 PM: State completed: TabletQuestionState
+12/4/2024 9:40:39 PM: State completed
+12/4/2024 9:40:39 PM: State completed: TabletQuestionState
+12/4/2024 9:40:48 PM: State completed
+12/4/2024 9:40:48 PM: State completed: TabletQuestionState
+12/4/2024 9:40:58 PM: State completed
+12/4/2024 9:40:58 PM: State completed: TabletQuestionState
+12/4/2024 9:41:04 PM: State completed
+12/4/2024 9:41:04 PM: State completed: TabletQuestionState
+12/4/2024 9:41:04 PM: State completed
+12/4/2024 9:41:04 PM: State completed: TabletQuestionState

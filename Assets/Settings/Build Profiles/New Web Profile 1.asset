@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: New Windows Profile
+  m_Name: New Web Profile 1
   m_EditorClassIdentifier: 
   m_AssetVersion: 1
-  m_BuildTarget: 19
-  m_Subtarget: 2
-  m_PlatformId: 4e3c793746204150860bf175a9a41a05
+  m_BuildTarget: 20
+  m_Subtarget: 0
+  m_PlatformId: 84a3bb9e7420477f885e98145999eb20
   m_PlatformBuildProfile:
-    rid: 1186670503163068502
+    rid: 640641551440805961
   m_OverrideGlobalSceneList: 0
-  m_Scenes:
-  - m_enabled: 1
-    m_path: Assets/Scenes/GameScreen.unity
+  m_Scenes: []
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -40,12 +38,13 @@ MonoBehaviour:
     - line: '|   productName: De Grote Unity-Drugs-Quiz'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
-    - line: '|   m_SplashScreenBackgroundColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}'
+    - line: '|   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b:
+        0.1254902, a: 1}'
     - line: '|   m_ShowUnitySplashScreen: 1'
     - line: '|   m_ShowUnitySplashLogo: 1'
     - line: '|   m_SplashScreenOverlayOpacity: 1'
-    - line: '|   m_SplashScreenAnimation: 2'
-    - line: '|   m_SplashScreenLogoStyle: 0'
+    - line: '|   m_SplashScreenAnimation: 0'
+    - line: '|   m_SplashScreenLogoStyle: 1'
     - line: '|   m_SplashScreenDrawMode: 0'
     - line: '|   m_SplashScreenBackgroundAnimationZoom: 1'
     - line: '|   m_SplashScreenLogoAnimationZoom: 1'
@@ -63,16 +62,13 @@ MonoBehaviour:
     - line: '|     y: 0'
     - line: '|     width: 1'
     - line: '|     height: 1'
-    - line: '|   m_SplashScreenLogos:'
-    - line: '|   - logo: {fileID: 21300000, guid: 5c2c05f039d21c348acf8b5d45aa66f1,
-        type: 3}'
-    - line: '|     duration: 2'
+    - line: '|   m_SplashScreenLogos: []'
     - line: '|   m_VirtualRealitySplashScreen: {instanceID: 0}'
     - line: '|   m_HolographicTrackingLossScreen: {instanceID: 0}'
     - line: '|   defaultScreenWidth: 1920'
     - line: '|   defaultScreenHeight: 1080'
-    - line: '|   defaultScreenWidthWeb: 960'
-    - line: '|   defaultScreenHeightWeb: 600'
+    - line: '|   defaultScreenWidthWeb: 1980'
+    - line: '|   defaultScreenHeightWeb: 1200'
     - line: '|   m_StereoRenderingPath: 0'
     - line: '|   m_ActiveColorSpace: 0'
     - line: '|   unsupportedMSAAFallback: 0'
@@ -167,7 +163,7 @@ MonoBehaviour:
     - line: '|   loadStoreDebugModeEnabled: 0'
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
-    - line: '|   bundleVersion: 0.01'
+    - line: '|   bundleVersion: 1'
     - line: '|   preloadedAssets:'
     - line: '|   - {fileID: 11400000, guid: 904404b3fd89d374ba428c655d04ee7a, type:
         2}'
@@ -192,7 +188,7 @@ MonoBehaviour:
     - line: '|   androidMaxAspectRatio: 2.1'
     - line: '|   androidMinAspectRatio: 1'
     - line: '|   applicationIdentifier:'
-    - line: '|     Standalone: com.DefaultCompany.UnityQuizRunner'
+    - line: '|     Standalone: com.VirtualHuman.De-Grote-Unity-Drugs-Quiz'
     - line: '|   buildNumber:'
     - line: '|     Bratwurst: 0'
     - line: '|     Standalone: 0'
@@ -316,15 +312,7 @@ MonoBehaviour:
     - line: '|   AndroidAppBundleSizeToValidate: 150'
     - line: '|   AndroidReportGooglePlayAppDependencies: 1'
     - line: '|   androidSymbolsSizeThreshold: 800'
-    - line: '|   m_BuildTargetIcons:'
-    - line: '|   - m_BuildTarget: '
-    - line: '|     m_Icons:'
-    - line: '|     - serializedVersion: 2'
-    - line: '|       m_Icon: {fileID: 2800000, guid: 5c2c05f039d21c348acf8b5d45aa66f1,
-        type: 3}'
-    - line: '|       m_Width: 128'
-    - line: '|       m_Height: 128'
-    - line: '|       m_Kind: 0'
+    - line: '|   m_BuildTargetIcons: []'
     - line: '|   m_BuildTargetPlatformIcons:'
     - line: '|   - m_BuildTarget: Android'
     - line: '|     m_Icons:'
@@ -697,7 +685,7 @@ MonoBehaviour:
     - line: '|   webGLTemplate: APPLICATION:PWA'
     - line: '|   webGLAnalyzeBuildSize: 0'
     - line: '|   webGLUseEmbeddedResources: 0'
-    - line: '|   webGLCompressionFormat: 0'
+    - line: '|   webGLCompressionFormat: 1'
     - line: '|   webGLWasmArithmeticExceptions: 0'
     - line: '|   webGLLinkerTarget: 1'
     - line: '|   webGLThreadsSupport: 0'
@@ -847,8 +835,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1186670503163068502
-      type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
+    - rid: 640641551440805961
+      type: {class: WebGLPlatformSettings, ns: UnityEditor.WebGL, asm: UnityEditor.WebGL.Extensions}
       data:
         m_Development: 0
         m_ConnectProfiler: 0
@@ -859,11 +847,9 @@ MonoBehaviour:
         m_ExplicitNullChecks: 0
         m_ExplicitDivideByZeroChecks: 0
         m_ExplicitArrayBoundsChecks: 0
-        m_CompressionType: 0
+        m_CompressionType: -1
         m_InstallInBuildFolder: 0
-        m_WindowsBuildAndRunDeployTarget: 0
-        m_Architecture: 0
-        m_CreateSolution: 0
-        m_CopyPDBFiles: 0
-        m_WindowsDevicePortalAddress: 
-        m_WindowsDevicePortalUsername: 
+        m_CodeOptimization: 0
+        m_WebGLClientBrowserPath: 
+        m_WebGLClientBrowserType: 4
+        m_WebGLTextureSubtarget: 0

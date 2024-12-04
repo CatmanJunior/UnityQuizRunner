@@ -120,6 +120,9 @@ public class TabletQuestionState : TabletBaseGameState
 
     public override void ButtonClick(int button)
     {
-        Debug.Log("Button clicked " + button);
+        if (!CanProcessInput(button))
+            return;
+        ProcessPlayerAnswer(0, button);
+        HandleAllPlayersAnswered();
     }
 }

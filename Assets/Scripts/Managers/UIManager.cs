@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -303,8 +302,6 @@ public class UIManager : MonoBehaviour
     {
         playerPanel.ResetPlayerPanels(resetScores: true);
         TogglePanel(UIPanelElement.TimerPanel, false);
-        TogglePanel(UIPanelElement.QuestionPanel, true);
-
         TogglePanel(UIPanelElement.QuestionPanel, false);
         TogglePanel(UIPanelElement.VotePanel, false);
         TogglePanel(UIPanelElement.FinalScorePanel, false);
