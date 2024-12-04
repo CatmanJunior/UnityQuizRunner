@@ -18,7 +18,7 @@ public class TabletQuestionState : TabletBaseGameState
         if (!QuestionManager.HasQuizStarted())
         {
             Logger.Log("Getting random questions");
-            QuestionManager.FetchRandomQuestions(GameStateHandler.GetCategory());
+            QuestionManager.FetchRandomQuestions(TabletGameStateHandler.GetCategory());
         }
 
         if (QuestionManager.AreQuestionsRemaining())
@@ -65,9 +65,9 @@ public class TabletQuestionState : TabletBaseGameState
             NotifyStateCompletion();
             return;
         }
+        Debug.Log("Question: " + QuestionManager.CurrentQuestion.QuestionText);
+        Debug.Log("Raising question start event");
         EventManager.RaiseQuestionStart(QuestionManager.CurrentQuestion);
-
-
     }
 
     private void ProcessPlayerAnswer(int controller, int button)

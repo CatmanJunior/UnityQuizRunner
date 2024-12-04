@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class UIQuestionPanel : UIPanel
 {
@@ -37,12 +38,23 @@ public class UIQuestionPanel : UIPanel
         Correct,
         Incorrect
     }
+    //on unity onenable is called when the object is enabled
+    private void Awake()
+    {
+        Debug.Log("UIQuestionPanel enabled");
+        EventManager.OnQuestionStart += ShowQuestion;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnQuestionStart -= ShowQuestion;
+    }
 
     #region public methods
     /// <summary>
     /// Displays the current question on the UI panel.
     /// </summary>
-    public void ShowQuestion(Question question)
+    public void ShowQuestion(Question question, Action callback)
     {
         currentQuestion = question;
         if (question == null)

@@ -55,6 +55,9 @@ public class TabletGameStateHandler : MonoBehaviour
         InitializeAsync();
     }
 
+    void Start(){
+        ChangeState(mainMenuState);
+    }
     private async void InitializeAsync()
     {
         await QuestionParser.LoadQuestionsFromTxt();
@@ -65,7 +68,7 @@ public class TabletGameStateHandler : MonoBehaviour
         resultState.Initialize(this);
         mainMenuState.Initialize(this);
 
-        ChangeState(mainMenuState);
+        
     }
 
     private void OnEnable()

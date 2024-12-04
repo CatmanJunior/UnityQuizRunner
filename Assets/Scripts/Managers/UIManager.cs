@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
             { UIPanelElement.EvalPanel, evalPanel}
         };
 
-
+        EventManager.OnQuestionStart += OnQuestionStart;
     }
 
     #endregion
@@ -146,7 +146,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OnQuestionStart()
+    public void OnQuestionStart(Question question, Action callback)
     {
         TogglePanel(UIPanelElement.QuestionPanel, true);
         ShowQuestion();
@@ -166,7 +166,6 @@ public class UIManager : MonoBehaviour
         StartCoroutine(ShowResult(initialScores, updatedScores, callback));
     }
 
-    //TODO: Move to PlayerPanel
     IEnumerator ShowResult(int[] initialScores, int[] updatedScores, Action callback)
     {
         // Iterate through all players to update their panels
@@ -281,7 +280,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowQuestion()
     {
-        questionPanel.ShowQuestion(QuestionManager.CurrentQuestion);
+        questionPanel.ShowQuestion(QuestionManager.CurrentQuestion, null);
     }
 
     public void MoveAnswerPanelOffScreen()
@@ -304,6 +303,8 @@ public class UIManager : MonoBehaviour
     {
         playerPanel.ResetPlayerPanels(resetScores: true);
         TogglePanel(UIPanelElement.TimerPanel, false);
+        TogglePanel(UIPanelElement.QuestionPanel, true);
+
         TogglePanel(UIPanelElement.QuestionPanel, false);
         TogglePanel(UIPanelElement.VotePanel, false);
         TogglePanel(UIPanelElement.FinalScorePanel, false);

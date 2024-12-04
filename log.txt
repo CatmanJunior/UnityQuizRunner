@@ -2511,3 +2511,136 @@
 12/4/2024 6:30:34 PM: Player 0 voted for Ketamine
 12/4/2024 6:30:41 PM: State completed
 12/4/2024 6:30:41 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:13:31 PM: Starting quiz
+12/4/2024 7:13:31 PM: Starting quiz
+12/4/2024 7:13:33 PM: State completed
+12/4/2024 7:13:33 PM: State completed: TabletMainMenuState
+12/4/2024 7:13:35 PM: Player 0 voted for Random
+12/4/2024 7:13:41 PM: State completed
+12/4/2024 7:13:41 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:13:44 PM: Getting random questions
+12/4/2024 7:15:18 PM: Starting quiz
+12/4/2024 7:15:18 PM: Starting quiz
+12/4/2024 7:15:20 PM: State completed
+12/4/2024 7:15:20 PM: State completed: TabletMainMenuState
+12/4/2024 7:15:22 PM: Player 0 voted for Random
+12/4/2024 7:15:22 PM: State completed
+12/4/2024 7:15:22 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:15:25 PM: Getting random questions
+12/4/2024 7:15:28 PM: State completed
+12/4/2024 7:20:58 PM: Starting quiz
+12/4/2024 7:20:58 PM: Starting quiz
+12/4/2024 7:21:00 PM: State completed
+12/4/2024 7:21:00 PM: State completed: TabletMainMenuState
+12/4/2024 7:21:01 PM: Button 3 is not a valid category
+12/4/2024 7:21:01 PM: State completed
+12/4/2024 7:21:01 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:21:04 PM: Getting random questions
+12/4/2024 7:23:07 PM: Starting quiz
+12/4/2024 7:23:07 PM: Starting quiz
+12/4/2024 7:23:09 PM: State completed
+12/4/2024 7:23:09 PM: State completed: TabletMainMenuState
+12/4/2024 7:23:11 PM: Player 0 voted for 3-MMC  
+12/4/2024 7:23:11 PM: State completed
+12/4/2024 7:23:11 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:23:14 PM: Getting random questions
+12/4/2024 7:23:17 PM: State completed
+12/4/2024 7:25:32 PM: Starting quiz
+12/4/2024 7:25:32 PM: Starting quiz
+12/4/2024 7:25:34 PM: State completed
+12/4/2024 7:25:34 PM: State completed: TabletMainMenuState
+12/4/2024 7:25:35 PM: Button 3 is not a valid category
+12/4/2024 7:25:35 PM: State completed
+12/4/2024 7:25:35 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:25:38 PM: Getting random questions
+12/4/2024 7:25:42 PM: State completed
+12/4/2024 7:34:18 PM: Starting quiz
+12/4/2024 7:34:18 PM: Starting quiz
+12/4/2024 7:34:20 PM: State completed
+12/4/2024 7:34:20 PM: State completed: TabletMainMenuState
+12/4/2024 7:34:21 PM: Player 0 voted for Cocaïne
+12/4/2024 7:34:21 PM: State completed
+12/4/2024 7:34:21 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:34:24 PM: Getting random questions
+12/4/2024 7:34:28 PM: State completed
+12/4/2024 7:38:25 PM: Starting quiz
+12/4/2024 7:38:25 PM: Starting quiz
+12/4/2024 7:38:27 PM: State completed
+12/4/2024 7:38:27 PM: State completed: TabletMainMenuState
+12/4/2024 7:38:28 PM: Player 0 voted for Speed
+12/4/2024 7:38:28 PM: State completed
+12/4/2024 7:38:28 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:38:31 PM: Getting random questions
+12/4/2024 7:38:35 PM: State completed
+12/4/2024 7:41:50 PM: Starting quiz
+12/4/2024 7:41:50 PM: Starting quiz
+12/4/2024 7:41:52 PM: State completed
+12/4/2024 7:41:52 PM: State completed: TabletMainMenuState
+12/4/2024 7:41:53 PM: Player 0 voted for Psychedelica
+12/4/2024 7:41:53 PM: State completed
+12/4/2024 7:41:53 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:41:56 PM: Getting random questions
+12/4/2024 7:42:00 PM: State completed
+12/4/2024 7:42:29 PM: Starting quiz
+12/4/2024 7:42:29 PM: Starting quiz
+12/4/2024 7:42:31 PM: State completed
+12/4/2024 7:42:31 PM: State completed: TabletMainMenuState
+12/4/2024 7:42:33 PM: Player 0 voted for Ketamine
+12/4/2024 7:42:33 PM: State completed
+12/4/2024 7:42:33 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:42:36 PM: Getting random questions
+12/4/2024 7:42:39 PM: State completed
+12/4/2024 7:44:55 PM: Starting quiz
+12/4/2024 7:44:55 PM: Starting quiz
+12/4/2024 7:44:57 PM: State completed
+12/4/2024 7:44:57 PM: State completed: TabletMainMenuState
+12/4/2024 7:44:59 PM: Button 3 is not a valid category
+12/4/2024 7:44:59 PM: State completed
+12/4/2024 7:44:59 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:45:02 PM: Getting random questions
+12/4/2024 7:45:05 PM: State completed
+12/4/2024 7:45:35 PM: Starting quiz
+12/4/2024 7:45:35 PM: Starting quiz
+12/4/2024 7:45:37 PM: State completed
+12/4/2024 7:45:37 PM: State completed: TabletMainMenuState
+12/4/2024 7:45:39 PM: Player 0 voted for 3-MMC  
+12/4/2024 7:45:39 PM: State completed
+12/4/2024 7:45:39 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:45:42 PM: Getting random questions
+12/4/2024 7:45:45 PM: State completed
+12/4/2024 7:47:40 PM: Starting quiz
+12/4/2024 7:47:40 PM: Starting quiz
+12/4/2024 7:47:42 PM: State completed
+12/4/2024 7:47:42 PM: State completed: TabletMainMenuState
+12/4/2024 7:47:43 PM: Player 0 voted for Ketamine
+12/4/2024 7:47:43 PM: State completed
+12/4/2024 7:47:43 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:47:46 PM: Getting random questions
+12/4/2024 7:47:50 PM: State completed
+12/4/2024 7:51:14 PM: Starting quiz
+12/4/2024 7:51:14 PM: Starting quiz
+12/4/2024 7:51:16 PM: State completed
+12/4/2024 7:51:16 PM: State completed: TabletMainMenuState
+12/4/2024 7:51:17 PM: Player 0 voted for Ketamine
+12/4/2024 7:51:17 PM: State completed
+12/4/2024 7:51:17 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:51:20 PM: Getting random questions
+12/4/2024 7:51:24 PM: State completed
+12/4/2024 7:52:47 PM: Starting quiz
+12/4/2024 7:52:47 PM: Starting quiz
+12/4/2024 7:52:49 PM: State completed
+12/4/2024 7:52:49 PM: State completed: TabletMainMenuState
+12/4/2024 7:52:50 PM: Player 0 voted for Psychedelica
+12/4/2024 7:52:50 PM: State completed
+12/4/2024 7:52:50 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:52:53 PM: Getting random questions
+12/4/2024 7:52:57 PM: State completed
+12/4/2024 7:54:41 PM: Starting quiz
+12/4/2024 7:54:41 PM: Starting quiz
+12/4/2024 7:54:43 PM: State completed
+12/4/2024 7:54:43 PM: State completed: TabletMainMenuState
+12/4/2024 7:54:44 PM: Player 0 voted for GHB
+12/4/2024 7:54:44 PM: State completed
+12/4/2024 7:54:44 PM: State completed: TabletCategoryVoteState
+12/4/2024 7:54:47 PM: Getting random questions
+12/4/2024 7:54:51 PM: State completed

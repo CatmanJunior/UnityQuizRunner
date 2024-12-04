@@ -40,6 +40,7 @@ public class TabletCategoryVoteState : TabletBaseGameState
         {
             uiManager.PlayerVoted(0);
         }
+        DoneVoting();
     }
 
     public void DoneVoting()
