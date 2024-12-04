@@ -58,9 +58,6 @@ public class CategoryVoteHandler : MonoBehaviour
         if (_categoryVotes.Count == 0)
             return _categories[Random.Range(0, _categories.Length)];
 
-        if (_categoryVotes.Count == 1)
-            return _categories[_categoryVotes.Values.First()];
-
         var _votedCategory = _categories[_categoryVotes.Values.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First()];
         Logger.Log("Top category is " + _votedCategory);
         return _votedCategory;

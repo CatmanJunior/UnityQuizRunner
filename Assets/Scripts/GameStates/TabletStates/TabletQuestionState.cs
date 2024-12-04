@@ -58,7 +58,6 @@ public class TabletQuestionState : TabletBaseGameState
 
     private void HandleNextQuestion()
     {
-        InitializeQuestionTimer();
         QuestionManager.GoToNextQuestion();
         if (QuestionManager.IsQuizEnded)
         {
@@ -123,6 +122,8 @@ public class TabletQuestionState : TabletBaseGameState
         if (!CanProcessInput(button))
             return;
         ProcessPlayerAnswer(0, button);
+        QuestionManager.CurrentQuestion.IsAnswered = true;
+        
         HandleAllPlayersAnswered();
     }
 }

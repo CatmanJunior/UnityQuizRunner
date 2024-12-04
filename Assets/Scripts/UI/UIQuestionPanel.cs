@@ -25,7 +25,7 @@ public class UIQuestionPanel : UIPanel
     private FontStyles defaultAnswerStyle; //the default style of the answer text
 
     private Question currentQuestion;
-
+    private bool animate = true;
     public enum AnswerStyle
     {
         Default,
@@ -39,6 +39,7 @@ public class UIQuestionPanel : UIPanel
     /// </summary>
     public void ShowQuestion(Question question, Action callback)
     {
+        animate = SettingsManager.UserSettings.useAnimations || QuestionManager.CurrentQuestion.IsAnswered == false;
         currentQuestion = question;
         if (question == null)
         {
@@ -66,7 +67,8 @@ public class UIQuestionPanel : UIPanel
     #region private methods
     private void SetQuestion(Question question)
     {
-        if (SettingsManager.UserSettings.useAnimations)
+        
+        if (animate)
         {
             StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, SettingsManager.UserSettings.questionTypingSpeed, OnQuestionDoneTyping));
         }
@@ -93,7 +95,7 @@ public class UIQuestionPanel : UIPanel
     {
         float delayBetweenAnswerSlides = SettingsManager.UserSettings.answerSlideBetweenTime;
         float slideAnimationDuration = SettingsManager.UserSettings.answerSlideTime;
-        if (SettingsManager.UserSettings.useAnimations)
+        if (animate)
         {
             // Start sliding in the answer panels
             int answerAmount = currentQuestion.GetAnswerAmount();

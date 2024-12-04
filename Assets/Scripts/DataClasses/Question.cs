@@ -12,6 +12,7 @@ public class Question
     public string QuestionText;
     public List<Answer> Answers;
     public string Explanation;
+    public bool IsAnswered = false;
     public Question(string questionText, List<Answer> answers, string category, string explanation = "")
     {
         QuestionText = questionText;

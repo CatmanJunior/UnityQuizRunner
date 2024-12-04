@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3b12d61f273ba4883f01dfb6520cbd, type: 3}
   m_Name: DefaultSettings_Tablet
   m_EditorClassIdentifier: 
+  version: 1
   checkinButton: 4
-  useLightController: 1
+  useLightController: 0
   mainMenuStartText: Press the Red Button to join
   mainMenuEndText: Get Ready!
   pointsForRightAnswer: 1
@@ -24,14 +25,16 @@ MonoBehaviour:
   skipVote: 0
   timeModifier: 1
   timeBeforeCheckedInClear: 10
-  timeBeforeMainMenuEnd: 2
+  timeBeforeMainMenuEnd: 1
   postQuestionTime: 5
-  preQuestionTime: 3
+  preQuestionTime: 1
   finalScoreTime: 10
   categoryVoteTime: 8
   questionAnswerTime: 15
   scoreIncreaseSpeedInSeconds: 0.3
-  questionTypingSpeed: 0.05
+  questionTypingSpeed: 0.025
+  answerSlideTime: 1
+  answerSlideBetweenTime: 0.5
   generalCategory: Random
   muteMusic: 1
   useAnimations: 1
