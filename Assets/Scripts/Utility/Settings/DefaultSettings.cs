@@ -39,7 +39,8 @@ public class DefaultSettings : ScriptableObject
     public float questionAnswerTime = 15.0f;
     public float scoreIncreaseSpeedInSeconds = 0.3f;
     public float questionTypingSpeed = 0.05f;
-
+    public float answerSlideTime = 0.5f;
+    public float answerSlideBetweenTime = 0.5f;
 
     // Parser
     [Header("Parser")]

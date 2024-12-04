@@ -80,7 +80,7 @@ public class SettingsManager : MonoBehaviour
         ApplySettings();
     }
 
-    private void LoadDefaults()
+    public void LoadDefaults()
     {
         userSettings = new UserSettings
         {
@@ -101,6 +101,8 @@ public class SettingsManager : MonoBehaviour
             questionAnswerTime = defaultSettings.questionAnswerTime,
             scoreIncreaseSpeedInSeconds = defaultSettings.scoreIncreaseSpeedInSeconds,
             questionTypingSpeed = defaultSettings.questionTypingSpeed,
+            answerSlideTime = defaultSettings.answerSlideTime,
+            answerSlideBetweenTime = defaultSettings.answerSlideBetweenTime,
             generalCategory = defaultSettings.generalCategory,
             testMode = defaultSettings.testMode,
             skipVote = defaultSettings.skipVote,

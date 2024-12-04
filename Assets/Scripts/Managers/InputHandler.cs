@@ -14,6 +14,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] char voteOnButton = '9';
     [SerializeField] char voteOffButton = '8';
     [SerializeField] char restartButton = 'r';
+    [SerializeField] char LoadDefaultsButton = 'd';
     public InputAction buttonPress;
 
     public event System.Action<int, int> OnButton;
@@ -21,7 +22,7 @@ public class InputHandler : MonoBehaviour
     List<List<string>> keyboardButtons = new();
         
     #region UnityCallbacks
-    void Awake()
+    void Start()
     {
         if (useKeyboard)
         {
@@ -90,6 +91,11 @@ public class InputHandler : MonoBehaviour
         if (character == restartButton)
         {
             Restarter.RestartApplication();
+            return;
+        }
+        if (character == LoadDefaultsButton)
+        {
+            SettingsManager.Instance.LoadDefaults();
             return;
         }
         foreach (List<string> controller in keyboardButtons)

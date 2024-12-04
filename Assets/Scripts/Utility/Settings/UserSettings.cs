@@ -73,7 +73,12 @@ public class UserSettings
     [Setting("Time each letter appear", "Timing")]
     [Slider(0.01f, 0.1f)]
     public float questionTypingSpeed;
-
+    [Setting("Time to slide answer", "Timing")]
+    [Slider(0.1f, 5.0f)]
+    public float answerSlideTime;
+    [Setting("Time between answer slides", "Timing")]
+    [Slider(0.1f, 5.0f)]
+    public float answerSlideBetweenTime;
 
     // Parser
     [Setting("General Category name", "Parser")]

@@ -24,12 +24,6 @@ public class UIQuestionPanel : UIPanel
     [SerializeField]
     private FontStyles defaultAnswerStyle; //the default style of the answer text
 
-    [Header("Animation Settings")]
-    [SerializeField]
-    private float delayBetweenAnswerSlides = 4f;
-    [SerializeField]
-    private float slideAnimationDuration = 3f;
-
     private Question currentQuestion;
 
     public enum AnswerStyle
@@ -97,6 +91,8 @@ public class UIQuestionPanel : UIPanel
 
     private void StartAnswerSlideIn()
     {
+        float delayBetweenAnswerSlides = SettingsManager.UserSettings.answerSlideBetweenTime;
+        float slideAnimationDuration = SettingsManager.UserSettings.answerSlideTime;
         if (SettingsManager.UserSettings.useAnimations)
         {
             // Start sliding in the answer panels
