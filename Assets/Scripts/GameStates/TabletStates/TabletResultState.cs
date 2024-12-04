@@ -57,4 +57,9 @@ public class TabletResultState : TabletBaseGameState
     {
         // Implementation for updating the quiz state
     }
+
+    public override void ButtonClick(int button)
+    {
+        Debug.Log("Button clicked " + button);
+    }
 }

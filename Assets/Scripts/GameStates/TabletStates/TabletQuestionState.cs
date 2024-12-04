@@ -60,7 +60,8 @@ public class TabletQuestionState : TabletBaseGameState
     {
         InitializeQuestionTimer();
         QuestionManager.GoToNextQuestion();
-        if (QuestionManager.IsQuizEnded){
+        if (QuestionManager.IsQuizEnded)
+        {
             NotifyStateCompletion();
             return;
         }
@@ -115,5 +116,10 @@ public class TabletQuestionState : TabletBaseGameState
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
         timerManager.CreateTimer("QuestionTimer", SettingsManager.UserSettings.questionAnswerTime, NotifyStateCompletion, false);
         timerManager.SelectTimerForUI("QuestionTimer");
+    }
+
+    public override void ButtonClick(int button)
+    {
+        Debug.Log("Button clicked " + button);
     }
 }

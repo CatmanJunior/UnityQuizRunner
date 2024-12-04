@@ -35,6 +35,13 @@ public class TabletCategoryVoteState : TabletBaseGameState
         }
     }
 
+    public override void ButtonClick(int button){
+        if (categoryVoteHandler.HandleCategoryVote(0, button))
+        {
+            uiManager.PlayerVoted(0);
+        }
+    }
+
     public void DoneVoting()
     {
         timerManager.StopTimer("voteTimer");

@@ -153,7 +153,10 @@ public class TabletGameStateHandler : MonoBehaviour
         }
     }
 
-
+    public void OnButtonClick(int button)
+    {
+        currentState?.ButtonClick(button);
+    }
 
 
 

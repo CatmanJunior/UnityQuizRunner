@@ -27,4 +27,9 @@ public class UIMainMenuPanel : UIPanel
     {
         timerText.text = defaultTimerText + text;
     }
+
+    public static void OnButtonClick()
+    {
+        Debug.Log("Button clicked");
+    }
 }

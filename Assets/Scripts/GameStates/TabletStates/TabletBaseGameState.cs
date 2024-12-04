@@ -59,4 +59,5 @@ public abstract class TabletBaseGameState
     public abstract void Exit();
     public abstract void HandleInput(int controller, int button);
     public abstract void Update();
+    public abstract void ButtonClick(int button);
 }
