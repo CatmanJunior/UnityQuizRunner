@@ -81,4 +81,7 @@ crashlytics-build.properties
 .plastic/preview/version
 .plastic/plastic.wktree
 .plastic/plastic.wktree
-Assets/TextMesh Pro/*
+
+/Assets/External/*
+
+
