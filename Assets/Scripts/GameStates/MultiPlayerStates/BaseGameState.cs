@@ -37,7 +37,7 @@ public abstract class BaseGameState
     {
         categoryVoteHandler = gameStateHandler.GetComponent<CategoryVoteHandler>();
         QuestionManager = gameStateHandler.GetComponent<QuestionManager>();
-        uiManager = gameStateHandler.GetComponent<UIManager>(); 
+        uiManager = gameStateHandler.GetComponent<UIManager>();
         timerManager = gameStateHandler.timerManager;
         playerManager = gameStateHandler.GetComponent<PlayerManager>();
         soundManager = gameStateHandler.GetComponent<SoundManager>();

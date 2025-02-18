@@ -60,7 +60,8 @@ public class QuestionState : BaseGameState
     {
         InitializeQuestionTimer();
         QuestionManager.GoToNextQuestion();
-        if (QuestionManager.IsQuizEnded){
+        if (QuestionManager.IsQuizEnded)
+        {
             NotifyStateCompletion();
             return;
         }

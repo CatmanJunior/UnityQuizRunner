@@ -35,7 +35,8 @@ public class Timer : MonoBehaviour
             IsCounting = true;
             startTime = Time.time; // Record the start time of the countdown.
             StartCoroutine(Countdown());
-        } else
+        }
+        else
         {
             Debug.LogWarning("Timer is already counting.");
         }
@@ -126,12 +127,12 @@ public class Timer : MonoBehaviour
             return 0f;
         }
     }
-    
+
     public float GetTimeLeft()
     {
 
         return CountdownDuration - (Time.time - startTime);
     }
 
-    
+
 }

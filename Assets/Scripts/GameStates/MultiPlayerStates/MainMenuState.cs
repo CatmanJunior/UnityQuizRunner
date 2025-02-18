@@ -120,7 +120,7 @@ public class MainMenuState : BaseGameState
         {
             uiManager.UpdateMainMenuTimer(timerManager.GetSecondsRemaining("CheckInTimer"));
         }
-        else 
+        else
         {
             uiManager.HideMainMenuTimer();
         }

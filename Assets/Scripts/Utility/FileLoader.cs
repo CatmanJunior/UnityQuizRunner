@@ -52,7 +52,7 @@ public static class FileLoader
         }
         return lines;
     }
-    
+
     /// <summary>
     /// Reads the content of a file in a WebGL build using <see cref="UnityWebRequest"/>.
     /// </summary>

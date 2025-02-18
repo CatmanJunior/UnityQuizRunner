@@ -50,7 +50,7 @@ public class CategoryVoteHandler : MonoBehaviour
             Logger.Log("Player already voted");
             return false;
         }
-        
+
     }
 
     public string GetTopCategory()

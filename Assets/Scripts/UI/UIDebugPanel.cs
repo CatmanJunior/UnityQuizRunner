@@ -51,15 +51,15 @@ public class UIDebugPanel : UIPanel
 
         if (fieldType == typeof(bool))
         {
-            CreateToggle(field,  categoryContainer);
+            CreateToggle(field, categoryContainer);
         }
         else if (fieldType == typeof(float))
         {
-            CreateSlider(field,  categoryContainer);
+            CreateSlider(field, categoryContainer);
         }
         else if (fieldType == typeof(int))
         {
-            CreateInputField(field,  categoryContainer, TMP_InputField.ContentType.IntegerNumber);
+            CreateInputField(field, categoryContainer, TMP_InputField.ContentType.IntegerNumber);
         }
         else if (fieldType == typeof(string))
         {

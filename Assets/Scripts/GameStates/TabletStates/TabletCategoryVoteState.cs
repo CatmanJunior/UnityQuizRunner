@@ -36,7 +36,8 @@ public class TabletCategoryVoteState : TabletBaseGameState
         }
     }
 
-    public override void ButtonClick(int button){
+    public override void ButtonClick(int button)
+    {
         if (categoryVoteHandler.HandleCategoryVote(0, button))
         {
             uiManager.PlayerVoted(0);

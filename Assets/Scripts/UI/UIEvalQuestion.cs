@@ -3,7 +3,7 @@ using UnityEngine;
 public class UIEvalQuestion : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI answertexts;
-    
+
     [SerializeField] private TMPro.TextMeshProUGUI questiontext;
 
     public void SetTexts(Question question, int index)

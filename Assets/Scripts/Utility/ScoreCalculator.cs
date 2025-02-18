@@ -4,7 +4,7 @@ using System.Linq;
 
 public class ScoreCalculator : MonoBehaviour
 {
-    
+
     public static float CalculateScore(Player player)
     {
         float Score = player.BonusScore;
@@ -12,7 +12,7 @@ public class ScoreCalculator : MonoBehaviour
         {
             if (answer.IsCorrect)
             {
-                
+
                 Score += SettingsManager.UserSettings.pointsForRightAnswer;
 
             }

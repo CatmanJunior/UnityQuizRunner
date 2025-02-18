@@ -22,17 +22,18 @@ public class oldTimer : MonoBehaviour
         countdownText.gameObject.SetActive(true);
     }
 
-    private void UpdateParticleLocation(){
+    private void UpdateParticleLocation()
+    {
         // Calculate the local position of the right side
         float rightSideLocalX = (1 - fillArea.pivot.x) * fillArea.rect.width;
         Vector3 rightSideLocalPosition = new Vector3(rightSideLocalX, 0, 0);
-    
+
         // Convert local position to world position
         Vector3 rightSideWorldPosition = fillArea.TransformPoint(rightSideLocalPosition);
-    
+
         // Set the particle system to the calculated world position
         particles.transform.position = rightSideWorldPosition;
-        
+
     }
 
     /// <summary>

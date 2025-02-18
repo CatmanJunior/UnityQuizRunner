@@ -67,7 +67,7 @@ public class TimerManager : MonoBehaviour
             Debug.LogError($"Timer with ID '{timerID}' does not exist.");
         }
     }
-    
+
     /// <summary>
     /// Restarts a specific timer.
     /// </summary>
@@ -77,7 +77,7 @@ public class TimerManager : MonoBehaviour
         if (timers.ContainsKey(timerID))
         {
             timers[timerID].RestartTimer();
-            
+
         }
         else
         {

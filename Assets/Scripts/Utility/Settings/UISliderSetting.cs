@@ -9,7 +9,7 @@ public class UISliderSetting : MonoBehaviour
 {
     public TextMeshProUGUI labelText;
     public Slider slider;
-    public TextMeshProUGUI valueText; 
+    public TextMeshProUGUI valueText;
 
 
     private FieldInfo fieldInfo;

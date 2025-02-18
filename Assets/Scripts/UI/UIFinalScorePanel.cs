@@ -9,7 +9,8 @@ public class UIFinalScorePanel : UIPanel
     [SerializeField] private TextMeshProUGUI scorePanelRestText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public void UpdateFinalScorePanel(Player[] sortedPlayers){
+    public void UpdateFinalScorePanel(Player[] sortedPlayers)
+    {
         scorePanelWinnerText.text = sortedPlayers[0].Name;
         scorePanelWinnerScoreText.text = "Score:" + ((int)sortedPlayers[0].Score).ToString();
         string restText = "";

@@ -1,6 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -9,11 +9,13 @@ public class QuestionManager : MonoBehaviour
     public static bool IsQuizEnded => Instance._isQuizEnded;
 
     //Private variables
-    private List<Question> _questionList = new(); 
+    private List<Question> _questionList = new();
     private int _currentQuestionIndex = -1; //the current question index
-    private Question _currentQuestion { get => _currentQuestionIndex >= 0 && _currentQuestionIndex < _questionList.Count ? _questionList[_currentQuestionIndex] : null; }
+    private Question _currentQuestion =>
+        _currentQuestionIndex >= 0 && _currentQuestionIndex < _questionList.Count
+            ? _questionList[_currentQuestionIndex]
+            : null;
     private bool _isQuizEnded = false;
-
 
     private void Awake()
     {
@@ -29,7 +31,10 @@ public class QuestionManager : MonoBehaviour
 
     public void FetchRandomQuestions(string category = null)
     {
-        _questionList = QuestionParser.GetRandomQuestions(SettingsManager.UserSettings.amountOfQuestions, category);
+        _questionList = QuestionParser.GetRandomQuestions(
+            SettingsManager.UserSettings.amountOfQuestions,
+            category
+        );
     }
 
     public void GoToNextQuestion()
@@ -59,8 +64,7 @@ public class QuestionManager : MonoBehaviour
 
     public List<bool> GetCorrectAnswers()
     {
-        return CurrentQuestion.Answers.
-            Select(answer => answer.IsCorrect).ToList();
+        return CurrentQuestion.Answers.Select(answer => answer.IsCorrect).ToList();
     }
 
     public bool IsAnswerAvailable(int answerId)
@@ -87,8 +91,4 @@ public class QuestionManager : MonoBehaviour
     {
         return _questionList;
     }
-
 }
-
-
-

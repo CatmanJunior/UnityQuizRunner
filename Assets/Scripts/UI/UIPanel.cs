@@ -11,13 +11,13 @@ public class UIPanel : MonoBehaviour
     private bool open;
 
 
-#region Unity Functions
+    #region Unity Functions
     void Start()
     {
         soundManager = SoundManager.Instance;
         open = gameObject.activeSelf;
     }
-#endregion
+    #endregion
 
     private void PlayWindowSound(bool open = true)
     {

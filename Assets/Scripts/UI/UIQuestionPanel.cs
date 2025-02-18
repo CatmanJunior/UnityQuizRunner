@@ -68,7 +68,7 @@ public class UIQuestionPanel : UIPanel
     #region private methods
     private void SetQuestion(Question question)
     {
-        
+
         if (animate)
         {
             StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, SettingsManager.UserSettings.questionTypingSpeed, OnQuestionDoneTyping));

@@ -95,7 +95,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < playerCount; i++)
         {
             GameObject button = Instantiate(voteButton, voteButtonParent.transform);
-            
+
         }
     }
 

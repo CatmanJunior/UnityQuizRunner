@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TextBounce : MonoBehaviour
 {
-// define a tmpro text object
+    // define a tmpro text object
     public TextMeshProUGUI textToBounce;
     public float scaleAmount = 1.5f; // The amount by which the text will scale
     public float duration = 0.5f;    // Duration of the scale animation

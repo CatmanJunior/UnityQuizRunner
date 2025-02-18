@@ -116,5 +116,5 @@ public class UIPlayerPanel : UIPanel
         }
     }
 
-    
+
 }

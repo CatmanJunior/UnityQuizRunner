@@ -5,11 +5,13 @@ using System;
 public class UserSettings
 {
     public static UserSettings Current => SettingsManager.Instance.userSettings;
+
     // Versioning
     public int version = 1;
 
     [Setting("Check-in Button", "Controls")]
     public int checkinButton;
+
     [Setting("Use Light Controller", "Controls")]
     public bool useLightController;
 
@@ -53,29 +55,31 @@ public class UserSettings
     [Setting("Time before question show", "Timing")]
     [Slider(0.0f, 30.0f)]
     public float preQuestionTime;
-    
+
     [Setting("Time Final score be shown", "Timing")]
     [Slider(0.0f, 30.0f)]
     public float finalScoreTime;
-    
+
     [Setting("Time to vote", "Timing")]
     [Slider(0.0f, 30.0f)]
     public float categoryVoteTime;
-    
+
     [Setting("Time to answer", "Timing")]
     [Slider(0.0f, 30.0f)]
     public float questionAnswerTime;
-    
+
     [Setting("Time between score increases", "Timing")]
     [Slider(0.1f, 1.0f)]
     public float scoreIncreaseSpeedInSeconds;
-    
+
     [Setting("Time each letter appear", "Timing")]
     [Slider(0.01f, 0.1f)]
     public float questionTypingSpeed;
+
     [Setting("Time to slide answer", "Timing")]
     [Slider(0.1f, 5.0f)]
     public float answerSlideTime;
+
     [Setting("Time between answer slides", "Timing")]
     [Slider(0.1f, 5.0f)]
     public float answerSlideBetweenTime;
@@ -93,8 +97,6 @@ public class UserSettings
 
     [Setting("Use Animations", "Graphics")]
     public bool useAnimations;
-
-
 
     [Setting("Mute Music", "Audio")]
     public bool muteMusic;

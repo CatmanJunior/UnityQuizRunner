@@ -26,7 +26,7 @@ public abstract class TabletBaseGameState
     {
 
     }
-    
+
     /// <summary>
     /// Initializes the TabletBaseGameState with the specified game state handler.
     /// </summary>
@@ -42,7 +42,7 @@ public abstract class TabletBaseGameState
     {
         categoryVoteHandler = gameStateHandler.GetComponent<CategoryVoteHandler>();
         QuestionManager = gameStateHandler.GetComponent<QuestionManager>();
-        uiManager = gameStateHandler.GetComponent<UIManager>(); 
+        uiManager = gameStateHandler.GetComponent<UIManager>();
         timerManager = gameStateHandler.timerManager;
         playerManager = gameStateHandler.GetComponent<PlayerManager>();
         soundManager = gameStateHandler.GetComponent<SoundManager>();

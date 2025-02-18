@@ -17,7 +17,7 @@ public class UIAnimationData : ScriptableObject
     public TweenFunctionDelegate tweenFunctionDelegate;
     //todo can only cancel one animation at a time
     private int cancelAnimId = 0;
-    public  virtual void Play(GameObject target)
+    public virtual void Play(GameObject target)
     {
         LTDescr anim = tweenFunctionDelegates[tweenFunction](target, endValue, duration)
             .setDelay(delay)

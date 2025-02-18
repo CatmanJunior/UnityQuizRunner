@@ -1,7 +1,7 @@
 // Assets/Scripts/Settings/SettingsManager.cs
-using UnityEngine;
-using System.IO;
 using System;
+using System.IO;
+using UnityEngine;
 
 public class SettingsManager : MonoBehaviour
 {
@@ -9,7 +9,8 @@ public class SettingsManager : MonoBehaviour
     public static UserSettings UserSettings => Instance.userSettings;
 
     [Header("Default Settings")]
-    [SerializeField] private DefaultSettings defaultSettings;
+    [SerializeField]
+    private DefaultSettings defaultSettings;
 
     [Header("Current User Settings")]
     public UserSettings userSettings;
@@ -36,7 +37,6 @@ public class SettingsManager : MonoBehaviour
         LoadSettings();
         ApplySettings();
     }
-
 
     public void LoadSettings()
     {
@@ -108,7 +108,7 @@ public class SettingsManager : MonoBehaviour
             skipVote = defaultSettings.skipVote,
             useAnimations = defaultSettings.useAnimations,
             useLightController = defaultSettings.useLightController,
-            muteMusic = defaultSettings.muteMusic
+            muteMusic = defaultSettings.muteMusic,
         };
     }
 
@@ -117,6 +117,4 @@ public class SettingsManager : MonoBehaviour
         // Implement version-specific migration logic here
         // For example, if new settings were added in a new version
     }
-
-
 }

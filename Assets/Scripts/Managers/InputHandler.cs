@@ -1,26 +1,34 @@
-
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Linq;
 using HidLibrary;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
     [SerializeField]
     private bool useKeyboard = true;
 
-    [SerializeField] char debugButton = '0';
-    [SerializeField] char voteOnButton = '9';
-    [SerializeField] char voteOffButton = '8';
-    [SerializeField] char restartButton = 'r';
-    [SerializeField] char LoadDefaultsButton = 'd';
+    [SerializeField]
+    char debugButton = '0';
+
+    [SerializeField]
+    char voteOnButton = '9';
+
+    [SerializeField]
+    char voteOffButton = '8';
+
+    [SerializeField]
+    char restartButton = 'r';
+
+    [SerializeField]
+    char LoadDefaultsButton = 'd';
     public InputAction buttonPress;
 
     public event System.Action<int, int> OnButton;
 
     List<List<string>> keyboardButtons = new();
-        
+
     #region UnityCallbacks
     void Start()
     {
@@ -59,10 +67,10 @@ public class InputHandler : MonoBehaviour
     {
         List<List<string>> keyboardButtons = new()
         {
-            new List<string> {  "2", "3", "4", "5", "1" },
-            new List<string> {  "w", "e", "r", "t", "q" },
-            new List<string> {  "s", "d", "f", "g","a" },
-            new List<string> {  "x", "c", "v", "b","z" }
+            new List<string> { "2", "3", "4", "5", "1" },
+            new List<string> { "w", "e", "r", "t", "q" },
+            new List<string> { "s", "d", "f", "g", "a" },
+            new List<string> { "x", "c", "v", "b", "z" },
         };
 
         return keyboardButtons;
@@ -83,7 +91,6 @@ public class InputHandler : MonoBehaviour
         }
         if (character == voteOffButton)
         {
-
             SettingsManager.UserSettings.skipVote = true;
             SoundManager.Instance.PlaySoundEffect(SoundManager.SoundEffect.AnswerWrong);
             return;
@@ -127,7 +134,14 @@ public class InputHandler : MonoBehaviour
             int number = int.Parse(buttonName);
             int button = 4 - ((number - 1) % 5);
             int controller = (number - 1) / 5;
-            print("controller: " + controller + " button: " + button + " name: " + context.control.name);
+            print(
+                "controller: "
+                    + controller
+                    + " button: "
+                    + button
+                    + " name: "
+                    + context.control.name
+            );
             OnButton?.Invoke(controller, button);
         }
     }
@@ -141,8 +155,9 @@ public class InputHandler : MonoBehaviour
 
     public void LightUpController(List<int> controllers)
     {
-        if (!SettingsManager.UserSettings.useLightController) return;
-        // Find the HID device 
+        if (!SettingsManager.UserSettings.useLightController)
+            return;
+        // Find the HID device
         var devices = HidDevices.Enumerate(1356, 2);
         var hidDevice = devices.FirstOrDefault();
 
@@ -162,6 +177,4 @@ public class InputHandler : MonoBehaviour
         }
     }
     #endregion
-
-
 }
