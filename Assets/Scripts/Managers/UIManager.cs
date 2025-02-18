@@ -1,3 +1,4 @@
+// UIManager.cs
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,6 +38,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI timerText;
 
+    [SerializeField]
+    private GameObject nextButton;
+
     [Header("UI Panels")]
     [SerializeField]
     private UIVotePanel votePanel;
@@ -62,12 +66,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIEvalPanel evalPanel;
 
-    [SerializeField]
-    private GameObject voteButton;
-
-    [SerializeField]
-    private GameObject voteButtonParent;
-
     //Private variables
     private Dictionary<UIPanelElement, UIPanel> panelDictionary;
 
@@ -92,7 +90,9 @@ public class UIManager : MonoBehaviour
         };
 
         EventManager.OnQuestionStart += OnQuestionStart;
-        EventManager.OnResultStart += OnResultStart;
+        EventManager.OnResultStart += OnResultStart; // new signature: Question, Action
+        EventManager.OnResultEnd += OnResultEnd;
+        EventManager.OnScoreUpdate += OnScoreUpdate; // subscribe to new ScoreUpdate event
     }
 
     #endregion
@@ -175,9 +175,18 @@ public class UIManager : MonoBehaviour
         TogglePanel(UIPanelElement.TimerPanel, false);
     }
 
-    public void OnResultStart(int[] initialScores, int[] updatedScores, Action callback)
+    public void OnResultStart(Question question, Action callback)
     {
-        ShowQuestionResults();
+        ShowQuestionResults(question);
+    }
+
+    public void OnResultEnd(Action callback)
+    {
+        nextButton.SetActive(false);
+    }
+
+    public void OnScoreUpdate(int[] initialScores, int[] updatedScores, Action callback)
+    {
         if (!SettingsManager.UserSettings.tablet)
         {
             StartCoroutine(ShowPlayerScoreUpdates(initialScores, updatedScores, callback));
@@ -311,10 +320,14 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    public void ShowQuestionResults()
+    public void ShowQuestionResults(Question question)
     {
-        questionPanel.ShowQuestionResults(QuestionManager.CurrentQuestion);
+        questionPanel.ShowQuestionResults(question);
         TogglePanel(UIPanelElement.TimerPanel, false);
+        if (SettingsManager.UserSettings.tablet)
+        {
+            nextButton.SetActive(true);
+        }
     }
 
     public void ShowQuestion()

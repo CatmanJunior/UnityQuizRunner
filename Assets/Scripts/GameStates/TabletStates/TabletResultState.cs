@@ -11,13 +11,18 @@ public class TabletResultState : TabletBaseGameState
 
     public override void Enter()
     {
-        EventManager.RaiseResultStart(new int[] { -1, 0, 0, 0 }, new int[] { -1, 0, 0, 0 });
+        if (!QuestionManager.IsQuizEnded)
+        {
+            EventManager.RaiseScoreUpdate(new int[] { -1, 0, 0, 0 }, new int[] { -1, 0, 0, 0 });
+        }
+        EventManager.RaiseResultStart(QuestionManager.CurrentQuestion);
     }
-
 
     public override void Exit()
     {
+
         EventManager.RaiseResultEnd();
+
     }
 
     public override void HandleInput(int controller, int button)
@@ -40,7 +45,17 @@ public class TabletResultState : TabletBaseGameState
 
     public override void ButtonClick(int button)
     {
-        NotifyStateCompletion();
+        if (button == 99)
+        {
+            QuestionManager.GoToNextQuestion();
+
+            if (QuestionManager.AreQuestionsRemaining())
+            {
+
+                QuestionManager.EndQuiz();
+            }
+            NotifyStateCompletion();
+        }
         Debug.Log("Button clicked " + button);
     }
 }

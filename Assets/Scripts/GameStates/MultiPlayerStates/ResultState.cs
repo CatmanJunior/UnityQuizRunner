@@ -4,29 +4,10 @@ public class ResultState : BaseGameState
     public ResultState()
         : base() { }
 
-    private int[] initialScores;
-    private int[] updatedScores;
-
     public override void Enter()
     {
         playerManager.AddEmptyAnswers(QuestionManager.CurrentQuestion);
-        CalulateNewScores();
-    }
-
-    private void CalulateNewScores()
-    {
-        // Get the initial scores before updating
-        initialScores = playerManager.GetPlayerScores();
-        // Determine the fastest player to answer the current question
-        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(
-            QuestionManager.CurrentQuestion
-        );
-
-        // Update the scores based on player answers
-        playerManager.UpdatePlayerScores();
-
-        updatedScores = playerManager.GetPlayerScores();
-        EventManager.RaiseResultStart(initialScores, updatedScores, OnScoreUpdated);
+        ScoreCalculator.ProcessScoreUpdate(QuestionManager.CurrentQuestion, OnScoreUpdated);
     }
 
     private void OnScoreUpdated()
@@ -40,7 +21,6 @@ public class ResultState : BaseGameState
 
     public override void Exit()
     {
-        //todo reset player panels
         uiManager.ResetPlayerPanels();
     }
 

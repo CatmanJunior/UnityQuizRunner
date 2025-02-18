@@ -14,7 +14,7 @@ public class UIVotePanel : UIPanel
     GameObject tabletButtonParent;
     void Awake()
     {
-        buttonLabels = GetComponentsInChildren<TMPro.TextMeshProUGUI>();
+        buttonLabels = tabletButtonParent.GetComponentsInChildren<TMPro.TextMeshProUGUI>();
     }
 
     public void CreateCategoryButtons(string[] categories)

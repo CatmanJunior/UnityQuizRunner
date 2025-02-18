@@ -52,6 +52,20 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentQuestionForReview(int questionIndex)
+    {
+        if (questionIndex >= 0 && questionIndex < _questionList.Count)
+        {
+            _currentQuestionIndex = questionIndex;
+            _isQuizEnded = false;
+            Debug.Log("Reviewing question: " + _currentQuestionIndex);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid question index for review: " + questionIndex);
+        }
+    }
+
     public void EndQuiz()
     {
         Debug.Log("Quiz ended");

@@ -170,7 +170,10 @@ public class TabletGameStateHandler : MonoBehaviour
                     ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case TabletFinalScoreState:
-                ChangeState(mainMenuState, SettingsManager.UserSettings.finalScoreTime);
+                if (!QuestionManager.IsQuizEnded)
+                    ChangeState(mainMenuState, SettingsManager.UserSettings.finalScoreTime);
+                else
+                    ChangeState(questionState);
                 break;
         }
     }

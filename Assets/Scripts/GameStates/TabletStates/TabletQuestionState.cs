@@ -25,7 +25,7 @@ public class TabletQuestionState : TabletBaseGameState
         }
         else
         {
-            QuestionManager.EndQuiz();
+
             NotifyStateCompletion();
         }
     }
@@ -56,7 +56,6 @@ public class TabletQuestionState : TabletBaseGameState
 
     private void HandleNextQuestion()
     {
-        QuestionManager.GoToNextQuestion();
         if (QuestionManager.IsQuizEnded)
         {
             NotifyStateCompletion();

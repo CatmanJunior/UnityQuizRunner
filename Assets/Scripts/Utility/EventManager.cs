@@ -12,14 +12,14 @@ public static class EventManager
     public static event Action<Action> OnGameEnd;
     public static event Action<Question, Action> OnQuestionStart;
     public static event Action<Action> OnQuestionEnd;
-    public static event Action<int, Action> OnScoreUpdate;
+    public static event Action<int[], int[], Action> OnScoreUpdate;
     public static event Action<string, Action> OnCategorySelected;
     public static event Action<int, Action> OnTimerUpdate;
     public static event Action<Action> OnCategoryVoteStart;
     public static event Action<Action> OnCategoryVoteEnd;
     public static event Action<Action> OnFinalScoreStart;
     public static event Action<Action> OnFinalScoreEnd;
-    public static event Action<int[], int[], Action> OnResultStart;
+    public static event Action<Question, Action> OnResultStart;
     public static event Action<Action> OnResultEnd;
 
     // Methods to raise events with callbacks
@@ -43,8 +43,8 @@ public static class EventManager
 
     public static void RaiseQuestionEnd(Action callback = null) => OnQuestionEnd?.Invoke(callback);
 
-    public static void RaiseScoreUpdate(int playerId, Action callback = null) =>
-        OnScoreUpdate?.Invoke(playerId, callback);
+    public static void RaiseScoreUpdate(int[] oldScores, int[] newScores, Action callback = null) =>
+        OnScoreUpdate?.Invoke(oldScores, newScores, callback);
 
     public static void RaiseCategorySelected(string category, Action callback = null) =>
         OnCategorySelected?.Invoke(category, callback);
@@ -64,11 +64,8 @@ public static class EventManager
     public static void RaiseFinalScoreEnd(Action callback = null) =>
         OnFinalScoreEnd?.Invoke(callback);
 
-    public static void RaiseResultStart(
-        int[] initialScores,
-        int[] newScores,
-        Action callback = null
-    ) => OnResultStart?.Invoke(initialScores, newScores, callback);
+    public static void RaiseResultStart(Question question, Action callback = null) =>
+        OnResultStart?.Invoke(question, callback);
 
     public static void RaiseResultEnd(Action callback = null) => OnResultEnd?.Invoke(callback);
 }

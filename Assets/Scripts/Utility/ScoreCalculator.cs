@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -44,5 +45,26 @@ public class ScoreCalculator : MonoBehaviour
     public static void AddPoint(Player player, int pointsToAdd = 1)
     {
         player.BonusScore += pointsToAdd;
+    }
+
+    public static void ProcessScoreUpdate(Question question, Action callback = null)
+    {
+        // Get initial scores
+        int[] initialScores = PlayerManager.Instance.GetPlayerScores();
+
+        // Determine fastest answer bonus
+        Player fastestPlayer = GiveFastestAnswerPoint(question);
+
+        // Update scores based on player answers and bonus
+        CalculateScores();
+
+        // Get updated scores
+        int[] updatedScores = PlayerManager.Instance.GetPlayerScores();
+
+        // Raise the result start event with the current question
+        EventManager.RaiseResultStart(question);
+
+        // Raise the score update event with old and new scores, then invoke the callback
+        EventManager.RaiseScoreUpdate(initialScores, updatedScores, callback);
     }
 }

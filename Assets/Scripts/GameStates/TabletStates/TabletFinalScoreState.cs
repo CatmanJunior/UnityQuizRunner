@@ -52,6 +52,15 @@ public class TabletFinalScoreState : TabletBaseGameState
 
     public override void ButtonClick(int button)
     {
-        Debug.Log("Button clicked " + button);
+        // If button corresponds to a question index, review that question.
+        if (button >= 0 && button < QuestionManager.TotalQuestionsAmount)
+        {
+            QuestionManager.Instance.SetCurrentQuestionForReview(button);
+            Debug.Log("Reviewing question " + button);
+        }
+        else if (button == 99)
+        {
+            NotifyStateCompletion();
+        }
     }
 }
