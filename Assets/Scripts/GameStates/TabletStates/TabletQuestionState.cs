@@ -71,6 +71,7 @@ public class TabletQuestionState : TabletBaseGameState
 
     private void ProcessPlayerAnswer(int controller, int button)
     {
+        Debug.Log("Processing player answer");
         float timeTaken = timerManager.GetSecondsSinceStart("QuestionTimer");
         if (playerManager.AddAnswer(controller, QuestionManager.CurrentQuestion, button, timeTaken))
         {
@@ -89,9 +90,6 @@ public class TabletQuestionState : TabletBaseGameState
 
     private bool CanProcessInput(int button)
     {
-        if (!timerManager.IsTimerActive("QuestionTimer"))
-            return false;
-
         if (_isStateComplete)
             return false;
 
@@ -120,10 +118,13 @@ public class TabletQuestionState : TabletBaseGameState
     public override void ButtonClick(int button)
     {
         if (!CanProcessInput(button))
+        {
+            Debug.Log("Cannot process input");
             return;
+        }
         ProcessPlayerAnswer(0, button);
         QuestionManager.CurrentQuestion.IsAnswered = true;
-        
+
         HandleAllPlayersAnswered();
     }
 }

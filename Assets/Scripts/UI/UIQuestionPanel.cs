@@ -39,7 +39,8 @@ public class UIQuestionPanel : UIPanel
     /// </summary>
     public void ShowQuestion(Question question, Action callback)
     {
-        animate = SettingsManager.UserSettings.useAnimations || QuestionManager.CurrentQuestion.IsAnswered == false;
+        // animate = SettingsManager.UserSettings.useAnimations || QuestionManager.CurrentQuestion.IsAnswered == false;
+        animate = true;
         currentQuestion = question;
         if (question == null)
         {

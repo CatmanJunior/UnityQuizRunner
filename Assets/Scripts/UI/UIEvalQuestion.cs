@@ -2,23 +2,27 @@ using UnityEngine;
 
 public class UIEvalQuestion : MonoBehaviour
 {
-    [SerializeField] private TMPro.TextMeshProUGUI[] answertexts;
+    [SerializeField] private TMPro.TextMeshProUGUI answertexts;
     
     [SerializeField] private TMPro.TextMeshProUGUI questiontext;
 
-    public void SetTexts(Question question)
+    public void SetTexts(Question question, int index)
     {
         questiontext.text = question.QuestionText;
-        for (int i = 0; i < question.Answers.Count; i++)
-        {
-            answertexts[i].text = question.Answers[i].AnswerText;
-            answertexts[i].color = question.Answers[i].IsCorrect ? Color.green : Color.red;
-        }
+        PlayerAnswer playerAnswer = PlayerManager.Instance.GetPlayer(0).GetPlayerAnswer(question);
+        string playerAnswerText = playerAnswer != null ? question.Answers[playerAnswer.AnswerId].AnswerText : "No answer";
 
-        //leave the first enabled for the amount of answers in question, disable the rest of the answer texts
-        for (int i = question.Answers.Count; i < answertexts.Length; i++)
+        answertexts.text = $"{playerAnswerText}";
+        if (playerAnswer != null)
         {
-            answertexts[i].gameObject.SetActive(false);
+            if (playerAnswer.IsCorrect)
+            {
+                answertexts.color = Color.green;
+            }
+            else
+            {
+                answertexts.color = Color.red;
+            }
         }
 
     }
@@ -26,11 +30,7 @@ public class UIEvalQuestion : MonoBehaviour
     public void Reset()
     {
         questiontext.text = "";
-        foreach (var text in answertexts)
-        {
-            text.text = "";
-            text.gameObject.SetActive(true);
-            text.color = Color.white;
-        }
+        answertexts.text = "";
+        answertexts.color = Color.white;
     }
 }

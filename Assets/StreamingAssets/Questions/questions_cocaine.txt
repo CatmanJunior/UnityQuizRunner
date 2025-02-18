@@ -13,7 +13,7 @@ T: Cocaïne
 Q: Wat is een lange termijn risico van cocaïnegebruik? (meerdere antwoorden mogelijk)
 A: Syndroom van Korsakov
 B: Hart- en vaatproblemen +
-C: Opwindingsdelier
+C: Opwindingsdelier 
 D: Verandering van persoonlijkheid +
 W: Cocaïne kan leiden tot hart- en vaatproblemen zoals hartritmestoornissen, hartinfarct en hersenbloedingen. Langdurig gebruik kan ook permanente persoonlijkheidsveranderingen veroorzaken zoals achterdochtigheid, agressie en angst.
 END

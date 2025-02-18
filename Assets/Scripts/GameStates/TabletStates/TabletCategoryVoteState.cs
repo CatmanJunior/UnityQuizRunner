@@ -9,6 +9,7 @@ public class TabletCategoryVoteState : TabletBaseGameState
     public override void Enter()
     {
         categoryVoteHandler.InitCategories(QuestionParser.GetCategories(4));
+        // uiManager.CreateVoteButtons(CategoryVoteHandler.Categories);
         uiManager.UpdateCategoryText(CategoryVoteHandler.Categories);
         uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, true);
         timerManager.CreateTimer("voteTimer", SettingsManager.UserSettings.categoryVoteTime, DoneVoting);

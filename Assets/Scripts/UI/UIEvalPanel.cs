@@ -9,7 +9,7 @@ public class UIEvalPanel : UIPanel
     {
         for (int i = 0; i < questions.Length; i++)
         {
-            uiEvalQuestions[i].SetTexts(questions[i]);
+            uiEvalQuestions[i].SetTexts(questions[i], i);
         }
         //disable the rest of the question texts
         for (int i = questions.Length; i < uiEvalQuestions.Length; i++)

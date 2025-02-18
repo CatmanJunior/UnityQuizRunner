@@ -96,6 +96,7 @@ public class InputHandler : MonoBehaviour
         if (character == LoadDefaultsButton)
         {
             SettingsManager.Instance.LoadDefaults();
+            SettingsManager.Instance.SaveSettings();
             return;
         }
         foreach (List<string> controller in keyboardButtons)

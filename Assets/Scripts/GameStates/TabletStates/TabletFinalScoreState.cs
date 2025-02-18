@@ -13,11 +13,7 @@ public class TabletFinalScoreState : TabletBaseGameState
     public override void Enter()
     {
         Debug.Log("Entering final score state");
-        ScoreCalculator.CalculateScores();
-        uiManager.UpdateFinalScorePanel(playerManager.GetSortedPlayers());
-        uiManager.TogglePanel(UIManager.UIPanelElement.FinalScorePanel, true);
-        // timerManager.CreateTimer("FinalScoreTimer", 5, ShowEvalPanel);
-        timerManager.CreateTimer("FinalScoreTimer", SettingsManager.UserSettings.finalScoreTime, NotifyStateCompletion);
+        ShowEvalPanel();
     }
 
     public void ShowEvalPanel()

@@ -57,6 +57,10 @@ public class UIManager : MonoBehaviour
     private UIPanel settingsPanel;
     [SerializeField]
     private UIEvalPanel evalPanel;
+    [SerializeField]
+    private GameObject voteButton;
+    [SerializeField]
+    private GameObject voteButtonParent;
 
     //Private variables
     private Dictionary<UIPanelElement, UIPanel> panelDictionary;
@@ -85,6 +89,15 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
+
+    public void CreateVoteButtons(int playerCount)
+    {
+        for (int i = 0; i < playerCount; i++)
+        {
+            GameObject button = Instantiate(voteButton, voteButtonParent.transform);
+            
+        }
+    }
 
     public void TogglePanel(UIPanelElement panelElement, bool show)
     {

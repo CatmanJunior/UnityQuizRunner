@@ -158,6 +158,7 @@ public class TabletGameStateHandler : MonoBehaviour
 
     public void OnButtonClick(int button)
     {
+        Debug.Log("Button clicked " + button);
         currentState?.ButtonClick(button);
     }
 
