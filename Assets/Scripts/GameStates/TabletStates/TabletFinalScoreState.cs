@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+
 [System.Serializable]
 public class TabletFinalScoreState : TabletBaseGameState
 {
     public TabletFinalScoreState()
-        : base()
-    {
-    }
+        : base() { }
 
     List<int> controllersPressed = new();
 
@@ -31,7 +30,6 @@ public class TabletFinalScoreState : TabletBaseGameState
 
     public override void HandleInput(int controller, int button)
     {
-
         //check if the controller has already been pressed
         // if (controllersPressed.Contains(controller))
         // {
@@ -56,5 +54,4 @@ public class TabletFinalScoreState : TabletBaseGameState
     {
         Debug.Log("Button clicked " + button);
     }
-
 }
