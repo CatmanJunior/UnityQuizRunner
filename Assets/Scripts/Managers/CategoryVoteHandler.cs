@@ -36,16 +36,15 @@ public class CategoryVoteHandler : MonoBehaviour
 
     public bool HandleCategoryVote(int player, int button)
     {
-        if (button >= _categories.Length - 1)
+        if (button < 0 || button >= _categories.Length)
         {
             Logger.Log("Button " + button + " is not a valid category");
             return false;
         }
-        //Checks if the player has already voted, else it adds the vote to the dictionary
+        // Checks if the player has already voted, else it adds the vote to the dictionary
         if (!_categoryVotes.ContainsKey(player))
         {
             CastVote(player, button);
-
             return true;
         }
         else

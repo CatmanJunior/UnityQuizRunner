@@ -14,17 +14,7 @@ public class UIVotePanel : UIPanel
     GameObject tabletButtonParent;
     void Awake()
     {
-        //TODO this is for debugging
         buttonLabels = GetComponentsInChildren<TMPro.TextMeshProUGUI>();
-        return;
-        if (SettingsManager.UserSettings.tablet)
-        {
-            foreach (var button in buttonLabels)
-            {
-                //TODO this is a hack to remove the button from the tablet UI
-                Destroy(button.transform.gameObject);
-            }
-        }
     }
 
     public void CreateCategoryButtons(string[] categories)

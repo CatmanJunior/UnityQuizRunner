@@ -1,10 +1,9 @@
-
 public class PlayerAnswer
 {
-    public Question Question;
-    public int AnswerId { get; set; }
-    public bool IsCorrect { get; set; }
-    public float TimeTaken { get; set; }
+    public Question Question { get; }
+    public int AnswerId { get; }
+    public bool IsCorrect { get; }
+    public float TimeTaken { get; }
 
     public PlayerAnswer(Question question, int answerId, bool isCorrect, float timeTaken)
     {

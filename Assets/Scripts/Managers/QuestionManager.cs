@@ -6,6 +6,8 @@ public class QuestionManager : MonoBehaviour
 {
     public static QuestionManager Instance { get; private set; }
     public static Question CurrentQuestion => Instance._currentQuestion;
+    public static int TotalQuestionsAmount => Instance._questionList.Count;
+    public static int CurrentQuestionIndex => Instance._currentQuestionIndex;
     public static bool IsQuizEnded => Instance._isQuizEnded;
 
     //Private variables

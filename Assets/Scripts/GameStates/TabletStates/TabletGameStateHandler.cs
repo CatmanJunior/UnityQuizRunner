@@ -70,7 +70,14 @@ public class TabletGameStateHandler : MonoBehaviour
 
     private async void InitializeAsync()
     {
-        await QuestionParser.LoadQuestionsFromTxt();
+        try
+        {
+            await QuestionParser.LoadQuestionsFromTxt();
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Failed to load questions: " + ex.Message);
+        }
 
         categoryVoteState.Initialize(this);
         questionState.Initialize(this);

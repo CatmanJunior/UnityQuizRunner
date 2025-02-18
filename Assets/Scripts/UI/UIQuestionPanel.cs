@@ -8,12 +8,17 @@ public class UIQuestionPanel : UIPanel
     [Header("UI Elements")]
     [SerializeField]
     private TextMeshProUGUI questionText;
+    [SerializeField]
+    private TextMeshProUGUI explanationText;
 
     [SerializeField]
     private TextMeshProUGUI categoryText;
 
     [SerializeField]
     private List<UIAnswerPanel> answerPanels;
+
+    [SerializeField]
+    UIQuestionNumberText questionNumberText;
 
     [Header("Answer Style Settings")]
     [SerializeField]
@@ -44,6 +49,10 @@ public class UIQuestionPanel : UIPanel
     /// </summary>
     public void ShowQuestion(Question question, Action callback)
     {
+        questionNumberText.SetQuestionNumber(
+            QuestionManager.CurrentQuestionIndex + 1,
+            QuestionManager.TotalQuestionsAmount
+        );
         // animate = SettingsManager.UserSettings.useAnimations || QuestionManager.CurrentQuestion.IsAnswered == false;
         animate = true;
         currentQuestion = question;
@@ -54,6 +63,7 @@ public class UIQuestionPanel : UIPanel
         }
         SetAnswersText(question);
         Open();
+        explanationText.transform.parent.gameObject.SetActive(false);
         SetQuestion(question);
         SetCategoryText(question);
         ResetAnswerStyles();
@@ -65,6 +75,8 @@ public class UIQuestionPanel : UIPanel
     public void ShowQuestionResults(Question question)
     {
         SetAnswerStylesCorrect(question);
+        explanationText.transform.parent.gameObject.SetActive(true);
+
         SetExplanationText(question);
         Open();
     }
@@ -175,7 +187,7 @@ public class UIQuestionPanel : UIPanel
 
     private void SetExplanationText(Question question)
     {
-        questionText.text = question.Explanation;
+        explanationText.text = question.Explanation;
     }
 
     #region answer styles

@@ -2,29 +2,30 @@ using UnityEngine;
 
 public class UIEvalPanel : UIPanel
 {
-    //Serialzed fiels UIEvalQuestion
-    [SerializeField] private UIEvalQuestion[] uiEvalQuestions;
+    [SerializeField]
+    private UIReviewPanel prefabUIEvalPanel;
+
+    [SerializeField]
+    private Transform panelParent;
 
     public void SetTexts(Question[] questions)
     {
+        // Clear any existing child panels
+        foreach (Transform child in panelParent)
+        {
+            if (child != panelParent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
         for (int i = 0; i < questions.Length; i++)
         {
-            uiEvalQuestions[i].SetTexts(questions[i], i);
-        }
-        //disable the rest of the question texts
-        for (int i = questions.Length; i < uiEvalQuestions.Length; i++)
-        {
-            uiEvalQuestions[i].gameObject.SetActive(false);
-        }
-    }
-
-    public void Reset()
-    {
-        //enable all the question texts
-        foreach (var question in uiEvalQuestions)
-        {
-            question.gameObject.SetActive(true);
-            question.Reset();
+            PlayerAnswer playerAnswer = PlayerManager
+                .Instance.GetPlayer(0)
+                .GetPlayerAnswer(questions[i]);
+            var o = Instantiate(prefabUIEvalPanel, panelParent);
+            o.Setup(playerAnswer);
         }
     }
 }
