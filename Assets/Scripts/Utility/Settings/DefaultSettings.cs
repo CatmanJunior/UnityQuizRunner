@@ -5,6 +5,7 @@ public class DefaultSettings : ScriptableObject
 {
     // Versioning
     public int version = 1;
+    public bool tablet = true;
     // Buttons
     [Header("Buttons")]
     public int checkinButton = 4;

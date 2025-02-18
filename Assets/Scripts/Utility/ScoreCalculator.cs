@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
 {
-
     public static float CalculateScore(Player player)
     {
         float Score = player.BonusScore;
@@ -12,9 +11,7 @@ public class ScoreCalculator : MonoBehaviour
         {
             if (answer.IsCorrect)
             {
-
                 Score += SettingsManager.UserSettings.pointsForRightAnswer;
-
             }
         }
         return Score;
@@ -32,9 +29,14 @@ public class ScoreCalculator : MonoBehaviour
     {
         List<Player> players = PlayerManager.Instance.GetPlayers();
 
-        Player[] correctPlayers = players.Where(player => player.HasAnsweredCorrectly(question)).ToArray();
-        if (correctPlayers.Length == 0) return null;
-        Player fastestPlayer = correctPlayers.OrderBy(player => player.GetPlayerAnswer(question).TimeTaken).ToArray()[0];
+        Player[] correctPlayers = players
+            .Where(player => player.HasAnsweredCorrectly(question))
+            .ToArray();
+        if (correctPlayers.Length == 0)
+            return null;
+        Player fastestPlayer = correctPlayers
+            .OrderBy(player => player.GetPlayerAnswer(question).TimeTaken)
+            .ToArray()[0];
         AddPoint(fastestPlayer, SettingsManager.UserSettings.pointsForFastestAnswer);
         return fastestPlayer;
     }

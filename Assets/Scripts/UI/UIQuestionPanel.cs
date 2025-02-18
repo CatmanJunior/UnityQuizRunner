@@ -1,36 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using System;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 
 public class UIQuestionPanel : UIPanel
 {
     [Header("UI Elements")]
     [SerializeField]
     private TextMeshProUGUI questionText;
+
     [SerializeField]
     private TextMeshProUGUI categoryText;
+
     [SerializeField]
     private List<UIAnswerPanel> answerPanels;
 
     [Header("Answer Style Settings")]
     [SerializeField]
     private Color answerCorrectColor; //the default color of the answer text
+
     [SerializeField]
     private Color answerIncorrectColor; //the default color of the answer text
+
     [SerializeField]
     private Color defaultAnswerColor; //the default color of the answer text
+
     [SerializeField]
     private FontStyles defaultAnswerStyle; //the default style of the answer text
 
     private Question currentQuestion;
     private bool animate = true;
+
     public enum AnswerStyle
     {
         Default,
         Correct,
-        Incorrect
+        Incorrect,
     }
 
     #region public methods
@@ -68,10 +73,16 @@ public class UIQuestionPanel : UIPanel
     #region private methods
     private void SetQuestion(Question question)
     {
-
         if (animate)
         {
-            StartCoroutine(TextTypedAnimation.TypeText(question.QuestionText, questionText, SettingsManager.UserSettings.questionTypingSpeed, OnQuestionDoneTyping));
+            StartCoroutine(
+                TextTypedAnimation.TypeText(
+                    question.QuestionText,
+                    questionText,
+                    SettingsManager.UserSettings.questionTypingSpeed,
+                    OnQuestionDoneTyping
+                )
+            );
         }
         else
         {
@@ -88,9 +99,10 @@ public class UIQuestionPanel : UIPanel
     private void StartQuestionTimer()
     {
         //TODO: Add a message that if players answer before timers start, it will not be registered
+        if (SettingsManager.UserSettings.tablet)
+            return;
         TimerManager.Instance.StartTimer("QuestionTimer");
     }
-
 
     private void StartAnswerSlideIn()
     {
@@ -107,17 +119,21 @@ public class UIQuestionPanel : UIPanel
                 answerPanels[i].SlideIn(delay, slideAnimationDuration);
             }
 
-            float totalSlideInDuration = ((answerAmount - 1) * delayBetweenAnswerSlides) + slideAnimationDuration;
+            float totalSlideInDuration =
+                ((answerAmount - 1) * delayBetweenAnswerSlides) + slideAnimationDuration;
 
             // Start the question timer after the animations
-            TimerManager.Instance.CreateTimer("SliderTimer", totalSlideInDuration, StartQuestionTimer);
+            TimerManager.Instance.CreateTimer(
+                "SliderTimer",
+                totalSlideInDuration,
+                StartQuestionTimer
+            );
         }
         else
         {
             StartQuestionTimer();
         }
     }
-
 
     private void SetAnswersText(Question question)
     {
@@ -144,7 +160,6 @@ public class UIQuestionPanel : UIPanel
         }
     }
 
-
     public void MoveAllOffScreen()
     {
         foreach (var panel in answerPanels)
@@ -163,7 +178,7 @@ public class UIQuestionPanel : UIPanel
         questionText.text = question.Explanation;
     }
 
-    #region answer styles 
+    #region answer styles
     private void SetAnswerStylesCorrect(Question question)
     {
         List<bool> isCorrect = question.GetCorrectAnswers();
@@ -181,7 +196,6 @@ public class UIQuestionPanel : UIPanel
             panel.SetStyle(defaultAnswerColor, defaultAnswerStyle);
         }
     }
-
 
     private void SetAnswerStyle(int answerId, AnswerStyle style)
     {

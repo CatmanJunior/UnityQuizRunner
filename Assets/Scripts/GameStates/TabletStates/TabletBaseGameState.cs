@@ -1,12 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine;
-using static SoundManager;
-using static SoundManager.SoundEffect;
 using System;
-
 
 [Serializable]
 public abstract class TabletBaseGameState
@@ -22,10 +14,7 @@ public abstract class TabletBaseGameState
     public delegate void StateCompletionHandler();
     public event StateCompletionHandler OnStateCompleted;
 
-    public TabletBaseGameState()
-    {
-
-    }
+    public TabletBaseGameState() { }
 
     /// <summary>
     /// Initializes the TabletBaseGameState with the specified game state handler.
@@ -34,7 +23,8 @@ public abstract class TabletBaseGameState
     /// <exception cref="System.ArgumentNullException">Thrown when the provided game state handler is null.</exception>
     public void Initialize(TabletGameStateHandler _gameStateHandler)
     {
-        gameStateHandler = _gameStateHandler ?? throw new System.ArgumentNullException(nameof(_gameStateHandler));
+        gameStateHandler =
+            _gameStateHandler ?? throw new System.ArgumentNullException(nameof(_gameStateHandler));
         InitializeComponents();
     }
 

@@ -1,4 +1,3 @@
-using UnityEngine;
 #if UNITY_STANDALONE
 using System.Diagnostics;
 #endif

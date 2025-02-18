@@ -1,19 +1,17 @@
 using System;
 using UnityEngine;
+
 [Serializable]
 public class TabletQuestionState : TabletBaseGameState
 {
     public TabletQuestionState()
-        : base()
-    {
-    }
+        : base() { }
 
     private bool _isStateComplete = false;
 
     public override void Enter()
     {
         _isStateComplete = false;
-
 
         if (!QuestionManager.HasQuizStarted())
         {
@@ -72,18 +70,21 @@ public class TabletQuestionState : TabletBaseGameState
     private void ProcessPlayerAnswer(int controller, int button)
     {
         Debug.Log("Processing player answer");
-        float timeTaken = timerManager.GetSecondsSinceStart("QuestionTimer");
-        if (playerManager.AddAnswer(controller, QuestionManager.CurrentQuestion, button, timeTaken))
+
+        if (playerManager.AddAnswer(controller, QuestionManager.CurrentQuestion, button, 0))
         {
-            Debug.Log("Player " + controller + " answered " + QuestionManager.CurrentQuestion.Answers[button].AnswerText);
+            Debug.Log(
+                "Player "
+                    + controller
+                    + " answered "
+                    + QuestionManager.CurrentQuestion.Answers[button].AnswerText
+            );
             uiManager.SetPlayerPanelState(controller, PlayerPanelState.Answered);
         }
     }
 
     private void HandleAllPlayersAnswered()
     {
-        timerManager.StopTimer("QuestionTimer");
-        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
         _isStateComplete = true;
         NotifyStateCompletion();
     }
@@ -106,13 +107,6 @@ public class TabletQuestionState : TabletBaseGameState
         }
 
         return true;
-    }
-
-    private void InitializeQuestionTimer()
-    {
-        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
-        timerManager.CreateTimer("QuestionTimer", SettingsManager.UserSettings.questionAnswerTime, NotifyStateCompletion, false);
-        timerManager.SelectTimerForUI("QuestionTimer");
     }
 
     public override void ButtonClick(int button)

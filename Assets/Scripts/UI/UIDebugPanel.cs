@@ -1,16 +1,22 @@
 using System;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Reflection;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
+using UnityEngine;
 
 public class UIDebugPanel : UIPanel
 {
-    [SerializeField] UISettingCategoryContainer categoryPrefab;
-    [SerializeField] private UIToggleSetting togglePrefab;
-    [SerializeField] private UISliderSetting sliderPrefab;
-    [SerializeField] private UIInputFieldSetting inputFieldPrefab;
+    [SerializeField]
+    UISettingCategoryContainer categoryPrefab;
+
+    [SerializeField]
+    private UIToggleSetting togglePrefab;
+
+    [SerializeField]
+    private UISliderSetting sliderPrefab;
+
+    [SerializeField]
+    private UIInputFieldSetting inputFieldPrefab;
 
     private Dictionary<string, Transform> categoryContainers = new Dictionary<string, Transform>();
 
@@ -88,12 +94,13 @@ public class UIDebugPanel : UIPanel
         sliderSettingUI.Initialize(field, SettingsManager.Instance.userSettings);
     }
 
-    private void CreateInputField(FieldInfo field, Transform parent, TMP_InputField.ContentType contentType)
+    private void CreateInputField(
+        FieldInfo field,
+        Transform parent,
+        TMP_InputField.ContentType contentType
+    )
     {
         UIInputFieldSetting inputFieldSettingUI = Instantiate(inputFieldPrefab, parent);
         inputFieldSettingUI.Initialize(field, SettingsManager.Instance.userSettings, contentType);
     }
-
 }
-
-

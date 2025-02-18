@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class DebugToggle : MonoBehaviour
 {
-    [SerializeField] TMPro.TextMeshProUGUI label;
-    [SerializeField] UnityEngine.UI.Toggle toggle;
+    [SerializeField]
+    TMPro.TextMeshProUGUI label;
+
+    [SerializeField]
+    UnityEngine.UI.Toggle toggle;
 
     public delegate void ToggleChanged(bool value);
     public event ToggleChanged OnToggle;
@@ -22,6 +25,7 @@ public class DebugToggle : MonoBehaviour
     {
         label.text = text;
     }
+
     public void SetToggle(bool value)
     {
         if (toggle != null)

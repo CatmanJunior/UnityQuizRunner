@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Reflection;
-using System;
 using TMPro;
 
 [RequireComponent(typeof(Slider))]

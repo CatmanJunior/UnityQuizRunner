@@ -1,14 +1,12 @@
-using System.Collections;
-using UnityEngine;
-
 [System.Serializable]
 public class ResultState : BaseGameState
 {
-    public ResultState() : base()
-    { }
+    public ResultState()
+        : base() { }
 
     private int[] initialScores;
     private int[] updatedScores;
+
     public override void Enter()
     {
         playerManager.AddEmptyAnswers(QuestionManager.CurrentQuestion);
@@ -20,7 +18,9 @@ public class ResultState : BaseGameState
         // Get the initial scores before updating
         initialScores = playerManager.GetPlayerScores();
         // Determine the fastest player to answer the current question
-        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(QuestionManager.CurrentQuestion);
+        Player fastestPlayer = ScoreCalculator.GiveFastestAnswerPoint(
+            QuestionManager.CurrentQuestion
+        );
 
         // Update the scores based on player answers
         playerManager.UpdatePlayerScores();
@@ -31,7 +31,11 @@ public class ResultState : BaseGameState
 
     private void OnScoreUpdated()
     {
-        timerManager.CreateTimer("postQuestion", SettingsManager.UserSettings.postQuestionTime, NotifyStateCompletion);
+        timerManager.CreateTimer(
+            "postQuestion",
+            SettingsManager.UserSettings.postQuestionTime,
+            NotifyStateCompletion
+        );
     }
 
     public override void Exit()

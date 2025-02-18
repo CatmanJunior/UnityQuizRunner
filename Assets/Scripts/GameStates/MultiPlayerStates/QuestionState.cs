@@ -82,7 +82,7 @@ public class QuestionState : BaseGameState
 
     private void HandleAllPlayersAnswered()
     {
-        timerManager.StopTimer("QuestionTimer");
+        // timerManager.StopTimer("QuestionTimer");
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, false);
         _isStateComplete = true;
         NotifyStateCompletion();

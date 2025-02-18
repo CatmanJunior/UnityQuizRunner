@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 [Serializable]
 public class Question
@@ -13,7 +12,13 @@ public class Question
     public List<Answer> Answers;
     public string Explanation;
     public bool IsAnswered = false;
-    public Question(string questionText, List<Answer> answers, string category, string explanation = "")
+
+    public Question(
+        string questionText,
+        List<Answer> answers,
+        string category,
+        string explanation = ""
+    )
     {
         QuestionText = questionText;
         Answers = answers;
@@ -25,7 +30,6 @@ public class Question
     {
         return Answers.Count;
     }
-
 
     /// <summary>
     /// Checks if the provided answer ID is correct.
@@ -48,10 +52,4 @@ public class Question
     {
         return Answers.ConvertAll(answer => answer.IsCorrect);
     }
-
 }
-
-
-
-
-

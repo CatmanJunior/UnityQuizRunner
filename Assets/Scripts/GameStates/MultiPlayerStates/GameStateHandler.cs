@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static SoundManager;
-
 
 public class GameStateHandler : MonoBehaviour
 {
@@ -10,17 +8,21 @@ public class GameStateHandler : MonoBehaviour
     [Header("Game States")]
     [SerializeField]
     MainMenuState mainMenuState;
+
     [SerializeField]
     QuestionState questionState;
+
     [SerializeField]
     CategoryVoteState categoryVoteState;
+
     [SerializeField]
     FinalScoreState finalScoreState;
+
     [SerializeField]
     ResultState resultState;
 
-
     public static string GetCategory() => Instance.currentCategory;
+
     [HideInInspector]
     private string currentCategory = null;
 
@@ -29,19 +31,25 @@ public class GameStateHandler : MonoBehaviour
     [Header("References")]
     [SerializeField]
     private UIManager uiManager;
+
     [SerializeField]
     private SettingsManager settingsManager;
 
     [SerializeField]
     public TimerManager timerManager;
+
     [SerializeField]
     private InputHandler inputHandler;
+
     [SerializeField]
     QuestionManager questionManager;
+
     [SerializeField]
     private PlayerManager playerManager;
+
     [SerializeField]
     private SoundManager soundManager;
+
     [SerializeField]
     private CategoryVoteHandler categoryVoteHandler;
 
@@ -152,13 +160,4 @@ public class GameStateHandler : MonoBehaviour
                 break;
         }
     }
-
-
-
-
-
-
-
-
 }
-

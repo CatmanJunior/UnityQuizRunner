@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,7 +5,10 @@ using UnityEngine;
 public class CategoryVoteHandler : MonoBehaviour
 {
     public static CategoryVoteHandler Instance;
-    public static string[] Categories { get => Instance._categories; }
+    public static string[] Categories
+    {
+        get => Instance._categories;
+    }
 
     private string[] _categories;
     private Dictionary<int, int> _categoryVotes = new();
@@ -24,7 +26,6 @@ public class CategoryVoteHandler : MonoBehaviour
         _categories = categories;
         Debug.Log("Categories: " + string.Join(", ", _categories));
     }
-
 
     public int GetIndex(string category)
     {
@@ -50,7 +51,6 @@ public class CategoryVoteHandler : MonoBehaviour
             Logger.Log("Player already voted");
             return false;
         }
-
     }
 
     public string GetTopCategory()
@@ -58,7 +58,13 @@ public class CategoryVoteHandler : MonoBehaviour
         if (_categoryVotes.Count == 0)
             return _categories[Random.Range(0, _categories.Length)];
 
-        var _votedCategory = _categories[_categoryVotes.Values.GroupBy(i => i).OrderByDescending(grp => grp.Count()).Select(grp => grp.Key).First()];
+        var _votedCategory = _categories[
+            _categoryVotes
+                .Values.GroupBy(i => i)
+                .OrderByDescending(grp => grp.Count())
+                .Select(grp => grp.Key)
+                .First()
+        ];
         Logger.Log("Top category is " + _votedCategory);
         return _votedCategory;
     }
@@ -68,5 +74,4 @@ public class CategoryVoteHandler : MonoBehaviour
         _categoryVotes[player] = button;
         Logger.Log("Player " + player + " voted for " + _categories[button]);
     }
-
 }

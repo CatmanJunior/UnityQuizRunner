@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 public class Player
@@ -32,7 +31,8 @@ public class Player
     public bool HasAnsweredCorrectly(Question question)
     {
         PlayerAnswer answer = GetPlayerAnswer(question);
-        if (answer != null) return answer.IsCorrect;
+        if (answer != null)
+            return answer.IsCorrect;
         Logger.Log("Player has not answered this question");
         return false;
     }
@@ -42,9 +42,6 @@ public class Player
         PlayerAnswer answer = new PlayerAnswer(question, answerId, isCorrect, timeTaken);
         Answers.Add(answer);
     }
-
-
-
 
     //a function that returns a bool if the player has answered a question
     public bool HasAnswered(Question question)

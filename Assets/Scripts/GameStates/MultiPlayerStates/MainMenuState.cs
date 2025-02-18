@@ -5,12 +5,14 @@ using UnityEngine;
 public class MainMenuState : BaseGameState
 {
     private List<int> checkedInControllers = new List<int>();
-    public MainMenuState() : base() { }
+
+    public MainMenuState()
+        : base() { }
+
     private int maxControllers = 4;
 
     private bool settingsMenuOpen = false;
     private int player1pressedRedButton = 0;
-
 
     public override void Enter()
     {
@@ -28,9 +30,14 @@ public class MainMenuState : BaseGameState
     {
         Logger.Log($"HandleInput in MainMenu: Controller: {controller} Button: {button}");
         CheckSettingsButton(controller, button);
-        if (settingsMenuOpen) return;
+        if (settingsMenuOpen)
+            return;
         //if the button is not the check in button or the controller is already checked in
-        if (button != SettingsManager.Instance.userSettings.checkinButton || checkedInControllers.Contains(controller)) return;
+        if (
+            button != SettingsManager.Instance.userSettings.checkinButton
+            || checkedInControllers.Contains(controller)
+        )
+            return;
 
         HandlePlayerCheckIn(controller);
     }
@@ -55,7 +62,6 @@ public class MainMenuState : BaseGameState
     {
         Logger.Log("HandlePlayerCheckIn: Controller: " + controller);
         CheckInPlayer(controller);
-
     }
 
     private void CheckInPlayer(int controller)
@@ -71,7 +77,11 @@ public class MainMenuState : BaseGameState
         }
         else
         {
-            timerManager.CreateTimer("CheckInTimer", SettingsManager.Instance.userSettings.timeCheckInPeriod, CheckInTimerDone);
+            timerManager.CreateTimer(
+                "CheckInTimer",
+                SettingsManager.Instance.userSettings.timeCheckInPeriod,
+                CheckInTimerDone
+            );
         }
 
         if (checkedInControllers.Count >= maxControllers) //if the required amount of controllers are checked in
@@ -101,7 +111,11 @@ public class MainMenuState : BaseGameState
         uiManager.SetInstructionText(SettingsManager.UserSettings.mainMenuEndText);
         playerManager.CreateNewPlayers(checkedInControllers.Count);
         timerManager.StopTimer("CheckInTimer");
-        timerManager.CreateTimer("MainMenuEnd", SettingsManager.UserSettings.timeBeforeMainMenuEnd, NotifyStateCompletion);
+        timerManager.CreateTimer(
+            "MainMenuEnd",
+            SettingsManager.UserSettings.timeBeforeMainMenuEnd,
+            NotifyStateCompletion
+        );
     }
 
     private void ClearCheckedInControllers()
@@ -116,7 +130,10 @@ public class MainMenuState : BaseGameState
 
     public override void Update()
     {
-        if (checkedInControllers.Count >= SettingsManager.UserSettings.requiredPlayers && timerManager.IsTimerRunning("CheckInTimer"))
+        if (
+            checkedInControllers.Count >= SettingsManager.UserSettings.requiredPlayers
+            && timerManager.IsTimerRunning("CheckInTimer")
+        )
         {
             uiManager.UpdateMainMenuTimer(timerManager.GetSecondsRemaining("CheckInTimer"));
         }

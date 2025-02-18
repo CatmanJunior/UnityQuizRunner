@@ -1,10 +1,10 @@
-using System.Collections;
-using UnityEngine;
 using static SoundManager;
+
 [System.Serializable]
 public class TabletCategoryVoteState : TabletBaseGameState
 {
-    public TabletCategoryVoteState() : base() { }
+    public TabletCategoryVoteState()
+        : base() { }
 
     public override void Enter()
     {
@@ -12,7 +12,11 @@ public class TabletCategoryVoteState : TabletBaseGameState
         // uiManager.CreateVoteButtons(CategoryVoteHandler.Categories);
         uiManager.UpdateCategoryText(CategoryVoteHandler.Categories);
         uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, true);
-        timerManager.CreateTimer("voteTimer", SettingsManager.UserSettings.categoryVoteTime, DoneVoting);
+        timerManager.CreateTimer(
+            "voteTimer",
+            SettingsManager.UserSettings.categoryVoteTime,
+            DoneVoting
+        );
     }
 
     public override void Exit()

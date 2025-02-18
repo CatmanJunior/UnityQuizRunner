@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using static SoundManager.SoundEffect;
 
 public enum PlayerPanelState
@@ -15,13 +14,13 @@ public enum PlayerPanelState
     CheckedIn,
     Fastest,
     AddingScore,
-    Voted
+    Voted,
 }
 
 public class UIManager : MonoBehaviour
 {
-
     public static UIManager Instance;
+
     public enum UIPanelElement
     {
         MainMenuPanel,
@@ -31,34 +30,41 @@ public class UIManager : MonoBehaviour
         QuestionPanel,
         TimerPanel,
         SettingsPanel,
-        EvalPanel
+        EvalPanel,
     }
 
     [Header("UI Elements")]
-
     [SerializeField]
     private TextMeshProUGUI timerText;
-
 
     [Header("UI Panels")]
     [SerializeField]
     private UIVotePanel votePanel;
+
     [SerializeField]
     private UIFinalScorePanel scorePanel;
+
     [SerializeField]
     private UIMainMenuPanel mainMenuPanel;
+
     [SerializeField]
     private UIQuestionPanel questionPanel;
+
     [SerializeField]
     private UIPanel timerPanel;
+
     [SerializeField]
     private UIPlayerPanel playerPanel;
+
     [SerializeField]
     private UIPanel settingsPanel;
+
     [SerializeField]
     private UIEvalPanel evalPanel;
+
     [SerializeField]
     private GameObject voteButton;
+
     [SerializeField]
     private GameObject voteButtonParent;
 
@@ -80,12 +86,13 @@ public class UIManager : MonoBehaviour
             { UIPanelElement.FinalScorePanel, scorePanel },
             { UIPanelElement.VotePanel, votePanel },
             { UIPanelElement.QuestionPanel, questionPanel },
-            { UIPanelElement.TimerPanel, timerPanel},
-            { UIPanelElement.SettingsPanel, settingsPanel},
-            { UIPanelElement.EvalPanel, evalPanel}
+            { UIPanelElement.TimerPanel, timerPanel },
+            { UIPanelElement.SettingsPanel, settingsPanel },
+            { UIPanelElement.EvalPanel, evalPanel },
         };
 
         EventManager.OnQuestionStart += OnQuestionStart;
+        EventManager.OnResultStart += OnResultStart;
     }
 
     #endregion
@@ -95,7 +102,6 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < playerCount; i++)
         {
             GameObject button = Instantiate(voteButton, voteButtonParent.transform);
-
         }
     }
 
@@ -175,10 +181,13 @@ public class UIManager : MonoBehaviour
     public void OnResultStart(int[] initialScores, int[] updatedScores, Action callback)
     {
         ShowQuestionResults();
-        StartCoroutine(ShowResult(initialScores, updatedScores, callback));
+        if (!SettingsManager.UserSettings.tablet)
+        {
+            StartCoroutine(ShowPlayerScoreUpdates(initialScores, updatedScores, callback));
+        }
     }
 
-    IEnumerator ShowResult(int[] initialScores, int[] updatedScores, Action callback)
+    IEnumerator ShowPlayerScoreUpdates(int[] initialScores, int[] updatedScores, Action callback)
     {
         // Iterate through all players to update their panels
         foreach (Player player in PlayerManager.Instance.GetPlayers())
@@ -187,7 +196,10 @@ public class UIManager : MonoBehaviour
             bool isCorrect = player.HasAnsweredCorrectly(QuestionManager.CurrentQuestion);
 
             // Update the player's panel state based on whether they answered correctly
-            SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
+            SetPlayerPanelState(
+                player.ControllerId,
+                isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect
+            );
 
             // Indicate that the player's score is being added
             SetPlayerPanelState(player.ControllerId, PlayerPanelState.AddingScore);
@@ -199,7 +211,9 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
             // Increment the player's score with animation until it matches the updated score
-            yield return StartCoroutine(IncrementPlayerScoreOverTime(player, initialScores, updatedScores));
+            yield return StartCoroutine(
+                IncrementPlayerScoreOverTime(player, initialScores, updatedScores)
+            );
 
             // Set the player's panel to the final correct/incorrect state
             SetFinalPlayerPanelState(player);
@@ -216,20 +230,36 @@ public class UIManager : MonoBehaviour
     {
         // Set the final correct/incorrect state after the score animation is complete
         bool isCorrect = player.HasAnsweredCorrectly(QuestionManager.CurrentQuestion);
-        SetPlayerPanelState(player.ControllerId, isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect);
+        SetPlayerPanelState(
+            player.ControllerId,
+            isCorrect ? PlayerPanelState.Correct : PlayerPanelState.Incorrect
+        );
     }
 
-    private IEnumerator IncrementPlayerScoreOverTime(Player player, int[] initialScores, int[] updatedScores)
+    private IEnumerator IncrementPlayerScoreOverTime(
+        Player player,
+        int[] initialScores,
+        int[] updatedScores
+    )
     {
         // Continuously increment the score display until it matches the updated score
         while (initialScores[player.ControllerId] < updatedScores[player.ControllerId])
         {
-            Debug.Log("Incrementing score for player " + player.ControllerId + "from " + initialScores[player.ControllerId] + " to " + updatedScores[player.ControllerId]);
+            Debug.Log(
+                "Incrementing score for player "
+                    + player.ControllerId
+                    + "from "
+                    + initialScores[player.ControllerId]
+                    + " to "
+                    + updatedScores[player.ControllerId]
+            );
             initialScores[player.ControllerId]++;
             UpdatePlayerScoreDisplay(player.ControllerId, initialScores[player.ControllerId]);
 
             // Pause briefly between score increments to create a smooth animation
-            yield return new WaitForSeconds(SettingsManager.UserSettings.scoreIncreaseSpeedInSeconds);
+            yield return new WaitForSeconds(
+                SettingsManager.UserSettings.scoreIncreaseSpeedInSeconds
+            );
         }
     }
 
@@ -321,6 +351,4 @@ public class UIManager : MonoBehaviour
         TogglePanel(UIPanelElement.MainMenuPanel, true);
         SetInstructionText(SettingsManager.UserSettings.mainMenuStartText);
     }
-
-
 }

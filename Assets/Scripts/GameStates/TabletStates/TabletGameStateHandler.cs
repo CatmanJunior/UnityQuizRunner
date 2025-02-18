@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static SoundManager;
-
 
 public class TabletGameStateHandler : MonoBehaviour
 {
@@ -10,17 +8,21 @@ public class TabletGameStateHandler : MonoBehaviour
     [Header("Game States")]
     [SerializeField]
     TabletMainMenuState mainMenuState;
+
     [SerializeField]
     TabletQuestionState questionState;
+
     [SerializeField]
     TabletCategoryVoteState categoryVoteState;
+
     [SerializeField]
     TabletFinalScoreState finalScoreState;
+
     [SerializeField]
     TabletResultState resultState;
 
-
     public static string GetCategory() => Instance.currentCategory;
+
     [HideInInspector]
     private string currentCategory = null;
 
@@ -29,19 +31,25 @@ public class TabletGameStateHandler : MonoBehaviour
     [Header("References")]
     [SerializeField]
     private UIManager uiManager;
+
     [SerializeField]
     private SettingsManager settingsManager;
 
     [SerializeField]
     public TimerManager timerManager;
+
     [SerializeField]
     private InputHandler inputHandler;
+
     [SerializeField]
     QuestionManager questionManager;
+
     [SerializeField]
     private PlayerManager playerManager;
+
     [SerializeField]
     private SoundManager soundManager;
+
     [SerializeField]
     private CategoryVoteHandler categoryVoteHandler;
 
@@ -59,6 +67,7 @@ public class TabletGameStateHandler : MonoBehaviour
     {
         ChangeState(mainMenuState);
     }
+
     private async void InitializeAsync()
     {
         await QuestionParser.LoadQuestionsFromTxt();
@@ -68,8 +77,6 @@ public class TabletGameStateHandler : MonoBehaviour
         finalScoreState.Initialize(this);
         resultState.Initialize(this);
         mainMenuState.Initialize(this);
-
-
     }
 
     private void OnEnable()
@@ -144,11 +151,15 @@ public class TabletGameStateHandler : MonoBehaviour
                 break;
             case TabletQuestionState:
                 if (!QuestionManager.IsQuizEnded)
-                    ChangeState(questionState);
+                    ChangeState(resultState, SettingsManager.UserSettings.postQuestionTime);
                 else
                     ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case TabletResultState:
+                if (!QuestionManager.IsQuizEnded)
+                    ChangeState(questionState);
+                else
+                    ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case TabletFinalScoreState:
                 ChangeState(mainMenuState, SettingsManager.UserSettings.finalScoreTime);
@@ -161,11 +172,4 @@ public class TabletGameStateHandler : MonoBehaviour
         Debug.Log("Button clicked " + button);
         currentState?.ButtonClick(button);
     }
-
-
-
-
-
-
 }
-

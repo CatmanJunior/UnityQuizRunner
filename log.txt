@@ -3088,3 +3088,208 @@
 2/17/2025 2:03:22 AM: State completed: TabletQuestionState
 2/17/2025 2:03:22 AM: State completed
 2/17/2025 2:03:22 AM: State completed: TabletQuestionState
+2/18/2025 2:26:38 AM: Starting quiz
+2/18/2025 2:26:38 AM: Starting quiz
+2/18/2025 2:26:39 AM: State completed
+2/18/2025 2:26:39 AM: State completed: TabletMainMenuState
+2/18/2025 2:26:41 AM: Player 0 voted for GHB
+2/18/2025 2:26:41 AM: Top category is GHB
+2/18/2025 2:26:41 AM: State completed
+2/18/2025 2:26:41 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:26:42 AM: Getting random questions
+2/18/2025 2:26:45 AM: State completed
+2/18/2025 2:26:45 AM: State completed: TabletQuestionState
+2/18/2025 2:26:47 AM: Top category is GHB
+2/18/2025 2:26:47 AM: State completed
+2/18/2025 2:35:35 AM: Starting quiz
+2/18/2025 2:35:35 AM: Starting quiz
+2/18/2025 2:35:36 AM: State completed
+2/18/2025 2:35:36 AM: State completed: TabletMainMenuState
+2/18/2025 2:35:37 AM: Player 0 voted for GHB
+2/18/2025 2:35:37 AM: Top category is GHB
+2/18/2025 2:35:37 AM: State completed
+2/18/2025 2:35:37 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:35:38 AM: Getting random questions
+2/18/2025 2:35:43 AM: State completed
+2/18/2025 2:35:43 AM: State completed: TabletQuestionState
+2/18/2025 2:35:44 AM: Top category is GHB
+2/18/2025 2:35:44 AM: State completed
+2/18/2025 2:35:48 AM: State completed
+2/18/2025 2:35:48 AM: State completed: TabletResultState
+2/18/2025 2:35:52 AM: State completed
+2/18/2025 2:35:52 AM: State completed: TabletQuestionState
+2/18/2025 2:36:07 AM: State completed
+2/18/2025 2:36:07 AM: State completed: TabletResultState
+2/18/2025 2:36:16 AM: State completed
+2/18/2025 2:36:16 AM: State completed: TabletQuestionState
+2/18/2025 2:36:38 AM: State completed
+2/18/2025 2:36:38 AM: State completed: TabletResultState
+2/18/2025 2:36:42 AM: State completed
+2/18/2025 2:36:42 AM: State completed: TabletQuestionState
+2/18/2025 2:36:54 AM: State completed
+2/18/2025 2:36:54 AM: State completed: TabletResultState
+2/18/2025 2:36:59 AM: State completed
+2/18/2025 2:36:59 AM: State completed: TabletQuestionState
+2/18/2025 2:37:14 AM: State completed
+2/18/2025 2:37:14 AM: State completed: TabletResultState
+2/18/2025 2:37:14 AM: State completed
+2/18/2025 2:37:14 AM: State completed: TabletQuestionState
+2/18/2025 2:39:39 AM: Starting quiz
+2/18/2025 2:39:39 AM: Starting quiz
+2/18/2025 2:39:40 AM: State completed
+2/18/2025 2:39:40 AM: State completed: TabletMainMenuState
+2/18/2025 2:39:42 AM: Player 0 voted for Random
+2/18/2025 2:39:42 AM: Top category is Random
+2/18/2025 2:39:42 AM: State completed
+2/18/2025 2:39:42 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:39:43 AM: Getting random questions
+2/18/2025 2:39:48 AM: Top category is Random
+2/18/2025 2:39:48 AM: State completed
+2/18/2025 2:39:48 AM: State completed
+2/18/2025 2:39:48 AM: State completed: TabletQuestionState
+2/18/2025 2:40:21 AM: Starting quiz
+2/18/2025 2:40:21 AM: Starting quiz
+2/18/2025 2:40:22 AM: State completed
+2/18/2025 2:40:22 AM: State completed: TabletMainMenuState
+2/18/2025 2:40:24 AM: Player 0 voted for 3-MMC  
+2/18/2025 2:40:24 AM: Top category is 3-MMC  
+2/18/2025 2:40:24 AM: State completed
+2/18/2025 2:40:24 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:40:25 AM: Getting random questions
+2/18/2025 2:40:29 AM: State completed
+2/18/2025 2:40:29 AM: State completed: TabletQuestionState
+2/18/2025 2:40:30 AM: Top category is 3-MMC  
+2/18/2025 2:40:30 AM: State completed
+2/18/2025 2:40:33 AM: State completed
+2/18/2025 2:40:33 AM: State completed: TabletResultState
+2/18/2025 2:40:36 AM: State completed
+2/18/2025 2:40:36 AM: State completed: TabletQuestionState
+2/18/2025 2:42:15 AM: Starting quiz
+2/18/2025 2:42:15 AM: Starting quiz
+2/18/2025 2:42:16 AM: State completed
+2/18/2025 2:42:16 AM: State completed: TabletMainMenuState
+2/18/2025 2:42:17 AM: Player 0 voted for Psychedelica
+2/18/2025 2:42:17 AM: Top category is Psychedelica
+2/18/2025 2:42:17 AM: State completed
+2/18/2025 2:42:17 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:42:18 AM: Getting random questions
+2/18/2025 2:42:19 AM: State completed
+2/18/2025 2:42:19 AM: State completed: TabletQuestionState
+2/18/2025 2:42:23 AM: State completed
+2/18/2025 2:42:23 AM: State completed: TabletResultState
+2/18/2025 2:42:24 AM: Top category is Psychedelica
+2/18/2025 2:42:24 AM: State completed
+2/18/2025 2:42:27 AM: State completed
+2/18/2025 2:42:27 AM: State completed: TabletQuestionState
+2/18/2025 2:42:32 AM: State completed
+2/18/2025 2:42:32 AM: State completed: TabletResultState
+2/18/2025 2:42:37 AM: State completed
+2/18/2025 2:42:37 AM: State completed: TabletQuestionState
+2/18/2025 2:42:43 AM: State completed
+2/18/2025 2:42:43 AM: State completed: TabletResultState
+2/18/2025 2:42:47 AM: State completed
+2/18/2025 2:42:47 AM: State completed: TabletQuestionState
+2/18/2025 2:42:51 AM: State completed
+2/18/2025 2:42:51 AM: State completed: TabletResultState
+2/18/2025 2:42:55 AM: State completed
+2/18/2025 2:42:55 AM: State completed: TabletQuestionState
+2/18/2025 2:43:00 AM: State completed
+2/18/2025 2:43:00 AM: State completed: TabletResultState
+2/18/2025 2:43:00 AM: State completed
+2/18/2025 2:43:00 AM: State completed: TabletQuestionState
+2/18/2025 2:47:45 AM: Starting quiz
+2/18/2025 2:47:45 AM: Starting quiz
+2/18/2025 2:47:46 AM: State completed
+2/18/2025 2:47:46 AM: State completed: TabletMainMenuState
+2/18/2025 2:47:47 AM: Player 0 voted for Alcohol
+2/18/2025 2:47:47 AM: Top category is Alcohol
+2/18/2025 2:47:47 AM: State completed
+2/18/2025 2:47:47 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:47:48 AM: Getting random questions
+2/18/2025 2:47:54 AM: Top category is Alcohol
+2/18/2025 2:47:54 AM: State completed
+2/18/2025 2:47:54 AM: State completed
+2/18/2025 2:47:54 AM: State completed: TabletQuestionState
+2/18/2025 2:49:36 AM: Starting quiz
+2/18/2025 2:49:36 AM: Starting quiz
+2/18/2025 2:49:37 AM: State completed
+2/18/2025 2:49:37 AM: State completed: TabletMainMenuState
+2/18/2025 2:49:41 AM: Player 0 voted for GHB
+2/18/2025 2:49:41 AM: Top category is GHB
+2/18/2025 2:49:41 AM: State completed
+2/18/2025 2:49:41 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:49:42 AM: Getting random questions
+2/18/2025 2:49:46 AM: Top category is GHB
+2/18/2025 2:49:46 AM: State completed
+2/18/2025 2:49:52 AM: State completed
+2/18/2025 2:49:52 AM: State completed: TabletQuestionState
+2/18/2025 2:50:18 AM: Starting quiz
+2/18/2025 2:50:18 AM: Starting quiz
+2/18/2025 2:50:19 AM: State completed
+2/18/2025 2:50:19 AM: State completed: TabletMainMenuState
+2/18/2025 2:50:21 AM: Player 0 voted for GHB
+2/18/2025 2:50:21 AM: Top category is GHB
+2/18/2025 2:50:21 AM: State completed
+2/18/2025 2:50:21 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:50:22 AM: Getting random questions
+2/18/2025 2:50:23 AM: State completed
+2/18/2025 2:50:23 AM: State completed: TabletQuestionState
+2/18/2025 2:52:16 AM: Starting quiz
+2/18/2025 2:52:16 AM: Starting quiz
+2/18/2025 2:52:17 AM: State completed
+2/18/2025 2:52:17 AM: State completed: TabletMainMenuState
+2/18/2025 2:52:18 AM: Player 0 voted for Random
+2/18/2025 2:52:18 AM: Top category is Random
+2/18/2025 2:52:18 AM: State completed
+2/18/2025 2:52:18 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:52:19 AM: Getting random questions
+2/18/2025 2:52:23 AM: State completed
+2/18/2025 2:52:23 AM: State completed: TabletQuestionState
+2/18/2025 2:52:25 AM: Top category is Random
+2/18/2025 2:52:25 AM: State completed
+2/18/2025 2:53:59 AM: Starting quiz
+2/18/2025 2:53:59 AM: Starting quiz
+2/18/2025 2:54:00 AM: State completed
+2/18/2025 2:54:00 AM: State completed: TabletMainMenuState
+2/18/2025 2:54:02 AM: Player 0 voted for Cocaïne
+2/18/2025 2:54:02 AM: Top category is Cocaïne
+2/18/2025 2:54:02 AM: State completed
+2/18/2025 2:54:02 AM: State completed: TabletCategoryVoteState
+2/18/2025 2:54:03 AM: Getting random questions
+2/18/2025 2:54:05 AM: State completed
+2/18/2025 2:54:05 AM: State completed: TabletQuestionState
+2/18/2025 2:54:08 AM: Top category is Cocaïne
+2/18/2025 2:54:08 AM: State completed
+2/18/2025 3:01:11 AM: Starting quiz
+2/18/2025 3:01:11 AM: Starting quiz
+2/18/2025 3:01:12 AM: State completed
+2/18/2025 3:01:12 AM: State completed: TabletMainMenuState
+2/18/2025 3:01:13 AM: Player 0 voted for Psychedelica
+2/18/2025 3:01:13 AM: Top category is Psychedelica
+2/18/2025 3:01:13 AM: State completed
+2/18/2025 3:01:13 AM: State completed: TabletCategoryVoteState
+2/18/2025 3:01:14 AM: Getting random questions
+2/18/2025 3:01:19 AM: State completed
+2/18/2025 3:01:19 AM: State completed: TabletQuestionState
+2/18/2025 3:01:20 AM: Top category is Psychedelica
+2/18/2025 3:01:20 AM: State completed
+2/18/2025 3:01:24 AM: State completed
+2/18/2025 3:01:24 AM: State completed: TabletResultState
+2/18/2025 3:01:29 AM: State completed
+2/18/2025 3:01:29 AM: State completed: TabletQuestionState
+2/18/2025 3:01:35 AM: State completed
+2/18/2025 3:01:35 AM: State completed: TabletResultState
+2/18/2025 3:01:40 AM: State completed
+2/18/2025 3:01:40 AM: State completed: TabletQuestionState
+2/18/2025 3:01:43 AM: State completed
+2/18/2025 3:01:43 AM: State completed: TabletResultState
+2/18/2025 3:01:47 AM: State completed
+2/18/2025 3:01:47 AM: State completed: TabletQuestionState
+2/18/2025 3:01:51 AM: State completed
+2/18/2025 3:01:51 AM: State completed: TabletResultState
+2/18/2025 3:01:55 AM: State completed
+2/18/2025 3:01:55 AM: State completed: TabletQuestionState
+2/18/2025 3:01:57 AM: State completed
+2/18/2025 3:01:57 AM: State completed: TabletResultState
+2/18/2025 3:01:57 AM: State completed
+2/18/2025 3:01:57 AM: State completed: TabletQuestionState

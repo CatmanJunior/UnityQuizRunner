@@ -8,7 +8,8 @@ public class UserSettings
 
     // Versioning
     public int version = 1;
-
+    public bool tablet = true;
+    
     [Setting("Check-in Button", "Controls")]
     public int checkinButton;
 

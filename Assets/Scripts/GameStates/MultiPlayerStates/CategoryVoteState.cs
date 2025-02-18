@@ -1,17 +1,21 @@
-using System.Collections;
-using UnityEngine;
 using static SoundManager;
+
 [System.Serializable]
 public class CategoryVoteState : BaseGameState
 {
-    public CategoryVoteState() : base() { }
+    public CategoryVoteState()
+        : base() { }
 
     public override void Enter()
     {
         categoryVoteHandler.InitCategories(QuestionParser.GetCategories(4));
         uiManager.UpdateCategoryText(CategoryVoteHandler.Categories);
         uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, true);
-        timerManager.CreateTimer("voteTimer", SettingsManager.UserSettings.categoryVoteTime, DoneVoting);
+        timerManager.CreateTimer(
+            "voteTimer",
+            SettingsManager.UserSettings.categoryVoteTime,
+            DoneVoting
+        );
     }
 
     public override void Exit()

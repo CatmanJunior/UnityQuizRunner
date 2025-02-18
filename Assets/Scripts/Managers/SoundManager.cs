@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -24,15 +22,26 @@ public class SoundManager : MonoBehaviour
         CategoryChosen,
         PlayerCheckedIn,
         PlayersCheckedOut,
-        InputError
-
+        InputError,
     }
-
 
     //all sound effects in the game
     [SerializeField]
-    private AudioClip backgroundMusic, answerGivenSound, answerCorrectSound, answerWrongSound, timeEndSound, gameWinnerSound,
-     menuAppearSound, menuDisappearSound, newQuestionSound, timerTickSound, timerAlmostEndSound, categoryChosenSound, playerCheckedInSound, playersCheckedOutSound, inputErrorSound;
+    private AudioClip backgroundMusic,
+        answerGivenSound,
+        answerCorrectSound,
+        answerWrongSound,
+        timeEndSound,
+        gameWinnerSound,
+        menuAppearSound,
+        menuDisappearSound,
+        newQuestionSound,
+        timerTickSound,
+        timerAlmostEndSound,
+        categoryChosenSound,
+        playerCheckedInSound,
+        playersCheckedOutSound,
+        inputErrorSound;
 
     //reference to the audio source which will play our music
     [SerializeField]
@@ -51,11 +60,8 @@ public class SoundManager : MonoBehaviour
             Instance = this;
         }
 
-
-
         //set sound manager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene
         DontDestroyOnLoad(gameObject);
-
     }
 
     private AudioClip GetAudioClip(SoundEffect soundEffect)
