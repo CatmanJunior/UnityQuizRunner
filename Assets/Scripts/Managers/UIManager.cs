@@ -97,12 +97,9 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    public void CreateVoteButtons(int playerCount)
+    public void CreateCategoryButtons(string[] categories)
     {
-        for (int i = 0; i < playerCount; i++)
-        {
-            GameObject button = Instantiate(voteButton, voteButtonParent.transform);
-        }
+        votePanel.CreateCategoryButtons(categories);
     }
 
     public void TogglePanel(UIPanelElement panelElement, bool show)

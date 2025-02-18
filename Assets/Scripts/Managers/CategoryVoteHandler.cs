@@ -13,6 +13,8 @@ public class CategoryVoteHandler : MonoBehaviour
     private string[] _categories;
     private Dictionary<int, int> _categoryVotes = new();
 
+    public string topCategory;
+
     private void Awake()
     {
         if (Instance == null)
@@ -55,6 +57,11 @@ public class CategoryVoteHandler : MonoBehaviour
 
     public string GetTopCategory()
     {
+        if (SettingsManager.UserSettings.tablet)
+        {
+            return topCategory;
+        }
+
         if (_categoryVotes.Count == 0)
             return _categories[Random.Range(0, _categories.Length)];
 

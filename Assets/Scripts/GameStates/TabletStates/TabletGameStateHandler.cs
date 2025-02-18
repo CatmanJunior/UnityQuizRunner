@@ -147,6 +147,7 @@ public class TabletGameStateHandler : MonoBehaviour
                     ChangeState(categoryVoteState);
                 break;
             case TabletCategoryVoteState:
+                currentCategory = categoryVoteHandler.GetTopCategory();
                 ChangeState(questionState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case TabletQuestionState:

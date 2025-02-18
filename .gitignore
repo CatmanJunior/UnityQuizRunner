@@ -85,3 +85,5 @@ crashlytics-build.properties
 /Assets/External/*
 
 
+.plastic/plastic.wktree
+log.txt

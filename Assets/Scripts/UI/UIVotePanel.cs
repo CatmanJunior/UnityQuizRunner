@@ -1,42 +1,72 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIVotePanel : UIPanel
 {
-    [SerializeField] TMPro.TextMeshProUGUI[] categoryTexts;
+    TMPro.TextMeshProUGUI[] buttonLabels;
 
-    public void SetCategoryButtons(Button[] categoryButtons)
+    [SerializeField]
+    GameObject tabletButtonPrefab;
+
+    [SerializeField]
+    GameObject tabletButtonParent;
+    void Awake()
     {
-        for (int i = 0; i < categoryButtons.Length; i++)
+        //TODO this is for debugging
+        buttonLabels = GetComponentsInChildren<TMPro.TextMeshProUGUI>();
+        return;
+        if (SettingsManager.UserSettings.tablet)
         {
-            categoryButtons[i].onClick.AddListener(() => OnCategoryButtonClicked(i));
+            foreach (var button in buttonLabels)
+            {
+                //TODO this is a hack to remove the button from the tablet UI
+                Destroy(button.transform.gameObject);
+            }
         }
-
     }
 
-    private void OnCategoryButtonClicked(int categoryIndex)
+    public void CreateCategoryButtons(string[] categories)
     {
-        Debug.Log("Category button clicked: " + categoryIndex);
-        categoryTexts[categoryIndex].color = Color.green;
+        //If on tablet, create new buttons, add text and add listeners
+        if (SettingsManager.UserSettings.tablet)
+        {
+            List<TMPro.TextMeshProUGUI> labels = new List<TMPro.TextMeshProUGUI>();
+            for (int i = 0; i < categories.Length; i++)
+            {
+                GameObject button = Instantiate(tabletButtonPrefab, tabletButtonParent.transform);
+                button.name = categories[i] + "Button";
+                var label = button.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                labels.Add(label);
+                button.GetComponent<CategoryVoteButton>().categoryIndex = i;
+            }
+            buttonLabels = labels.ToArray();
+        }
+
+        for (int i = 0; i < categories.Length; i++)
+        {
+            buttonLabels[i].text = categories[i];
+        }
     }
 
     public void SetCategoryTexts(string[] categoryTexts)
     {
-        for (int i = 0; i < this.categoryTexts.Length; i++)
+        for (int i = 0; i < this.buttonLabels.Length; i++)
         {
-            this.categoryTexts[i].text = categoryTexts[i];
+            buttonLabels[i].text = categoryTexts[i];
         }
     }
 
     public void ShowWinningCategory(int categoryIndex)
     {
         Debug.Log("Winning category index: " + categoryIndex);
-        categoryTexts[categoryIndex].color = Color.green;
+        buttonLabels[categoryIndex].color = Color.green;
     }
 
     public void ResetCategoryColors()
     {
-        foreach (var categoryText in categoryTexts)
+        foreach (var categoryText in buttonLabels)
         {
             categoryText.color = Color.white;
         }
