@@ -12,6 +12,7 @@ public class TabletCategoryVoteState : TabletBaseGameState
         {
             string currentCategory = SettingsManager.UserSettings.generalCategory;
             categoryVoteHandler.topCategory = currentCategory;
+            EventManager.RaiseCategorySelected(currentCategory, 0);
             NotifyStateCompletion();
             return;
         }
@@ -34,7 +35,7 @@ public class TabletCategoryVoteState : TabletBaseGameState
     public override void ButtonClick(int button)
     {
         categoryVoteHandler.topCategory = CategoryVoteHandler.Categories[button];
-        uiManager.ShowWinningCategory(button);
+        EventManager.RaiseCategorySelected(categoryVoteHandler.topCategory, button);
         NotifyStateCompletion();
     }
 

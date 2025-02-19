@@ -93,6 +93,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnResultStart += OnResultStart; // new signature: Question, Action
         EventManager.OnResultEnd += OnResultEnd;
         EventManager.OnScoreUpdate += OnScoreUpdate; // subscribe to new ScoreUpdate event
+        EventManager.OnCategorySelected += OnCategorySelected;
         EventManager.OnCategoryVoteStart += OnVoteStart;
         EventManager.OnCategoryVoteEnd += OnCategoryVoteEnd;
     }
@@ -161,6 +162,11 @@ public class UIManager : MonoBehaviour
             default:
                 throw new System.NotImplementedException();
         }
+    }
+
+    public void OnCategorySelected(string category, int index, Action callback)
+    {
+        ShowWinningCategory(index);
     }
 
     public void OnCategoryVoteEnd(Action callback)

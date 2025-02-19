@@ -18,12 +18,18 @@ public class UIReviewPanel : MonoBehaviour
     [SerializeField]
     Sprite incorrectSprite;
 
-    public void Setup(PlayerAnswer answer)
+    int _index;
+
+    public void Setup(PlayerAnswer answer, int index)
     {
         transform.gameObject.SetActive(true);
         _questionText.text = answer.Question.QuestionText;
 
         _answerText.text = answer.Question.Answers[answer.AnswerId].AnswerText;
         correctImage.sprite = answer.IsCorrect ? correctSprite : incorrectSprite;
+    }
+
+    public void ButtonPress(){
+        EventManager.RaiseEvalPanelButtonPress(_index);
     }
 }

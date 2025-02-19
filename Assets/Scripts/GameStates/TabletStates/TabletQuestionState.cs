@@ -7,12 +7,28 @@ public class TabletQuestionState : TabletBaseGameState
     public TabletQuestionState()
         : base() { }
 
-    private bool _handleInput = false;
+    private bool _canHandleInput = false;
+
+    public bool CanHandleInput
+    {
+        get => _canHandleInput;
+        set
+        {
+            Debug.Log("Setting can handle input to " + value);
+            _canHandleInput = value;
+        }
+    }
 
     public override void Enter()
     {
+        EventManager.OnQuestionStart += HandleQuestionStart;
         QuestionManager.GoToNextQuestion();
-        _handleInput = true;
+    }
+
+    public void HandleQuestionStart(Question question, Action callback)
+    {
+        CanHandleInput = true;
+        Debug.Log("Question started: " + question.QuestionText);
     }
 
     public override void Exit()
@@ -23,7 +39,10 @@ public class TabletQuestionState : TabletBaseGameState
     public override void HandleInput(int controller, int button)
     {
         if (!CanProcessInput(button))
+        {
+            Debug.Log("Cannot process input");
             return;
+        }
 
         ProcessPlayerAnswer(controller, button);
 
@@ -55,15 +74,17 @@ public class TabletQuestionState : TabletBaseGameState
 
     private void HandleAllPlayersAnswered()
     {
-        _handleInput = false;
+        CanHandleInput = false;
         NotifyStateCompletion();
     }
 
     private bool CanProcessInput(int button)
     {
-        if (_handleInput)
+        if (!CanHandleInput)
+        {
+            Debug.Log("Cannot process input: handle input is false");
             return false;
-
+        }
         if (!QuestionManager.IsQuestionAvailable())
         {
             Debug.Log("No question available");

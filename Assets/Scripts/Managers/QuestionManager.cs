@@ -36,7 +36,7 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    public void FetchRandomQuestions(string category = null, Action callback = null)
+    public void FetchRandomQuestions(string category = null, int index = 0, Action callback = null)
     {
         _questionList = QuestionParser.GetRandomQuestions(
             SettingsManager.UserSettings.amountOfQuestions,

@@ -15,7 +15,7 @@ public static class EventManager
     public static event Action<Question, Action> OnQuestionStart;
     public static event Action<Action> OnQuestionEnd;
     public static event Action<int[], int[], Action> OnScoreUpdate;
-    public static event Action<string, Action> OnCategorySelected;
+    public static event Action<string, int, Action> OnCategorySelected;
     public static event Action<int, Action> OnTimerUpdate;
     public static event Action<Action> OnCategoryVoteStart;
     public static event Action<Action> OnCategoryVoteEnd;
@@ -23,6 +23,7 @@ public static class EventManager
     public static event Action<Action> OnFinalScoreEnd;
     public static event Action<Question, Action> OnResultStart;
     public static event Action<Action> OnResultEnd;
+    public static event Action<int, Action> OnEvalPanelButtonPress;
 
     // Methods to raise events with callbacks
     public static void RaiseMainMenuStart(Action callback = null) =>
@@ -51,8 +52,8 @@ public static class EventManager
     public static void RaiseScoreUpdate(int[] oldScores, int[] newScores, Action callback = null) =>
         OnScoreUpdate?.Invoke(oldScores, newScores, callback);
 
-    public static void RaiseCategorySelected(string category, Action callback = null) =>
-        OnCategorySelected?.Invoke(category, callback);
+    public static void RaiseCategorySelected(string category, int index, Action callback = null) =>
+        OnCategorySelected?.Invoke(category, index, callback);
 
     public static void RaiseTimerUpdate(int time, Action callback = null) =>
         OnTimerUpdate?.Invoke(time, callback);
@@ -73,4 +74,7 @@ public static class EventManager
         OnResultStart?.Invoke(question, callback);
 
     public static void RaiseResultEnd(Action callback = null) => OnResultEnd?.Invoke(callback);
+
+    public static void RaiseEvalPanelButtonPress(int index, Action callback = null) =>
+        OnEvalPanelButtonPress?.Invoke(index, callback);
 }
