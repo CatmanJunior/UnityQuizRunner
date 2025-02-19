@@ -8,18 +8,22 @@ public class TabletCategoryVoteState : TabletBaseGameState
 
     public override void Enter()
     {
+        if (SettingsManager.UserSettings.skipVote)
+        {
+            string currentCategory = SettingsManager.UserSettings.generalCategory;
+            categoryVoteHandler.topCategory = currentCategory;
+            NotifyStateCompletion();
+            return;
+        }
+
         categoryVoteHandler.InitCategories(QuestionParser.GetCategories());
-        uiManager.CreateCategoryButtons(CategoryVoteHandler.Categories);
-        uiManager.UpdateCategoryText(CategoryVoteHandler.Categories);
-        uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, true);
+        EventManager.RaiseCategoryVoteStart();
     }
 
     public override void Exit()
     {
         soundManager.PlaySoundEffect(SoundEffect.CategoryChosen);
-        uiManager.ResetPlayerPanels();
-        uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, false);
-        uiManager.ResetCategoryVote();
+        EventManager.RaiseCategoryVoteEnd();
     }
 
     public override void HandleInput(int player, int button)
@@ -29,8 +33,8 @@ public class TabletCategoryVoteState : TabletBaseGameState
 
     public override void ButtonClick(int button)
     {
-        uiManager.ShowWinningCategory(button);
         categoryVoteHandler.topCategory = CategoryVoteHandler.Categories[button];
+        uiManager.ShowWinningCategory(button);
         NotifyStateCompletion();
     }
 

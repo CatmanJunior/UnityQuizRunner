@@ -8,6 +8,8 @@ public static class EventManager
     public static event Action<Action> OnMainMenuEnd;
     public static event Action<int, Action> OnPlayerCheckin;
     public static event Action<int, Action> OnPlayerCheckout;
+    public static event Action<Action> OnQuizStart;
+    public static event Action<Action> OnQuizEnd;
     public static event Action<Action> OnGameStart;
     public static event Action<Action> OnGameEnd;
     public static event Action<Question, Action> OnQuestionStart;
@@ -33,6 +35,9 @@ public static class EventManager
 
     public static void RaisePlayerCheckout(int playerId, Action callback = null) =>
         OnPlayerCheckout?.Invoke(playerId, callback);
+
+    public static void RaiseQuizStart(Action callback = null) => OnQuizStart?.Invoke(callback);
+    public static void RaiseQuizEnd(Action callback = null) => OnQuizEnd?.Invoke(callback);
 
     public static void RaiseGameStart(Action callback = null) => OnGameStart?.Invoke(callback);
 

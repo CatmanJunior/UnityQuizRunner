@@ -123,8 +123,6 @@ public class PlayerManager : MonoBehaviour
         return true;
     }
 
-
-
     //a function that checks if all players have answered the current question
     public bool HaveAllPlayersAnswered(Question question)
     {

@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class UIMainMenuPanel : UIPanel
 {
-    [SerializeField] TMPro.TextMeshProUGUI instructionText;
-    [SerializeField] TMPro.TextMeshProUGUI timerText;
-    [SerializeField] UIPanel timerPanel;
-    [SerializeField] string defaultTimerText = "Starting in ";
+    [SerializeField]
+    TMPro.TextMeshProUGUI instructionText;
+
+    [SerializeField]
+    TMPro.TextMeshProUGUI timerText;
+
+    [SerializeField]
+    UIPanel timerPanel;
+
+    [SerializeField]
+    string defaultTimerText = "Starting in ";
+
     public void SetInstructionText(string text)
     {
         instructionText.text = text;

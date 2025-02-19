@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,10 +18,14 @@ public class QuestionManager : MonoBehaviour
         _currentQuestionIndex >= 0 && _currentQuestionIndex < _questionList.Count
             ? _questionList[_currentQuestionIndex]
             : null;
+
+    private bool _isQuizStarted = false;
     private bool _isQuizEnded = false;
 
     private void Awake()
     {
+        EventManager.OnCategorySelected += FetchRandomQuestions;
+        EventManager.OnQuizStart += StartQuiz;
         if (Instance == null)
         {
             Instance = this;
@@ -31,7 +36,7 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-    public void FetchRandomQuestions(string category = null)
+    public void FetchRandomQuestions(string category = null, Action callback = null)
     {
         _questionList = QuestionParser.GetRandomQuestions(
             SettingsManager.UserSettings.amountOfQuestions,
@@ -39,17 +44,16 @@ public class QuestionManager : MonoBehaviour
         );
     }
 
-    public void GoToNextQuestion()
+    public bool GoToNextQuestion(Action callback = null)
     {
-        _currentQuestionIndex++;
-        if (AreQuestionsRemaining())
-        {
-            Debug.Log("Next question");
-        }
-        else
+        if (!AreQuestionsRemaining())
         {
             EndQuiz();
+            return false;
         }
+        _currentQuestionIndex++;
+        EventManager.RaiseQuestionStart(_currentQuestion);
+        return true;
     }
 
     public void SetCurrentQuestionForReview(int questionIndex)
@@ -66,15 +70,25 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
+    public void StartQuiz(Action callback)
+    {
+        _isQuizStarted = true;
+        _isQuizEnded = false;
+        GoToNextQuestion();
+    }
+
     public void EndQuiz()
     {
-        Debug.Log("Quiz ended");
+        _isQuizStarted = false;
         _isQuizEnded = true;
+        EventManager.RaiseQuizEnd();
+        Debug.Log("Quiz ended");
     }
 
     public void ResetQuiz()
     {
         _currentQuestionIndex = -1;
+        _isQuizStarted = false;
         _isQuizEnded = false;
     }
 
@@ -100,7 +114,7 @@ public class QuestionManager : MonoBehaviour
 
     public bool AreQuestionsRemaining()
     {
-        return _currentQuestionIndex < _questionList.Count;
+        return _currentQuestionIndex + 1 < _questionList.Count;
     }
 
     public List<Question> GetQuestions()

@@ -7,33 +7,17 @@ public class TabletQuestionState : TabletBaseGameState
     public TabletQuestionState()
         : base() { }
 
-    private bool _isStateComplete = false;
+    private bool _handleInput = false;
 
     public override void Enter()
     {
-        _isStateComplete = false;
-
-        if (!QuestionManager.HasQuizStarted())
-        {
-            Logger.Log("Getting random questions");
-            QuestionManager.FetchRandomQuestions(TabletGameStateHandler.GetCategory());
-        }
-
-        if (QuestionManager.AreQuestionsRemaining())
-        {
-            HandleNextQuestion();
-        }
-        else
-        {
-
-            NotifyStateCompletion();
-        }
+        QuestionManager.GoToNextQuestion();
+        _handleInput = true;
     }
 
     public override void Exit()
     {
-        uiManager.TogglePanel(UIManager.UIPanelElement.QuestionPanel, false);
-        uiManager.ResetPlayerPanels();
+        EventManager.RaiseQuestionEnd();
     }
 
     public override void HandleInput(int controller, int button)
@@ -54,18 +38,6 @@ public class TabletQuestionState : TabletBaseGameState
         // TestMode.SimulatePlayerAnswer(this);
     }
 
-    private void HandleNextQuestion()
-    {
-        if (QuestionManager.IsQuizEnded)
-        {
-            NotifyStateCompletion();
-            return;
-        }
-        Debug.Log("Question: " + QuestionManager.CurrentQuestion.QuestionText);
-        Debug.Log("Raising question start event");
-        EventManager.RaiseQuestionStart(QuestionManager.CurrentQuestion);
-    }
-
     private void ProcessPlayerAnswer(int controller, int button)
     {
         Debug.Log("Processing player answer");
@@ -78,19 +50,18 @@ public class TabletQuestionState : TabletBaseGameState
                     + " answered "
                     + QuestionManager.CurrentQuestion.Answers[button].AnswerText
             );
-            uiManager.SetPlayerPanelState(controller, PlayerPanelState.Answered);
         }
     }
 
     private void HandleAllPlayersAnswered()
     {
-        _isStateComplete = true;
+        _handleInput = false;
         NotifyStateCompletion();
     }
 
     private bool CanProcessInput(int button)
     {
-        if (_isStateComplete)
+        if (_handleInput)
             return false;
 
         if (!QuestionManager.IsQuestionAvailable())
@@ -110,14 +81,6 @@ public class TabletQuestionState : TabletBaseGameState
 
     public override void ButtonClick(int button)
     {
-        if (!CanProcessInput(button))
-        {
-            Debug.Log("Cannot process input");
-            return;
-        }
-        ProcessPlayerAnswer(0, button);
-        QuestionManager.CurrentQuestion.IsAnswered = true;
-
-        HandleAllPlayersAnswered();
+        HandleInput(0, button);
     }
 }

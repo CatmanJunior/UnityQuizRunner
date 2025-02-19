@@ -1,19 +1,17 @@
 using System;
 using UnityEngine;
+
 [Serializable]
 public class QuestionState : BaseGameState
 {
     public QuestionState()
-        : base()
-    {
-    }
+        : base() { }
 
     private bool _isStateComplete = false;
 
     public override void Enter()
     {
         _isStateComplete = false;
-
 
         if (!QuestionManager.HasQuizStarted())
         {
@@ -66,8 +64,6 @@ public class QuestionState : BaseGameState
             return;
         }
         EventManager.RaiseQuestionStart(QuestionManager.CurrentQuestion);
-
-
     }
 
     private void ProcessPlayerAnswer(int controller, int button)
@@ -75,7 +71,12 @@ public class QuestionState : BaseGameState
         float timeTaken = timerManager.GetSecondsSinceStart("QuestionTimer");
         if (playerManager.AddAnswer(controller, QuestionManager.CurrentQuestion, button, timeTaken))
         {
-            Debug.Log("Player " + controller + " answered " + QuestionManager.CurrentQuestion.Answers[button].AnswerText);
+            Debug.Log(
+                "Player "
+                    + controller
+                    + " answered "
+                    + QuestionManager.CurrentQuestion.Answers[button].AnswerText
+            );
             uiManager.SetPlayerPanelState(controller, PlayerPanelState.Answered);
         }
     }
@@ -114,7 +115,12 @@ public class QuestionState : BaseGameState
     private void InitializeQuestionTimer()
     {
         uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
-        timerManager.CreateTimer("QuestionTimer", SettingsManager.UserSettings.questionAnswerTime, NotifyStateCompletion, false);
+        timerManager.CreateTimer(
+            "QuestionTimer",
+            SettingsManager.UserSettings.questionAnswerTime,
+            NotifyStateCompletion,
+            false
+        );
         timerManager.SelectTimerForUI("QuestionTimer");
     }
 }

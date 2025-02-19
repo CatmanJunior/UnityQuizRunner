@@ -1,8 +1,7 @@
-
-using UnityEngine;
-using UnityEngine.UI;
 using System.Reflection;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Toggle))]
 public class UIToggleSetting : MonoBehaviour
@@ -41,5 +40,3 @@ public class UIToggleSetting : MonoBehaviour
         toggle.onValueChanged.RemoveListener(OnToggleValueChanged);
     }
 }
-
-

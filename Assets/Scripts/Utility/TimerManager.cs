@@ -20,6 +20,7 @@ public class TimerManager : MonoBehaviour
     }
 
     private Dictionary<string, Timer> timers = new Dictionary<string, Timer>(); // Holds all timers.
+
     [SerializeField]
     private TimerUI timerUI; // Reference to the TimerUI, which displays the selected timer.
 
@@ -29,7 +30,12 @@ public class TimerManager : MonoBehaviour
     /// <param name="timerID">Unique ID for the timer.</param>
     /// <param name="countdownDuration">The duration of the countdown in seconds.</param>
     /// <param name="onTimerEnd">Action to invoke when the timer ends.</param>
-    public void CreateTimer(string timerID, float countdownDuration, Action onTimerEnd, bool startImmediately = true)
+    public void CreateTimer(
+        string timerID,
+        float countdownDuration,
+        Action onTimerEnd,
+        bool startImmediately = true
+    )
     {
         if (!timers.ContainsKey(timerID))
         {
@@ -49,7 +55,6 @@ public class TimerManager : MonoBehaviour
             timers[timerID].StartCountdown(countdownDuration);
         }
     }
-
 
     /// <summary>
     /// Stops a specific timer.
@@ -77,7 +82,6 @@ public class TimerManager : MonoBehaviour
         if (timers.ContainsKey(timerID))
         {
             timers[timerID].RestartTimer();
-
         }
         else
         {

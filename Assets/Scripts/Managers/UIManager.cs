@@ -93,6 +93,8 @@ public class UIManager : MonoBehaviour
         EventManager.OnResultStart += OnResultStart; // new signature: Question, Action
         EventManager.OnResultEnd += OnResultEnd;
         EventManager.OnScoreUpdate += OnScoreUpdate; // subscribe to new ScoreUpdate event
+        EventManager.OnCategoryVoteStart += OnVoteStart;
+        EventManager.OnCategoryVoteEnd += OnCategoryVoteEnd;
     }
 
     #endregion
@@ -161,17 +163,33 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void OnCategoryVoteEnd(Action callback)
+    {
+        ResetPlayerPanels();
+        TogglePanel(UIPanelElement.VotePanel, false);
+        ResetCategoryVote();
+    }
+
+    public void OnVoteStart(Action callback)
+    {
+        CreateCategoryButtons(CategoryVoteHandler.Categories);
+        UpdateCategoryText(CategoryVoteHandler.Categories);
+        TogglePanel(UIPanelElement.VotePanel, true);
+    }
+
     public void OnQuestionStart(Question question, Action callback)
     {
         TogglePanel(UIPanelElement.QuestionPanel, true);
-        ShowQuestion();
         TogglePanel(UIPanelElement.TimerPanel, true);
+        ShowQuestion();
         Canvas.ForceUpdateCanvases();
         MoveAnswerPanelOffScreen();
     }
 
     public void OnQuestionEnd()
     {
+        TogglePanel(UIPanelElement.QuestionPanel, false);
+        ResetPlayerPanels();
         TogglePanel(UIPanelElement.TimerPanel, false);
     }
 
