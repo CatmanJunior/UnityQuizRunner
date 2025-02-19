@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DefaultSettings_Tablet
   m_EditorClassIdentifier: 
   version: 1
+  tablet: 1
   checkinButton: 4
   useLightController: 0
   mainMenuStartText: Press the Red Button to join
@@ -23,10 +24,10 @@ MonoBehaviour:
   amountOfQuestions: 5
   testMode: 0
   skipVote: 0
-  timeModifier: 1
+  timeModifier: 0.5
   timeBeforeCheckedInClear: 10
   timeBeforeMainMenuEnd: 1
-  postQuestionTime: 5
+  postQuestionTime: 0.2
   preQuestionTime: 1
   finalScoreTime: 10
   categoryVoteTime: 8
