@@ -44,16 +44,15 @@ public class QuestionManager : MonoBehaviour
         );
     }
 
-    public bool GoToNextQuestion(Action callback = null)
+    public Question GoToNextQuestion(Action callback = null)
     {
         if (!AreQuestionsRemaining())
         {
             EndQuiz();
-            return false;
+            return null;
         }
         _currentQuestionIndex++;
-        EventManager.RaiseQuestionStart(_currentQuestion);
-        return true;
+        return CurrentQuestion;
     }
 
     public void SetCurrentQuestionForReview(int questionIndex)

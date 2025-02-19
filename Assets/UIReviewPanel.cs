@@ -27,6 +27,7 @@ public class UIReviewPanel : MonoBehaviour
 
         _answerText.text = answer.Question.Answers[answer.AnswerId].AnswerText;
         correctImage.sprite = answer.IsCorrect ? correctSprite : incorrectSprite;
+        _index = index;
     }
 
     public void ButtonPress(){

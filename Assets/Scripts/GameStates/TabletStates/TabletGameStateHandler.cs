@@ -158,10 +158,7 @@ public class TabletGameStateHandler : MonoBehaviour
                 ChangeState(questionState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case TabletQuestionState:
-                if (!QuestionManager.IsQuizEnded)
-                    ChangeState(resultState, SettingsManager.UserSettings.postQuestionTime);
-                else
-                    ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
+                ChangeState(resultState, SettingsManager.UserSettings.postQuestionTime);
                 break;
             case TabletResultState:
                 if (!QuestionManager.IsQuizEnded)

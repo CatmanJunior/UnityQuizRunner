@@ -187,9 +187,9 @@ public class UIManager : MonoBehaviour
     {
         TogglePanel(UIPanelElement.QuestionPanel, true);
         TogglePanel(UIPanelElement.TimerPanel, true);
-        ShowQuestion();
         Canvas.ForceUpdateCanvases();
         MoveAnswerPanelOffScreen();
+        questionPanel.ShowQuestion(QuestionManager.CurrentQuestion, callback);
     }
 
     public void OnQuestionEnd()
@@ -354,10 +354,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowQuestion()
-    {
-        questionPanel.ShowQuestion(QuestionManager.CurrentQuestion, null);
-    }
+
 
     public void MoveAnswerPanelOffScreen()
     {

@@ -24,7 +24,6 @@ public class TabletResultState : TabletBaseGameState
     {
         if (button == 99)
         {
-            QuestionManager.GoToNextQuestion();
             NotifyStateCompletion();
         }
         Debug.Log("Button clicked " + button);

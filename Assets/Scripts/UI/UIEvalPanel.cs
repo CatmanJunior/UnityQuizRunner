@@ -8,7 +8,6 @@ public class UIEvalPanel : UIPanel
     [SerializeField]
     private Transform panelParent;
 
-
     public void SetTexts(Question[] questions)
     {
         // Clear any existing child panels
@@ -20,13 +19,16 @@ public class UIEvalPanel : UIPanel
             }
         }
 
-        for (int i = 0; i < questions.Length; i++)
+        int i = 0;
+        foreach (Question question in questions)
         {
+            Debug.Log(question.QuestionText);
             PlayerAnswer playerAnswer = PlayerManager
                 .Instance.GetPlayer(0)
-                .GetPlayerAnswer(questions[i]);
+                .GetPlayerAnswer(question);
             var uiEvaluationPanel = Instantiate(prefabUIEvalPanel, panelParent);
-            uiEvaluationPanel.Setup(playerAnswer,i);
+            uiEvaluationPanel.Setup(playerAnswer, i);
+            i++;
         }
     }
 }

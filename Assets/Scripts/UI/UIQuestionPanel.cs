@@ -43,6 +43,8 @@ public class UIQuestionPanel : UIPanel
         Incorrect,
     }
 
+    Action startQuestioncallback;
+
     #region public methods
     /// <summary>
     /// Displays the current question on the UI panel.
@@ -67,6 +69,7 @@ public class UIQuestionPanel : UIPanel
         SetQuestion(question);
         SetCategoryText(question);
         ResetAnswerStyles();
+        startQuestioncallback = callback;
     }
 
     /// <summary>
@@ -110,6 +113,7 @@ public class UIQuestionPanel : UIPanel
 
     private void StartQuestionTimer()
     {
+        startQuestioncallback?.Invoke();
         //TODO: Add a message that if players answer before timers start, it will not be registered
         if (SettingsManager.UserSettings.tablet)
             return;

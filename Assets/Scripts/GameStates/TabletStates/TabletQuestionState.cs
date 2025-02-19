@@ -8,11 +8,11 @@ public class TabletQuestionState : TabletBaseGameState
         : base() { }
 
     private bool _canHandleInput = false;
-
+    Question currentQuestion;
     public bool CanHandleInput
     {
         get => _canHandleInput;
-        set
+        private set
         {
             Debug.Log("Setting can handle input to " + value);
             _canHandleInput = value;
@@ -21,18 +21,26 @@ public class TabletQuestionState : TabletBaseGameState
 
     public override void Enter()
     {
-        EventManager.OnQuestionStart += HandleQuestionStart;
-        QuestionManager.GoToNextQuestion();
+        currentQuestion = QuestionManager.GoToNextQuestion();
+        if (currentQuestion != null)
+        {
+            EventManager.RaiseQuestionStart(currentQuestion, HandleQuestionStart);
+        }
+        else
+        {
+            NotifyStateCompletion();
+        }
     }
 
-    public void HandleQuestionStart(Question question, Action callback)
+    public void HandleQuestionStart()
     {
         CanHandleInput = true;
-        Debug.Log("Question started: " + question.QuestionText);
+        Debug.Log("Question started: " + currentQuestion.QuestionText);
     }
 
     public override void Exit()
     {
+        CanHandleInput = false;
         EventManager.RaiseQuestionEnd();
     }
 
