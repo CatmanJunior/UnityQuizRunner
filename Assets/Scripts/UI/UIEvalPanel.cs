@@ -31,4 +31,9 @@ public class UIEvalPanel : UIPanel
             i++;
         }
     }
+
+    public void ExitButtonClick()
+    {
+        EventManager.RaiseQuizRestart();
+    }
 }

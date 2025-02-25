@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Icons
+    m_Hash: 195788666
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: 2.wiet
+      m_Hash: 948818989
+      m_Sprite: {fileID: 3286163911610860551, guid: b701a2568f51ee34299e6b6b2d6dbf89, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: b701a2568f51ee34299e6b6b2d6dbf89, type: 3}
+    - m_Name: 3.GHB
+      m_Hash: 904500146
+      m_Sprite: {fileID: 3286163911610860551, guid: 22512390c7329164690c739ae3e14d77, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: 22512390c7329164690c739ae3e14d77, type: 3}
+    - m_Name: 4.cocaine
+      m_Hash: 645701705
+      m_Sprite: {fileID: 3286163911610860551, guid: ffc686f75c00e0e4c949fa118563e389, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: ffc686f75c00e0e4c949fa118563e389, type: 3}
+    - m_Name: 5.XTC
+      m_Hash: 1017376660
+      m_Sprite: {fileID: 3286163911610860551, guid: ecdf0c2a0d0c7954199ef4f203dcb967, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: ecdf0c2a0d0c7954199ef4f203dcb967, type: 3}
+    - m_Name: 6.speed
+      m_Hash: 578626235
+      m_Sprite: {fileID: 3286163911610860551, guid: 83f1ba545e644c846959cb7e0f61fc51, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: 83f1ba545e644c846959cb7e0f61fc51, type: 3}
+    - m_Name: 7.psychedelica
+      m_Hash: 547670592
+      m_Sprite: {fileID: 3286163911610860551, guid: 84a03ad16386e56408de5e4927bcf0c0, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: 84a03ad16386e56408de5e4927bcf0c0, type: 3}
+    - m_Name: 8.ketamine
+      m_Hash: 983511425
+      m_Sprite: {fileID: 3286163911610860551, guid: bfcbb6ba0e0955a4e9d2541ff032fda9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: bfcbb6ba0e0955a4e9d2541ff032fda9, type: 3}
+    - m_Name: 9.overig
+      m_Hash: 326558212
+      m_Sprite: {fileID: 3286163911610860551, guid: 4b683f671b9e2564994ec1c05fbba8ef, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3286163911610860551, guid: 4b683f671b9e2564994ec1c05fbba8ef, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638760424981966674
+  m_Version: 1

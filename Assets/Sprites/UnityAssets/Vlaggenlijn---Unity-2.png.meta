@@ -1,0 +1,2668 @@
+fileFormatVersion: 2
+guid: 919fd55f68477b349a1b0703a5c82c8f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2753630809248016842
+    second: Vlaggenlijn---Unity-2_0
+  - first:
+      213: -3070506752610880498
+    second: Vlaggenlijn---Unity-2_1
+  - first:
+      213: -2534983095318825620
+    second: Vlaggenlijn---Unity-2_2
+  - first:
+      213: -1749867417507175117
+    second: Vlaggenlijn---Unity-2_3
+  - first:
+      213: 6189824121306002189
+    second: Vlaggenlijn---Unity-2_4
+  - first:
+      213: 7633506509828085313
+    second: Vlaggenlijn---Unity-2_5
+  - first:
+      213: -6262908198510806564
+    second: Vlaggenlijn---Unity-2_6
+  - first:
+      213: 2684856798743476271
+    second: Vlaggenlijn---Unity-2_7
+  - first:
+      213: -1451849052990751021
+    second: Vlaggenlijn---Unity-2_8
+  - first:
+      213: 6244499509489873753
+    second: Vlaggenlijn---Unity-2_9
+  - first:
+      213: 66731863575483881
+    second: Vlaggenlijn---Unity-2_10
+  - first:
+      213: 3431895751254305068
+    second: Vlaggenlijn---Unity-2_11
+  - first:
+      213: 8089507289113924610
+    second: Vlaggenlijn---Unity-2_12
+  - first:
+      213: 331591796546380746
+    second: Vlaggenlijn---Unity-2_13
+  - first:
+      213: -5477750898151735792
+    second: Vlaggenlijn---Unity-2_14
+  - first:
+      213: 1421820666522997767
+    second: Vlaggenlijn---Unity-2_15
+  - first:
+      213: 8427629667569504946
+    second: Vlaggenlijn---Unity-2_16
+  - first:
+      213: 3939577363709468115
+    second: Vlaggenlijn---Unity-2_17
+  - first:
+      213: -3818870660430537369
+    second: Vlaggenlijn---Unity-2_18
+  - first:
+      213: -1731025343993434039
+    second: Vlaggenlijn---Unity-2_19
+  - first:
+      213: 215201872498047744
+    second: Vlaggenlijn---Unity-2_20
+  - first:
+      213: 6890084411046611410
+    second: Vlaggenlijn---Unity-2_21
+  - first:
+      213: 435156114485427265
+    second: Vlaggenlijn---Unity-2_22
+  - first:
+      213: -1629109090451278966
+    second: Vlaggenlijn---Unity-2_23
+  - first:
+      213: 1377037275687754809
+    second: Vlaggenlijn---Unity-2_24
+  - first:
+      213: -8184751194127340003
+    second: Vlaggenlijn---Unity-2_25
+  - first:
+      213: 6318398191003582234
+    second: Vlaggenlijn---Unity-2_26
+  - first:
+      213: 3307306809678501574
+    second: Vlaggenlijn---Unity-2_27
+  - first:
+      213: 5384262734524971821
+    second: Vlaggenlijn---Unity-2_28
+  - first:
+      213: -898241634826782263
+    second: Vlaggenlijn---Unity-2_29
+  - first:
+      213: 1216966848421692885
+    second: Vlaggenlijn---Unity-2_30
+  - first:
+      213: -671381826442588232
+    second: Vlaggenlijn---Unity-2_31
+  - first:
+      213: -5291163070692006522
+    second: Vlaggenlijn---Unity-2_32
+  - first:
+      213: -8267675005892604424
+    second: Vlaggenlijn---Unity-2_33
+  - first:
+      213: -5049734424163419340
+    second: Vlaggenlijn---Unity-2_34
+  - first:
+      213: -4122638969375941839
+    second: Vlaggenlijn---Unity-2_35
+  - first:
+      213: 7474621449209730782
+    second: Vlaggenlijn---Unity-2_36
+  - first:
+      213: 1143715835250191835
+    second: Vlaggenlijn---Unity-2_37
+  - first:
+      213: -4340941263635012988
+    second: Vlaggenlijn---Unity-2_38
+  - first:
+      213: -6004437955375234409
+    second: Vlaggenlijn---Unity-2_39
+  - first:
+      213: 2675646744114673141
+    second: Vlaggenlijn---Unity-2_40
+  - first:
+      213: -2664145551612008929
+    second: Vlaggenlijn---Unity-2_41
+  - first:
+      213: 7318265001463688144
+    second: Vlaggenlijn---Unity-2_42
+  - first:
+      213: -3651053607935395443
+    second: Vlaggenlijn---Unity-2_43
+  - first:
+      213: 4364919304276070733
+    second: Vlaggenlijn---Unity-2_44
+  - first:
+      213: 3041800265202767392
+    second: Vlaggenlijn---Unity-2_45
+  - first:
+      213: 6153515721405712480
+    second: Vlaggenlijn---Unity-2_46
+  - first:
+      213: -4425774667597257425
+    second: Vlaggenlijn---Unity-2_47
+  - first:
+      213: -5242596908346894869
+    second: Vlaggenlijn---Unity-2_48
+  - first:
+      213: 504291549245031822
+    second: Vlaggenlijn---Unity-2_49
+  - first:
+      213: -6915203972631636346
+    second: Vlaggenlijn---Unity-2_50
+  - first:
+      213: 5406155366461760704
+    second: Vlaggenlijn---Unity-2_51
+  - first:
+      213: 2529263922474087151
+    second: Vlaggenlijn---Unity-2_52
+  - first:
+      213: -3713248805966044684
+    second: Vlaggenlijn---Unity-2_53
+  - first:
+      213: -7048603039634182878
+    second: Vlaggenlijn---Unity-2_54
+  - first:
+      213: -4928186238288646914
+    second: Vlaggenlijn---Unity-2_55
+  - first:
+      213: -5642113183142711429
+    second: Vlaggenlijn---Unity-2_56
+  - first:
+      213: 5327336400332615629
+    second: Vlaggenlijn---Unity-2_57
+  - first:
+      213: 3675153594507534647
+    second: Vlaggenlijn---Unity-2_58
+  - first:
+      213: 4228705287825863336
+    second: Vlaggenlijn---Unity-2_59
+  - first:
+      213: 6813518928783841624
+    second: Vlaggenlijn---Unity-2_60
+  - first:
+      213: 7427118160293317903
+    second: Vlaggenlijn---Unity-2_61
+  - first:
+      213: -7743428049817995075
+    second: Vlaggenlijn---Unity-2_62
+  - first:
+      213: -1935787096627367209
+    second: Vlaggenlijn---Unity-2_63
+  - first:
+      213: 3868140526746051522
+    second: Vlaggenlijn---Unity-2_64
+  - first:
+      213: -6549436713832340233
+    second: Vlaggenlijn---Unity-2_65
+  - first:
+      213: 4460985061621052261
+    second: Vlaggenlijn---Unity-2_66
+  - first:
+      213: -577559361484221853
+    second: Vlaggenlijn---Unity-2_67
+  - first:
+      213: 497327223773096918
+    second: Vlaggenlijn---Unity-2_68
+  - first:
+      213: -8382263639317588258
+    second: Vlaggenlijn---Unity-2_69
+  - first:
+      213: 9042444417370193446
+    second: Vlaggenlijn---Unity-2_70
+  - first:
+      213: 3320692282582922054
+    second: Vlaggenlijn---Unity-2_71
+  - first:
+      213: 5740835071027064461
+    second: Vlaggenlijn---Unity-2_72
+  - first:
+      213: -2540557502306052136
+    second: Vlaggenlijn---Unity-2_73
+  - first:
+      213: -4891912989869073110
+    second: Vlaggenlijn---Unity-2_74
+  - first:
+      213: -7002028769154302330
+    second: Vlaggenlijn---Unity-2_75
+  - first:
+      213: -4228796187962409530
+    second: Vlaggenlijn---Unity-2_76
+  - first:
+      213: 8836773797745326904
+    second: Vlaggenlijn---Unity-2_77
+  - first:
+      213: 636369230933486032
+    second: Vlaggenlijn---Unity-2_78
+  - first:
+      213: -3971764249001700111
+    second: Vlaggenlijn---Unity-2_79
+  - first:
+      213: 2978086009583134479
+    second: Vlaggenlijn---Unity-2_80
+  - first:
+      213: -4344608785470414415
+    second: Vlaggenlijn---Unity-2_81
+  - first:
+      213: -6756226929811179573
+    second: Vlaggenlijn---Unity-2_82
+  - first:
+      213: 6948931748402008191
+    second: Vlaggenlijn---Unity-2_83
+  - first:
+      213: -4481642370521384556
+    second: Vlaggenlijn---Unity-2_84
+  - first:
+      213: -1775605805079032587
+    second: Vlaggenlijn---Unity-2_85
+  - first:
+      213: -1601663092887649480
+    second: Vlaggenlijn---Unity-2_86
+  - first:
+      213: 444236166429547713
+    second: Vlaggenlijn---Unity-2_87
+  - first:
+      213: 7571297084362532737
+    second: Vlaggenlijn---Unity-2_88
+  - first:
+      213: -30794342434279927
+    second: Vlaggenlijn---Unity-2_89
+  - first:
+      213: -8387671517467511131
+    second: Vlaggenlijn---Unity-2_90
+  - first:
+      213: 3488012687943308148
+    second: Vlaggenlijn---Unity-2_91
+  - first:
+      213: -2211608221852201849
+    second: Vlaggenlijn---Unity-2_92
+  - first:
+      213: 5134282350136057785
+    second: Vlaggenlijn---Unity-2_93
+  - first:
+      213: 1325913845092291153
+    second: Vlaggenlijn---Unity-2_94
+  - first:
+      213: -6992623481797529479
+    second: Vlaggenlijn---Unity-2_95
+  - first:
+      213: 270069672474772682
+    second: Vlaggenlijn---Unity-2_96
+  - first:
+      213: 8892944548040056823
+    second: Vlaggenlijn---Unity-2_97
+  - first:
+      213: 5404359519841017429
+    second: Vlaggenlijn---Unity-2_98
+  - first:
+      213: 353735375427916210
+    second: Vlaggenlijn---Unity-2_99
+  - first:
+      213: -929432226297148899
+    second: Vlaggenlijn---Unity-2_100
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 748
+        height: 965
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac9acc3b1acd63620800000000000000
+      internalID: 2753630809248016842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 13
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e04b032706e5365d0800000000000000
+      internalID: -3070506752610880498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 938
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65b6e34e4ee1dcd0800000000000000
+      internalID: -2534983095318825620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 924
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335647fdad837b7e0800000000000000
+      internalID: -1749867417507175117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 930
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03b6944e3ca6e550800000000000000
+      internalID: 6189824121306002189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 919
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1465fe40ab9afe960800000000000000
+      internalID: 7633506509828085313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 901
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd9b1eefc2ea519a0800000000000000
+      internalID: -6262908198510806564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 895
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28b5e19807824520800000000000000
+      internalID: 2684856798743476271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 901
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3debff08afef9dbe0800000000000000
+      internalID: -1451849052990751021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 889
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953be37183be8a650800000000000000
+      internalID: 6244499509489873753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 875
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5dd9fb6441de000800000000000000
+      internalID: 66731863575483881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_11
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 868
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c296fa7b00b80af20800000000000000
+      internalID: 3431895751254305068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 850
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2049197f404b34070800000000000000
+      internalID: 8089507289113924610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 836
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac3a49b6bfc0a9400800000000000000
+      internalID: 331591796546380746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 809
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01eb69b949e1bf3b0800000000000000
+      internalID: -5477750898151735792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 808
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7049962fc525bb310800000000000000
+      internalID: 1421820666522997767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2160af784f4f470800000000000000
+      internalID: 8427629667569504946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 775
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd92115db03ca630800000000000000
+      internalID: 3939577363709468115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 766
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d50e91e55a00bc0800000000000000
+      internalID: -3818870660430537369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 758
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940b21afe992af7e0800000000000000
+      internalID: -1731025343993434039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_20
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 760
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00bbe3d76fc8cf200800000000000000
+      internalID: 215201872498047744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_21
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 724
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9c3e0444f7e9f50800000000000000
+      internalID: 6890084411046611410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 705
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14c3eb93e2cf90600800000000000000
+      internalID: 435156114485427265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_23
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 710
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83ba43e9ed3469e0800000000000000
+      internalID: -1629109090451278966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 699
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c17db3b183c1310800000000000000
+      internalID: 1377037275687754809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 679
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ee513572ce96e80800000000000000
+      internalID: -8184751194127340003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f3d3cada57fa750800000000000000
+      internalID: 6318398191003582234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_27
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 663
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c61e12450ae5ed20800000000000000
+      internalID: 3307306809678501574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 660
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2bfbb41e6eb8ba40800000000000000
+      internalID: 5384262734524971821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 653
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9fea10efdc883f0800000000000000
+      internalID: -898241634826782263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 634
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d50a9f96e883e010800000000000000
+      internalID: 1216966848421692885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_31
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 629
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf8c3639c5cea6f0800000000000000
+      internalID: -671381826442588232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 616
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685ecb298330296b0800000000000000
+      internalID: -5291163070692006522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 603
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fd456bd261534d80800000000000000
+      internalID: -8267675005892604424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_34
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 577
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b7dadbb4dbbe9b0800000000000000
+      internalID: -5049734424163419340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 547
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b1a2533b179c6c0800000000000000
+      internalID: -4122638969375941839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 527
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed659a61b903bb760800000000000000
+      internalID: 7474621449209730782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_37
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 519
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdda3141e7b4fdf00800000000000000
+      internalID: 1143715835250191835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 503
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48223368be0e1c3c0800000000000000
+      internalID: -4340941263635012988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_39
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 499
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7928cf11e73fbaca0800000000000000
+      internalID: -6004437955375234409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_40
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 452
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5b26f998ec12520800000000000000
+      internalID: 2675646744114673141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_41
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 439
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16aa3e6cbd070bd0800000000000000
+      internalID: -2664145551612008929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 413
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbaa68be33bf8560800000000000000
+      internalID: 7318265001463688144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_43
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 419
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d893a13761ad45dc0800000000000000
+      internalID: -3651053607935395443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 409
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41de9c1bfe439c30800000000000000
+      internalID: 4364919304276070733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_45
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 401
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026991d9935a63a20800000000000000
+      internalID: 3041800265202767392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_46
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 380
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0684b2622fda56550800000000000000
+      internalID: 6153515721405712480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 356
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2561f9736d7492c0800000000000000
+      internalID: -4425774667597257425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 348
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be51c6963ed8e37b0800000000000000
+      internalID: -5242596908346894869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 327
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e854bfffd7a9ff600800000000000000
+      internalID: 504291549245031822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686dbed00a24800a0800000000000000
+      internalID: -6915203972631636346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 301
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c4668aa9a5860b40800000000000000
+      internalID: 5406155366461760704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 285
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe2774a0320c91320800000000000000
+      internalID: 2529263922474087151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_53
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 276
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f120c572e3e77cc0800000000000000
+      internalID: -3713248805966044684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 268
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22daddb61e45e2e90800000000000000
+      internalID: -7048603039634182878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_55
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 274
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc26d71ab09b9bb0800000000000000
+      internalID: -4928186238288646914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 257
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7fea3004ff23b1b0800000000000000
+      internalID: -5642113183142711429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf65dc0b308ee940800000000000000
+      internalID: 5327336400332615629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_58
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7312f9fe8b4c00330800000000000000
+      internalID: 3675153594507534647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a23dacfd016faa30800000000000000
+      internalID: 4228705287825863336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_60
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 204
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8599f8cbd5b7e8e50800000000000000
+      internalID: 6813518928783841624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 189
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0dc221cd9c621760800000000000000
+      internalID: 7427118160293317903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 181
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db87dc21731d98490800000000000000
+      internalID: -7743428049817995075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d2bdb054e3b225e0800000000000000
+      internalID: -1935787096627367209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_64
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 170
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3adf590556ea530800000000000000
+      internalID: 3868140526746051522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_65
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 152
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f42f19520abb15a0800000000000000
+      internalID: -6549436713832340233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_66
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 122
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5633f3a374a98ed30800000000000000
+      internalID: 4460985061621052261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362180e12d81cf7f0800000000000000
+      internalID: -577559361484221853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 103
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db602e997cd6e600800000000000000
+      internalID: 497327223773096918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed65dc491a73cab80800000000000000
+      internalID: -8382263639317588258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_70
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 94
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e7096e9473d7d70800000000000000
+      internalID: 9042444417370193446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6437cb78908751e20800000000000000
+      internalID: 3320692282582922054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_72
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 73
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e2ca2b41b8baf40800000000000000
+      internalID: 5740835071027064461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d7189f79602ebcd0800000000000000
+      internalID: -2540557502306052136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_74
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 46
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2d1cbedd0f6c1cb0800000000000000
+      internalID: -4891912989869073110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 27
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68efd7bceebc3de90800000000000000
+      internalID: -7002028769154302330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_76
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 33
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd79fca54c4055c0800000000000000
+      internalID: -4228796187962409530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_77
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83bf61723f682aa70800000000000000
+      internalID: 8836773797745326904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_78
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d967c3a176d4d800800000000000000
+      internalID: 636369230933486032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_79
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f458a6757571e8c0800000000000000
+      internalID: -3971764249001700111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_80
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0763c77279445920800000000000000
+      internalID: 2978086009583134479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_81
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b1aefd0459d4b3c0800000000000000
+      internalID: -4344608785470414415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_82
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc73da2476f0d32a0800000000000000
+      internalID: -6756226929811179573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_83
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f709fefab909f6060800000000000000
+      internalID: 6948931748402008191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_84
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499bbbe32020ec1c0800000000000000
+      internalID: -4481642370521384556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_85
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc84278de7cb57e0800000000000000
+      internalID: -1775605805079032587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_86
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833049a27efb5c9e0800000000000000
+      internalID: -1601663092887649480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_87
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 13
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc1a60907e3a2600800000000000000
+      internalID: 444236166429547713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_88
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18721627596a21960800000000000000
+      internalID: 7571297084362532737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_89
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90eec1e65b8929ff0800000000000000
+      internalID: -30794342434279927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_90
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 0
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6ffa4d131099b80800000000000000
+      internalID: -8387671517467511131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_91
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 0
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4739ae43f09e76030800000000000000
+      internalID: 3488012687943308148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_92
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 0
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c8a223a0ace41e0800000000000000
+      internalID: -2211608221852201849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_93
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 0
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bfda684892a04740800000000000000
+      internalID: 5134282350136057785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_94
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 0
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1529f7bfd97966210800000000000000
+      internalID: 1325913845092291153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_95
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 0
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9703767edf535fe90800000000000000
+      internalID: -6992623481797529479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_96
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 0
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac4077cafea7fb300800000000000000
+      internalID: 270069672474772682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_97
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 0
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff9c2913f51a6b70800000000000000
+      internalID: 8892944548040056823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_98
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55edf9a8954200b40800000000000000
+      internalID: 5404359519841017429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_99
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 0
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b1ded42378b8e400800000000000000
+      internalID: 353735375427916210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vlaggenlijn---Unity-2_100
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 0
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a02c4805ef913f0800000000000000
+      internalID: -929432226297148899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

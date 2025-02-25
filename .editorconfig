@@ -2,3 +2,11 @@
 
 # IDE0058: Expression value is never used
 csharp_style_unused_value_expression_statement_preference = unused_local_variable
+
+# IDE0022: Use block body for method
+csharp_style_expression_bodied_methods = false
+
+# IDE0022: Use block body for method
+dotnet_diagnostic.IDE0022.severity = silent
+
+

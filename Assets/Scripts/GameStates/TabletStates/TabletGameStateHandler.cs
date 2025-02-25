@@ -61,6 +61,7 @@ public class TabletGameStateHandler : MonoBehaviour
             Destroy(gameObject);
         settingsManager.Initialize();
         InitializeAsync();
+        EventManager.OnAnswerButtonPress += OnButtonClick;
     }
 
     void Start()

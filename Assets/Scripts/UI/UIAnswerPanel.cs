@@ -1,5 +1,7 @@
-using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class UIAnswerPanel : MonoBehaviour
 {
@@ -7,17 +9,22 @@ public class UIAnswerPanel : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI answerText;
 
+    [SerializeField]
     private RectTransform panelTransform;
+
+    [SerializeField]
+    Outline outline;
+
+    [SerializeField]
+    List<Color> outlineColors;
+
+    private int answerIndex;
+
     private Vector2 offScreenPosition;
     private float offScreenX;
     private float onScreenPosition;
 
     public bool initialised;
-
-    private void Awake()
-    {
-        panelTransform = GetComponent<RectTransform>();
-    }
 
     void Start()
     {
@@ -29,6 +36,10 @@ public class UIAnswerPanel : MonoBehaviour
     /// </summary>
     public void Initialize()
     {
+        answerIndex = transform.GetSiblingIndex();
+
+        outline.effectColor = outlineColors[answerIndex];
+
         if (initialised)
         {
             return;
@@ -52,9 +63,19 @@ public class UIAnswerPanel : MonoBehaviour
         initialised = true;
     }
 
+    public void SetOutlineColor(Color color)
+    {
+        outline.effectColor = color;
+    }
+
     public void MoveOffScreen()
     {
         panelTransform.anchoredPosition = offScreenPosition;
+    }
+
+    public void ButtonClicked()
+    {
+        EventManager.RaiseAnswerButtonPress(answerIndex);
     }
 
     /// <summary>
@@ -63,10 +84,18 @@ public class UIAnswerPanel : MonoBehaviour
     public void SlideIn(float delay, float duration)
     {
         // Ensure the panel is at the off-screen position before sliding in
-        panelTransform.anchoredPosition = new Vector2(offScreenX, panelTransform.anchoredPosition.y);
+        panelTransform.anchoredPosition = new Vector2(
+            offScreenX,
+            panelTransform.anchoredPosition.y
+        );
 
         // Use LeanTween to animate the panel to the on-screen position
-        LeanTween.move(panelTransform, new Vector2(onScreenPosition, panelTransform.anchoredPosition.y), duration)
+        LeanTween
+            .move(
+                panelTransform,
+                new Vector2(onScreenPosition, panelTransform.anchoredPosition.y),
+                duration
+            )
             .setDelay(delay)
             .setEase(LeanTweenType.easeOutExpo);
     }

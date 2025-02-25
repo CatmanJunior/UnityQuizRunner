@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI timerText;
 
+    //TODO move to question panel
     [SerializeField]
     private GameObject nextButton;
 
@@ -185,6 +186,7 @@ public class UIManager : MonoBehaviour
 
     public void OnQuestionStart(Question question, Action callback)
     {
+        nextButton.SetActive(false);
         TogglePanel(UIPanelElement.QuestionPanel, true);
         TogglePanel(UIPanelElement.TimerPanel, true);
         Canvas.ForceUpdateCanvases();
