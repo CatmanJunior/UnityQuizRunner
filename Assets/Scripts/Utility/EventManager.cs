@@ -31,6 +31,8 @@ public static class EventManager
     public static event Action<Question, Action> OnResultStart;
     public static event Action<Action> OnResultEnd;
     public static event Action<int, Action> OnEvalPanelButtonPress;
+    public static event Action<int> OnQuestionSetForReview;
+    public static void RaiseQuestionSetForReview(int questionIndex) => OnQuestionSetForReview?.Invoke(questionIndex);
 
     // Methods to raise events with callbacks
     public static void RaiseMainMenuStart(Action callback = null) =>

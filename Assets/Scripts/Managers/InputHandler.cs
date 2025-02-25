@@ -97,7 +97,7 @@ public class InputHandler : MonoBehaviour
         }
         if (character == restartButton)
         {
-            Restarter.RestartApplication();
+            // Restarter.RestartApplication();
             return;
         }
         if (character == LoadDefaultsButton)

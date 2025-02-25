@@ -33,8 +33,8 @@ public class UIQuestionPanel : UIPanel
     [SerializeField]
     private FontStyles defaultAnswerStyle; //the default style of the answer text
 
-    private Question currentQuestion;
-    private bool animate = true;
+    private Question _currentQuestion;
+    private bool _animate = true;
 
     public enum AnswerStyle
     {
@@ -56,20 +56,26 @@ public class UIQuestionPanel : UIPanel
             QuestionManager.TotalQuestionsAmount
         );
         // animate = SettingsManager.UserSettings.useAnimations || QuestionManager.CurrentQuestion.IsAnswered == false;
-        animate = true;
-        currentQuestion = question;
+        _animate = true;
+        _currentQuestion = question;
         if (question == null)
         {
             Debug.LogError("Question is null.");
             return;
         }
-        SetAnswersText(question);
+        SetQuestionElements(question, _animate);
         Open();
         explanationText.transform.parent.gameObject.SetActive(false);
-        SetQuestion(question);
+
+        startQuestioncallback = callback;
+    }
+
+    public void SetQuestionElements(Question question, bool animate)
+    {
+        SetAnswersText(question, animate);
+        SetQuestion(question, animate);
         SetCategoryText(question);
         ResetAnswerStyles();
-        startQuestioncallback = callback;
     }
 
     /// <summary>
@@ -86,7 +92,7 @@ public class UIQuestionPanel : UIPanel
     #endregion
 
     #region private methods
-    private void SetQuestion(Question question)
+    private void SetQuestion(Question question, bool animate)
     {
         if (animate)
         {
@@ -124,10 +130,10 @@ public class UIQuestionPanel : UIPanel
     {
         float delayBetweenAnswerSlides = SettingsManager.UserSettings.answerSlideBetweenTime;
         float slideAnimationDuration = SettingsManager.UserSettings.answerSlideTime;
-        if (animate)
+        if (_animate)
         {
             // Start sliding in the answer panels
-            int answerAmount = currentQuestion.GetAnswerAmount();
+            int answerAmount = _currentQuestion.GetAnswerAmount();
 
             for (int i = 0; i < answerAmount; i++)
             {
@@ -151,7 +157,7 @@ public class UIQuestionPanel : UIPanel
         }
     }
 
-    private void SetAnswersText(Question question)
+    private void SetAnswersText(Question question, bool animate)
     {
         int answerAmount = question.GetAnswerAmount();
 
@@ -170,7 +176,8 @@ public class UIQuestionPanel : UIPanel
             if (isActive)
             {
                 // Initialize and set text
-                answerPanels[i].Initialize();
+                if (animate)
+                    answerPanels[i].Initialize();
                 answerPanels[i].SetText(question.Answers[i].AnswerText);
             }
         }

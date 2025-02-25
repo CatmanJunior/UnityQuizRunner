@@ -8,23 +8,14 @@ public class TabletQuestionState : TabletBaseGameState
         : base() { }
 
     private bool _canHandleInput = false;
-    Question currentQuestion;
-    public bool CanHandleInput
-    {
-        get => _canHandleInput;
-        private set
-        {
-            Debug.Log("Setting can handle input to " + value);
-            _canHandleInput = value;
-        }
-    }
+    private Question _currentQuestion;
 
     public override void Enter()
     {
-        currentQuestion = QuestionManager.GoToNextQuestion();
-        if (currentQuestion != null)
+        _currentQuestion = QuestionManager.GoToNextQuestion();
+        if (_currentQuestion != null)
         {
-            EventManager.RaiseQuestionStart(currentQuestion, HandleQuestionStart);
+            EventManager.RaiseQuestionStart(_currentQuestion, HandleQuestionStart);
         }
         else
         {
@@ -34,13 +25,12 @@ public class TabletQuestionState : TabletBaseGameState
 
     public void HandleQuestionStart()
     {
-        CanHandleInput = true;
-        Debug.Log("Question started: " + currentQuestion.QuestionText);
+        _canHandleInput = true;
     }
 
     public override void Exit()
     {
-        CanHandleInput = false;
+        _canHandleInput = false;
         EventManager.RaiseQuestionEnd();
     }
 
@@ -52,43 +42,17 @@ public class TabletQuestionState : TabletBaseGameState
             return;
         }
 
-        ProcessPlayerAnswer(controller, button);
+        playerManager.AddAnswer(controller, QuestionManager.CurrentQuestion, button, 0);
 
-        if (playerManager.HaveAllPlayersAnswered(QuestionManager.CurrentQuestion))
-        {
-            HandleAllPlayersAnswered();
-        }
-    }
-
-    public override void Update()
-    {
-        // TestMode.SimulatePlayerAnswer(this);
-    }
-
-    private void ProcessPlayerAnswer(int controller, int button)
-    {
-        Debug.Log("Processing player answer");
-
-        if (playerManager.AddAnswer(controller, QuestionManager.CurrentQuestion, button, 0))
-        {
-            Debug.Log(
-                "Player "
-                    + controller
-                    + " answered "
-                    + QuestionManager.CurrentQuestion.Answers[button].AnswerText
-            );
-        }
-    }
-
-    private void HandleAllPlayersAnswered()
-    {
-        CanHandleInput = false;
+        _canHandleInput = false;
         NotifyStateCompletion();
     }
 
+    public override void Update() { }
+
     private bool CanProcessInput(int button)
     {
-        if (!CanHandleInput)
+        if (!_canHandleInput)
         {
             Debug.Log("Cannot process input: handle input is false");
             return false;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class TabletGameStateHandler : MonoBehaviour
 {
     public static TabletGameStateHandler Instance;
 
+    #region GameStateReferences
     [Header("Game States")]
     [SerializeField]
     TabletMainMenuState mainMenuState;
@@ -16,18 +18,13 @@ public class TabletGameStateHandler : MonoBehaviour
     TabletCategoryVoteState categoryVoteState;
 
     [SerializeField]
-    TabletFinalScoreState finalScoreState;
+    TabletReviewState finalScoreState;
 
     [SerializeField]
     TabletResultState resultState;
+    #endregion
 
-    public static string GetCategory() => Instance.currentCategory;
-
-    [HideInInspector]
-    private string currentCategory = null;
-
-    private TabletBaseGameState currentState;
-
+    #region Manager References
     [Header("References")]
     [SerializeField]
     private UIManager uiManager;
@@ -52,6 +49,13 @@ public class TabletGameStateHandler : MonoBehaviour
 
     [SerializeField]
     private CategoryVoteHandler categoryVoteHandler;
+    #endregion
+
+    public static string GetCategory() => Instance._currentCategory;
+
+    private string _currentCategory = null;
+
+    private TabletBaseGameState _currentState;
 
     private void Awake()
     {
@@ -61,12 +65,17 @@ public class TabletGameStateHandler : MonoBehaviour
             Destroy(gameObject);
         settingsManager.Initialize();
         InitializeAsync();
-        EventManager.OnAnswerButtonPress += OnButtonClick;
     }
 
     void Start()
     {
         ChangeState(mainMenuState);
+    }
+
+    private void OnEvalPanelButtonClick(int button, Action callback)
+    {
+        _currentState?.ButtonClick(button);
+        callback?.Invoke();
     }
 
     private async void InitializeAsync()
@@ -89,17 +98,25 @@ public class TabletGameStateHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        EventManager.OnAnswerButtonPress += OnButtonClick;
+        EventManager.OnQuizRestart += ResetGame;
+        EventManager.OnEvalPanelButtonPress += OnEvalPanelButtonClick;
+        EventManager.OnCategorySelected += (category, index, callback) => _currentCategory = category;
         inputHandler.OnButton += HandlePlayerInput;
     }
 
     private void OnDisable()
     {
+        EventManager.OnAnswerButtonPress -= OnButtonClick;
+        EventManager.OnQuizRestart -= ResetGame;
+        EventManager.OnEvalPanelButtonPress -= OnEvalPanelButtonClick;
+        EventManager.OnCategorySelected -= (category, index, callback) => _currentCategory = category; //Does this work?
         inputHandler.OnButton -= HandlePlayerInput;
     }
 
     private void Update()
     {
-        currentState?.Update();
+        _currentState?.Update();
     }
 
     public void ResetGame()
@@ -107,13 +124,13 @@ public class TabletGameStateHandler : MonoBehaviour
         playerManager.CreateNewPlayers(SettingsManager.UserSettings.requiredPlayers);
         uiManager.ResetUI();
         timerManager.ClearAllTimers();
-        currentCategory = null;
+        _currentCategory = null;
         QuestionManager.Instance.ResetQuiz();
     }
 
     public void HandlePlayerInput(int controller, int button)
     {
-        currentState?.HandleInput(controller, button);
+        _currentState?.HandleInput(controller, button);
     }
 
     private void ChangeState(TabletBaseGameState newState, float delay = 0)
@@ -123,14 +140,14 @@ public class TabletGameStateHandler : MonoBehaviour
             StartCoroutine(DelayedStateChange(newState, delay));
             return;
         }
-        if (currentState != null)
+        if (_currentState != null)
         {
-            currentState.Exit();
-            currentState.OnStateCompleted -= HandleStateCompletion;
+            _currentState.Exit();
+            _currentState.OnStateCompleted -= HandleStateCompletion;
         }
-        currentState = newState;
-        currentState.OnStateCompleted += HandleStateCompletion;
-        currentState.Enter();
+        _currentState = newState;
+        _currentState.OnStateCompleted += HandleStateCompletion;
+        _currentState.Enter();
     }
 
     IEnumerator DelayedStateChange(TabletBaseGameState newState, float delay)
@@ -141,21 +158,14 @@ public class TabletGameStateHandler : MonoBehaviour
 
     private void HandleStateCompletion()
     {
-        Logger.Log("State completed: " + currentState.GetType().Name);
-        // Determine the next state based on the current state
-        switch (currentState)
+        Logger.Log("State completed: " + _currentState.GetType().Name);
+
+        switch (_currentState)
         {
             case TabletMainMenuState:
-                if (SettingsManager.UserSettings.skipVote)
-                {
-                    currentCategory = SettingsManager.UserSettings.generalCategory;
-                    ChangeState(questionState);
-                }
-                else
-                    ChangeState(categoryVoteState);
+                ChangeState(categoryVoteState);
                 break;
             case TabletCategoryVoteState:
-                currentCategory = categoryVoteHandler.GetTopCategory();
                 ChangeState(questionState, SettingsManager.UserSettings.preQuestionTime);
                 break;
             case TabletQuestionState:
@@ -167,11 +177,8 @@ public class TabletGameStateHandler : MonoBehaviour
                 else
                     ChangeState(finalScoreState, SettingsManager.UserSettings.preQuestionTime);
                 break;
-            case TabletFinalScoreState:
-                if (!QuestionManager.IsQuizEnded)
-                    ChangeState(mainMenuState, SettingsManager.UserSettings.finalScoreTime);
-                else
-                    ChangeState(questionState);
+            case TabletReviewState:
+                EventManager.RaiseQuizRestart();
                 break;
         }
     }
@@ -179,6 +186,6 @@ public class TabletGameStateHandler : MonoBehaviour
     public void OnButtonClick(int button)
     {
         Debug.Log("Button clicked " + button);
-        currentState?.ButtonClick(button);
+        _currentState?.ButtonClick(button);
     }
 }

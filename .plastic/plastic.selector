@@ -1,4 +1,0 @@
-repository "Unity Quiz@CatmanJunior@cloud"
-  path "/"
-    br "/main"
-    co "/main"

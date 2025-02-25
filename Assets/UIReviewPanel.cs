@@ -30,7 +30,8 @@ public class UIReviewPanel : MonoBehaviour
         _index = index;
     }
 
-    public void ButtonPress(){
+    public void ButtonPress()
+    {
         EventManager.RaiseEvalPanelButtonPress(_index);
     }
 }

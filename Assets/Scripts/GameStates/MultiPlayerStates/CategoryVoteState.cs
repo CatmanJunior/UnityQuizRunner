@@ -8,9 +8,8 @@ public class CategoryVoteState : BaseGameState
 
     public override void Enter()
     {
+        EventManager.RaiseCategoryVoteStart();
         categoryVoteHandler.InitCategories(QuestionParser.GetCategories(4));
-        uiManager.UpdateCategoryText(CategoryVoteHandler.Categories);
-        uiManager.TogglePanel(UIManager.UIPanelElement.VotePanel, true);
         timerManager.CreateTimer(
             "voteTimer",
             SettingsManager.UserSettings.categoryVoteTime,
@@ -44,8 +43,10 @@ public class CategoryVoteState : BaseGameState
         timerManager.StopTimer("voteTimer");
 
         string winningCategory = categoryVoteHandler.GetTopCategory();
-        uiManager.ShowWinningCategory(categoryVoteHandler.GetIndex(winningCategory));
-
+        EventManager.RaiseCategorySelected(
+            winningCategory,
+            categoryVoteHandler.GetIndex(winningCategory)
+        );
         NotifyStateCompletion();
     }
 

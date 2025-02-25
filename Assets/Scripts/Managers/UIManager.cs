@@ -91,20 +91,16 @@ public class UIManager : MonoBehaviour
         };
 
         EventManager.OnQuestionStart += OnQuestionStart;
-        EventManager.OnResultStart += OnResultStart; // new signature: Question, Action
+        EventManager.OnResultStart += OnResultStart;
         EventManager.OnResultEnd += OnResultEnd;
-        EventManager.OnScoreUpdate += OnScoreUpdate; // subscribe to new ScoreUpdate event
+        EventManager.OnScoreUpdate += OnScoreUpdate;
         EventManager.OnCategorySelected += OnCategorySelected;
-        EventManager.OnCategoryVoteStart += OnVoteStart;
+        EventManager.OnCategoryVoteStart += OnCategoryVoteStart;
         EventManager.OnCategoryVoteEnd += OnCategoryVoteEnd;
+        EventManager.OnQuestionSetForReview += OnQuestionSetForReview;
     }
 
     #endregion
-
-    public void CreateCategoryButtons(string[] categories)
-    {
-        votePanel.CreateCategoryButtons(categories);
-    }
 
     public void TogglePanel(UIPanelElement panelElement, bool show)
     {
@@ -167,7 +163,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCategorySelected(string category, int index, Action callback)
     {
-        ShowWinningCategory(index);
+        votePanel.ShowWinningCategory(index); ;
     }
 
     public void OnCategoryVoteEnd(Action callback)
@@ -177,10 +173,10 @@ public class UIManager : MonoBehaviour
         ResetCategoryVote();
     }
 
-    public void OnVoteStart(Action callback)
+    public void OnCategoryVoteStart(Action callback)
     {
-        CreateCategoryButtons(CategoryVoteHandler.Categories);
-        UpdateCategoryText(CategoryVoteHandler.Categories);
+        votePanel.CreateCategoryButtons(CategoryVoteHandler.Categories);
+        votePanel.SetCategoryTexts(CategoryVoteHandler.Categories);
         TogglePanel(UIPanelElement.VotePanel, true);
     }
 
@@ -190,7 +186,7 @@ public class UIManager : MonoBehaviour
         TogglePanel(UIPanelElement.QuestionPanel, true);
         TogglePanel(UIPanelElement.TimerPanel, true);
         Canvas.ForceUpdateCanvases();
-        MoveAnswerPanelOffScreen();
+        questionPanel.MoveAllOffScreen();
         questionPanel.ShowQuestion(QuestionManager.CurrentQuestion, callback);
     }
 
@@ -201,9 +197,21 @@ public class UIManager : MonoBehaviour
         TogglePanel(UIPanelElement.TimerPanel, false);
     }
 
+    public void OnQuestionSetForReview(int questionIndex)
+    {
+        questionPanel.SetQuestionElements(QuestionManager.Questions[questionIndex], false);
+        questionPanel.ShowQuestionResults(QuestionManager.Questions[questionIndex]);
+        nextButton.SetActive(true);
+    }
+
     public void OnResultStart(Question question, Action callback)
     {
-        ShowQuestionResults(question);
+        questionPanel.ShowQuestionResults(question);
+        TogglePanel(UIPanelElement.TimerPanel, false);
+        if (SettingsManager.UserSettings.tablet)
+        {
+            nextButton.SetActive(true);
+        }
     }
 
     public void OnResultEnd(Action callback)
@@ -277,17 +285,11 @@ public class UIManager : MonoBehaviour
         // Continuously increment the score display until it matches the updated score
         while (initialScores[player.ControllerId] < updatedScores[player.ControllerId])
         {
-            Debug.Log(
-                "Incrementing score for player "
-                    + player.ControllerId
-                    + "from "
-                    + initialScores[player.ControllerId]
-                    + " to "
-                    + updatedScores[player.ControllerId]
-            );
             initialScores[player.ControllerId]++;
-            UpdatePlayerScoreDisplay(player.ControllerId, initialScores[player.ControllerId]);
-
+            playerPanel.UpdatePlayerScoreDisplay(
+                player.ControllerId,
+                initialScores[player.ControllerId]
+            );
             // Pause briefly between score increments to create a smooth animation
             yield return new WaitForSeconds(
                 SettingsManager.UserSettings.scoreIncreaseSpeedInSeconds
@@ -295,18 +297,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerScoreDisplay(int playerId, int score)
-    {
-        playerPanel.UpdatePlayerScoreDisplay(playerId, score);
-    }
-
     public void ResetPlayerPanels()
     {
         playerPanel.ResetPlayerPanels();
     }
     #endregion
-
-
 
     public void SetInstructionText(string text)
     {
@@ -324,15 +319,6 @@ public class UIManager : MonoBehaviour
     }
 
     #region VotePanel
-    public void UpdateCategoryText(string[] categories)
-    {
-        votePanel.SetCategoryTexts(categories);
-    }
-
-    public void ShowWinningCategory(int categoryIndex)
-    {
-        votePanel.ShowWinningCategory(categoryIndex);
-    }
 
     public void ResetCategoryVote()
     {
@@ -345,23 +331,6 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
-
-    public void ShowQuestionResults(Question question)
-    {
-        questionPanel.ShowQuestionResults(question);
-        TogglePanel(UIPanelElement.TimerPanel, false);
-        if (SettingsManager.UserSettings.tablet)
-        {
-            nextButton.SetActive(true);
-        }
-    }
-
-
-
-    public void MoveAnswerPanelOffScreen()
-    {
-        questionPanel.MoveAllOffScreen();
-    }
 
     public void UpdateMainMenuTimer(int time)
     {

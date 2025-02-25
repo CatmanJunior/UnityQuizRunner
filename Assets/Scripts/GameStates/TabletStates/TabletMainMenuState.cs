@@ -20,8 +20,6 @@ public class TabletMainMenuState : TabletBaseGameState
 
     public override void Exit()
     {
-        uiManager.ResetPlayerPanels();
-
         uiManager.TogglePanel(UIManager.UIPanelElement.MainMenuPanel, false);
     }
 

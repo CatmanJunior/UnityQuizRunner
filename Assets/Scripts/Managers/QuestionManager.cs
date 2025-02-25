@@ -9,6 +9,7 @@ public class QuestionManager : MonoBehaviour
     public static Question CurrentQuestion => Instance._currentQuestion;
     public static int TotalQuestionsAmount => Instance._questionList.Count;
     public static int CurrentQuestionIndex => Instance._currentQuestionIndex;
+    public static List<Question> Questions => Instance._questionList;
     public static bool IsQuizEnded => Instance._isQuizEnded;
 
     //Private variables
@@ -53,20 +54,6 @@ public class QuestionManager : MonoBehaviour
         }
         _currentQuestionIndex++;
         return CurrentQuestion;
-    }
-
-    public void SetCurrentQuestionForReview(int questionIndex)
-    {
-        if (questionIndex >= 0 && questionIndex < _questionList.Count)
-        {
-            _currentQuestionIndex = questionIndex;
-            _isQuizEnded = false;
-            Debug.Log("Reviewing question: " + _currentQuestionIndex);
-        }
-        else
-        {
-            Debug.LogWarning("Invalid question index for review: " + questionIndex);
-        }
     }
 
     public void StartQuiz(Action callback)
