@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using static SoundManager;
 
 [System.Serializable]
@@ -8,8 +9,8 @@ public class CategoryVoteState : BaseGameState
 
     public override void Enter()
     {
-        EventManager.RaiseCategoryVoteStart();
         categoryVoteHandler.InitCategories(QuestionParser.GetCategories(4));
+        EventManager.RaiseCategoryVoteStart();
         timerManager.CreateTimer(
             "voteTimer",
             SettingsManager.UserSettings.categoryVoteTime,
@@ -29,6 +30,7 @@ public class CategoryVoteState : BaseGameState
     {
         if (categoryVoteHandler.HandleCategoryVote(player, button))
         {
+
             uiManager.PlayerVoted(player);
         }
 

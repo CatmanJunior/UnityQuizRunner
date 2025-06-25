@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
-using System.IO;
 
 /// <summary>
 /// A static class that provides methods for parsing and loading questions from a text file, and getting a random set of questions.
@@ -10,7 +10,8 @@ using System.IO;
 public static class QuestionParser
 {
     private static readonly List<Question> questions = new List<Question>();
-    private static readonly Dictionary<string, List<Question>> categories = new Dictionary<string, List<Question>>();
+    private static readonly Dictionary<string, List<Question>> categories =
+        new Dictionary<string, List<Question>>();
     private static string DefaultCategory;
     private static string ExplanationPrefix = "W:";
     private static string QuestionPrefix = "Q:";
@@ -66,7 +67,9 @@ public static class QuestionParser
                 // This is not allowed, so we skip the current question block and log an error.
                 if (isParsingQuestion)
                 {
-                    Debug.LogError("Question block not ended with \"END\". Skipping question block.");
+                    Debug.LogError(
+                        "Question block not ended with \"END\". Skipping question block."
+                    );
                     continue;
                 }
                 isParsingQuestion = true;
@@ -86,7 +89,8 @@ public static class QuestionParser
         {
             CreateQuestion(questionLines, currentCategory, explanation);
         }
-
+        Debug.Log("Loaded " + questions.Count + " questions from text files.");
+        Debug.Log("Categories loaded: " + string.Join(", ", categories.Keys));
         return questions;
     }
 
@@ -95,7 +99,11 @@ public static class QuestionParser
     /// </summary>
     /// <param name="questionLines">A list of question lines.</param>
     /// <param name="category">The category of the question.</param>
-    private static void CreateQuestion(List<string> questionLines, string category, string explanation = "")
+    private static void CreateQuestion(
+        List<string> questionLines,
+        string category,
+        string explanation = ""
+    )
     {
         var question = ParseQuestionBlock(questionLines, category, explanation);
         questions.Add(question);
@@ -108,7 +116,11 @@ public static class QuestionParser
     /// <param name="questionLines">A list of question lines.</param>
     /// <param name="category">The category of the question.</param>
     /// <returns>A new question object.</returns>
-    private static Question ParseQuestionBlock(List<string> questionLines, string category, string explanation = "")
+    private static Question ParseQuestionBlock(
+        List<string> questionLines,
+        string category,
+        string explanation = ""
+    )
     {
         var questionText = questionLines.First().Substring(3);
         var answers = new List<Answer>();
@@ -161,7 +173,11 @@ public static class QuestionParser
             if (n > questionsInCategory.Count)
             {
                 n = questionsInCategory.Count;
-                Debug.LogWarning("Not enough questions in category to get random questions. Returning all questions in category. " + n + " questions returned.");
+                Debug.LogWarning(
+                    "Not enough questions in category to get random questions. Returning all questions in category. "
+                        + n
+                        + " questions returned."
+                );
                 //list amount of questions in each category
                 foreach (string cat in categories.Keys)
                 {
@@ -197,7 +213,10 @@ public static class QuestionParser
         {
             var randomCategories = categories.Keys.ToList(); // Directly get the keys as a list
             randomCategories.Remove(DefaultCategory); // Remove the default category
-            var shuffledCategories = randomCategories.OrderBy(x => Random.value).Take(n - 1).ToList(); // Shuffle and take n-1 elements
+            var shuffledCategories = randomCategories
+                .OrderBy(x => Random.value)
+                .Take(n - 1)
+                .ToList(); // Shuffle and take n-1 elements
             shuffledCategories.Insert(0, DefaultCategory); // Insert the default category at the start
             return shuffledCategories.ToArray(); // Return as an array
         }

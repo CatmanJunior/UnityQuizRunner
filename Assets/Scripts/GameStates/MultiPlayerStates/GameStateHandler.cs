@@ -63,17 +63,28 @@ public class GameStateHandler : MonoBehaviour
         InitializeAsync();
     }
 
+    private void Start()
+    {
+        uiManager.ResetUI();
+        ChangeState(mainMenuState);
+
+    }
+
     private async void InitializeAsync()
     {
-        await QuestionParser.LoadQuestionsFromTxt();
-
+        try
+        {
+            await QuestionParser.LoadQuestionsFromTxt();
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Failed to load questions: " + ex.Message);
+        }
         categoryVoteState.Initialize(this);
         questionState.Initialize(this);
         finalScoreState.Initialize(this);
         resultState.Initialize(this);
         mainMenuState.Initialize(this);
-
-        ChangeState(mainMenuState);
     }
 
     private void OnEnable()
@@ -94,7 +105,7 @@ public class GameStateHandler : MonoBehaviour
     public void ResetGame()
     {
         playerManager.CreateNewPlayers(SettingsManager.UserSettings.requiredPlayers);
-        uiManager.ResetUI();
+
         timerManager.ClearAllTimers();
         currentCategory = null;
         QuestionManager.Instance.ResetQuiz();

@@ -163,7 +163,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCategorySelected(string category, int index, Action callback)
     {
-        votePanel.ShowWinningCategory(index); ;
+        votePanel.ShowWinningCategory(index);
     }
 
     public void OnCategoryVoteEnd(Action callback)

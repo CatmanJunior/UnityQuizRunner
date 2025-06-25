@@ -23,7 +23,7 @@ MonoBehaviour:
   requiredControllers: 4
   amountOfQuestions: 5
   testMode: 0
-  skipVote: 0
+  skipVote: 1
   timeModifier: 1
   timeBeforeCheckedInClear: 10
   timeBeforeMainMenuEnd: 2

@@ -92,7 +92,7 @@ public class QuestionState : BaseGameState
     private bool CanProcessInput(int button)
     {
         if (!timerManager.IsTimerActive("QuestionTimer"))
-            return false;
+            return true;
 
         if (_isStateComplete)
             return false;

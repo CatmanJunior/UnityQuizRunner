@@ -44,6 +44,7 @@ public class CategoryVoteHandler : MonoBehaviour
         // Checks if the player has already voted, else it adds the vote to the dictionary
         if (!_categoryVotes.ContainsKey(player))
         {
+            Debug.Log("Player " + player + " voted for " + _categories[button]);
             CastVote(player, button);
             return true;
         }
