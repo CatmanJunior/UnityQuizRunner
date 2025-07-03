@@ -138,6 +138,7 @@ public class UIQuestionPanel : UIPanel
             for (int i = 0; i < answerAmount; i++)
             {
                 float delay = i * delayBetweenAnswerSlides; // Delay between each panel's slide-in
+                answerPanels[i].Initialize();
                 answerPanels[i].SlideIn(delay, slideAnimationDuration);
             }
 

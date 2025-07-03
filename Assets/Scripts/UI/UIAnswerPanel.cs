@@ -54,7 +54,7 @@ public class UIAnswerPanel : MonoBehaviour
         float parentWidth = parentRect.rect.width;
 
         // Calculate the off-screen position to the right
-        offScreenX = onScreenPosition + parentWidth;
+        offScreenX = onScreenPosition + parentWidth * 2;
         offScreenPosition = new Vector2(offScreenX, panelTransform.anchoredPosition.y);
         Canvas.ForceUpdateCanvases();
 

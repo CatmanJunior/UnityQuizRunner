@@ -16,11 +16,12 @@ MonoBehaviour:
   tablet: 0
   checkinButton: 4
   useLightController: 1
+  useQuestionTimer: 0
   mainMenuStartText: Press the Red Button to join
   mainMenuEndText: Get Ready!
   pointsForRightAnswer: 1
   pointsForFastestAnswer: 1
-  requiredControllers: 4
+  requiredControllers: 2
   amountOfQuestions: 5
   testMode: 0
   skipVote: 1

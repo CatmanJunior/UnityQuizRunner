@@ -109,6 +109,7 @@ public class GameStateHandler : MonoBehaviour
         timerManager.ClearAllTimers();
         currentCategory = null;
         QuestionManager.Instance.ResetQuiz();
+        ChangeState(mainMenuState);
     }
 
     public void HandlePlayerInput(int controller, int button)

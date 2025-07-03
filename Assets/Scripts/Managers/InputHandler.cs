@@ -25,7 +25,11 @@ public class InputHandler : MonoBehaviour
     char LoadDefaultsButton = 'd';
     public InputAction buttonPress;
 
+    public InputAction buttonHold;
+
     public event System.Action<int, int> OnButton;
+    public event System.Action<int, int> OnButtonHold;
+
 
     List<List<string>> keyboardButtons = new();
 
@@ -46,6 +50,8 @@ public class InputHandler : MonoBehaviour
     {
         buttonPress.Enable();
         buttonPress.performed += OnAnyControllerButtonPressed;
+        buttonHold.Enable();
+        buttonHold.performed += OnButtonHolded;
         Keyboard.current.onTextInput += onKeyboardButtonPressed;
     }
 
@@ -120,6 +126,11 @@ public class InputHandler : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnButtonHolded(InputAction.CallbackContext context)
+    {
+        EventManager.RaiseQuizRestart();
     }
 
     void OnAnyControllerButtonPressed(InputAction.CallbackContext context)

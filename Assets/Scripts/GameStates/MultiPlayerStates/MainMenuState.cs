@@ -16,7 +16,7 @@ public class MainMenuState : BaseGameState
 
     public override void Enter()
     {
-        gameStateHandler.ResetGame();
+
     }
 
     public override void Exit()

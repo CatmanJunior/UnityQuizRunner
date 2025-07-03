@@ -1903,7 +1903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.13650808}
-  m_AnchoredPosition: {x: 0, y: 62.199936}
+  m_AnchoredPosition: {x: 0, y: 62.19992}
   m_SizeDelta: {x: 0, y: 125.40088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &642389067
@@ -9606,7 +9606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.527405, y: -474}
+  m_AnchoredPosition: {x: 9.527344, y: -474}
   m_SizeDelta: {x: -92.945, y: -1015.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623304420
@@ -16127,7 +16127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.33221602}
-  m_AnchoredPosition: {x: -753.99994, y: 945}
+  m_AnchoredPosition: {x: -753.99994, y: 944.9999}
   m_SizeDelta: {x: -1621.1405, y: -12.291}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111822730
@@ -16473,7 +16473,7 @@ MonoBehaviour:
   voteOnButton: 57
   voteOffButton: 56
   restartButton: 114
-  LoadDefaultsButton: 100
+  LoadDefaultsButton: 55
   buttonPress:
     m_Name: Button Press
     m_Type: 0
@@ -16643,6 +16643,31 @@ MonoBehaviour:
       m_Action: Button Press
       m_Flags: 0
     m_Flags: 0
+  buttonHold:
+    m_Name: Button Hold
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 84805319-c83f-4e09-a1c1-12932855436d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e2ea44b1-6a06-4d25-af99-9427c18ba0cd
+      m_Path: <HID::Logitech Logitech Buzz(tm) Controller V1>/trigger
+      m_Interactions: Hold(duration=5)
+      m_Processors: 
+      m_Groups: 
+      m_Action: Button Hold
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 49b6bab3-d360-4739-8afd-49ac5b7b5de2
+      m_Path: <Keyboard>/1
+      m_Interactions: Hold(duration=5)
+      m_Processors: 
+      m_Groups: 
+      m_Action: Button Hold
+      m_Flags: 0
+    m_Flags: 0
 --- !u!114 &2115180769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16686,6 +16711,7 @@ MonoBehaviour:
     tablet: 0
     checkinButton: 0
     useLightController: 0
+    useQuestionTimer: 0
     mainMenuStartText: 
     mainMenuEndText: 
     pointsForRightAnswer: 0
@@ -16893,7 +16919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 389852744268217576, guid: 31088ea482b4f324cb857315da229216, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.389587
+      value: -22.389648
       objectReference: {fileID: 0}
     - target: {fileID: 1940035107886481020, guid: 31088ea482b4f324cb857315da229216, type: 3}
       propertyPath: m_Spacing
@@ -17902,7 +17928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5621976016814423931, guid: 105e87781ccc07948b0703ada7a30b8a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 9.0902405
+      value: 9.09021
       objectReference: {fileID: 0}
     - target: {fileID: 5621976016814423931, guid: 105e87781ccc07948b0703ada7a30b8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
