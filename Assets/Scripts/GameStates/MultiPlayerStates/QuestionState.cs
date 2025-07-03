@@ -9,10 +9,12 @@ public class QuestionState : BaseGameState
 
     private bool _isStateComplete = false;
 
+    private bool _canHandleInput = false;
+
     public override void Enter()
     {
         _isStateComplete = false;
-
+        _canHandleInput = false;
         if (!QuestionManager.HasQuizStarted())
         {
             Logger.Log("Getting random questions");
@@ -56,15 +58,24 @@ public class QuestionState : BaseGameState
 
     private void HandleNextQuestion()
     {
+
         InitializeQuestionTimer();
+
         QuestionManager.GoToNextQuestion();
         if (QuestionManager.IsQuizEnded)
         {
             NotifyStateCompletion();
             return;
         }
-        EventManager.RaiseQuestionStart(QuestionManager.CurrentQuestion);
+        EventManager.RaiseQuestionStart(QuestionManager.CurrentQuestion, EnableInput);
     }
+
+    private void EnableInput()
+    {
+        _canHandleInput = true;
+    }
+
+
 
     private void ProcessPlayerAnswer(int controller, int button)
     {
@@ -91,8 +102,6 @@ public class QuestionState : BaseGameState
 
     private bool CanProcessInput(int button)
     {
-        if (!timerManager.IsTimerActive("QuestionTimer"))
-            return true;
 
         if (_isStateComplete)
             return false;
@@ -108,19 +117,39 @@ public class QuestionState : BaseGameState
             Debug.Log("Answer not available");
             return false;
         }
+        if (!_canHandleInput)
+            return false;
 
         return true;
     }
 
     private void InitializeQuestionTimer()
     {
-        uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
-        timerManager.CreateTimer(
-            "QuestionTimer",
-            SettingsManager.UserSettings.questionAnswerTime,
-            NotifyStateCompletion,
-            false
-        );
-        timerManager.SelectTimerForUI("QuestionTimer");
+        if (SettingsManager.UserSettings.useQuestionTimer)
+        {
+            uiManager.TogglePanel(UIManager.UIPanelElement.TimerPanel, true);
+            timerManager.CreateTimer(
+                "QuestionTimer",
+                SettingsManager.UserSettings.questionAnswerTime,
+                NotifyStateCompletion,
+                false
+            );
+
+            timerManager.SelectTimerForUI("QuestionTimer");
+        }
+        else
+            timerManager.CreateTimer(
+                "QuestionTimer",
+                SettingsManager.UserSettings.questionAnswerTime,
+                _testFunction,
+                false
+            );
+    }
+
+    private void _testFunction()
+    {
+        // This is a test function to ensure the code is complete
+        Debug.Log("Test function called");
+
     }
 }

@@ -20,6 +20,17 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        EventManager.OnQuizRestart += OnQuizRestart;
+    }
+
+    public void OnQuizRestart()
+    {
+        RemovePlayers();
+        ResetScores();
+    }
+
     public void CreateNewPlayers(int playerAmount)
     {
         players.Clear();

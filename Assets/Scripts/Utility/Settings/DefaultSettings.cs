@@ -5,11 +5,12 @@ public class DefaultSettings : ScriptableObject
 {
     // Versioning
     public int version = 1;
-    public bool tablet = true;
+    public bool tablet = false;
     // Buttons
     [Header("Buttons")]
     public int checkinButton = 4;
     public bool useLightController = true;
+    public bool useQuestionTimer = false;
 
     // Text
     [Header("Text")]

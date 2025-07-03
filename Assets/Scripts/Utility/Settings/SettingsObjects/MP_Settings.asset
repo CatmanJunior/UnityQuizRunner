@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac3b12d61f273ba4883f01dfb6520cbd, type: 3}
-  m_Name: DefaultSettings_Tablet
+  m_Name: MP_Settings
   m_EditorClassIdentifier: 
   version: 1
   tablet: 0
   checkinButton: 4
-  useLightController: 0
+  useLightController: 1
   mainMenuStartText: Press the Red Button to join
   mainMenuEndText: Get Ready!
   pointsForRightAnswer: 1
@@ -23,18 +23,18 @@ MonoBehaviour:
   requiredControllers: 4
   amountOfQuestions: 5
   testMode: 0
-  skipVote: 0
-  timeModifier: 0.5
+  skipVote: 1
+  timeModifier: 1
   timeBeforeCheckedInClear: 10
-  timeBeforeMainMenuEnd: 1
-  postQuestionTime: 0.2
-  preQuestionTime: 1
+  timeBeforeMainMenuEnd: 2
+  postQuestionTime: 5
+  preQuestionTime: 3
   finalScoreTime: 10
   categoryVoteTime: 8
   questionAnswerTime: 15
   scoreIncreaseSpeedInSeconds: 0.3
-  questionTypingSpeed: 0.025
-  answerSlideTime: 1
+  questionTypingSpeed: 0.05
+  answerSlideTime: 0.5
   answerSlideBetweenTime: 0.5
   generalCategory: Random
   muteMusic: 1

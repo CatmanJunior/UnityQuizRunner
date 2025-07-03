@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DefaultSettings_Tablet 1
   m_EditorClassIdentifier: 
   version: 1
+  tablet: 0
   checkinButton: 4
   useLightController: 0
   mainMenuStartText: Press the Red Button to join

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 793703480289751451}
   - component: {fileID: 5151105417764243475}
   - component: {fileID: 7463538182707105967}
+  - component: {fileID: 2397034196432883192}
   - component: {fileID: 3892359303412053320}
   m_Layer: 5
   m_Name: PlayerPanelBG
@@ -35,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 6.1037903}
+  m_AnchoredPosition: {x: 0.000061035156, y: 6.10376}
   m_SizeDelta: {x: -0.000076294, y: 12.2076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5151105417764243475
@@ -59,14 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.34509805, g: 0.28627452, b: 0.6, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69eeaa1fdca91bd4f928d51cffa1819d, type: 3}
+  m_Sprite: {fileID: 6251242991243712995, guid: cef9b3e4fe5779b43958e73960f74bfc, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75,7 +76,22 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 2.2
+  m_PixelsPerUnitMultiplier: 1.01
+--- !u!114 &2397034196432883192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445521708751323962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 5, y: -3.24}
+  m_UseGraphicAlpha: 1
 --- !u!114 &3892359303412053320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,11 +188,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7591089802522962414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -19.406387}
-  m_SizeDelta: {x: 187.52301, y: 56.7872}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 3.1384964}
+  m_SizeDelta: {x: 0, y: 6.277}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6986746646869950936
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -234,15 +250,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.7
+  m_fontSize: 58.8
   m_fontSizeBase: 45.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 27.7
+  m_fontSizeMin: 5.19
+  m_fontSizeMax: 100.9
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -272,7 +288,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 9.922474, y: -1.0083389, z: 97.70047, w: 0.000038092643}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -371,7 +387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2924506774627231353
 RectTransform:
   m_ObjectHideFlags: 0
@@ -524,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.305, y: 0.00000095367}
-  m_SizeDelta: {x: 99.713, y: 88.7968}
+  m_AnchoredPosition: {x: 161, y: 6.1038}
+  m_SizeDelta: {x: 83.2215, y: 64.7663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1370957035269989722
 CanvasRenderer:
@@ -548,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.13333334}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.20392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

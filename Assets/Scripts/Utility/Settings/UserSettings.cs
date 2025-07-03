@@ -16,6 +16,9 @@ public class UserSettings
     [Setting("Use Light Controller", "Controls")]
     public bool useLightController;
 
+    [Setting("Use Question Timer", "Controls")]
+    public bool useQuestionTimer;
+
     // Text
     // [Setting("Main Menu Start Text", "Text")]
     public string mainMenuStartText;

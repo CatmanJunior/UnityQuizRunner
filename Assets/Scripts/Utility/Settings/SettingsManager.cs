@@ -109,6 +109,9 @@ public class SettingsManager : MonoBehaviour
             useAnimations = defaultSettings.useAnimations,
             useLightController = defaultSettings.useLightController,
             muteMusic = defaultSettings.muteMusic,
+            tablet = defaultSettings.tablet,
+            version = defaultSettings.version,
+            useQuestionTimer = defaultSettings.useQuestionTimer
         };
     }
 

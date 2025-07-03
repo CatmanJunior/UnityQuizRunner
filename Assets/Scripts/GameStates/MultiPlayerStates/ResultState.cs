@@ -6,6 +6,12 @@ public class ResultState : BaseGameState
 
     public override void Enter()
     {
+        if (QuestionManager.IsQuizEnded)
+        {
+            Logger.Log("Quiz has ended, transitioning to final score state.");
+            NotifyStateCompletion();
+            return;
+        }
         playerManager.AddEmptyAnswers(QuestionManager.CurrentQuestion);
         ScoreCalculator.ProcessScoreUpdate(QuestionManager.CurrentQuestion, OnScoreUpdated);
     }

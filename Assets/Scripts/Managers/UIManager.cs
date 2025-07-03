@@ -98,6 +98,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnCategoryVoteStart += OnCategoryVoteStart;
         EventManager.OnCategoryVoteEnd += OnCategoryVoteEnd;
         EventManager.OnQuestionSetForReview += OnQuestionSetForReview;
+        EventManager.OnQuizRestart += OnQuizRestart;
     }
 
     #endregion
@@ -182,12 +183,20 @@ public class UIManager : MonoBehaviour
 
     public void OnQuestionStart(Question question, Action callback)
     {
-        nextButton.SetActive(false);
+        SetNextButtonActive(false);
         TogglePanel(UIPanelElement.QuestionPanel, true);
         TogglePanel(UIPanelElement.TimerPanel, true);
         Canvas.ForceUpdateCanvases();
         questionPanel.MoveAllOffScreen();
         questionPanel.ShowQuestion(QuestionManager.CurrentQuestion, callback);
+    }
+
+    private void SetNextButtonActive(bool isActive)
+    {
+        if (UserSettings.Current.tablet)
+        {
+            nextButton.SetActive(isActive);
+        }
     }
 
     public void OnQuestionEnd()
@@ -201,7 +210,7 @@ public class UIManager : MonoBehaviour
     {
         questionPanel.SetQuestionElements(QuestionManager.Questions[questionIndex], false);
         questionPanel.ShowQuestionResults(QuestionManager.Questions[questionIndex]);
-        nextButton.SetActive(true);
+        SetNextButtonActive(true);
     }
 
     public void OnResultStart(Question question, Action callback)
@@ -210,13 +219,13 @@ public class UIManager : MonoBehaviour
         TogglePanel(UIPanelElement.TimerPanel, false);
         if (SettingsManager.UserSettings.tablet)
         {
-            nextButton.SetActive(true);
+            SetNextButtonActive(true);
         }
     }
 
     public void OnResultEnd(Action callback)
     {
-        nextButton.SetActive(false);
+        SetNextButtonActive(false);
     }
 
     public void OnScoreUpdate(int[] initialScores, int[] updatedScores, Action callback)
@@ -225,6 +234,13 @@ public class UIManager : MonoBehaviour
         {
             StartCoroutine(ShowPlayerScoreUpdates(initialScores, updatedScores, callback));
         }
+    }
+
+    public void OnQuizRestart()
+    {
+        ResetUI();
+        TogglePanel(UIPanelElement.MainMenuPanel, true);
+        SetInstructionText(SettingsManager.UserSettings.mainMenuStartText);
     }
 
     IEnumerator ShowPlayerScoreUpdates(int[] initialScores, int[] updatedScores, Action callback)
